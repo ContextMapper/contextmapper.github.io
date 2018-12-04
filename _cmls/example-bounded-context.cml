@@ -1,0 +1,22 @@
+BoundedContext LocationContext {
+  Module location {
+    Aggregate Location {
+      Entity Location {
+        aggregateRoot
+        
+        PortCode portcode
+        - UnLocode unLocode
+          String name
+      }
+      
+      ValueObject UnLocode {
+        String unLocode
+      }
+      
+      ValueObject LocationShared {
+        PortCode portCode
+        - Location location
+      }
+    }
+  }
+}

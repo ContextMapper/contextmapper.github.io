@@ -1,0 +1,16 @@
+- title: Getting Started
+  docs:
+  - home
+  - examples
+  - faq
+
+- title: Domain-driven Design
+  docs:
+  - language-model
+  - strategic-ddd
+  - tactic-ddd
+
+- title: User Guides
+  docs:
+  - service-cutter
+  - plant-uml

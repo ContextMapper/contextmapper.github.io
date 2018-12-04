@@ -1,0 +1,23 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> LocationContext {
+  <span class="k">Module</span> location {
+    <span class="k">Aggregate</span> Location {
+      <span class="k">Entity</span> Location {
+        <span class="k">aggregateRoot</span>
+        
+        <span class="k">PortCode</span> portcode
+        - <span class="k">UnLocode</span> unLocode
+          <span class="k">String</span> name
+      }
+      
+      <span class="k">ValueObject</span> UnLocode {
+        <span class="k">String</span> unLocode
+      }
+      
+      <span class="k">ValueObject</span> LocationShared {
+        <span class="k">PortCode</span> portCode
+        - <span class="k">Location</span> location
+      }
+    }
+  }
+}
+</pre></div>
