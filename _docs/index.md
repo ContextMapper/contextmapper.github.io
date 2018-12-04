@@ -25,7 +25,7 @@ As soon as you have installed our Eclipse plugin, you can start creating context
 Checkout our [examples repository](https://github.com/ContextMapper/context-mapper-examples) to find examples of complete context maps. One of the examples is the [DDD Sample Application](https://github.com/citerus/dddsample-core). The following CML code snippets
 give you a first impression how the DSL looks like.
 
-The context map for the [DDD Sample Application](https://github.com/citerus/dddsample-core) split into three bounded contexts:
+The context map for the [DDD Sample Application](https://github.com/citerus/dddsample-core) which is split into three bounded contexts:
 
 <div class="highlight"><pre><span></span><span class="c">/** </span>
 <span class="c"> * The DDD Cargo sample application modeled in CML. Note that we split the application into </span>
@@ -48,7 +48,7 @@ The context map for the [DDD Sample Application](https://github.com/citerus/ddds
 }
 </pre></div>
 
-Of course the bounded contexts have to be specified before you can use them within a context map.
+The bounded contexts have to be specified before you can use them within a context map.
 A simple example of a bounded context definition:
 
 <div class="highlight"><pre><span></span><span class="k">BoundedContext</span> LocationContext {
