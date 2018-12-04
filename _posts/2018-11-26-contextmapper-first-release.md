@@ -9,6 +9,6 @@ If you have any inputs or proposals for improvements regarding the DSL, the exam
 
  * Context Mapper DSL: [https://github.com/ContextMapper/context-mapper-dsl](https://github.com/ContextMapper/context-mapper-dsl)
  * CML Examples Repo: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples)
- * Documentation Page: [https://github.com/ContextMapper/context-mapper-pages](https://github.com/ContextMapper/contextmapper.github.io)
+ * Documentation Page: [https://github.com/ContextMapper/contextmapper.github.io](https://github.com/ContextMapper/contextmapper.github.io)
 
 Your contribution is welcome!
