@@ -1,0 +1,10 @@
+ContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = AS_IS
+
+  contains CargoBookingContext
+  contains VoyagePlanningContext
+  contains LocationContext
+	
+  CargoBookingContext <-> VoyagePlanningContext : Shared-Kernel
+}

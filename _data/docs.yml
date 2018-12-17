@@ -4,11 +4,24 @@
   - examples
   - faq
 
-- title: Domain-driven Design
+- title: Language Reference
   docs:
+  - language-reference
   - language-model
-  - strategic-ddd
-  - tactic-ddd
+  - context-map
+  - bounded-context
+  - subdomain
+  - domain-vision-statement
+  - partnership
+  - shared-kernel
+  - customer-supplier
+  - conformist
+  - open-host-service
+  - anticorruption-layer
+  - published-language
+  - responsibility-layers
+  - knowledge-level
+  - aggregate
 
 - title: User Guides
   docs:

@@ -1,0 +1,11 @@
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
+  <span class="k">type</span> = <span class="k">SYSTEM_LANDSCAPE</span>
+  <span class="k">state</span> = <span class="k">AS_IS</span>
+
+  <span class="k">contains</span> CargoBookingContext
+  <span class="k">contains</span> VoyagePlanningContext
+  <span class="k">contains</span> LocationContext
+	
+  CargoBookingContext &lt;-&gt; VoyagePlanningContext : <span class="k">Shared-Kernel</span>
+}
+</pre></div>

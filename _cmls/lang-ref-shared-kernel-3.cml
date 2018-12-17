@@ -1,0 +1,3 @@
+CargoBookingContext <-> VoyagePlanningContext : Shared-Kernel {
+  implementationTechnology = "Java Library"
+}

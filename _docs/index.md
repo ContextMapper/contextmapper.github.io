@@ -4,6 +4,13 @@ permalink: /docs/home/
 redirect_from: /docs/index.html
 ---
 
+Context Mapper provides a DSL to create context maps based on **Domain-driven Design (DDD)** and its strategic patterns. 
+The model behind the language and its semantic rules aim to formalize **our interpretation of the DDD patterns** and how they can be 
+combined in a concise manner. DDD and its bounded contexts further provide an approach for **decomposing a domain** into multiple 
+bounded contexts. With our **[Service Cutter](https://servicecutter.github.io/)** integration (proof-of-concept) we illustrate how 
+the Context Mapper DSL (CML) can be used as a foundation for structured service decomposition approaches. 
+Additionally, our context maps can be transformed into **[PlantUML](http://plantuml.com/)** models (proof-of-concept).
+
 ## Getting started
 To start with Context Mapper install our Eclipse plugin by using the following update site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/).
 
@@ -80,7 +87,7 @@ Note that the DSL elements within the modules and aggregates is based on the [Sc
 ### Domain-driven Design Patterns
 
 #### Strategic Patterns
-Find a list of all supported strategic DDD patterns [here](/docs/strategic-ddd).
+Find a list of all supported strategic DDD patterns [here](/docs/language-reference/).
 
 #### Tactic Patterns
 The implementation of the tactic DDD patterns is based on [Sculptor DSL](https://github.com/sculptor/sculptor). You can find their documentation and the supported patterns under the following link: [http://sculptorgenerator.org/documentation/](http://sculptorgenerator.org/documentation/).

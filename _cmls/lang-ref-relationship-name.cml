@@ -1,0 +1,2 @@
+@CargoLocationRelationship
+CargoBookingContext -> LocationContext : Upstream-Downstream

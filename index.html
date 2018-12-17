@@ -6,7 +6,7 @@ image: /img/cm-notext.png
 <div class="header-container jumbotron">
     <div class="container">
 	    <h1>A DSL for Context Mapping & Service Decomposition</h1>
-        <p>ContextMapper is an open source tool providing a Domain-specific Language based on Domain-Driven Design (DDD) patterns for context mapping and service decomposition.</p>
+        <p>ContextMapper is an open source project providing a Domain-specific Language (DSL) based on Domain-Driven Design (DDD) patterns for context mapping and service decomposition.</p>
         <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | prepend: site.baseurl }}" role="button">Learn more</a></p>
     </div>
 </div>
@@ -17,15 +17,10 @@ image: /img/cm-notext.png
     <div class="row">
         <div class="col-md-6">
             <h2 class="header-light regular-pad">What is Context Mapper?</h2>
-	    <p class="lead">Context Mapper provides a DSL to create
-	      Context Maps based on <strong>Domain-driven Design (DDD)</strong> and its strategic patterns.
-              DDD and its bounded contexts provide an approach for decomposing
-	      a domain into multiple contexts which can be implemented as independently
-	      deployable services. Besides providing a tool to <strong>express context maps</strong>, our goal is
-	      that models written in CML can be further processed in order to <strong>decompose existing systems</strong>.
-              Currently a proof-of-concept integrating <strong>
-              <a href="https://servicecutter.github.io/">Service Cutter</a></strong> is provided.
-	      Additionally, our context maps can be transformed into UML models.</p>
+	          <p class="lead">Context Mapper provides a DSL to create context maps based on <strong>Domain-driven Design (DDD)</strong> and its strategic patterns. DDD and its bounded contexts further provide an approach for <strong>decomposing a domain</strong>
+              into multiple bounded contexts. With our <strong><a href="https://servicecutter.github.io/">Service Cutter</a></strong> integration we illustrate how the Context Mapper DSL (CML) can be used
+	      as a foundation for <strong>structured service decomposition approaches</strong>. Additionally, our context maps can be transformed into <strong><a href="http://plantuml.com/">PlantUML</a></strong> diagrams.
+	          </p>
         </div>
         <div class="col-md-6 text-center">
             <img src="img/cm.png" alt="" class="img-responsive">
@@ -38,18 +33,24 @@ image: /img/cm-notext.png
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
             <h3 class="text-center">Domain-driven Design DSL</h3>
-	    <p>Easy to understand, Xtext-based, DSL for context mapping. Start by installing our Eclipse Plugin using the <a href="https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/">update site</a>. Checkout our <a href="/docs/home/">docs</a> and <a href="https://github.com/ContextMapper/context-mapper-examples" target="_blank">examples</a> for an introduction into our language.
+          <p>Easy to understand, Xtext-based, <strong>DSL for context mapping</strong>. Start by installing our Eclipse Plugin using the <a href="https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/">update site</a>.
+              Checkout our <a href="/docs/home/">docs</a> and <a href="https://github.com/ContextMapper/context-mapper-examples" target="_blank">examples</a> for an introduction into our language.
+              <strong>Note:</strong> This project and the CML language is still work in progress. <a href="https://github.com/ContextMapper/context-mapper-dsl" target="_blank">Feedback an contributions</a> helping us to improve the language is very welcome!
             </p>
         </div>
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fab fa-connectdevelop" aria-hidden="true"></i></h1>
 	    <h3 class="text-center">Service Decomposition with <a href="https://servicecutter.github.io/">Service Cutter</a></h3>
-            <p>Transform your CML models to <a href="https://servicecutter.github.io/">Service Cutter</a> input and evaluate the boundaries of your contexts to achieve high cohesion and loose coupling between your service boundaries.</p>
+          <p>Transform your CML models into <a href="https://servicecutter.github.io/">Service Cutter</a> input and evaluate the boundaries of your contexts to achieve <strong>high cohesion</strong> and <strong>loose coupling</strong> between your <strong>service boundaries</strong>.
+              <strong>Future work:</strong> Within our next projects we aim to propose other structured service decomposition approaches based on this DSL!
+            </p>
         </div>
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fa fa-project-diagram" aria-hidden="true"></i></h1>
 	    <h3 class="text-center">Generate <a href="http://plantuml.com/">plantUML</a> Diagrams</h3>
-            <p>Use your context map to generate UML component diagrams visualizing the relationships between your bounded contexts. Additionally you can generate UML class diagrams for all your bounded contexts.</p>
+          <p>Use your context map to <strong>generate UML</strong> component diagrams visualizing the relationships between your bounded contexts. Additionally you can generate UML class diagrams for all your bounded contexts.
+            Our Context Mapper DSL may be used to generate other <strong>graphical representations</strong> or code (for example <strong>microservice stubs</strong>) in the future.
+          </p>
         </div>
     </div>
 

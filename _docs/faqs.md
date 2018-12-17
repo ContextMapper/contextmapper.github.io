@@ -13,11 +13,8 @@ Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/]
 ### How do I create a new context map?
 Just create a file with the file extension **cml** (Context Mapping Language). Take a look at our example to get an idea how it looks like: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples)
 
-### Which DDD Pattern are supported by CML?
-Have a look at our pages regarding **tactic** and **strategic** DDD:
-
- * [Supported Strategic DDD Patterns](/docs/strategic-ddd)
- * [Supported Tactic DDD Patterns](/docs/tactic-ddd)
+### Which DDD Patterns are supported by CML?
+Have a look at our [CML Reference - Introduction](/docs/language-reference/) page. There you will find all patterns supported by CML.
 
 ### Which combinations of Strategic DDD Patterns are allowed? 
 Have a look at the page [Language Semantic Model](/docs/language-model/) which introduces the semantic model of our DSL and lists the implemented semantic checkers.

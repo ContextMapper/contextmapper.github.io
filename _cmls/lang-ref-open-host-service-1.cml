@@ -1,0 +1,5 @@
+PrintingContext <- PolicyManagementContext : Upstream-Downstream {
+  implementationTechnology = "SOAP"
+  upstream implements OPEN_HOST_SERVICE
+  downstream implements ANTICORRUPTION_LAYER
+}

@@ -1,0 +1,5 @@
+VoyagePlanningContext -> LocationContext : Upstream-Downstream {
+    implementationTechnology = "RESTful HTTP"
+    upstream implements OPEN_HOST_SERVICE, PUBLISHED_LANGUAGE
+    downstream implements ANTICORRUPTION_LAYER
+}

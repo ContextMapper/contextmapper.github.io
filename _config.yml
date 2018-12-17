@@ -1,7 +1,7 @@
 # Site settings
 title: Context Mapper
 description: >
-  ContextMapper is an open source tool providing a Domain-specific Language based on Domain-Driven Design (DDD) patterns for context mapping and service decomposition.
+  Context Mapper is an open source project providing a Domain-specific Language (DSL) based on Domain-Driven Design (DDD) patterns for context mapping and service decomposition.
 lang: en-US
 
 logo: /img/cm.png

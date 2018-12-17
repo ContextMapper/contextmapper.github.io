@@ -1,0 +1,12 @@
+/* Syntax example: Subdomain */
+Subdomain CustomerManagementDomain {
+  type = CORE_DOMAIN
+  domainVisionStatement = "Subdomain managing everything customer-related."
+  
+  Entity Customer {
+    String firstname
+    String familyname
+  }
+	
+  /* Add more entities ... */
+}
