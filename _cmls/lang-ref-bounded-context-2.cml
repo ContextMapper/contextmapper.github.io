@@ -1,0 +1,4 @@
+BoundedContext CustomersBackofficeTeam implements CustomerManagementDomain realizes CustomerManagementContext {
+  type = TEAM
+  domainVisionStatement = "This team is responsible for implementing ..."
+}

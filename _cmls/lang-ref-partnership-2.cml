@@ -1,0 +1,3 @@
+ContractsContext Partnership ClaimsContext {
+  implementationTechnology = "Messaging"
+}

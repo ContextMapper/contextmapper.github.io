@@ -1,5 +1,5 @@
 ---
-title: Language Semantic Model
+title: Language Semantics
 permalink: /docs/language-model/
 ---
 

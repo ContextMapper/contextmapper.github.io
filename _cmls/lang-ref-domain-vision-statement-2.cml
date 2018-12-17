@@ -1,0 +1,4 @@
+Subdomain CustomerManagementDomain {
+  type = CORE_DOMAIN
+  domainVisionStatement = "Subdomain managing everything customer-related."
+}

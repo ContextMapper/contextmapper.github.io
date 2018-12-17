@@ -1,0 +1,13 @@
+Aggregate Customers {
+  responsibilities = Customers, Addresses { "Address description ..." }
+  knowledgeLevel = CONCRETE
+    
+  Entity Customer { 
+    aggregateRoot
+    
+    - SocialInsuranceNumber sin
+    String firstname
+    String lastname
+    - List<Address> addresses
+  }
+}

@@ -4,3 +4,7 @@ _site
 *.gem
 .bundle
 vendor/bundle
+
+# IDEs
+.idea
+*.iml

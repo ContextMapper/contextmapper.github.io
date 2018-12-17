@@ -1,0 +1,6 @@
+@Customer_Frontend_Backend_Relationship // Relationship name is optional
+CustomerSelfServiceContext -> CustomerManagementContext : Customer-Supplier {
+  implementationTechnology = "RESTful HTTP"
+  supplier implements PUBLISHED_LANGUAGE
+  customer implements ANTICORRUPTION_LAYER
+}

@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Customers {
+  <span class="k">responsibilities</span> = Customers, Addresses { <span class="s">&quot;Address description ...&quot;</span> }
+  
+  <span class="k">Entity</span> Customer { 
+    <span class="k">aggregateRoot</span>
+    
+    - <span class="k">SocialInsuranceNumber</span> sin
+    <span class="k">String</span> firstname
+    <span class="k">String</span> lastname
+    - <span class="k">List&lt;Address&gt;</span> addresses
+  }
+}
+</pre></div>

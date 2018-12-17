@@ -1,0 +1,12 @@
+Aggregate Customers {
+  responsibilities = Customers, Addresses { "Address description ..." }
+  
+  Entity Customer { 
+    aggregateRoot
+    
+    - SocialInsuranceNumber sin
+    String firstname
+    String lastname
+    - List<Address> addresses
+  }
+}

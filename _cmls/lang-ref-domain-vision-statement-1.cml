@@ -1,0 +1,3 @@
+BoundedContext CustomerContext {
+  domainVisionStatement = "This context is responsible for ..."
+}

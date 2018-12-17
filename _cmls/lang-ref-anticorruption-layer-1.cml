@@ -1,0 +1,5 @@
+DebtCollection -> PrintingContext : Upstream-Downstream {
+  implementationTechnology = "SOAP"
+  upstream implements OPEN_HOST_SERVICE, PUBLISHED_LANGUAGE
+  downstream implements ANTICORRUPTION_LAYER
+}

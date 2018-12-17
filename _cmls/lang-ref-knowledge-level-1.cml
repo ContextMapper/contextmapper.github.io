@@ -1,0 +1,6 @@
+BoundedContext CustomerManagementContext implements CustomerManagementDomain {
+  type = FEATURE
+  domainVisionStatement = "The customer management context is responsible for ..."
+  implementationTechnology = "Java, JEE Application"
+  knowledgeLevel = CONCRETE
+}

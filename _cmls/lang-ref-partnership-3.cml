@@ -1,0 +1,4 @@
+@ContractClaimRelationship
+ContractsContext <-> ClaimsContext : Partnership {
+  implementationTechnology = "Messaging"
+}
