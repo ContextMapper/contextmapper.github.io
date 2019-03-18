@@ -8,14 +8,10 @@
   <span class="k">contains</span> VoyagePlanningContext
   <span class="k">contains</span> LocationContext
   
-  CargoBookingContext &lt;-&gt; VoyagePlanningContext : <span class="k">Shared-Kernel</span>
+  CargoBookingContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] VoyagePlanningContext
   
-  CargoBookingContext -&gt; LocationContext : <span class="k">Upstream-Downstream</span> {
-    <span class="k">upstream</span> <span class="k">implements</span> <span class="k">OPEN_HOST_SERVICE</span>, <span class="k">PUBLISHED_LANGUAGE</span>
-  }
+  CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 
-  VoyagePlanningContext -&gt; LocationContext : <span class="k">Upstream-Downstream</span> {
-    <span class="k">upstream</span> <span class="k">implements</span> <span class="k">OPEN_HOST_SERVICE</span>, <span class="k">PUBLISHED_LANGUAGE</span>
-  }
+  VoyagePlanningContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 }
 </pre></div>

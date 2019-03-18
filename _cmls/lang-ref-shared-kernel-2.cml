@@ -1,4 +1,3 @@
-@BookingVoyageRelationship
-CargoBookingContext Shared-Kernel VoyagePlanningContext {
+CargoBookingContext Shared-Kernel VoyagePlanningContext : BookingVoyageRelationship {
   implementationTechnology = "Java Library"
 }

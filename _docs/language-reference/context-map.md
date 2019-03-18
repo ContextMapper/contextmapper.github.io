@@ -19,7 +19,7 @@ With the _contains_ keyword you add a bounded context to the map.
   <span class="k">contains</span> VoyagePlanningContext
   <span class="k">contains</span> LocationContext
 	
-  CargoBookingContext &lt;-&gt; VoyagePlanningContext : <span class="k">Shared-Kernel</span>
+  CargoBookingContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] VoyagePlanningContext
 }
 </pre></div>
 
@@ -50,45 +50,53 @@ For the symmetric relationships and their syntax please visit [Partnership](/doc
 
 Upstream-Downstream relationships can be defined with three different syntax variants, all illustrated with the examples below:
 
-<div class="highlight"><pre><span></span>CargoBookingContext -&gt; LocationContext : <span class="k">Upstream-Downstream</span>
+<div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext
 </pre></div>
 
-<div class="highlight"><pre><span></span>LocationContext &lt;- CargoBookingContext : <span class="k">Upstream-Downstream</span>
+<div class="highlight"><pre><span></span>LocationContext [<span class="k">U</span>]-&gt;[<span class="k">D</span>] CargoBookingContext
 </pre></div>
 
 <div class="highlight"><pre><span></span>LocationContext <span class="k">Upstream-Downstream</span> CargoBookingContext
 </pre></div>
 
-All of the three variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the downstream to the upstream and thus, expresses the dependency (the downstream depends on the upstream, but the upstream is independent of the downstream).
-
-With an _@_, you can annotate every relationship with a name:
-<div class="highlight"><pre><span></span>@CargoLocationRelationship
-CargoBookingContext -&gt; LocationContext : <span class="k">Upstream-Downstream</span>
+<div class="highlight"><pre><span></span>CargoBookingContext <span class="k">Downstream-Upstream</span> LocationContext
 </pre></div>
 
-Within the body of the relationship definition, the implementation technology and upstream/downstream role patterns can be defined. The corresponding keywords are _implementationTechnology_, _upstream implements_ and _downstream implements_:
+All of the four variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the upstream to the downstream and thus, expresses the influence flow (the upstream has an influence on the downstream, but the downstream has no influence on the upstream).
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext -&gt; LocationContext : <span class="k">Upstream-Downstream</span> {
+The syntax with the arrows and the abbreviations further allows to place the brackets with the upstream [U] / downstream [D] and relationship
+role patterns specification flexible in front or after the Bounded Context name:
+
+<div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext
+</pre></div>
+
+<div class="highlight"><pre><span></span>[<span class="k">D</span>]CargoBookingContext &lt;- [<span class="k">U</span>]LocationContext
+</pre></div>
+
+<div class="highlight"><pre><span></span>CargoBookingContext[<span class="k">D</span>] &lt;- LocationContext[<span class="k">U</span>]
+</pre></div>
+
+<div class="highlight"><pre><span></span>[<span class="k">D</span>]CargoBookingContext &lt;- LocationContext[<span class="k">U</span>]
+</pre></div>
+
+With a colon at the end, you can give every relationship a name:
+<div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext : CargoLocationRelationship
+</pre></div>
+
+Within the brackets you can further specify the relationship roles such as Open Host Service (OHS) or Anti-Corruption Layer (ACL).
+Roles must always be specified behind the **U** (upstream) and the **D** (downstream). Within the body of the declaration it is possible
+to specify the implementation technology:
+
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
     <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
-    <span class="k">upstream</span> <span class="k">implements</span> <span class="k">OPEN_HOST_SERVICE</span>, <span class="k">PUBLISHED_LANGUAGE</span>
-    <span class="k">downstream</span> <span class="k">implements</span> <span class="k">ANTICORRUPTION_LAYER</span>
 }
 </pre></div>
 
-Upstream roles are given by the [Open Host Service](/docs/open-host-service/) and [Published Language](/docs/published-language/) patterns. Downstream roles are [Conformist](/docs/conformist/) and [Anticorruption Layer](/docs/anticorruption-layer/).
+Upstream roles are given by the [Open Host Service (OHS)](/docs/open-host-service/) and 
+[Published Language (PL)](/docs/published-language/) patterns. Downstream roles are [Conformist (CF)](/docs/conformist/) and 
+[Anticorruption Layer (ACL)](/docs/anticorruption-layer/).
 
 For the Customer-Supplier relationship, which is a special form of Upstream-Downstream relationship, please visit [Customer-Supplier](/docs/customer-supplier).
-
-<div class="alert alert-warning">
-  <strong>Note!</strong> With the keyword 'Upstream-Downstream' you declare a 'generic' Upstream/Downstream relationship, 
-  which is not a Customer/Supplier relationship (as illustrated in our <a href="/docs/language-model/" class="alert-link">semantic model</a>). 
-  To declare a Customer/Supplier relationship you have to use the keyword 'Customer-Supplier', 
-  which is a Upstream/Downstream relationship as well. We know that the language grammar is not expressing this explicitly, which may lead to confusion. 
-  
-  <br>There is already an open <a href="https://github.com/ContextMapper/context-mapper-dsl/issues/35" target="_blank" class="alert-link">Github Issue</a> 
-  and if you have ideas how to solve this issue (better keywords or other grammar improvements), feel free to comment there. We have not found the perfect solution to solve this ambiguity yet.
-  <br><a href="https://github.com/ContextMapper/context-mapper-dsl/issues/35" target="_blank" class="alert-link">Input and contribution is very welcome!</a>
-</div>
 
 ## Semantic Rules
 Note that semantic rules (validators) exist for context maps within CML. This means that not every combination of patterns and concepts is allowed, even if it would be syntactically correct.

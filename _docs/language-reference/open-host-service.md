@@ -6,13 +6,11 @@ permalink: /docs/open-host-service/
 The Open Host Service pattern describes a relationship between two bounded contexts and is used on a [context map](/docs/context-map/) in CML.
 
 ## Syntax
-The Open Host Service pattern can be used as a role for the upstream context in a Upstream/Downstream relationship.
+The Open Host Service pattern can be used as a role for the upstream context in a Upstream/Downstream relationship by using the **OHS** abbreviation.
 The following example illustrates the syntax:
 
-<div class="highlight"><pre><span></span>PrintingContext &lt;- PolicyManagementContext : <span class="k">Upstream-Downstream</span> {
+<div class="highlight"><pre><span></span>PrintingContext [<span class="k">U</span>,<span class="k">OHS</span>]-&gt;[<span class="k">D</span>,<span class="k">ACL</span>] PolicyManagementContext {
   <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
-  <span class="k">upstream</span> <span class="k">implements</span> <span class="k">OPEN_HOST_SERVICE</span>
-  <span class="k">downstream</span> <span class="k">implements</span> <span class="k">ANTICORRUPTION_LAYER</span>
 }
 </pre></div>
 
