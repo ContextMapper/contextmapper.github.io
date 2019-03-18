@@ -40,21 +40,18 @@ The context map for the [DDD Sample Application](https://github.com/citerus/ddds
 <div class="highlight"><pre><span></span><span class="c">/** </span>
 <span class="c"> * The DDD Cargo sample application modeled in CML. Note that we split the application into </span>
 <span class="c"> * multiple bounded contexts.</span>
+<span class="c"> *</span>
 <span class="c"> */</span>
 <span class="k">ContextMap</span> {
   <span class="k">contains</span> CargoBookingContext
   <span class="k">contains</span> VoyagePlanningContext
   <span class="k">contains</span> LocationContext
+  
+  CargoBookingContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] VoyagePlanningContext
+  
+  CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 
-  CargoBookingContext &lt;-&gt; VoyagePlanningContext : <span class="k">Shared-Kernel</span>
-
-  CargoBookingContext -&gt; LocationContext : <span class="k">Upstream-Downstream</span> {
-    <span class="k">upstream</span> <span class="k">implements</span> <span class="k">OPEN_HOST_SERVICE</span>, <span class="k">PUBLISHED_LANGUAGE</span>
-  }
-
-  VoyagePlanningContext -&gt; LocationContext : <span class="k">Upstream-Downstream</span> {
-    <span class="k">upstream</span> <span class="k">implements</span> <span class="k">OPEN_HOST_SERVICE</span>, <span class="k">PUBLISHED_LANGUAGE</span>
-  }
+  VoyagePlanningContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 }
 </pre></div>
 

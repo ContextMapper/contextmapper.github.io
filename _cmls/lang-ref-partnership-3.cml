@@ -1,4 +1,3 @@
-@ContractClaimRelationship
-ContractsContext <-> ClaimsContext : Partnership {
+ContractsContext [P]<->[P] ClaimsContext : ContractClaimRelationship {
   implementationTechnology = "Messaging"
 }

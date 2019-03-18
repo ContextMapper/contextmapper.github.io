@@ -1,1 +1,1 @@
-LocationContext <- CargoBookingContext : Upstream-Downstream
+LocationContext [U]->[D] CargoBookingContext

@@ -1,7 +1,4 @@
-<div class="highlight"><pre><span></span>@Customer_Frontend_Backend_Relationship <span class="c">// Relationship name is optional</span>
-CustomerSelfServiceContext -&gt; CustomerManagementContext : <span class="k">Customer-Supplier</span> {
+<div class="highlight"><pre><span></span>CustomerSelfServiceContext [<span class="k">D</span>,<span class="k">C</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">S</span>,<span class="k">PL</span>] CustomerManagementContext : Customer_Frontend_Backend_Relationship { <span class="c">// Relationship name is optional</span>
   <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
-  <span class="k">supplier</span> <span class="k">implements</span> <span class="k">PUBLISHED_LANGUAGE</span>
-  <span class="k">customer</span> <span class="k">implements</span> <span class="k">ANTICORRUPTION_LAYER</span>
 }
 </pre></div>

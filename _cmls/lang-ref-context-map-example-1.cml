@@ -6,5 +6,5 @@ ContextMap {
   contains VoyagePlanningContext
   contains LocationContext
 	
-  CargoBookingContext <-> VoyagePlanningContext : Shared-Kernel
+  CargoBookingContext [SK]<->[SK] VoyagePlanningContext
 }

@@ -8,13 +8,9 @@ ContextMap {
   contains VoyagePlanningContext
   contains LocationContext
   
-  CargoBookingContext <-> VoyagePlanningContext : Shared-Kernel
+  CargoBookingContext [SK]<->[SK] VoyagePlanningContext
   
-  CargoBookingContext -> LocationContext : Upstream-Downstream {
-    upstream implements OPEN_HOST_SERVICE, PUBLISHED_LANGUAGE
-  }
+  CargoBookingContext [D]<-[U,OHS,PL] LocationContext
 
-  VoyagePlanningContext -> LocationContext : Upstream-Downstream {
-    upstream implements OPEN_HOST_SERVICE, PUBLISHED_LANGUAGE
-  }
+  VoyagePlanningContext [D]<-[U,OHS,PL] LocationContext
 }

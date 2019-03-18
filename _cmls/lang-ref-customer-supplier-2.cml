@@ -1,1 +1,1 @@
-CustomerManagementContext <- CustomerSelfServiceContext : Customer-Supplier
+CustomerManagementContext [U,S]->[D,C] CustomerSelfServiceContext
