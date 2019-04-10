@@ -83,19 +83,70 @@ With a colon at the end, you can give every relationship a name:
 <div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext : CargoLocationRelationship
 </pre></div>
 
-Within the brackets you can further specify the relationship roles such as Open Host Service (OHS) or Anti-Corruption Layer (ACL).
-Roles must always be specified behind the **U** (upstream) and the **D** (downstream). Within the body of the declaration it is possible
-to specify the implementation technology:
+**Note:** The following quick upstream/downstream syntax without brackets can be used as well. It denotes a common upstream/downstream relationship without any roles.
+However, with this syntax it is maybe not explicitly clear for a reader that you declare an upstream/downstream and **not** a customer/supplier relationship.
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
-}
+<div class="highlight"><pre><span></span>CargoBookingContext &lt;- LocationContext
+</pre></div>
+
+<div class="highlight"><pre><span></span>LocationContext -&gt; CargoBookingContext
+</pre></div>
+
+### Relationship Roles
+Within the brackets you can further specify the relationship roles such as Open Host Service (OHS) or Anti-Corruption Layer (ACL).
+Roles must always be specified behind the **U** (upstream) and the **D** (downstream). 
+
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 </pre></div>
 
 Upstream roles are given by the [Open Host Service (OHS)](/docs/open-host-service/) and 
 [Published Language (PL)](/docs/published-language/) patterns. Downstream roles are [Conformist (CF)](/docs/conformist/) and 
 [Anticorruption Layer (ACL)](/docs/anticorruption-layer/).
 
+### Relationship Attributes
+By using brackets {}, you can specify further attributes for a relationship. Currently supported attributes are:
+
+* implementationTechnology
+* downstreamRights
+* exposedAggregates
+
+#### Implementation Technology
+Within the body of the declaration it is possible to specify the implementation technology used to realize this relationship:
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
+}
+</pre></div>
+
+#### Downstream Governance Rights
+With the attribute _downstreamRights_ you can define which governance rights, and therefore which influence, the downstream has on the upstream within the specified relationship:
+
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
+    <span class="k">downstreamRights</span> = <span class="k">VETO_RIGHT</span>
+}
+</pre></div>
+
+The possible governance rights values are:
+
+* INFLUENCER
+* OPINION_LEADER
+* VETO_RIGHT
+* DECISION_MAKER
+* MONOPOLIST
+
+#### Exposed Aggregates
+The _exposedAggregates_ attribute offers the possibility to declare which [Aggregates](/docs/aggregate) of the **upstream** bounded context are exposed
+in order to realize this relationship. The attribute takes a comma separated list of references to aggregates. The referenced aggregates must
+be part of the upstream context of the relationship.
+
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
+    <span class="k">downstreamRights</span> = <span class="k">VETO_RIGHT</span>
+    <span class="k">exposedAggregates</span> = Customers, Addresses
+}
+</pre></div>
+ 
+### Special Case: Customer/Supplier
 For the Customer-Supplier relationship, which is a special form of Upstream-Downstream relationship, please visit [Customer-Supplier](/docs/customer-supplier).
 
 ## Semantic Rules

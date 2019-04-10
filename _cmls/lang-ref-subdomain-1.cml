@@ -1,12 +1,18 @@
-/* Syntax example: Subdomain */
-Subdomain CustomerManagementDomain {
-  type = CORE_DOMAIN
-  domainVisionStatement = "Subdomain managing everything customer-related."
-  
-  Entity Customer {
-    String firstname
-    String familyname
+/* Syntax example: Domain and Subdomains */
+Domain Insurance {
+  Subdomain CustomerManagementDomain {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Subdomain managing everything customer-related."
+
+    Entity Customer {
+      String firstname
+      String familyname
+    }
+
+    /* Add more entities ... */
   }
-	
-  /* Add more entities ... */
+
+  Subdomain ContractManagementDomain {}
+
+  /* Add more subdomains ... */
 }

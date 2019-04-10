@@ -1,0 +1,3 @@
+VoyagePlanningContext [D,ACL]->[U,OHS,PL] LocationContext {
+    implementationTechnology = "RESTful HTTP"
+}
