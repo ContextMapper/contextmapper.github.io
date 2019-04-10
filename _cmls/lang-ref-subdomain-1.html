@@ -1,13 +1,19 @@
-<div class="highlight"><pre><span></span><span class="c">/* Syntax example: Subdomain */</span>
-<span class="k">Subdomain</span> CustomerManagementDomain {
-  <span class="k">type</span> = <span class="k">CORE_DOMAIN</span>
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;Subdomain managing everything customer-related.&quot;</span>
-  
-  <span class="k">Entity</span> Customer {
-    <span class="k">String</span> firstname
-    <span class="k">String</span> familyname
+<div class="highlight"><pre><span></span><span class="c">/* Syntax example: Domain and Subdomains */</span>
+<span class="k">Domain</span> Insurance {
+  <span class="k">Subdomain</span> CustomerManagementDomain {
+    <span class="k">type</span> = <span class="k">CORE_DOMAIN</span>
+    <span class="k">domainVisionStatement</span> = <span class="s">&quot;Subdomain managing everything customer-related.&quot;</span>
+
+    <span class="k">Entity</span> Customer {
+      <span class="k">String</span> firstname
+      <span class="k">String</span> familyname
+    }
+
+    <span class="c">/* Add more entities ... */</span>
   }
-	
-  <span class="c">/* Add more entities ... */</span>
+
+  <span class="k">Subdomain</span> ContractManagementDomain {}
+
+  <span class="c">/* Add more subdomains ... */</span>
 }
 </pre></div>

@@ -20,6 +20,14 @@ Note that with this syntax (with the arrows _&lt;-&gt;_) it does not matter whic
 }
 </pre></div>
 
+### Default Symmetric Relationship
+**Note** that the Shared Kernel is the default symmetric relationship. Omitting the concrete relationship type within the brackets as follows, declares a 
+Shared Kernel relationship too. However, with this syntax a reader has to know this behavior and cannot explicitly see that it is **not** a Partnership
+relationship:
+
+<div class="highlight"><pre><span></span>CargoBookingContext &lt;-&gt; VoyagePlanningContext
+</pre></div>
+
 ### Implementation Technology
 With the _implementationTechnology_ keyword you can specify how the relationship is implemented.
 
