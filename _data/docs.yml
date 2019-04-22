@@ -23,6 +23,10 @@
   - knowledge-level
   - aggregate
 
+- title: Architectural Refactorings
+  docs:
+  - architectural-refactorings
+
 - title: User Guides
   docs:
   - service-cutter
