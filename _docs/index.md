@@ -92,6 +92,10 @@ Find a list of all supported strategic DDD patterns [here](/docs/language-refere
 #### Tactic Patterns
 The implementation of the tactic DDD patterns is based on [Sculptor DSL](https://github.com/sculptor/sculptor). You can find their documentation and the supported patterns under the following link: [http://sculptorgenerator.org/documentation/](http://sculptorgenerator.org/documentation/).
 
+### Architectural Refactorings (ARs)
+The Context Mapper tool provides a series of architectural refactorings which allow you to improve and evolve your models iteratively.
+Find more information and the documentation of all available refactorings [here](/docs/architectural-refactorings).
+
 ### Transformations / Generators
 Context Mapper provides tools to transform CML models to [ServiceCutter input](https://servicecutter.github.io/) and [plantUML diagrams](http://plantuml.com/).
 
