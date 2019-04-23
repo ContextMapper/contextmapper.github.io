@@ -1,0 +1,12 @@
+Aggregate Offers {
+  useCases = CreateOfferForCustomer, UpdateOffer
+
+  Entity Offer {
+    aggregateRoot
+
+    int offerId
+    - Customer client
+    - List<Product> products
+    BigDecimal price
+  }
+}

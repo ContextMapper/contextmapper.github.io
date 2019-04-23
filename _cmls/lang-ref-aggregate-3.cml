@@ -1,0 +1,8 @@
+/* Team Definitions */
+BoundedContext CustomerBackendTeam {
+  type = TEAM
+}
+
+BoundedContext CustomerFrontendTeam {
+  type = TEAM
+}

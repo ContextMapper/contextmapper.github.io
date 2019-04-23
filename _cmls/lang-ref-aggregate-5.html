@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Offers {
+  <span class="k">useCases</span> = CreateOfferForCustomer, UpdateOffer
+
+  <span class="k">Entity</span> Offer {
+    <span class="k">aggregateRoot</span>
+
+    <span class="k">int</span> offerId
+    - <span class="k">Customer</span> client
+    - <span class="k">List&lt;Product&gt;</span> products
+    <span class="k">BigDecimal</span> price
+  }
+}
+</pre></div>

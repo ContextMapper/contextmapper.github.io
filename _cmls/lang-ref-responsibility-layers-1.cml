@@ -2,5 +2,5 @@ BoundedContext CustomerManagementContext implements CustomerManagementDomain {
   type = FEATURE
   domainVisionStatement = "The customer management context is responsible for ..."
   implementationTechnology = "Java, JEE Application"
-  responsibilities = Customers, Addresses { "Address description ..." }
+  responsibilities = "Customers", "Addresses"
 }

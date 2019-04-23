@@ -1,0 +1,10 @@
+<div class="highlight"><pre><span></span><span class="c">/* Simple use case (only name given) */</span>
+<span class="k">UseCase</span> UpdateContract
+<span class="k">UseCase</span> UpdateOffer
+
+<span class="c">/* Extended declaration with read and written attributes */</span>
+<span class="k">UseCase</span> CreateOfferForCustomer {
+  <span class="k">reads</span> <span class="s">&quot;Customer.id&quot;</span>, <span class="s">&quot;Customer.name&quot;</span>
+  <span class="k">writes</span> <span class="s">&quot;Offer.offerId&quot;</span>, <span class="s">&quot;Offer.price&quot;</span>, <span class="s">&quot;Offer.products&quot;</span>, <span class="s">&quot;Offer.client&quot;</span>
+}
+</pre></div>
