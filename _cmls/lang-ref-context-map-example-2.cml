@@ -1,0 +1,8 @@
+ContextMap DDDSampleContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = AS_IS
+
+  contains CargoBookingContext, VoyagePlanningContext, LocationContext
+
+  CargoBookingContext [SK]<->[SK] VoyagePlanningContext
+}

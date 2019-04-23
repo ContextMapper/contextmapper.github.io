@@ -1,0 +1,10 @@
+Aggregate CustomerFrontend {
+  likelihoodForChange = OFTEN
+  
+  DomainEvent CustomerAddressChange {
+    aggregateRoot
+    
+    - UserAccount issuer
+    - Address changedAddress
+  }
+}

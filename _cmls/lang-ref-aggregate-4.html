@@ -1,0 +1,48 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> PolicyManagementContext <span class="k">implements</span> PolicyManagementDomain {
+  <span class="k">Aggregate</span> Offers {
+    <span class="k">useCases</span> = CreateOfferForCustomer
+    
+    <span class="k">Entity</span> Offer {
+      <span class="k">aggregateRoot</span>
+      
+      <span class="k">int</span> offerId
+      - <span class="k">Customer</span> client
+      - <span class="k">List&lt;Product&gt;</span> products
+      <span class="k">BigDecimal</span> price
+    }
+  }
+  <span class="k">Aggregate</span> Products {
+    <span class="k">useCases</span> = CreateOfferForCustomer
+    
+    <span class="k">Entity</span> Product {
+      <span class="k">aggregateRoot</span>
+      
+      - <span class="k">ProductId</span> identifier
+      <span class="k">String</span> productName
+    }
+    <span class="k">ValueObject</span> ProductId {
+      <span class="k">int</span> productId <span class="k">key</span>
+    }
+  }
+  <span class="k">Aggregate</span> Contract {
+    <span class="k">useCases</span> = UpdateContract
+    
+    <span class="k">Entity</span> Contract {
+      <span class="k">aggregateRoot</span>
+      
+      - <span class="k">ContractId</span> identifier
+      - <span class="k">Customer</span> client
+      - <span class="k">List&lt;Product&gt;</span> products
+    }
+    <span class="k">ValueObject</span> ContractId {
+      <span class="k">int</span> contractId <span class="k">key</span>
+    }
+    
+    <span class="k">Entity</span> Policy {
+      <span class="k">int</span> policyNr
+      - <span class="k">Contract</span> contract
+      <span class="k">BigDecimal</span> price
+    }
+  }
+}
+</pre></div>

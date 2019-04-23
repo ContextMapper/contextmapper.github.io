@@ -1,5 +1,5 @@
 Aggregate Customers {
-  responsibilities = Customers, Addresses { "Address description ..." }
+  responsibilities = "Customers", "Addresses"
   
   Entity Customer { 
     aggregateRoot

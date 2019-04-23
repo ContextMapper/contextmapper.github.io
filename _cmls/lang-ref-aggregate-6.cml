@@ -1,0 +1,9 @@
+/* Simple use case (only name given) */
+UseCase UpdateContract
+UseCase UpdateOffer
+
+/* Extended declaration with read and written attributes */
+UseCase CreateOfferForCustomer {
+  reads "Customer.id", "Customer.name"
+  writes "Offer.offerId", "Offer.price", "Offer.products", "Offer.client"
+}

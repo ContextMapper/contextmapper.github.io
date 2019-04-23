@@ -1,0 +1,27 @@
+BoundedContext CustomerSelfServiceContext implements CustomerManagementDomain {
+  type = APPLICATION
+  domainVisionStatement = "This context represents a web application which allows the customer to login and change basic data records like the address."
+  responsibilities = "AddressChange"
+  implementationTechnology = "PHP Web Application"
+
+  Aggregate CustomerFrontend {
+    owner = CustomerFrontendTeam
+
+    DomainEvent CustomerAddressChange {
+      aggregateRoot
+
+      - UserAccount issuer
+      - Address changedAddress
+    }
+  }
+  Aggregate Acounts {
+    owner = CustomerBackendTeam
+
+    Entity UserAccount {
+      aggregateRoot
+
+      String username
+      - Customer accountCustomer
+    }
+  }
+}
