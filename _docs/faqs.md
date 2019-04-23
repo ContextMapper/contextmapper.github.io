@@ -25,6 +25,10 @@ Currently you can generate Service Cutter input to get suggestion for service cu
  * [Generate Service Cutter Input Files](/docs/service-cutter/)
  * [Generate plantUML Diagrams](/docs/plant-uml/)
 
+### How can I refactor my CML model?
+The Context Mapper tool provides a set of architectural refactorings which you can apply to your model. Find more information and all
+available refactorings [here](/docs/architectural-refactorings).
+
 ### I have other questions not listed here. How can I contribute?
 If you have any questions not answered by our documentation page, we are happy if you create an issue in our documentation [repo](https://github.com/ContextMapper/contextmapper.github.io/issues). Of course, PR's are always welcome as well.
 
