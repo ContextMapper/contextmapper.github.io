@@ -29,9 +29,9 @@
   - ar-split-aggregate-by-entities
   - ar-split-bounded-context-by-use-cases
   - ar-split-bounded-context-by-owners
-  - ar-extract-aggregates-which-are-likely-to-change
-  - ar-extract-aggregates-by-nfr
-  - ar-split-bounded-context-by-duplicate-entity-name
+  - ar-extract-aggregates-by-volatility
+  - ar-extract-aggregates-by-cohesion
+  - ar-merge-aggregates
   - ar-merge-bounded-contexts
 
 - title: User Guides
