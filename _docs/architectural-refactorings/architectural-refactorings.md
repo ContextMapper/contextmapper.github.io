@@ -14,9 +14,9 @@ We currently provide the following ARs:
 * **[Split Aggregate by Entities](/docs/ar-split-aggregate-by-entities)**
 * **[Split Bounded Context by Use Cases](/docs/ar-split-bounded-context-by-use-cases)**
 * **[Split Bounded Context by Owners](/docs/ar-split-bounded-context-by-owners)**
-* **[Extract Aggregates which are Likely to Change](/docs/ar-extract-aggregates-which-are-likely-to-change)**
-* **[Extract Aggregates by NFR (Manual Selection)](/docs/ar-extract-aggregates-by-nfr)**
-* **[Split Bounded Context by Duplicate Entity Name](/docs/ar-split-bounded-context-by-duplicate-entity-name)**
+* **[Extract Aggregates by Volatility](/docs/ar-extract-aggregates-by-volatility)**
+* **[Extract Aggregates by Cohesion](/docs/ar-extract-aggregates-by-cohesion)**
+* **[Merge Aggregates](/docs/ar-merge-aggregates)**
 * **[Merge Bounded Contexts](/docs/ar-merge-bounded-contexts)**
 
 ## Examples
