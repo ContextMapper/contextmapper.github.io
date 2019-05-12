@@ -30,7 +30,9 @@ To use the ContextMapper DSL you need the following tools:
     * Alternatively you can use the [plantUML online server](http://www.plantuml.com/plantuml/uml).
 
 ### CML Models
-As soon as you have installed our Eclipse plugin, you can start creating context maps. Start with a new context map by creating a file with the file extension **.cml**.
+As soon as you have installed our Eclipse plugin, you can start creating context maps. Start with a new context map by creating a file 
+with the file extension **.cml** in an Eclipse project which has the Xtext nature enabled. You can find a detailed manual how you create
+such a project and a CML file [here](/docs/getting-started-create-project/).
 
 Checkout our [examples repository](https://github.com/ContextMapper/context-mapper-examples) to find examples of complete context maps. One of the examples is the [DDD Sample Application](https://github.com/citerus/dddsample-core). The following CML code snippets
 give you a first impression how the DSL looks like.
