@@ -1,0 +1,20 @@
+Aggregate Customers {
+  Entity Customer { 
+    aggregateRoot
+    
+    - SocialInsuranceNumber sin // Reference syntax for simple attribute
+    String firstname
+    String lastname
+    - List<Address> addresses // Reference syntax for collections
+  }
+  
+  Entity Address {
+    String street
+    int postalCode
+    String city
+  }
+  
+  ValueObject SocialInsuranceNumber {
+    String sin key
+  }
+}

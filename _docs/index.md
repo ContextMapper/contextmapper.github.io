@@ -84,15 +84,22 @@ A simple example of a bounded context definition:
 }
 </pre></div>
 
-Note that the DSL elements within the modules and aggregates is based on the [Sculptor DSL](https://github.com/sculptor/sculptor). You find a documentation regarding the syntax for the tactic DDD patterns [here](http://sculptorgenerator.org/documentation/).
+Checkout our [Language Reference](/docs/language-reference/) section to learn all details about the Context Mapper DSL.
+
+Note that the DSL elements within the modules and aggregates (tactic DDD patterns) is based on the [Sculptor DSL](https://github.com/sculptor/sculptor). 
+You can find a short introduction into the syntax of the aggregates [here](/docs/aggregate/). A short manual regarding the other 
+tactic DDD patterns is provided on [this page](/docs/tactic-ddd/).
+A complete documentation regarding the syntax for the tactic DDD patterns can be found on the [Sculptor website](http://sculptorgenerator.org/documentation/).
 
 ### Domain-driven Design Patterns
 
 #### Strategic Patterns
-Find a list of all supported strategic DDD patterns [here](/docs/language-reference/).
+Find a list of all supported strategic DDD patterns and their syntax within our DSL [here](/docs/language-reference/).
 
 #### Tactic Patterns
-The implementation of the tactic DDD patterns is based on [Sculptor DSL](https://github.com/sculptor/sculptor). You can find their documentation and the supported patterns under the following link: [http://sculptorgenerator.org/documentation/](http://sculptorgenerator.org/documentation/).
+The implementation of the tactic DDD patterns is based on [Sculptor DSL](https://github.com/sculptor/sculptor). 
+You can find their documentation and the supported patterns under the following link: [http://sculptorgenerator.org/documentation/](http://sculptorgenerator.org/documentation/).
+Our short introduction into the syntax can be found [here](/docs/tactic-ddd/).
 
 ### Architectural Refactorings (ARs)
 The Context Mapper tool provides a series of architectural refactorings which allow you to improve and evolve your models iteratively.

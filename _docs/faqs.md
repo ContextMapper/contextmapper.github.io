@@ -29,6 +29,11 @@ Currently you can generate Service Cutter input to get suggestion for service cu
 The Context Mapper tool provides a set of architectural refactorings which you can apply to your model. Find more information and all
 available refactorings [here](/docs/architectural-refactorings).
 
+### Where do I find a documentation regarding the tactic DDD syntax to specify a bounded context in detail?
+The tactic DDD part of our DSL is based on the [Sculptor DSL](http://sculptorgenerator.org/). However, you can find a short introduction
+and examples how you can detail your bounded contexts on the pages [Aggregate](/docs/aggregate/) and [Tactic DDD Syntax](/docs/tactic-ddd/).
+If you are interested in more details and all features, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+
 ### I have other questions not listed here. How can I contribute?
 If you have any questions not answered by our documentation page, we are happy if you create an issue in our documentation [repo](https://github.com/ContextMapper/contextmapper.github.io/issues). Of course, PR's are always welcome as well.
 

@@ -1,0 +1,28 @@
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Customers {
+  <span class="k">Entity</span> Customer { 
+    <span class="k">aggregateRoot</span>
+    
+    - <span class="k">SocialInsuranceNumber</span> sin
+    <span class="k">String</span> firstname
+    <span class="k">String</span> lastname
+    - <span class="k">List&lt;Address&gt;</span> addresses
+    
+    <span class="k">def</span> @AddressId createAddress(@Address address); <span class="c">// Method/Operation declaration with references</span>
+    <span class="k">def</span> void changeCustomer(@Customer customer, @Address address); <span class="c">// Method/Operation declaration with references</span>
+  }
+  
+  <span class="k">Entity</span> Address {
+    <span class="k">String</span> street
+    <span class="k">int</span> postalCode
+    <span class="k">String</span> city
+  }
+  
+  <span class="k">ValueObject</span> SocialInsuranceNumber {
+    <span class="k">String</span> sin <span class="k">key</span>
+  }
+  
+  <span class="k">ValueObject</span> AddressId {
+    <span class="k">int</span> id
+  }
+}
+</pre></div>

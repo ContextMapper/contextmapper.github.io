@@ -1,0 +1,11 @@
+Entity Customer { 
+  aggregateRoot
+  
+  - SocialInsuranceNumber sin
+  String firstname
+  String lastname
+  - List<Address> addresses
+  
+  def AddressId createAddress(Address address);
+  def void changeCustomer(Customer customer, Address address);
+}

@@ -1,0 +1,12 @@
+<div class="highlight"><pre><span></span><span class="k">Entity</span> Customer { 
+  <span class="k">aggregateRoot</span>
+  
+  - <span class="k">SocialInsuranceNumber</span> sin
+  <span class="k">String</span> firstname
+  <span class="k">String</span> lastname
+  - <span class="k">List&lt;Address&gt;</span> addresses
+  
+  <span class="k">def</span> AddressId createAddress(Address address);
+  <span class="k">def</span> void changeCustomer(Customer customer, Address address);
+}
+</pre></div>
