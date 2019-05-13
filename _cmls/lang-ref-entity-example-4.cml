@@ -1,0 +1,27 @@
+Aggregate Customers {
+  Entity Customer { 
+    aggregateRoot
+    
+    - SocialInsuranceNumber sin
+    String firstname
+    String lastname
+    - List<Address> addresses
+    
+    def @AddressId createAddress(@Address address); // Method/Operation declaration with references
+    def void changeCustomer(@Customer customer, @Address address); // Method/Operation declaration with references
+  }
+  
+  Entity Address {
+    String street
+    int postalCode
+    String city
+  }
+  
+  ValueObject SocialInsuranceNumber {
+    String sin key
+  }
+  
+  ValueObject AddressId {
+    int id
+  }
+}

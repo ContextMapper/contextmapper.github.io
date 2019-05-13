@@ -1,0 +1,8 @@
+DomainEvent HandlingEvent {
+  Type handlingType;
+  - Voyage voyage;
+  - LocationShared location;
+  Date completionTime;
+  Date registrationTime;
+  - Cargo cargo;
+}

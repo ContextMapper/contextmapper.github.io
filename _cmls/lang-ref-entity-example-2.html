@@ -1,0 +1,21 @@
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Customers {
+  <span class="k">Entity</span> Customer { 
+    <span class="k">aggregateRoot</span>
+    
+    - <span class="k">SocialInsuranceNumber</span> sin <span class="c">// Reference syntax for simple attribute</span>
+    <span class="k">String</span> firstname
+    <span class="k">String</span> lastname
+    - <span class="k">List&lt;Address&gt;</span> addresses <span class="c">// Reference syntax for collections</span>
+  }
+  
+  <span class="k">Entity</span> Address {
+    <span class="k">String</span> street
+    <span class="k">int</span> postalCode
+    <span class="k">String</span> city
+  }
+  
+  <span class="k">ValueObject</span> SocialInsuranceNumber {
+    <span class="k">String</span> sin <span class="k">key</span>
+  }
+}
+</pre></div>

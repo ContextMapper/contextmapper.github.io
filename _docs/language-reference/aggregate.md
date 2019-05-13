@@ -3,8 +3,9 @@ title: Aggregate
 permalink: /docs/aggregate/
 ---
 
-The Aggregate pattern implementation from [Sculptor](http://sculptorgenerator.org/) has been adapted within CML to represent it with a separate grammar rule.
-Note that all other tactic DDD patterns are not documented on this website. We refer to the [Sculptor project](http://sculptorgenerator.org/) and their [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+The Aggregate pattern implementation from [Sculptor](http://sculptorgenerator.org/) has been adapted within CML to represent it with a 
+separate grammar rule. For a short introduction to the syntax of the other tactic DDD patterns, please have a look at [Tactic DDD Syntax](/docs/tactic-ddd/). 
+For more details, we refer to the [Sculptor project](http://sculptorgenerator.org/) and their [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
 
 ## Syntax
 The aggregate supports the [Responsibility Layers](/docs/responsibility-layers/) pattern and the [Knowledge Level](/docs/knowledge-level) pattern. 
@@ -183,7 +184,7 @@ an aggregate is. The attribute takes one of the following three values:
  
 This attribute may be used for service decomposition, since parts which are likely to change should typically be isolated in separate
 components (see [Parnas](https://dl.acm.org/citation.cfm?doid=361598.361623)). In CML you can use this by applying the 
-[Extract Aggregates which are Likely to Change](/docs/ar-extract-aggregates-which-are-likely-to-change) architectural refactoring.
+[Extract Aggregates by Volatility](/docs/ar-extract-aggregates-by-volatility) architectural refactoring.
 
 The likelihood on an aggregate is declared as follows:
 

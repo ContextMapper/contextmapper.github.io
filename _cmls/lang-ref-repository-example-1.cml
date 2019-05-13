@@ -1,0 +1,23 @@
+Aggregate Location {
+  Entity Location {
+    aggregateRoot
+    
+    PortCode portcode
+    - UnLocode unLocode;
+    String name;
+    
+    Repository LocationRepository {
+      @Location find(@UnLocode unLocode);
+      List<@Location> findAll();
+    }
+  }
+  
+  ValueObject UnLocode {
+    String unLocode
+  }
+  
+  ValueObject LocationShared {
+    PortCode portCode
+    - Location location
+  }
+}

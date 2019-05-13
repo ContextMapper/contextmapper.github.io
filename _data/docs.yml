@@ -23,6 +23,7 @@
   - responsibility-layers
   - knowledge-level
   - aggregate
+  - tactic-ddd
 
 - title: Architectural Refactorings
   docs:
