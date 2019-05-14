@@ -60,6 +60,17 @@ The asymmetric relationships are represented by the following two types:
 * Upstream-Downstream (generic)
 * Customer-Supplier (a special form of an Upstream-Downstream relationship)
 
+<div class="alert alert-warning">
+<strong>Note:</strong> A customer-supplier relationship is an upstream-downstream relationship where the downstream priorities factor
+into upstream planning. The upstream team may succeed interdependently of the fate of the downstream team and therefore the needs of
+the downstream have to be addressed by the upstream. They interact as <strong>customer</strong> and <strong>supplier</strong>.
+A generic upstream-downstream relationship is not necessarily a customer-supplier relationship! (in CML you have to express this
+explicitely)  
+<br/><br/>
+The syntax for upstream-downstream relationships is explained below. For the syntax of customer-supplier relationships please
+visit <a href="/docs/customer-supplier/" class="alert-link">Customer/Supplier</a>.
+</div>
+
 For the symmetric relationships and their syntax please visit [Partnership](/docs/partnership/) and [Shared Kernel](/docs/shared-kernel/).
 
 Upstream-Downstream relationships can be defined with three different syntax variants, all illustrated with the examples below:
