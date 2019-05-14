@@ -5,8 +5,19 @@ permalink: /docs/customer-supplier/
 
 The Customer/Supplier pattern describes a relationship between two bounded contexts and is used on a [context map](/docs/context-map/) in CML.
 
-Note that according to our understanding of the patterns and our [semantic model](/docs/language-model/) the Customer/Supplier relationship is a special case of a Upstream/Downstream relationship.
-With the _Customer-Supplier_ keyword you always declare Customer/Supplier relationships. For 'generic' Upstream/Downstream relationships which are not Customer/Supplier relationships, use the _Upstream-Downstream_ keyword explained at [context map](/docs/context-map/).
+<div class="alert alert-warning">
+<strong>Note</strong> that according to our understanding of the patterns and our <a href="/docs/language-model/" class="alert-link">semantic model</a>
+the customer-supplier relationship is a special case of a upstream-downstream relationship. With the <strong>Customer-Supplier</strong> 
+keyword you always declare customer-supplier relationships. For 'generic' upstream-downstream relationships which are not 
+customer-supplier relationships, use the <strong>Upstream-Downstream</strong> keyword explained at <a href="/docs/context-map/" 
+class="alert-link">context map</a>.
+<br/><br/>
+A customer-supplier relationship is an upstream-downstream relationship where the downstream priorities factor
+into upstream planning. The upstream team may succeed interdependently of the fate of the downstream team and therefore the needs of
+the downstream have to be addressed by the upstream. They interact as <strong>customer</strong> and <strong>supplier</strong>.
+A generic upstream-downstream relationship is not necessarily a customer-supplier relationship! (in CML you have to express this
+explicitely)
+</div>
 
 ## Syntax
 Customer-Supplier relationships can be defined with three different syntax variants, all illustrated with the examples below:
