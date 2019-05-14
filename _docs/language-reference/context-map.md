@@ -124,6 +124,12 @@ Roles must always be specified behind the **U** (upstream) and the **D** (downst
 <div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 </pre></div>
 
+If you use the _Upstream-Downstream_ or _Downstream-Upstream_ keywords the roles are declared equivalently, but without the **D** and **U**:
+(note that it does not matter if you write a whitespace before or after the brackets, or both)
+
+<div class="highlight"><pre><span></span>VoyagePlanningContext[<span class="k">ACL</span>] <span class="k">Downstream-Upstream</span> [<span class="k">OHS</span>,<span class="k">PL</span>]LocationContext
+</pre></div>
+
 Upstream roles are given by the [Open Host Service (OHS)](/docs/open-host-service/) and 
 [Published Language (PL)](/docs/published-language/) patterns. Downstream roles are [Conformist (CF)](/docs/conformist/) and 
 [Anticorruption Layer (ACL)](/docs/anticorruption-layer/).

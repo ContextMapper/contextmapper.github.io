@@ -68,6 +68,12 @@ Within the brackets you can further specify the relationship roles such as Open 
 Roles must always be specified behind the **U**/**S** (upstream/supplier) and the **D**/**C** (downstream/customer) signs, as shown in the example above. 
 Within the body of the declaration it is possible to specify the implementation technology.
 
+If you use the _Customer-Supplier_ or _Supplier-Customer_ keyword instead of the arrows, the roles are declared equivalently, but without the **C**/**D** and **S**/**U**:
+(note that it does not matter if you write a whitespace before or after the brackets, or both)
+
+<div class="highlight"><pre><span></span>CustomerSelfServiceContext[<span class="k">ACL</span>] <span class="k">Customer-Supplier</span> [<span class="k">PL</span>]CustomerManagementContext
+</pre></div>
+
 Upstream roles are given by the [Open Host Service (OHS)](/docs/open-host-service/) and [Published Language (PL)](/docs/published-language/) patterns. 
 Downstream roles are [Conformist (CF)](/docs/conformist/) and [Anticorruption Layer (ACL)](/docs/anticorruption-layer/). 
 But have a look at the semantic rules below, to see what combinations are actually allowed.
