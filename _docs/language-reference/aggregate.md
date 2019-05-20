@@ -37,6 +37,10 @@ However, the following CML snippet illustrates an example of an aggregate to pro
 }
 </pre></div>
 
+<div class="alert alert-custom">
+<strong>Note:</strong> Aggregate names must be unique within the whole CML model.
+</div>
+
 Further examples can be found within our Github example repository [context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples).
 
 ## Aggregate Owner

@@ -35,6 +35,10 @@ The following example illustrates how a bounded context is defined in CML (synta
   }
 }
 </pre></div>
+
+<div class="alert alert-custom">
+<strong>Note:</strong> Bounded Context names must be unique within your CML model.
+</div>
  
 With the _implements_ keyword you specify which subdomain is implemented by this bounded context. See [Subdomain](/docs/subdomain/) to learn how subdomains are specified.
   
