@@ -98,7 +98,7 @@ IPA
 **Note:** This example has been generated from our [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example) 
 which you can find in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
-### Know Limitations
+### Known Limitations
 We are aware of the following generator issues, which may lead to [MDSL](https://socadk.github.io/MDSL/) results which do not compile:
  * If you use reserved keywords of the MDSL language as _Aggregate name_, _Bounded Context name_, _operation name_ or _data type name_
    in CML, the result may not be valid MDSL.
