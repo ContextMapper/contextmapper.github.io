@@ -20,10 +20,14 @@ Have a look at our [CML Reference - Introduction](/docs/language-reference/) pag
 Have a look at the page [Language Semantic Model](/docs/language-model/) which introduces the semantic model of our DSL and lists the implemented semantic checkers.
 
 ### Which transformations can I apply to my CML model?
-Currently you can generate Service Cutter input to get suggestion for service cuts or new bounded context, and you can generate UML (plantUML) diagrams out of your CML. The following pages explain how you can do that:
+Currently you can generate [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts providing assistance regarding how your
+system can be implemented in an (micro-)service-oriented architectural style, [Service Cutter](http://servicecutter.github.io/) input 
+to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams 
+out of your CML. The following pages explain the generators in detail:
 
+ * [Generate MDSL (Micro-)Service Contracts](/docs/mdsl/)
+ * [Generate PlantUML Diagrams](/docs/plant-uml/)
  * [Generate Service Cutter Input Files](/docs/service-cutter/)
- * [Generate plantUML Diagrams](/docs/plant-uml/)
 
 ### How can I refactor my CML model?
 The Context Mapper tool provides a set of architectural refactorings which you can apply to your model. Find more information and all
