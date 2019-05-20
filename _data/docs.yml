@@ -36,7 +36,8 @@
   - ar-merge-aggregates
   - ar-merge-bounded-contexts
 
-- title: User Guides
+- title: Generators
   docs:
-  - service-cutter
+  - mdsl
   - plant-uml
+  - service-cutter

@@ -205,6 +205,7 @@
 .alert-info       { @include alert-styles($alert-info-bg); }
 .alert-warning    { @include alert-styles($alert-warning-bg); }
 .alert-danger     { @include alert-styles($alert-danger-bg); }
+.alert-custom     { @include alert-styles($alert-custom-bg); }
 
 
 //

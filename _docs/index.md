@@ -106,15 +106,53 @@ The Context Mapper tool provides a series of architectural refactorings which al
 Find more information and the documentation of all available refactorings [here](/docs/architectural-refactorings).
 
 ### Transformations / Generators
-Context Mapper provides tools to transform CML models to [ServiceCutter input](https://servicecutter.github.io/) and [plantUML diagrams](http://plantuml.com/).
+Context Mapper provides tools to transform CML models to [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts,  
+[PlantUML diagrams](http://plantuml.com/) and [ServiceCutter input](https://servicecutter.github.io/).
 
-#### Service Cutter Integration
-Find out [here](/docs/service-cutter/) how to produce Service Cutter input to calculate possible service cuts or new bounded contexts:
+#### MDSL (Micro-)Service Contracts
+With our [MDSL](https://socadk.github.io/MDSL/) generator you can generate (micro-)service contracts out of your Context Maps.
+The resulting contracts illustrate how you can derive (micro-)services from strategic DDD context maps and aim for providing 
+assistance regarding how your system can be implemented in an (micro-)service-oriented architectural style.
 
-![Service Cutter DDD Sample](/img/service-cutter-ddd-sample.png)
+This is an example [MDSL](https://socadk.github.io/MDSL/) service contract for our 
+[insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example): 
+
+```
+API description CustomerManagementContextAPI
+
+data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string> }
+data type AddressId P
+data type changeCustomerParameter { "firstname":V<string>, "lastname":V<string> }
+
+endpoint type CustomersAggregate
+  exposes
+    operation createAddress
+      expecting
+        payload Address
+      delivering
+        payload AddressId
+    operation changeCustomer
+      expecting
+        payload changeCustomerParameter
+
+API provider CustomerManagementContextProvider
+  offers CustomersAggregate
+  at endpoint location "http://localhost:8001"
+    via protocol "RESTful HTTP"
+
+API client PolicyManagementContextClient
+  consumes CustomersAggregate
+API client CustomerSelfServiceContextClient
+  consumes CustomersAggregate
+
+IPA
+```
+
+Learn more about the [MDSL](https://socadk.github.io/MDSL/) generator [here](/docs/mdsl/).
 
 #### plantUML Diagrams
-You can generate [plantUML](http://plantuml.com/) component diagrams out of CML context maps. Additionally, the transformation generates class diagrams for all bounded contexts. [Here](/docs/plant-uml/) you can find out how to generate them.
+You can generate [plantUML](http://plantuml.com/) component diagrams out of CML context maps. Additionally, the transformation 
+generates class diagrams for all bounded contexts. [Here](/docs/plant-uml/) you can find out how to generate them.
 
 Example component diagram (DDD sample): 
 <img src="/img/plantuml-ddd-sample.png" alt="DDD Sample Component Diagram" width="400px">
@@ -122,6 +160,7 @@ Example component diagram (DDD sample):
 Example class diagram (Cargo booking context): 
 <img src="/img/plantuml-cargo-booking-context.png" alt="Cargo Booking Context" width="500px">
 
+#### Service Cutter Integration
+Find out [here](/docs/service-cutter/) how to produce Service Cutter input to calculate possible service cuts or new bounded contexts:
 
-
-
+![Service Cutter DDD Sample](/img/service-cutter-ddd-sample.png)

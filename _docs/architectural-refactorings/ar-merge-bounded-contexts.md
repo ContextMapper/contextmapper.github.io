@@ -16,12 +16,15 @@ This Architectural Refactoring (AR) merges two bounded contexts together. The re
 of the two input bounded contexts. It can be applied if two bounded context are tightly coupled and the aggregates somehow
 belong together. This may improve the cohesion within the resulting bounded context.
 
+**Notes:**
+ * By applying this AR multiple times you may end with one single Bounded Context and an empty Context Map (no relationships).
+
 **Inverse AR's:**
  * [AR-4: Extract Aggregates by Volatility](/docs/ar-extract-aggregates-by-volatility/)
  * [AR-5: Extract Aggregates by Cohesion](/docs/ar-extract-aggregates-by-cohesion/)
  * [AR-2: Split Bounded Context by Use Cases](/docs/ar-split-bounded-context-by-use-cases/) (may need multiple merges to completely revert)
  * [AR-3: Split Bounded Context by Owner](/docs/ar-split-bounded-context-by-owners/) (may need multiple merges to completely revert)
-
+ 
 ## Preconditions
  * Your model needs **at least two bounded contexts** to merge.
 
