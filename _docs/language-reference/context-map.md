@@ -60,7 +60,7 @@ The asymmetric relationships are represented by the following two types:
 * Upstream-Downstream (generic)
 * Customer-Supplier (a special form of an Upstream-Downstream relationship)
 
-<div class="alert alert-warning">
+<div class="alert alert-custom">
 <strong>Note:</strong> A customer-supplier relationship is an upstream-downstream relationship where the downstream priorities factor
 into upstream planning. The upstream team may succeed interdependently of the fate of the downstream team and therefore the needs of
 the downstream have to be addressed by the upstream. They interact as <strong>customer</strong> and <strong>supplier</strong>.

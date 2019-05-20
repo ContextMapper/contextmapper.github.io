@@ -5,7 +5,7 @@ permalink: /docs/customer-supplier/
 
 The Customer/Supplier pattern describes a relationship between two bounded contexts and is used on a [context map](/docs/context-map/) in CML.
 
-<div class="alert alert-warning">
+<div class="alert alert-custom">
 <strong>Note</strong> that according to our understanding of the patterns and our <a href="/docs/language-model/" class="alert-link">semantic model</a>
 the customer-supplier relationship is a special case of a upstream-downstream relationship. With the <strong>Customer-Supplier</strong> 
 keyword you always declare customer-supplier relationships. For 'generic' upstream-downstream relationships which are not 
