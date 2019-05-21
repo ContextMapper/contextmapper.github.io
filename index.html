@@ -11,15 +11,23 @@ image: /img/cm-notext.png
     </div>
 </div>
 
-
 <div class="container">
-
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="header-light regular-pad">
+        What is Context Mapper?
+      </h2>
+    </div>
+  </div>
     <div class="row">
         <div class="col-md-6">
-            <h2 class="header-light regular-pad">What is Context Mapper?</h2>
-	          <p class="lead">Context Mapper provides a DSL to create context maps based on <strong>Domain-driven Design (DDD)</strong> and its strategic patterns. DDD and its bounded contexts further provide an approach for <strong>decomposing a domain</strong>
-              into multiple bounded contexts. With our <strong><a href="https://servicecutter.github.io/">Service Cutter</a></strong> integration we illustrate how the Context Mapper DSL (CML) can be used
-	      as a foundation for <strong>structured service decomposition approaches</strong>. Additionally, our context maps can be transformed into <strong><a href="http://plantuml.com/">PlantUML</a></strong> diagrams.
+	          <p class="lead">
+              Context Mapper provides a DSL to create <strong>Context Maps</strong> based on strategic <strong>Domain-driven Design (DDD)</strong>. DDD with its Bounded Contexts offers an approach for
+              <strong>decomposing a domain or system</strong> into multiple independently deployable (micro-)services. With our <strong><a href="/docs/architectural-refactorings/">Architectural
+              Refactorings (ARs)</a></strong> we provide transformation tools to refactor and decompose a system in an iterative way. The tool further allows you to generate
+              <strong><a href="https://socadk.github.io/MDSL/">MDSL</a> (micro-)service contracts</strong> providing assistance regarding how your system can be implemented in an <strong>(micro-)service-oriented
+              architectural style</strong>. In addition, <strong><a href="http://plantuml.com/">PlantUML</a></strong> diagrams can be generated to transform the Context Maps into a <strong>graphical
+              representation</strong>. With <strong><a href="https://servicecutter.github.io/">Service Cutter</a></strong> you can generate suggestions for new services and Bounded Contexts.
 	          </p>
         </div>
         <div class="col-md-6 text-center">
@@ -31,28 +39,32 @@ image: /img/cm-notext.png
 
     <div class="row features">
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Domain-driven Design DSL</h3>
-          <p>Easy to understand, Xtext-based, <strong>DSL for context mapping</strong>. Start by installing our Eclipse Plugin using the <a href="https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/">update site</a>.
-              Checkout our <a href="/docs/home/">docs</a> and <a href="https://github.com/ContextMapper/context-mapper-examples" target="_blank">examples</a> for an introduction into our language.
-              <strong>Note:</strong> This project and the CML language is still work in progress. <a href="https://github.com/ContextMapper/context-mapper-dsl" target="_blank">Feedback an contributions</a> helping us to improve the language is very welcome!
-            </p>
+          <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
+          <h3 class="text-center">Context Mapping Language (CML)</h3>
+          <p>
+            CML is an easy to understand, Xtext-based, <strong>DSL for DDD context mapping</strong>. The language supports modeling the relationships between Bounded Contexts with the strategic DDD patterns.
+            The details of the Bounded Contexts with its Aggregates can be specified with the tactic DDD patterns. Checkout our <a href="/docs/home/">docs</a> and
+            <a href="https://github.com/ContextMapper/context-mapper-examples" target="_blank">examples</a> for an introduction into our language.
+          </p>
         </div>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fab fa-connectdevelop" aria-hidden="true"></i></h1>
-	    <h3 class="text-center">Service Decomposition with <a href="https://servicecutter.github.io/">Service Cutter</a></h3>
-          <p>Transform your CML models into <a href="https://servicecutter.github.io/">Service Cutter</a> input and evaluate the boundaries of your contexts to achieve <strong>high cohesion</strong> and <strong>loose coupling</strong> between your <strong>service boundaries</strong>.
-              <strong>Future work:</strong> Within our next projects we aim to propose other structured service decomposition approaches based on this DSL!
-            </p>
+          <h1 class="text-center"><i class="fab fa-connectdevelop" aria-hidden="true"></i></h1>
+          <h3 class="text-center">Service Decomposition with Architectural Refactorings</h3>
+          <p>
+            <strong>Decompose</strong> your systems architecture by applying <strong><a href="/docs/architectural-refactorings/">Architectural Refactorings (ARs)</a></strong> iteratively. By splitting and merging
+            Bounded Contexts or Aggregates, the <strong>coupling</strong> between your Bounded Contexts and the <strong>cohesion</strong> between them can be improved. The
+            <a href="https://servicecutter.github.io/">Service Cutter</a> tool can support the process by suggesting improved decompositions based on its <strong>
+            <a href="https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria">coupling criteria</a></strong> catalog.
+          </p>
         </div>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-project-diagram" aria-hidden="true"></i></h1>
-	    <h3 class="text-center">Generate <a href="http://plantuml.com/">plantUML</a> Diagrams</h3>
-          <p>Use your context map to <strong>generate UML</strong> component diagrams visualizing the relationships between your bounded contexts. Additionally you can generate UML class diagrams for all your bounded contexts.
-            Our Context Mapper DSL may be used to generate other <strong>graphical representations</strong> or code (for example <strong>microservice stubs</strong>) in the future.
+          <h1 class="text-center"><i class="fa fa-tools" aria-hidden="true"></i></h1>
+          <h3 class="text-center">Generators & Supporting Tools</h3>
+          <p>
+            Use your Context Map to generate <strong><a href="/docs/mdsl/">MDSL (micro-)service contracts</a></strong> providing assistance regarding how your system can be implemented
+            in an (micro-)service-oriented architectural style. With the <strong><a href="/docs/plant-uml/">PlantUML generator</a></strong> you can generate UML component and class diagrams of your system.
+            The <strong><a href="/docs/service-cutter/">Service Cutter generators</a></strong> support you in creating the input files for the <a href="https://servicecutter.github.io/">Service Cutter</a> tool.
           </p>
         </div>
     </div>
-
-
 </div>
