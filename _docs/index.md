@@ -11,9 +11,6 @@ bounded contexts. With our **[Service Cutter](https://servicecutter.github.io/)*
 the Context Mapper DSL (CML) can be used as a foundation for structured service decomposition approaches. 
 Additionally, our context maps can be transformed into **[PlantUML](http://plantuml.com/)** models (proof-of-concept).
 
-The Context Mapper project has been developed in a term project at [HSR](https://www.hsr.ch). You can find further background information 
-and details in the project report, **["A Domain-specific Language for Service Decomposition"](https://eprints.hsr.ch/722/)**.
-
 ## Getting started
 To start with Context Mapper install our Eclipse plugin by using the following update site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/).
 
