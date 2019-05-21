@@ -52,6 +52,11 @@ After triggering this refactoring, a dialog pops up on which you can choose by w
 
 <a href="/img/extract-aggregates-by-volatility-dialog.png">![Merge Bounded Contexts Example Dialog](/img/extract-aggregates-by-volatility-dialog.png)</a>
 
+<div class="alert alert-custom">
+<strong>Note</strong> that you can only select volatility values which at least occur once in your Bounded Context. The selection of 
+a value which does not occur would not extract anything.
+</div>
+
 ### Result
 The resulting model contains a new bounded context with the aggregate which is likely to change (OFTEN):
 

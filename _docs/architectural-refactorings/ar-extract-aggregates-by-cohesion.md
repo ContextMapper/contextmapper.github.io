@@ -46,6 +46,12 @@ which should be extracted:
 
 <a href="/img/extract-aggregates-by-cohesion-dialog.png">![Extract Aggregates by Cohesion Example Dialog](/img/extract-aggregates-by-cohesion-dialog.png)</a>
 
+<div class="alert alert-custom">
+<strong>Note</strong> that if you select all Aggregates within this dialog you end up with an empty Bounded Context, since everything is
+moved to a new Bounded Context. From our perspective selecting all Aggregates does therefore not make much sense. You can alternatively
+simply rename the existing Bounded Context.
+</div>
+
 ### Result
 The resulting model contains a new bounded context with the selected aggregates:
 
