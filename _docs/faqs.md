@@ -41,5 +41,5 @@ If you are interested in more details and all features, we refer to the [Sculpto
 ### I have other questions not listed here. How can I contribute?
 If you have any questions not answered by our documentation page, we are happy if you create an issue in our documentation [repo](https://github.com/ContextMapper/contextmapper.github.io/issues). Of course, PR's are always welcome as well.
 
-Your contribution is welcome!
+Your [contribution](/getting-involved/) is welcome!
 
