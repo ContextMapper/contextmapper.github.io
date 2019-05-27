@@ -20,7 +20,7 @@ and details about our projects in the papers listed below.
 **2018**
  * Stefan Kapferer: **[A Domain-specific Language for Service Decomposition](https://eprints.hsr.ch/722/)**, Student Research Project, [University of Applied Sciences of Eastern Switzerland (HSR FHO)](https://www.hsr.ch)
    * Term project on which the Context Mapping Language (CML) is based on.
- * Stefan Kapferer: **[Model Transformations for DSL Processing](https://github.com/stefan-ka/papers-and-publications/raw/master/model-transformations-for-dsl-processing/HS18_SKapferer_Model-Transformations-for-DSL-Processing-Paper.pdf)**,
+ * Stefan Kapferer: **[Model Transformations for DSL Processing](https://stefan.kapferer.ch/model-transformations-for-dsl-processing)**,
    Seminar Paper, [University of Applied Sciences of Eastern Switzerland (HSR FHO)](https://www.hsr.ch)
      * _Proof of concept_ for [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) based on [Henshin](https://www.eclipse.org/henshin/).
      * [Presentation Slides](https://github.com/stefan-ka/papers-and-publications/raw/master/model-transformations-for-dsl-processing/HS18_SKapferer_Model-Transformations-for-DSL-Processing-Presentation.pdf)
