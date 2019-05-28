@@ -19,7 +19,7 @@ belong together. This may improve the cohesion within the resulting bounded cont
 **Notes:**
  * By applying this AR multiple times you may end with one single Bounded Context and an empty Context Map (no relationships).
  * The AR merges all Bounded Context attributes (such as _exposed aggregates_, _implementation technology_, etc.) which are possible
-   to merge. However, there are still attributes which cannot be merged, such as the _name_ or the _domain vision statement_.
+   to merge. However, there are still attributes which cannot be merged (such as the _name_ or the _domain vision statement_).
     * All attributes which cannot be merged are taken from the first Bounded Context (by default) selected in the dialog 
       (see screenshot below).
     * You have to use the corresponding checkbox on the input dialog, if you want to take the attributes from the second Bounded Context.

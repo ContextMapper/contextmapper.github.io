@@ -109,7 +109,7 @@ Context Mapper provides tools to transform CML models to [MDSL](https://socadk.g
 #### MDSL (Micro-)Service Contracts
 With our [MDSL](https://socadk.github.io/MDSL/) generator you can generate (micro-)service contracts out of your Context Maps.
 The resulting contracts illustrate how you can derive (micro-)services from strategic DDD context maps and aim for providing 
-assistance regarding how your system can be implemented in an (micro-)service-oriented architectural style.
+assistance regarding how your system can be implemented in an (micro-)service-oriented architecture.
 
 This is an example [MDSL](https://socadk.github.io/MDSL/) service contract for our 
 [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example): 

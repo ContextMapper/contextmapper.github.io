@@ -5,12 +5,12 @@ permalink: /docs/mdsl/
 
 ## Introduction and Motivation
 The [Microservices Domain Specific Language (MDSL)](https://socadk.github.io/MDSL/) is a DSL to specify (micro-)service contracts 
-and data representations realizing API Description patterns from [Microservice API Patterns (MAP)](https://microservice-api-patterns.org/).
+and data representations realizing the API Description pattern from [Microservice API Patterns (MAP)](https://microservice-api-patterns.org/).
 
-With our [MDSL](https://socadk.github.io/MDSL/) generator you can automatically produce (micro-)service contracts out of you strategic
+With our [MDSL](https://socadk.github.io/MDSL/) generator you can automatically produce (micro-)service contracts out of your strategic
 DDD context map written in CML. The generator creates the contracts according to the following mapping, which reflects our proposal
 how we would derive (micro-)services from models based on strategic DDD. The generator aims for providing assistance regarding how your
-system can be implemented in an (micro-)service-oriented architectural style.
+system can be implemented in an (micro-)service-oriented architecture.
 
 ### Generator Mapping
 
