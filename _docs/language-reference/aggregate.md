@@ -5,7 +5,7 @@ permalink: /docs/aggregate/
 
 The Aggregate pattern implementation from [Sculptor](http://sculptorgenerator.org/) has been adapted within CML to represent it with a 
 separate grammar rule. For a short introduction to the syntax of the other tactic DDD patterns, please have a look at [Tactic DDD Syntax](/docs/tactic-ddd/). 
-For more details, we refer to the [Sculptor project](http://sculptorgenerator.org/) and their [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+For more details, we refer to the [Sculptor project](http://sculptorgenerator.org/) and its [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
 
 ## Syntax
 The aggregate supports the [Responsibility Layers](/docs/responsibility-layers/) pattern and the [Knowledge Level](/docs/knowledge-level) pattern. 

@@ -21,7 +21,7 @@ Have a look at the page [Language Semantic Model](/docs/language-model/) which i
 
 ### Which transformations can I apply to my CML model?
 Currently you can generate [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts providing assistance regarding how your
-system can be implemented in an (micro-)service-oriented architectural style, [Service Cutter](http://servicecutter.github.io/) input 
+system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input 
 to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams 
 out of your CML. The following pages explain the generators in detail:
 

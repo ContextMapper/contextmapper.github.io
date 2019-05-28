@@ -5,8 +5,8 @@ permalink: /getting-involved/
 sectionid: "getting-involved"
 ---
 
-As an open source project, we are happy to welcome new contributors offering their support to make Context Mapper better. 
-To get involved with Context Mapper, you have the following options:
+As an open source project, we are happy to welcome new contributors who want to help improve Context Mapper. 
+To get involved with Context Mapper consider the following options:
 
 ## Contribute bug reports or feature requests
 Use GitHub issues to report bugs or feature requests in our repositories:
