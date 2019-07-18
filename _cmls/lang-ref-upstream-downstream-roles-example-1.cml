@@ -1,1 +1,1 @@
-VoyagePlanningContext [D,ACL]->[U,OHS,PL] LocationContext
+VoyagePlanningContext [D,ACL]<-[U,OHS,PL] LocationContext

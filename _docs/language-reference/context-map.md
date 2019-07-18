@@ -121,7 +121,7 @@ However, with this syntax it is maybe not explicitly clear for a reader that you
 Within the brackets you can further specify the relationship roles such as Open Host Service (OHS) or Anti-Corruption Layer (ACL).
 Roles must always be specified behind the **U** (upstream) and the **D** (downstream). 
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 </pre></div>
 
 If you use the _Upstream-Downstream_ or _Downstream-Upstream_ keywords the roles are declared equivalently, but without the **D** and **U**:
@@ -143,7 +143,7 @@ By using brackets {}, you can specify further attributes for a relationship. Cur
 
 #### Implementation Technology
 Within the body of the declaration it is possible to specify the implementation technology used to realize this relationship:
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
     <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
 }
 </pre></div>
@@ -151,7 +151,7 @@ Within the body of the declaration it is possible to specify the implementation 
 #### Downstream Governance Rights
 With the attribute _downstreamRights_ you can define which governance rights, and therefore which influence, the downstream has on the upstream within the specified relationship:
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
     <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
     <span class="k">downstreamRights</span> = <span class="k">VETO_RIGHT</span>
 }
@@ -170,7 +170,7 @@ The _exposedAggregates_ attribute offers the possibility to declare which [Aggre
 in order to realize this relationship. The attribute takes a comma separated list of references to aggregates. The referenced aggregates must
 be part of the upstream context of the relationship.
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]-&gt;[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
     <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
     <span class="k">downstreamRights</span> = <span class="k">VETO_RIGHT</span>
     <span class="k">exposedAggregates</span> = Customers, Addresses
