@@ -1,4 +1,4 @@
-VoyagePlanningContext [D,ACL]->[U,OHS,PL] LocationContext {
+VoyagePlanningContext [D,ACL]<-[U,OHS,PL] LocationContext {
     implementationTechnology = "RESTful HTTP"
     downstreamRights = VETO_RIGHT
     exposedAggregates = Customers, Addresses
