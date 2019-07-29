@@ -12,9 +12,13 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2019**
+ * Olaf Zimmermann & Stefan Kapferer: **[Context Mapper: DSL and Tools for Domain-Driven Service Design](https://www.jug.ch/html/events/2019/context_mapper.html)** - _Bounded Context Modeling and Microservice Decomposition_,
+   talk at [Java User Group Switzerland](https://www.jug.ch) in St. Gallen (September 2019)
+     * [Talk abstract](https://www.jug.ch/html/events/2019/context_mapper.html)
  * Olaf Zimmermann: **[Domain-Specific Service Decomposition with Microservices API Patterns](https://www.conf-micro.services/2019/slides//keynotes/Zimmerman.pdf)**,
    keynote slides mentioning Context Mapper, [Microservices Conference 2019](https://www.conf-micro.services/2019/)
      * [Keynote abstract](https://www.conf-micro.services/2019/keynotes/#domain-specific-service-decomposition-with-microservices-api-patterns)
+     * [Slides](https://www.conf-micro.services/2019/slides//keynotes/Zimmerman.pdf)
      * [Microservice API Patterns Website](https://microservice-api-patterns.org/)
 
 **2018**
