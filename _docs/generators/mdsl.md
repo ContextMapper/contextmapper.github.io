@@ -127,5 +127,5 @@ files with a text editor only (no syntax highlighting and editor support availab
 </div>
 
 ## MDSL Support
-For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
+The current version of our MDSL generator is compatible with the MDSL version _v1.0_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
 or contact Olaf Zimmermann.
