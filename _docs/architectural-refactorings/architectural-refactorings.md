@@ -1,6 +1,7 @@
 ---
 title: Architectural Refactorings
 permalink: /docs/architectural-refactorings/
+image: /img/cm-notext.png
 ---
 
 Within this section, we provide a documentation of all architectural refactorings (ARs) available in the Context Mapper tool.
