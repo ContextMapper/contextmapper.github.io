@@ -12,6 +12,9 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2019**
+ * Stefan Kapferer: **Service Decomposition as a Series of Architectural Refactorings**, student research project
+     * **Term project on which the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) of Context Mapper are based on.**
+     * Publication of project report coming soon.
  * Olaf Zimmermann & Stefan Kapferer: **[Context Mapper: DSL and Tools for Domain-Driven Service Design](https://www.jug.ch/html/events/2019/context_mapper.html)** - _Bounded Context Modeling and Microservice Decomposition_,
    talk at [Java User Group Switzerland](https://www.jug.ch) in St. Gallen (September 2019)
      * [Talk abstract](https://www.jug.ch/html/events/2019/context_mapper.html)
