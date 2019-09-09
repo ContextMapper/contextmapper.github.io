@@ -12,9 +12,11 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2019**
- * Stefan Kapferer: **Service Decomposition as a Series of Architectural Refactorings**, student research project
-     * **Term project on which the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) of Context Mapper are based on.**
-     * Publication of project report coming soon.
+ * Stefan Kapferer: **[Service Decomposition as a Series of Architectural Refactorings](https://eprints.hsr.ch/784/)**, student research project
+     * **Term project on which the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) and the [MDSL generator](/docs/mdsl/) of Context Mapper are based on.**
+        * (see [Microservices Domain-Specific Language (MDSL)](https://socadk.github.io/MDSL/) for language details on MDSL)
+     * [Project report](https://eprints.hsr.ch/784/)
+     * [Abstract](/media/FS19-MSE-Stefan-Kapferer-Service-Decomposition-Architectural-Refactorings-Abstract.pdf)
  * Olaf Zimmermann & Stefan Kapferer: **[Context Mapper: DSL and Tools for Domain-Driven Service Design](https://www.jug.ch/html/events/2019/context_mapper.html)** - _Bounded Context Modeling and Microservice Decomposition_,
    talk at [Java User Group Switzerland](https://www.jug.ch) in St. Gallen (September 2019)
      * [Talk abstract](https://www.jug.ch/html/events/2019/context_mapper.html)
@@ -27,6 +29,8 @@ and details about our projects in the papers listed below.
 **2018**
  * Stefan Kapferer: **[A Domain-specific Language for Service Decomposition](https://eprints.hsr.ch/722/)**, student research project
    * **Term project on which the Context Mapping Language (CML) is based on.**
+   * [Project report](https://eprints.hsr.ch/722/)
+   * [Abstract](/media/HS18-MSE-Stefan-Kapferer-A-DSL-for-Service-Decomposition-Abstract.pdf)
  * Stefan Kapferer: **[Model Transformations for DSL Processing](https://stefan.kapferer.ch/model-transformations-for-dsl-processing)**,
    seminar paper
      * _Proof of concept_ for [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) based on [Henshin](https://www.eclipse.org/henshin/).
@@ -46,7 +50,7 @@ and details about our projects in the papers listed below.
  * Eric Evans: [Domain-Driven Design: Tackling Complexity in the Heart of Software](http://dddcommunity.org/book/evans_2003/), Addison-Wesley, 2003
  * Eric Evans: [DDD Reference](http://domainlanguage.com/ddd/reference/)
 
-Find more DDD-related links [here](https://www.ifs.hsr.ch/index.php?id=15666&L=4de%2Fshops%2F2164%2F004) (Olaf Zimmermann<sup>[1](#hsr)</sup>, Institute for Software, HSR).
+Find more DDD-related links [here](https://www.ifs.hsr.ch/index.php?id=15666&L=4de%2Fshops%2F2164%2F004) (Olaf Zimmermann, Institute for Software, HSR).
 
 ## Other Resources
  * [Context Mapper Example Models](https://github.com/ContextMapper/context-mapper-examples)
