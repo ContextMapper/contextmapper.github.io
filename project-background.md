@@ -13,15 +13,15 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2019**
+ * Stefan Kapferer & Olaf Zimmermann: **[Context Mapper: DSL and Tools for Domain-Driven Service Design](https://www.jug.ch/html/events/2019/context_mapper.html)** - _Bounded Context Modeling and Microservice Decomposition_,
+   talk at [Java User Group Switzerland](https://www.jug.ch) in St. Gallen (September 10, 2019)
+     * [Talk abstract](https://www.jug.ch/html/events/2019/context_mapper.html)
+     * [Slides](/media/ZIOSK-ContextMapper4JUGv10p.pdf)
  * Stefan Kapferer: **[Service Decomposition as a Series of Architectural Refactorings](https://eprints.hsr.ch/784/)**, student research project
      * **Term project on which the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) and the [MDSL generator](/docs/mdsl/) of Context Mapper are based on.**
         * (see [Microservices Domain-Specific Language (MDSL)](https://socadk.github.io/MDSL/) for language details on MDSL)
      * [Project report](https://eprints.hsr.ch/784/)
      * [Abstract](/media/FS19-MSE-Stefan-Kapferer-Service-Decomposition-Architectural-Refactorings-Abstract.pdf)
- * Stefan Kapferer & Olaf Zimmermann: **[Context Mapper: DSL and Tools for Domain-Driven Service Design](https://www.jug.ch/html/events/2019/context_mapper.html)** - _Bounded Context Modeling and Microservice Decomposition_,
-   talk at [Java User Group Switzerland](https://www.jug.ch) in St. Gallen (September 10, 2019)
-     * [Talk abstract](https://www.jug.ch/html/events/2019/context_mapper.html)
-     * [Slides](/media/ZIOSK-ContextMapper4JUGv10p.pdf)
  * Olaf Zimmermann: **[Domain-Specific Service Decomposition with Microservices API Patterns](https://www.conf-micro.services/2019/slides//keynotes/Zimmerman.pdf)**,
    keynote slides mentioning Context Mapper, [Microservices Conference 2019](https://www.conf-micro.services/2019/)
      * [Keynote abstract](https://www.conf-micro.services/2019/keynotes/#domain-specific-service-decomposition-with-microservices-api-patterns)
