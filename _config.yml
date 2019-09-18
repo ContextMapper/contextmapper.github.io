@@ -13,7 +13,7 @@ git_edit_address: https://github.com/ContextMapper/contextmapper.github.io/blob/
 
 # social
 twitter:
-  card: "summary"
+  card: "summary_large_image"
 
 # theme options from https://bootswatch.com/
 # comment out this to use default Bootstrap
