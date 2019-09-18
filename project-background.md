@@ -3,7 +3,7 @@ layout: page
 title: "Project Background & Paper Links"
 permalink: /background-and-publications/
 sectionid: "project-background"
-image: /img/cm-notext.png
+image: /img/cm-og-image.png
 ---
 
 The Context Mapper project has been developed as part of term projects at the 
