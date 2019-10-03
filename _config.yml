@@ -7,7 +7,7 @@ lang: en-US
 logo: /img/cm.png
 
 baseurl: ""
-url: https://contextmapper.github.io # the base hostname & protocol for your site
+url: https://contextmapper.org # the base hostname & protocol for your site
 git_address: https://github.com/ContextMapper
 git_edit_address: https://github.com/ContextMapper/contextmapper.github.io/blob/master
 
