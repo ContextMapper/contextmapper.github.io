@@ -45,3 +45,9 @@ With the _domainVisionStatement_ keyword you can specify the vision statement fo
 In order to provide further details about your subdomain and which domain objects are part of it, you can use entities within a subdomain. Note that the used _Entity_ rule is integrated from the [Sculptor DSL](http://sculptorgenerator.org/). 
 For more details about the features and possibilities of this Entity rule, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
 An example of a simple entity with attributes is illustrated above.
+
+<div class="alert alert-custom">
+<strong>Note</strong> that only entities can be used within the subdomains. It is not possible to use <a href="/docs/aggregate/">Aggregates</a> or other
+tactic DDD concepts within them. The entities within subdomains are only used for business modeling purposes and not respected by the generator tools. Generators
+respect the domain model within Bounded Contexts.
+</div>
