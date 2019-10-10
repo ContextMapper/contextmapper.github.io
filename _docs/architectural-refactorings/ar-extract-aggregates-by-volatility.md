@@ -39,7 +39,7 @@ aggregates which have different likelihoods for change.
  
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
-[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings).
+[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings).
 
 ### Input
 The bounded context in this example contains one aggregate which changes OFTEN, whereas the other aggregates have a _likelihood for change_
@@ -64,4 +64,4 @@ The resulting model contains a new bounded context with the aggregate which is l
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings/AR-4-Extract-Aggregates-by-Volatility).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-4-Extract-Aggregates-by-Volatility).

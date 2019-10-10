@@ -39,7 +39,7 @@ entities.
 
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
-[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings).
+[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings).
 
 ### Input
 In this example we have an aggregate containing two entities. The AR is available on the aggregate:
@@ -53,4 +53,4 @@ The resulting bounded context contains two aggregates, one for each entity:
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings/AR-1-Split-Aggregate-by-Entities).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-1-Split-Aggregate-by-Entities).

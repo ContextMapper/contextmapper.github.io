@@ -32,7 +32,7 @@ We currently provide the following ARs:
 
 ## Examples
 Within our [examples repository](https://github.com/ContextMapper/context-mapper-examples) you can find [input and corresponding 
-output examples](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings) 
+output examples](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings) 
 for all ARs listed above.
 
 ## How to apply Architectural Refactorings (ARs)

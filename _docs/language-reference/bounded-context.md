@@ -7,7 +7,7 @@ Bounded contexts are defined on the root level of a CML (*.cml) file and then re
 Have a look at [context map](/docs/context-map/) to see how you add a bounded context to your context map. 
 
 ## Syntax
-The following example illustrates how a bounded context is defined in CML (syntactical features). The **Customer Management** context is a context within our fictitious insurance company example. The whole example with the context map and all bounded contexts can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example).
+The following example illustrates how a bounded context is defined in CML (syntactical features). The **Customer Management** context is a context within our fictitious insurance company example. The whole example with the context map and all bounded contexts can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example).
 
 <div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext <span class="k">implements</span> CustomerManagementDomain {
   <span class="k">type</span> = <span class="k">FEATURE</span>
@@ -53,7 +53,7 @@ With the _type_ keyword you define the bounded contexts type, which can be one o
  * TEAM
  
 The type provides an indicator for which reason a bounded context may have been evolved. It further allows you to specify from which viewpoint you describe your bounded contexts.
-For example you may want to create a team map, within which every bounded context reflects a team, inspired by [Brandolini](https://www.infoq.com/articles/ddd-contextmapping). A team map further allows you to specify which team is implementing which bounded contexts. Note that the context map type must be ORGANIZATIONAL to specify a team map. The corresponding syntax is described under [context map](/docs/context-map) and an example for a team map can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example).
+For example you may want to create a team map, within which every bounded context reflects a team, inspired by [Brandolini](https://www.infoq.com/articles/ddd-contextmapping). A team map further allows you to specify which team is implementing which bounded contexts. Note that the context map type must be ORGANIZATIONAL to specify a team map. The corresponding syntax is described under [context map](/docs/context-map) and an example for a team map can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example).
 
 ### Domain Vision Statement
 With the _domainVisionStatement_ keyword you can describe the vision statement of your bounded context, according to the DDD Domain Vision Statment pattern.

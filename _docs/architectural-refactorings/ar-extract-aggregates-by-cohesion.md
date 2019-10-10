@@ -33,7 +33,7 @@ an individual criterion.
  
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
-[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings).
+[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings).
 
 ### Input
 The bounded context in the example contains multiple aggregates. The AR is available on this bounded context:
@@ -59,4 +59,4 @@ The resulting model contains a new bounded context with the selected aggregates:
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings/AR-5-Extract-Aggregates-by-Cohesion).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-5-Extract-Aggregates-by-Cohesion).

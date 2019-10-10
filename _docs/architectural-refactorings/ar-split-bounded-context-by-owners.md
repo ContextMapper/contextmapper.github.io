@@ -42,7 +42,7 @@ aggregates which are owned by different teams.
  
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
-[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings).
+[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings).
 
 ### Input
 The examples bounded context contains two aggregates which belong to different teams. The AR is available on the bounded context:
@@ -56,4 +56,4 @@ The resulting model contains two bounded context, one for each team:
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings/AR-3-Split-Bounded-Context-by-Owner).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-3-Split-Bounded-Context-by-Owner).

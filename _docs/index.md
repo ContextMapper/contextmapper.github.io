@@ -112,7 +112,7 @@ The resulting contracts illustrate how you can derive (micro-)services from stra
 assistance regarding how your system can be implemented in an (micro-)service-oriented architecture.
 
 This is an example [MDSL](https://socadk.github.io/MDSL/) service contract for our 
-[insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example): 
+[insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example): 
 
 ```
 API description CustomerManagementContextAPI

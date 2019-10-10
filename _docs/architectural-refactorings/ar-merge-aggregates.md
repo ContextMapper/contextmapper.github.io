@@ -49,7 +49,7 @@ coupling and cohesion.
  
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
-[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings).
+[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings).
 
 ### Input
 The following bounded context contains two aggregates. The AR is available on both of these aggregates:
@@ -74,4 +74,4 @@ The resulting bounded context contains only one aggregate containing all entitie
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings/AR-6-Merge-Aggregates).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-6-Merge-Aggregates).

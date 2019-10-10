@@ -8,7 +8,7 @@ A context map contains bounded contexts and defines their relationships.
 
 ## Syntax
 
-The following CML code snippet illustrates an example for a context map, according to our customized [DDD Sample](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/ddd-sample).
+The following CML code snippet illustrates an example for a context map, according to our customized [DDD Sample](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/ddd-sample).
 With the _contains_ keyword you add a bounded context to the map.
 
 <div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
@@ -42,7 +42,7 @@ A context map can be of one of the following **types**:
 * SYSTEM_LANDSCAPE
 * ORGANIZATIONAL
 
-While a SYSTEM_LANDSCAPE represents the typical context map with the relationships between bounded contexts, an ORGANIZATIONAL map (or 'team map') illustrates the relationships between teams. An example for such a team map can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example).
+While a SYSTEM_LANDSCAPE represents the typical context map with the relationships between bounded contexts, an ORGANIZATIONAL map (or 'team map') illustrates the relationships between teams. An example for such a team map can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example).
 
 The **state** attribute accepts the following two values, expressing if the given context map represents the current or the desired state:
 

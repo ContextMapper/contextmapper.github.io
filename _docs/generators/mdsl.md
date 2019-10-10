@@ -95,7 +95,7 @@ API client CustomerSelfServiceContextClient
 
 IPA
 ```
-**Note:** This example has been generated from our [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/insurance-example) 
+**Note:** This example has been generated from our [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example) 
 which you can find in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
 ### Known Limitations

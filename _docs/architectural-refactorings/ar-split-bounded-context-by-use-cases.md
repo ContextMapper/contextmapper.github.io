@@ -41,7 +41,7 @@ are used by multiple different use cases.
 
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
-[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings).
+[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings).
 
 ### Input
 The example bounded context contains two aggregates which are used by different use cases. The AR is available on the bounded context:
@@ -55,4 +55,4 @@ The resulting model contains two bounded contexts, one for each use case:
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings/AR-2-Split-Bounded-Context-by-Use-Cases).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-2-Split-Bounded-Context-by-Use-Cases).

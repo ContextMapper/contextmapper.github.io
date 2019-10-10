@@ -41,7 +41,7 @@ belong together. This may improve the cohesion within the resulting bounded cont
  
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
-[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings).
+[examples repository](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings).
 
 ### Input
 The following model contains two bounded contexts with one aggregate each. Therefore the AR is available on both bounded contexts:
@@ -66,4 +66,4 @@ The resulting model contains one bounded context with both aggregates of the sel
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/resources/architectural-refactorings/AR-7-Merge-Bounded-Contexts).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-7-Merge-Bounded-Contexts).
