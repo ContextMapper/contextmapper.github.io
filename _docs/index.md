@@ -15,7 +15,7 @@ Additionally, our context maps can be transformed into **[PlantUML](http://plant
 To start with Context Mapper install our Eclipse plugin by using the following update site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/).
 
 ### System Requirements
-To use the ContextMapper DSL you need the following tools:
+To use the ContextMapper DSL Eclipse plugin you need the following tools:
 
 * [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 8 or newer)
 * [Eclipse](https://www.eclipse.org/downloads/packages/)
@@ -25,6 +25,8 @@ To use the ContextMapper DSL you need the following tools:
     * [PlantUML Eclipse Plugin](https://github.com/hallvard/plantuml) (Update site: [http://hallvard.github.io/plantuml/](http://hallvard.github.io/plantuml/))
     * **Note:** Both plugins require [Graphviz](http://www.graphviz.org/) to be installed on your machine!
     * Alternatively you can use the [plantUML online server](http://www.plantuml.com/plantuml/uml).
+
+**Note**: If you want to integrate the DSL and its tools as library within your application, find more information [here](/docs/library/).
 
 ### CML Models
 As soon as you have installed our Eclipse plugin, you can start creating context maps. Start with a new context map by creating a file 
@@ -149,7 +151,8 @@ Learn more about the [MDSL](https://socadk.github.io/MDSL/) generator [here](/do
 
 #### plantUML Diagrams
 You can generate [plantUML](http://plantuml.com/) component diagrams out of CML context maps. Additionally, the transformation 
-generates class diagrams for all bounded contexts. [Here](/docs/plant-uml/) you can find out how to generate them.
+generates class diagrams for all bounded contexts. If the implemented subdomains contain entities, the generator produces class diagrams
+for these subdomains as well. [Here](/docs/plant-uml/) you can find out how to generate them.
 
 Example component diagram (DDD sample): 
 <img src="/img/plantuml-ddd-sample.png" alt="DDD Sample Component Diagram" width="400px">

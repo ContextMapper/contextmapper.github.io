@@ -13,9 +13,9 @@ The following example illustrates how a bounded context is defined in CML (synta
   <span class="k">type</span> = <span class="k">FEATURE</span>
   <span class="k">domainVisionStatement</span> = <span class="s">&quot;The customer management context is responsible for ...&quot;</span>
   <span class="k">implementationTechnology</span> = <span class="s">&quot;Java, JEE Application&quot;</span>
-  <span class="k">responsibilities</span> = Customers, Addresses { <span class="s">&quot;The addresses of a customer&quot;</span> }
+  <span class="k">responsibilities</span> = <span class="s">&quot;Customers&quot;</span>, <span class="s">&quot;Addresses&quot;</span>
   <span class="k">knowledgeLevel</span> = <span class="k">CONCRETE</span>
-  
+
   <span class="k">Module</span> addresses {
     <span class="k">Aggregate</span> Addresses {
       <span class="k">Entity</span> Address {
@@ -24,9 +24,9 @@ The following example illustrates how a bounded context is defined in CML (synta
     }
   }
   <span class="k">Aggregate</span> Customers {
-    <span class="k">Entity</span> Customer { 
+    <span class="k">Entity</span> Customer {
       <span class="k">aggregateRoot</span>
-      
+
       - <span class="k">SocialInsuranceNumber</span> sin
       <span class="k">String</span> firstname
       <span class="k">String</span> lastname
@@ -40,9 +40,25 @@ The following example illustrates how a bounded context is defined in CML (synta
 <strong>Note:</strong> Bounded Context names must be unique within your CML model.
 </div>
  
-With the _implements_ keyword you specify which subdomain is implemented by this bounded context. See [Subdomain](/docs/subdomain/) to learn how subdomains are specified.
+With the **implements** keyword you specify which domain or subdomains are implemented by this bounded context. After the **implements**
+keyword you can either reference a list of subdomains (comma-separated) or one complete domain. See [Subdomain](/docs/subdomain/) to 
+learn how subdomains are specified.
+
+The equal sign (=) to assign attribute values is optional and can be omitted. Attribute values are then assigned as follows:
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> ContextMapperTool <span class="k">refines</span> StrategicDomainDrivenDesignContext {
+  <span class="k">type</span> <span class="k">FEATURE</span>
+  <span class="k">domainVisionStatement</span> <span class="s">&quot;Context Mapper provides a formal way to model strategic DDD Context Maps.&quot;</span>
+  <span class="k">implementationTechnology</span> <span class="s">&quot;Java, Eclipse&quot;</span>
+}
+</pre></div>
+
+The example above further shows how you can refine another bounded context with the **refines** keyword. This feature allows you to create
+some kind of an inheritance hierarchy in case one bounded context can be seen as a refinement of another bounded context. However, note
+that this is only a modeling information and generators do not recursively resolve the domain model (Aggregates, etc.) of refined 
+bounded contexts.
+ 
   
-Note that all of the following attributes are **optional** and you do not have to specify them all. 
+All of the following attributes are **optional** and you do not have to specify them all. 
  
 ### Bounded Context Type
 With the _type_ keyword you define the bounded contexts type, which can be one of the following:
@@ -52,8 +68,12 @@ With the _type_ keyword you define the bounded contexts type, which can be one o
  * SYSTEM
  * TEAM
  
-The type provides an indicator for which reason a bounded context may have been evolved. It further allows you to specify from which viewpoint you describe your bounded contexts.
-For example you may want to create a team map, within which every bounded context reflects a team, inspired by [Brandolini](https://www.infoq.com/articles/ddd-contextmapping). A team map further allows you to specify which team is implementing which bounded contexts. Note that the context map type must be ORGANIZATIONAL to specify a team map. The corresponding syntax is described under [context map](/docs/context-map) and an example for a team map can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example).
+The type provides an indicator for which reason a bounded context may have been evolved. It further allows you to specify from which 
+viewpoint you describe your bounded contexts. For example you may want to create a team map, within which every bounded context reflects 
+a team, inspired by [Brandolini](https://www.infoq.com/articles/ddd-contextmapping). A team map further allows you to specify which team 
+is implementing which bounded contexts. Note that the context map type must be ORGANIZATIONAL to specify a team map. The corresponding 
+syntax is described under [context map](/docs/context-map) and an example for a team map can be found 
+[here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example).
 
 ### Domain Vision Statement
 With the _domainVisionStatement_ keyword you can describe the vision statement of your bounded context, according to the DDD Domain Vision Statment pattern.

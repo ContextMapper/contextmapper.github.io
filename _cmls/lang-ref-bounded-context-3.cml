@@ -1,0 +1,5 @@
+BoundedContext ContextMapperTool refines StrategicDomainDrivenDesignContext {
+  type FEATURE
+  domainVisionStatement "Context Mapper provides a formal way to model strategic DDD Context Maps."
+  implementationTechnology "Java, Eclipse"
+}

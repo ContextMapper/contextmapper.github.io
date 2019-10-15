@@ -14,21 +14,21 @@ which are not further introduced here. The according rules are defined by the [S
 However, the following CML snippet illustrates an example of an aggregate to provide an impression how the rule can be used.
 
 <div class="highlight"><pre><span></span><span class="k">Aggregate</span> Contract {
-  <span class="k">responsibilities</span> = Contracts, Policies
+  <span class="k">responsibilities</span> = <span class="s">&quot;Contracts&quot;</span>, <span class="s">&quot;Policies&quot;</span>
   <span class="k">knowledgeLevel</span> = <span class="k">CONCRETE</span>
-  
+
   <span class="k">Entity</span> Contract {
     <span class="k">aggregateRoot</span>
-    
+
     - <span class="k">ContractId</span> identifier
     - <span class="k">Customer</span> client
     - <span class="k">List&lt;Product&gt;</span> products
   }
-  
+
   <span class="k">ValueObject</span> ContractId {
     <span class="k">int</span> contractId <span class="k">key</span>
   }
-  
+
   <span class="k">Entity</span> Policy {
     <span class="k">int</span> policyNr
     - <span class="k">Contract</span> contract
@@ -36,6 +36,7 @@ However, the following CML snippet illustrates an example of an aggregate to pro
   }
 }
 </pre></div>
+The equal sign (=) to assign an attribute value is always optional and can be omitted.
 
 <div class="alert alert-custom">
 <strong>Note:</strong> Aggregate names must be unique within the whole CML model.

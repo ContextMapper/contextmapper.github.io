@@ -5,9 +5,10 @@ permalink: /docs/plant-uml/
 
 ## Introduction and Motivation
 The [PlantUML](http://plantuml.com/) tool allows to quickly write UML diagrams. With our PlantUML generator you can generate a UML component
-diagram and class diagrams for every Bounded Context of your model. Thereby we offer a transformation from our DSL into a graphical 
-representation of the system. The component diagram illustrates all Bounded Contexts and their relationships. The generator further
-produces one class diagram for every Bounded Context, if you use the [Tactic DDD Syntax](/docs/tactic-ddd/) to model them. 
+diagram and class diagrams for every Bounded Context of your model. If the implemented Subdomains contain entities, the generator produces 
+class diagrams for these subdomains as well. Thereby we offer a transformation from our DSL into a graphical representation of the system. 
+The component diagram illustrates all Bounded Contexts and their relationships, while the class diagrams show the domain models of the 
+Bounded Contexts and Subdomains if you used the [Tactic DDD Syntax](/docs/tactic-ddd/) to model them. 
 
 ## User Guide
 The following section describes how you use the PlantUML generators to create the 

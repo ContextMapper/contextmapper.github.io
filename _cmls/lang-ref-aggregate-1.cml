@@ -1,19 +1,19 @@
 Aggregate Contract {
-  responsibilities = Contracts, Policies
+  responsibilities = "Contracts", "Policies"
   knowledgeLevel = CONCRETE
-  
+
   Entity Contract {
     aggregateRoot
-    
+
     - ContractId identifier
     - Customer client
     - List<Product> products
   }
-  
+
   ValueObject ContractId {
     int contractId key
   }
-  
+
   Entity Policy {
     int policyNr
     - Contract contract
