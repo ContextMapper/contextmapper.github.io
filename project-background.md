@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Project Background & Paper Links"
+title: "Project Background & Links"
 permalink: /background-and-publications/
 sectionid: "project-background"
 image: /img/cm-og-image.png

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Context Mapper - Getting Involved"
+title: "Getting Involved"
 permalink: /getting-involved/
 sectionid: "getting-involved"
 ---
