@@ -1,0 +1,19 @@
+<div class="highlight"><pre><span></span><span class="c">/*</span>
+<span class="c"> * The customer management context is responsible for managing all the data of the insurance companies customers.</span>
+<span class="c"> */</span>
+<span class="k">API description</span> CustomerManagementContextAPI
+<span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
+
+<span class="c">// PROTECTED REGION DATA TYPES BEGIN</span>
+
+<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;manuallyChangedThisDataType&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+
+<span class="c">// PROTECTED REGION DATA TYPES END</span>
+
+<span class="k">data type</span> AddressId <span class="k">P</span>
+<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+
+<span class="c">// removed the rest here to save space ...</span>
+
+<span class="k">IPA</span>
+</pre></div>

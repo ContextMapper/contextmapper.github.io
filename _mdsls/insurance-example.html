@@ -1,0 +1,29 @@
+<div class="highlight"><pre><span></span><span class="k">API description</span> CustomerManagementContextAPI
+
+<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> AddressId <span class="k">P</span>
+<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+
+<span class="k">endpoint type</span> CustomersAggregate
+  <span class="k">exposes</span>
+    <span class="k">operation</span> createAddress
+      <span class="k">expecting</span>
+        <span class="k">payload</span> Address
+      <span class="k">delivering</span>
+        <span class="k">payload</span> AddressId
+    <span class="k">operation</span> changeCustomer
+      <span class="k">expecting</span>
+        <span class="k">payload</span> changeCustomerParameter
+
+<span class="k">API provider</span> CustomerManagementContextProvider
+  <span class="k">offers</span> CustomersAggregate
+  <span class="k">at</span> <span class="k">endpoint</span> <span class="k">location</span> <span class="s">&quot;http://localhost:8001&quot;</span>
+    <span class="k">via</span> <span class="k">protocol</span> <span class="s">&quot;RESTful HTTP&quot;</span>
+
+<span class="k">API client</span> PolicyManagementContextClient
+  <span class="k">consumes</span> CustomersAggregate
+<span class="k">API client</span> CustomerSelfServiceContextClient
+  <span class="k">consumes</span> CustomersAggregate
+
+<span class="k">IPA</span>
+</pre></div>

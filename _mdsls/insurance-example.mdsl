@@ -1,0 +1,28 @@
+API description CustomerManagementContextAPI
+
+data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string> }
+data type AddressId P
+data type changeCustomerParameter { "firstname":V<string>, "lastname":V<string> }
+
+endpoint type CustomersAggregate
+  exposes
+    operation createAddress
+      expecting
+        payload Address
+      delivering
+        payload AddressId
+    operation changeCustomer
+      expecting
+        payload changeCustomerParameter
+
+API provider CustomerManagementContextProvider
+  offers CustomersAggregate
+  at endpoint location "http://localhost:8001"
+    via protocol "RESTful HTTP"
+
+API client PolicyManagementContextClient
+  consumes CustomersAggregate
+API client CustomerSelfServiceContextClient
+  consumes CustomersAggregate
+
+IPA
