@@ -27,7 +27,7 @@ implementation 'org.contextmapper:context-mapper-dsl:{our-latest-version}'
 </dependency>
 ```
 
-You can find our latest release version [here](https://github.com/ContextMapper/context-mapper-dsl/releases/latest).
+Latest release: [![Maven Central](https://img.shields.io/maven-central/v/org.contextmapper/context-mapper-dsl.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.contextmapper%22%20AND%20a:%22context-mapper-dsl%22)
 
 ## Example Project
 If you want to use Context Mapper as library within your application, have a look at our standalone example project here:
