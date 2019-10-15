@@ -1,0 +1,18 @@
+/*
+ * The customer management context is responsible for managing all the data of the insurance companies customers.
+ */
+API description CustomerManagementContextAPI
+usage context PUBLIC_API for BACKEND_INTEGRATION
+
+// PROTECTED REGION DATA TYPES BEGIN
+
+data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string>, "manuallyChangedThisDataType":V<string> }
+
+// PROTECTED REGION DATA TYPES END
+
+data type AddressId P
+data type changeCustomerParameter { "firstname":V<string>, "lastname":V<string> }
+
+// removed the rest here to save space ...
+
+IPA
