@@ -1,19 +1,19 @@
 <div class="highlight"><pre><span></span><span class="k">Aggregate</span> Contract {
-  <span class="k">responsibilities</span> = Contracts, Policies
+  <span class="k">responsibilities</span> = <span class="s">&quot;Contracts&quot;</span>, <span class="s">&quot;Policies&quot;</span>
   <span class="k">knowledgeLevel</span> = <span class="k">CONCRETE</span>
-  
+
   <span class="k">Entity</span> Contract {
     <span class="k">aggregateRoot</span>
-    
+
     - <span class="k">ContractId</span> identifier
     - <span class="k">Customer</span> client
     - <span class="k">List&lt;Product&gt;</span> products
   }
-  
+
   <span class="k">ValueObject</span> ContractId {
     <span class="k">int</span> contractId <span class="k">key</span>
   }
-  
+
   <span class="k">Entity</span> Policy {
     <span class="k">int</span> policyNr
     - <span class="k">Contract</span> contract

@@ -4,8 +4,8 @@ permalink: /docs/subdomain/
 ---
 
 As bounded contexts, domains are defined on the root level of a CML (*.cml) file. 
-They provide a container to specify all subdomain which are then referenced on a bounded context with the _implements_ keyword. 
-See [bounded context](/docs/bounded-context/).
+They provide a container to specify all subdomains which are then referenced on a bounded context with the _implements_ keyword. 
+A bounded context can also implement the compete domain. Have a look at [bounded context](/docs/bounded-context/) for an example.
 
 ## Syntax
 The following example illustrates how you can specify a domain with subdomains in CML:
@@ -29,7 +29,7 @@ The following example illustrates how you can specify a domain with subdomains i
   <span class="c">/* Add more subdomains ... */</span>
 }
 </pre></div>
-
+Note that the equal sign (=) to assign an attribute value as done in the example above is optional and can be omitted.
 
 ### Subdomain Type
 With the _type_ keyword you specify of which type your subdomain is. The following types exist:

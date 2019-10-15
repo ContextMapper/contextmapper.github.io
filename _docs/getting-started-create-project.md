@@ -53,10 +53,18 @@ You can now start with writing CML in the Context Mapper editor. Use the followi
  * Detailed documentation about the language features in our [language reference](/docs/language-reference/) section.
  * [FAQ's](/docs/faq/)
  
+ <div class="alert alert-custom">
+ <strong>Note</strong> that a CML Context Map with all Bounded Contexts etc. currently has to be modeled within one single .cml file.
+ Splitting the model into multiple files is not yet supported but we have an <a href="https://github.com/ContextMapper/context-mapper-dsl/issues/86">
+ open issue</a> on Github for this. Currently each .cml file contains its own model and cannot reference objects located in other files.
+ In addition, each .cml file (model) can only contain one Context Map.  
+ </div>
+ 
 Once you have modeled your system with CML you may want use our generators to produce other representations or evolve the model by using
 out Architectural Refactorings (ARs):
 
- * [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) section
+ * [Architectural Refactorings (ARs)](/docs/architectural-refactorings/)
  * User Guides for generators:
     * [PlantUML generator](/docs/plant-uml/)
+    * [MDSL (Micro-)Service Contracts Generator](/docs/mdsl/)
     * [ServiceCutter generator](/docs/service-cutter/)

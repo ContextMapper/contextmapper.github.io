@@ -26,8 +26,8 @@ With the _contains_ keyword you add a bounded context to the map.
 Alternatively, you can use only one _contains_ keyword and list all bounded contexts comma-separated:
 
 <div class="highlight"><pre><span></span><span class="k">ContextMap</span> DDDSampleContextMap {
-  <span class="k">type</span> = <span class="k">SYSTEM_LANDSCAPE</span>
-  <span class="k">state</span> = <span class="k">AS_IS</span>
+  <span class="k">type</span> <span class="k">SYSTEM_LANDSCAPE</span>
+  <span class="k">state</span> <span class="k">AS_IS</span>
 
   <span class="k">contains</span> CargoBookingContext, VoyagePlanningContext, LocationContext
 
@@ -35,7 +35,8 @@ Alternatively, you can use only one _contains_ keyword and list all bounded cont
 }
 </pre></div>
 
-As you can see in the example above, it is also possible to name a context map (optional).
+As you can see in the example above, it is also possible to name a context map (optional). In addition, the equal sign (=) to assign an
+attribute value as done in the first example is optional and can be omitted.
 
 A context map can be of one of the following **types**:
 
