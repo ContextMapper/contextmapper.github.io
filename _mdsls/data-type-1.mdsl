@@ -1,1 +1,1 @@
-data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string> }
+data type Address { "street":V<string>, "lockbox":V<string>?, "postalCode":V<int>, "city":V<string> }

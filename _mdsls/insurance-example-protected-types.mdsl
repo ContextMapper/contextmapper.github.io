@@ -1,14 +1,12 @@
-/*
- * The customer management context is responsible for managing all the data of the insurance companies customers.
- */
+// Generated from DDD Context Map 'Insurance-Example_Context-Map.cml' at 21.10.2019 17:48:52 CEST.
 API description CustomerManagementContextAPI
 usage context PUBLIC_API for BACKEND_INTEGRATION
 
-// PROTECTED REGION DATA TYPES BEGIN
+// ** BEGIN PROTECTED REGION for data types
 
 data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string>, "manuallyChangedThisDataType":V<string> }
 
-// PROTECTED REGION DATA TYPES END
+// ** END PROTECTED REGION for data types
 
 data type AddressId P
 data type changeCustomerParameter { "firstname":V<string>, "lastname":V<string> }

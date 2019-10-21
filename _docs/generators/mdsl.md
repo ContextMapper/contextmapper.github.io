@@ -48,12 +48,13 @@ CML input:
 ```
 Entity Address {
   String street
+  String lockbox nullable
   int postalCode
   String city
 }
 ```
 MDSL data type result:
-<div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lockbox&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;?, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
 </pre></div>
 
 All abstract data types which are not base types and not specified in CML (no references to objects) will produce an abstract, 
@@ -63,31 +64,43 @@ unspecified element in [MDSL](https://socadk.github.io/MDSL/), as the following 
 
 ### Example
 An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follows: 
-<div class="highlight"><pre><span></span><span class="k">API description</span> CustomerManagementContextAPI
+<div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
+<span class="k">API description</span> CustomerManagementContextAPI
+<span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
 
 <span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
 <span class="k">data type</span> AddressId <span class="k">P</span>
 <span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
 
 <span class="k">endpoint type</span> CustomersAggregate
+  <span class="k">serves as</span> <span class="k">INFORMATION_HOLDER_RESOURCE</span>
   <span class="k">exposes</span>
     <span class="k">operation</span> createAddress
+      <span class="k">with</span> <span class="k">responsibility</span> <span class="s">&quot;Creates new address for customer&quot;</span>
       <span class="k">expecting</span>
         <span class="k">payload</span> Address
       <span class="k">delivering</span>
         <span class="k">payload</span> AddressId
     <span class="k">operation</span> changeCustomer
+      <span class="k">with</span> <span class="k">responsibility</span> <span class="s">&quot;Changes existing customer address&quot;</span>
       <span class="k">expecting</span>
         <span class="k">payload</span> changeCustomerParameter
+      <span class="k">delivering</span>
+        <span class="k">payload</span> V&lt;<span class="k">bool</span>&gt;
 
 <span class="k">API provider</span> CustomerManagementContextProvider
+  <span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
+  <span class="c">// The customer management context is responsible for managing all the data of the insurance companies customers.</span>
   <span class="k">offers</span> CustomersAggregate
   <span class="k">at</span> <span class="k">endpoint</span> <span class="k">location</span> <span class="s">&quot;http://localhost:8001&quot;</span>
-    <span class="k">via</span> <span class="k">protocol</span> <span class="s">&quot;RESTful HTTP&quot;</span>
+    <span class="k">via</span> <span class="k">protocol</span> <span class="s">&quot;RESTfulHTTP&quot;</span>
 
 <span class="k">API client</span> PolicyManagementContextClient
+  <span class="c">// Generated from DDD downstream Bounded Context &#39;PolicyManagementContext&#39; implementing CONFORMIST (CF).</span>
+  <span class="c">// This bounded context manages the contracts and policies of the customers.</span>
   <span class="k">consumes</span> CustomersAggregate
 <span class="k">API client</span> CustomerSelfServiceContextClient
+  <span class="c">// This context represents a web application which allows the customer to login and change basic data records like the address.</span>
   <span class="k">consumes</span> CustomersAggregate
 
 <span class="k">IPA</span>
@@ -127,64 +140,60 @@ files with a text editor only (no syntax highlighting and editor support availab
 ### Protected Regions
 The generator initially creates protected regions for the MDSL root elements **data type**, **endpoint type**, **API provider**, and 
 **API client**. The MDSL contract for the insurance example (customer management) initially looks like this:
-<div class="highlight"><pre><span></span><span class="c">/*</span>
-<span class="c"> * The customer management context is responsible for managing all the data of the insurance companies customers.</span>
-<span class="c"> */</span>
+<div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
 <span class="k">API description</span> CustomerManagementContextAPI
 <span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
 
-<span class="c">// PROTECTED REGION DATA TYPES BEGIN</span>
-<span class="c">// Hint: move data types which should not be overwritten by the generator into this section.</span>
+<span class="c">// ** BEGIN PROTECTED REGION for data types</span>
 
-<span class="c">// PROTECTED REGION DATA TYPES END</span>
+<span class="c">// ** END PROTECTED REGION for data types</span>
 
 <span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
 <span class="k">data type</span> AddressId <span class="k">P</span>
 <span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
 
-<span class="c">// PROTECTED REGION ENDPOINTS BEGIN</span>
-<span class="c">// Hint: move endpoints which should not be overwritten by the generator into this section.</span>
+<span class="c">// ** BEGIN PROTECTED REGION for endpoint types</span>
 
-<span class="c">// PROTECTED REGION ENDPOINTS END</span>
+<span class="c">// ** END PROTECTED REGION for endpoint types</span>
 
 <span class="k">endpoint type</span> CustomersAggregate
-	<span class="k">exposes</span>
-		<span class="k">operation</span> createAddress
-			<span class="k">expecting</span>
-				<span class="k">payload</span> Address
-			<span class="k">delivering</span>
-				<span class="k">payload</span> AddressId
-		<span class="k">operation</span> changeCustomer
-			<span class="k">expecting</span>
-				<span class="k">payload</span> changeCustomerParameter
-			<span class="k">delivering</span>
-				<span class="k">payload</span> V&lt;<span class="k">bool</span>&gt;
+  <span class="k">serves as</span> <span class="k">INFORMATION_HOLDER_RESOURCE</span>
+  <span class="k">exposes</span>
+    <span class="k">operation</span> createAddress
+      <span class="k">with</span> <span class="k">responsibility</span> <span class="s">&quot;Creates new address for customer&quot;</span>
+      <span class="k">expecting</span>
+        <span class="k">payload</span> Address
+      <span class="k">delivering</span>
+        <span class="k">payload</span> AddressId
+    <span class="k">operation</span> changeCustomer
+      <span class="k">with</span> <span class="k">responsibility</span> <span class="s">&quot;Changes existing customer address&quot;</span>
+      <span class="k">expecting</span>
+        <span class="k">payload</span> changeCustomerParameter
+      <span class="k">delivering</span>
+        <span class="k">payload</span> V&lt;<span class="k">bool</span>&gt;
 
-<span class="c">// PROTECTED REGION PROVIDERS BEGIN</span>
-<span class="c">// Hint: move providers which should not be overwritten by the generator into this section.</span>
+<span class="c">// ** BEGIN PROTECTED REGION for API providers</span>
 
-<span class="c">// PROTECTED REGION PROVIDERS END</span>
+<span class="c">// ** END PROTECTED REGION for API providers</span>
 
-<span class="c">/* The upstream Bounded Context &#39;CustomerManagementContext&#39; implements OHS and PL. */</span>
 <span class="k">API provider</span> CustomerManagementContextProvider
-	<span class="k">offers</span> CustomersAggregate
-	<span class="k">at</span> <span class="k">endpoint</span> <span class="k">location</span> <span class="s">&quot;http://localhost:8001&quot;</span>
-		<span class="k">via</span> <span class="k">protocol</span> <span class="s">&quot;RESTfulHTTP&quot;</span>
+  <span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
+  <span class="c">// The customer management context is responsible for managing all the data of the insurance companies customers.</span>
+  <span class="k">offers</span> CustomersAggregate
+  <span class="k">at</span> <span class="k">endpoint</span> <span class="k">location</span> <span class="s">&quot;http://localhost:8001&quot;</span>
+    <span class="k">via</span> <span class="k">protocol</span> <span class="s">&quot;RESTfulHTTP&quot;</span>
 
-<span class="c">// PROTECTED REGION CLIENTS BEGIN</span>
-<span class="c">// Hint: move providers which should not be overwritten by the generator into this section.</span>
+<span class="c">// ** BEGIN PROTECTED REGION for API clients</span>
 
-<span class="c">// PROTECTED REGION CLIENTS END</span>
+<span class="c">// ** END PROTECTED REGION for API clients</span>
 
-<span class="c">/*</span>
-<span class="c"> * The downstream Bounded Context &#39;PolicyManagementContext&#39; implements CF.</span>
-<span class="c"> * This bounded context manages the contracts and policies of the customers.</span>
-<span class="c"> */</span>
 <span class="k">API client</span> PolicyManagementContextClient
-	<span class="k">consumes</span> CustomersAggregate
-<span class="c">/* This context represents a web application which allows the customer to login and change basic data records like the address. */</span>
+  <span class="c">// Generated from DDD downstream Bounded Context &#39;PolicyManagementContext&#39; implementing CONFORMIST (CF).</span>
+  <span class="c">// This bounded context manages the contracts and policies of the customers.</span>
+  <span class="k">consumes</span> CustomersAggregate
 <span class="k">API client</span> CustomerSelfServiceContextClient
-	<span class="k">consumes</span> CustomersAggregate
+  <span class="c">// This context represents a web application which allows the customer to login and change basic data records like the address.</span>
+  <span class="k">consumes</span> CustomersAggregate
 
 <span class="k">IPA</span>
 </pre></div>
@@ -196,17 +205,15 @@ within a protected region will not be changed.
 For example, you can move a set of _data types_ into the corresponding protected region 
 if you changed the data types manually after generation and want to protect them:
 
-<div class="highlight"><pre><span></span><span class="c">/*</span>
-<span class="c"> * The customer management context is responsible for managing all the data of the insurance companies customers.</span>
-<span class="c"> */</span>
+<div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
 <span class="k">API description</span> CustomerManagementContextAPI
 <span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
 
-<span class="c">// PROTECTED REGION DATA TYPES BEGIN</span>
+<span class="c">// ** BEGIN PROTECTED REGION for data types</span>
 
 <span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;manuallyChangedThisDataType&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
 
-<span class="c">// PROTECTED REGION DATA TYPES END</span>
+<span class="c">// ** END PROTECTED REGION for data types</span>
 
 <span class="k">data type</span> AddressId <span class="k">P</span>
 <span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
@@ -221,5 +228,5 @@ the MDSL contracts on the same file it will not create the protected regions aga
 MDSL file you have to do it manually (copy them from the example above). 
 
 ## MDSL Support
-The current version of our MDSL generator is compatible with the MDSL version _v1.0_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
+The current version of our MDSL generator is compatible with the MDSL version _1.0.2_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
 or contact Olaf Zimmermann.
