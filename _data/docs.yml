@@ -36,6 +36,8 @@
   - ar-extract-aggregates-by-cohesion
   - ar-merge-aggregates
   - ar-merge-bounded-contexts
+  - ar-extract-shared-kernel
+  - ar-suspend-partnership
 
 - title: Generators
   docs:
