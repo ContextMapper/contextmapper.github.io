@@ -120,9 +120,15 @@ However, with this syntax it is maybe not explicitly clear for a reader that you
 
 ### Relationship Roles
 Within the brackets you can further specify the relationship roles such as Open Host Service (OHS) or Anti-Corruption Layer (ACL).
-Roles must always be specified behind the **U** (upstream) and the **D** (downstream). 
+Roles must always be specified behind the **U** (upstream) and the **D** (downstream) if they are not omitted. 
 
 <div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
+</pre></div>
+
+Since the arrow already indicates which Bounded Context is upstream and which is downstream, it is also possible to add the relationship
+roles within the brackets without the **U** and the **D**:
+
+<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">ACL</span>]&lt;-[<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
 </pre></div>
 
 If you use the _Upstream-Downstream_ or _Downstream-Upstream_ keywords the roles are declared equivalently, but without the **D** and **U**:
