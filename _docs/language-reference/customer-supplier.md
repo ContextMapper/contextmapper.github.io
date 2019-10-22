@@ -37,21 +37,6 @@ Customer-Supplier relationships can be defined with three different syntax varia
 All of the four variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the supplier (upstream) to the customer (downstream) 
 and thus, expresses the influence flow (the supplier has an influence on the customer, but the customer has no influence on the supplier).
 
-The syntax with the arrows and the abbreviations further allows to place the brackets with the supplier [U,S] / customer [D,C] and relationship role 
-patterns specification flexible in front or after the Bounded Context name:
-
-<div class="highlight"><pre><span></span>CustomerSelfServiceContext [<span class="k">D</span>,<span class="k">C</span>]&lt;-[<span class="k">U</span>,<span class="k">S</span>] CustomerManagementContext
-</pre></div>
-
-<div class="highlight"><pre><span></span>[<span class="k">D</span>,<span class="k">C</span>]CustomerSelfServiceContext &lt;- [<span class="k">U</span>,<span class="k">S</span>]CustomerManagementContext
-</pre></div>
-
-<div class="highlight"><pre><span></span>CustomerSelfServiceContext[<span class="k">D</span>,<span class="k">C</span>] &lt;- CustomerManagementContext[<span class="k">U</span>,<span class="k">S</span>]
-</pre></div>
-
-<div class="highlight"><pre><span></span>[<span class="k">D</span>,<span class="k">C</span>]CustomerSelfServiceContext &lt;- CustomerManagementContext[<span class="k">U</span>,<span class="k">S</span>]
-</pre></div>
-
 In a Customer/Supplier relationship definition you can also omit the **U** (upstream) and **D** (downstream) specification, since the supplier is always the
 upstream and the customer always the downstream:
 

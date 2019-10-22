@@ -90,21 +90,6 @@ Upstream-Downstream relationships can be defined with three different syntax var
 
 All of the four variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the upstream to the downstream and thus, expresses the influence flow (the upstream has an influence on the downstream, but the downstream has no influence on the upstream).
 
-The syntax with the arrows and the abbreviations further allows to place the brackets with the upstream [U] / downstream [D] and relationship
-role patterns specification flexible in front or after the Bounded Context name:
-
-<div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext
-</pre></div>
-
-<div class="highlight"><pre><span></span>[<span class="k">D</span>]CargoBookingContext &lt;- [<span class="k">U</span>]LocationContext
-</pre></div>
-
-<div class="highlight"><pre><span></span>CargoBookingContext[<span class="k">D</span>] &lt;- LocationContext[<span class="k">U</span>]
-</pre></div>
-
-<div class="highlight"><pre><span></span>[<span class="k">D</span>]CargoBookingContext &lt;- LocationContext[<span class="k">U</span>]
-</pre></div>
-
 With a colon at the end, you can give every relationship a name:
 <div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext : CargoLocationRelationship
 </pre></div>
