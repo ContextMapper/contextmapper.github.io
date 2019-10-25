@@ -34,8 +34,8 @@ endpoint type CustomersAggregate
 
 // ** END PROTECTED REGION for API providers
 
+// Generated from DDD upstream Bounded Context 'CustomerManagementContext' implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).
 API provider CustomerManagementContextProvider
-  // Generated from DDD upstream Bounded Context 'CustomerManagementContext' implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).
   // The customer management context is responsible for managing all the data of the insurance companies customers.
   offers CustomersAggregate
   at endpoint location "http://localhost:8001"
@@ -45,8 +45,8 @@ API provider CustomerManagementContextProvider
 
 // ** END PROTECTED REGION for API clients
 
+// Generated from DDD downstream Bounded Context 'PolicyManagementContext' implementing CONFORMIST (CF).
 API client PolicyManagementContextClient
-  // Generated from DDD downstream Bounded Context 'PolicyManagementContext' implementing CONFORMIST (CF).
   // This bounded context manages the contracts and policies of the customers.
   consumes CustomersAggregate
 API client CustomerSelfServiceContextClient

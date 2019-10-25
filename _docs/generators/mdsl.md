@@ -88,15 +88,15 @@ An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follo
       <span class="k">delivering</span>
         <span class="k">payload</span> V&lt;<span class="k">bool</span>&gt;
 
+<span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
 <span class="k">API provider</span> CustomerManagementContextProvider
-  <span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
   <span class="c">// The customer management context is responsible for managing all the data of the insurance companies customers.</span>
   <span class="k">offers</span> CustomersAggregate
   <span class="k">at</span> <span class="k">endpoint</span> <span class="k">location</span> <span class="s">&quot;http://localhost:8001&quot;</span>
     <span class="k">via</span> <span class="k">protocol</span> <span class="s">&quot;RESTfulHTTP&quot;</span>
 
+<span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
 <span class="k">API client</span> PolicyManagementContextClient
-  <span class="c">// Generated from DDD downstream Bounded Context &#39;PolicyManagementContext&#39; implementing CONFORMIST (CF).</span>
   <span class="c">// This bounded context manages the contracts and policies of the customers.</span>
   <span class="k">consumes</span> CustomersAggregate
 <span class="k">API client</span> CustomerSelfServiceContextClient
@@ -138,8 +138,10 @@ files with a text editor only (no syntax highlighting and editor support availab
 </div>
 
 ### Protected Regions
-The generator initially creates protected regions for the MDSL root elements **data type**, **endpoint type**, **API provider**, and 
-**API client**. The MDSL contract for the insurance example (customer management) initially looks like this:
+After you generated an MDSL contract you can add protected regions for **data types**, **endpoint types**, **API providers**, and **API clients**
+if you want to modify parts of the contract and protect them from being overwritten. The following example shows the corresponding comments needed to begin and
+end the four different protected regions:
+
 <div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
 <span class="k">API description</span> CustomerManagementContextAPI
 <span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
@@ -176,8 +178,8 @@ The generator initially creates protected regions for the MDSL root elements **d
 
 <span class="c">// ** END PROTECTED REGION for API providers</span>
 
+<span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
 <span class="k">API provider</span> CustomerManagementContextProvider
-  <span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
   <span class="c">// The customer management context is responsible for managing all the data of the insurance companies customers.</span>
   <span class="k">offers</span> CustomersAggregate
   <span class="k">at</span> <span class="k">endpoint</span> <span class="k">location</span> <span class="s">&quot;http://localhost:8001&quot;</span>
@@ -187,8 +189,8 @@ The generator initially creates protected regions for the MDSL root elements **d
 
 <span class="c">// ** END PROTECTED REGION for API clients</span>
 
+<span class="c">// Generated from DDD downstream Bounded Context &#39;PolicyManagementContext&#39; implementing CONFORMIST (CF).</span>
 <span class="k">API client</span> PolicyManagementContextClient
-  <span class="c">// Generated from DDD downstream Bounded Context &#39;PolicyManagementContext&#39; implementing CONFORMIST (CF).</span>
   <span class="c">// This bounded context manages the contracts and policies of the customers.</span>
   <span class="k">consumes</span> CustomersAggregate
 <span class="k">API client</span> CustomerSelfServiceContextClient
@@ -222,10 +224,6 @@ if you changed the data types manually after generation and want to protect them
 
 <span class="k">IPA</span>
 </pre></div>
-
-**Note**: If you do not want to work with protected regions you can simply remove them after the first generation. If you re-generate 
-the MDSL contracts on the same file it will not create the protected regions again. If you want to add protected regions to an existing
-MDSL file you have to do it manually (copy them from the example above). 
 
 ## MDSL Support
 The current version of our MDSL generator is compatible with the MDSL version _1.0.2_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
