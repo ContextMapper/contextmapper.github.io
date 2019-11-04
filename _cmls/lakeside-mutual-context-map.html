@@ -1,0 +1,82 @@
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
+  <span class="k">contains</span> PolicyManagement
+  <span class="k">contains</span> CustomerManagement
+  <span class="k">contains</span> CustomerSelfService
+  <span class="k">contains</span> CustomerCore
+
+  CustomerCore -&gt; PolicyManagement
+
+  CustomerCore -&gt; CustomerManagement
+
+  PolicyManagement -&gt; CustomerSelfService
+
+  CustomerCore -&gt; CustomerSelfService
+
+}
+
+<span class="k">BoundedContext</span> PolicyManagement {
+  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.RiskComputationService.</span>
+  <span class="k">Aggregate</span> riskfactor
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.InsuranceQuoteRequestInformationHolder.</span>
+  <span class="k">Aggregate</span> PolicyManagement_insurance_quote_requests {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.PolicyInformationHolder.</span>
+  <span class="k">Aggregate</span> policies {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.CustomerInformationHolder.</span>
+  <span class="k">Aggregate</span> PolicyManagement_customers {
+    <span class="c">/* removed to save space here */</span>
+  }
+}
+
+<span class="k">BoundedContext</span> CustomerManagement {
+  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.CustomerInformationHolder.</span>
+  <span class="k">Aggregate</span> CustomerManagement_customers {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.InteractionLogInformationHolder.</span>
+  <span class="k">Aggregate</span> interaction_logs {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.NotificationInformationHolder.</span>
+  <span class="k">Aggregate</span> notifications
+}
+
+<span class="k">BoundedContext</span> CustomerSelfService {
+  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.AuthenticationController.</span>
+  <span class="k">Aggregate</span> auth
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CityStaticDataHolder.</span>
+  <span class="k">Aggregate</span> cities {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.InsuranceQuoteRequestInformationHolder.</span>
+  <span class="k">Aggregate</span> insurance_quote_requests {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CustomerInformationHolder.</span>
+  <span class="k">Aggregate</span> customers {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.UserInformationHolder.</span>
+  <span class="k">Aggregate</span> user {
+    <span class="c">/* removed to save space here */</span>
+  }
+}
+
+<span class="k">BoundedContext</span> CustomerCore {
+  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CityStaticDataHolder.</span>
+  <span class="k">Aggregate</span> CustomerCore_cities {
+    <span class="c">/* removed to save space here */</span>
+  }
+  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CustomerInformationHolder.</span>
+  <span class="k">Aggregate</span> CustomerCore_customers {
+    <span class="c">/* removed to save space here */</span>
+  }
+}
+</pre></div>

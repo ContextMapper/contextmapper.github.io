@@ -1,0 +1,81 @@
+ContextMap {
+  contains PolicyManagement
+  contains CustomerManagement
+  contains CustomerSelfService
+  contains CustomerCore
+
+  CustomerCore -> PolicyManagement
+
+  CustomerCore -> CustomerManagement
+
+  PolicyManagement -> CustomerSelfService
+
+  CustomerCore -> CustomerSelfService
+
+}
+
+BoundedContext PolicyManagement {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.RiskComputationService.
+  Aggregate riskfactor
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.InsuranceQuoteRequestInformationHolder.
+  Aggregate PolicyManagement_insurance_quote_requests {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.PolicyInformationHolder.
+  Aggregate policies {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.CustomerInformationHolder.
+  Aggregate PolicyManagement_customers {
+    /* removed to save space here */
+  }
+}
+
+BoundedContext CustomerManagement {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.CustomerInformationHolder.
+  Aggregate CustomerManagement_customers {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.InteractionLogInformationHolder.
+  Aggregate interaction_logs {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.NotificationInformationHolder.
+  Aggregate notifications
+}
+
+BoundedContext CustomerSelfService {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.AuthenticationController.
+  Aggregate auth
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CityStaticDataHolder.
+  Aggregate cities {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.InsuranceQuoteRequestInformationHolder.
+  Aggregate insurance_quote_requests {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CustomerInformationHolder.
+  Aggregate customers {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.UserInformationHolder.
+  Aggregate user {
+    /* removed to save space here */
+  }
+}
+
+BoundedContext CustomerCore {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CityStaticDataHolder.
+  Aggregate CustomerCore_cities {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CustomerInformationHolder.
+  Aggregate CustomerCore_customers {
+    /* removed to save space here */
+  }
+}

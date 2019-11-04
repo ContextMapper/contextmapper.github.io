@@ -1,12 +1,13 @@
-- title: Getting Started
+- title: Introduction
   docs:
   - home
+  - getting-started
   - getting-started-create-project
   - examples
   - library
   - faq
 
-- title: Language Reference
+- title: Language Reference (Core)
   docs:
   - language-reference
   - language-model
@@ -26,7 +27,7 @@
   - aggregate
   - tactic-ddd
 
-- title: Architectural Refactorings
+- title: Architectural Refactorings (ARs)
   docs:
   - architectural-refactorings
   - ar-split-aggregate-by-entities
@@ -39,8 +40,17 @@
   - ar-extract-shared-kernel
   - ar-suspend-partnership
 
+- title: Service Cutter
+  docs:
+  - service-cutter-context-map-suggestions
+
+- title: Reverse Engineering
+  docs:
+  - reverse-engineering
+
 - title: Generators
   docs:
+  - generators
   - mdsl
   - plant-uml
   - service-cutter
