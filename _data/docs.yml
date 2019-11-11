@@ -39,6 +39,8 @@
   - ar-merge-bounded-contexts
   - ar-extract-shared-kernel
   - ar-suspend-partnership
+  - ar-change-shared-kernel-to-partnership
+  - ar-change-partnership-to-shared-kernel
 
 - title: Service Cutter
   docs:

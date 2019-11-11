@@ -11,11 +11,18 @@ The provided refactorings offer the advantage that the result is always a correc
 If you perform similar changes manually, you also have to fix upcoming errors within the [Context Map](/docs/context-map/) manually.
 The AR's ensure that corresponding references and dependencies in other parts of the model are respected and adjusted if necessary.
 
+## Architectural Refactoring Categories
+The ARs are divided into the following categories:
+
+ * **Structural Refactorings**: Change the structure of the decomposition (impact on Bounded Contexts and/or Aggregates).
+ * **Relationship Refactorings**: Just change the type of a relationship on the Context Map, but do not change the structure of the decomposition.
+
 ## Refactoring Overview
 The Context Mapper tool offers you a set of architectural refactorings which can be applied to your CML models. The refactorings shall
 support you with evolving and improving the architecture of your system.
 
-We currently provide the following ARs:
+### Structural Refactorings
+We currently provide the following structural ARs:
 
 | Name                                                                                                    | Subject                    | Description                                                                                                                                                                                   | Input                        | Output                                                            |
 |---------------------------------------------------------------------------------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|-------------------------------------------------------------------|
@@ -27,9 +34,17 @@ We currently provide the following ARs:
 | [**AR-6: Merge Aggregates**](/docs/ar-merge-aggregates)                                                 | Aggregate                  | Merges two aggregates within a bounded context together to one aggregate.                                                                                                                     | 2 Aggregates                 | 1 Aggregate                                                       |
 | [**AR-7: Merge Bounded Contexts**](/docs/ar-merge-bounded-contexts)                                     | Bounded Context            | Merges two bounded contexts together. The result is one bounded context containing all the aggregates of the two input boundedcontexts.                                                       | 2 Bounded Contexts           | 1 Bounded Context                                                 |
 | [**AR-8: Extract Shared Kernel**](/docs/ar-extract-shared-kernel)                                       | Shared Kernel relationship | Extracts a new bounded context for the common model parts of the Shared Kernel and establishes two upstream-downstream relationship between the new and the existing Bounded Contexts.        | 1 Shared Kernel relationship | 1 New Bounded Context and 2 new upstream-downstream relationships |
-| [**AR-9: Suspend Partnership**](/docs/ar-suspend-partnership)                                               | Partnership relationship   | Suspends a Partnership relationship and replaces it with another structure how the two Bounded Context can depend on each other. The AR provides three strategies to suspend the partnership. | 1 Partnership relationship   | _Depends on the selected mode_                                    |
+| [**AR-9: Suspend Partnership**](/docs/ar-suspend-partnership)                                           | Partnership relationship   | Suspends a Partnership relationship and replaces it with another structure how the two Bounded Context can depend on each other. The AR provides three strategies to suspend the partnership. | 1 Partnership relationship   | _Depends on the selected mode_                                    |
 
 <sup>1</sup>: An aggregate in CML can be used by **multiple** use cases and is owned by **one** owner (team).
+
+### Relationship Refactorings
+The following ARs to change Context Map relationships are currently implemented:
+
+| Name                                                                                           | Subject                    | Description                                                                     | Input                      | Output                     |
+|------------------------------------------------------------------------------------------------|----------------------------|---------------------------------------------------------------------------------|----------------------------|----------------------------|
+| [**AR-10: Change Shared Kernel to Partnership**](/docs/ar-change-shared-kernel-to-partnership) | Shared Kernel relationship | Changes the type of a Shared Kernel relationship to a Partnership relationship. | Shared Kernel relationship | Partnership relationship   |
+| [**AR-11: Change Partnership to Shared Kernel**](/docs/ar-change-partnership-to-shared-kernel) | Partnership relationship   | Changes the type of a Partnership relationship to a Shared Kernel relationship. | Partnership relationship   | Shared Kernel relationship |
 
 ## Examples
 Within our [examples repository](https://github.com/ContextMapper/context-mapper-examples) you can find [input and corresponding 
