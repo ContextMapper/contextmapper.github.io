@@ -7,7 +7,7 @@ To model with Context Mapper you need our Eclipse Plugin providing the CML langu
 will be released in the future but is not ready yet.
 
 ## Install Context Mapper Eclipse Plugin
-To start with Context Mapper install our Eclipse plugin by using the following update site: 
+To start with Context Mapper install our Eclipse plugin by using the following **update site**: 
 
 **[https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)**
 
@@ -24,6 +24,9 @@ To use the ContextMapper DSL Eclipse plugin you need the following tools:
     * Alternatively you can use the [plantUML online server](http://www.plantuml.com/plantuml/uml).
 
 **Note**: If you want to integrate the DSL and its tools as library within your application, find more information [here](/docs/library/).
+
+### Latest Releases
+Release notes for all our latest releases can be found [here](https://github.com/ContextMapper/context-mapper-dsl/releases).
 
 ## Next steps ...
 After you installed the Context Mapper Eclipse plugin you can create a CML (Xtext) project and start modeling. Find more information how to create

@@ -8,6 +8,8 @@ Context Mapper is a modular and extensible modeling framework based on **Domain-
 The **[core component](/docs/language-reference/)** provides a DSL to create context maps based on these DDD patterns. The model behind the language and its semantic rules aim 
 to formalize **our interpretation of the DDD patterns** and how they can be combined in a concise manner. 
 
+**Eclipse Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)**
+
 ![Context Mapper Framework Components](/img/context-mapper-framework-components.png)
 
 DDD and its bounded contexts further provide an approach for **decomposing a domain** into multiple 
