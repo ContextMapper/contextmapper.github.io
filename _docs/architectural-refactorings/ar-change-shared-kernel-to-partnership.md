@@ -10,6 +10,9 @@ Our relationship refactorings allow the user/modeller to change the type of a re
 The symmetric relationships according to our [semantic model](/docs/language-model/), Shared Kernel and Partnership, are interchangeable without impacts
 to the structure of the decomposition. This refactoring changes a Shared Kernel relationship to a Partnership relationship.
 
+**Inverse AR:**
+ * [AR-11: Change Partnership to Shared Kernel](/docs/ar-change-partnership-to-shared-kernel/)
+
 ## Example
 The following small example illustrates how this refactoring can be applied. With a right-click on a Shared Kernel relationship, you can apply
 _Change to Partnership_:
