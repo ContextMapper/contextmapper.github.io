@@ -24,8 +24,9 @@ and allows to implement different bounded context and context map discovery stra
 
 The provided **[generators](/docs/generators)** allow to transform the CML context maps into other representations of the architectural model. We currently
 offer the following generators:
- * [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts [generator](/docs/mdsl/)
+ * Graphical Context Map [generator](/docs/context-map-generator/)
  * [PlantUML](http://plantuml.com/) component and class diagram [generator](/docs/plant-uml/)
+ * [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts [generator](/docs/mdsl/)
  * [Service Cutter](http://servicecutter.github.io/) input files [generators](/docs/service-cutter/)
 
 **Find out [how to start using Context Mapper](/docs/getting-started) right now.**

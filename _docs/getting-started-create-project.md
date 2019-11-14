@@ -65,6 +65,7 @@ out Architectural Refactorings (ARs):
 
  * [Architectural Refactorings (ARs)](/docs/architectural-refactorings/)
  * User Guides for generators:
+    * [Graphical Context Map generator](/docs/context-map-generator/)
     * [PlantUML generator](/docs/plant-uml/)
     * [MDSL (Micro-)Service Contracts Generator](/docs/mdsl/)
     * [ServiceCutter generator](/docs/service-cutter/)

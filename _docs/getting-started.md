@@ -91,8 +91,9 @@ Once you created your first Context Map in CML you can use the following tools t
 
  * Use [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) to evolve your model iteratively.
  * Let [Service Cutter](/docs/service-cutter-context-map-suggestions/) analyze your model and suggest new Context Maps on the basis of its [coupling criteria](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
- * Generate [MDSL](/docs/mdsl) (micro-)service contracts
+ * Generate [graphical Context Maps](/docs/context-map-generator/)
  * Generate [PlantUML](/docs/plant-uml/) component and class diagrams
+ * Generate [MDSL](/docs/mdsl) (micro-)service contracts
  * Generate [Service Cutter](/docs/service-cutter/) input files
  
 ## Reverse Engineer Context Map and Bounded Contexts
