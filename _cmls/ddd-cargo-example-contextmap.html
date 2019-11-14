@@ -1,0 +1,12 @@
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> DDDSampleMap {
+  <span class="k">contains</span> CargoBookingContext
+  <span class="k">contains</span> VoyagePlanningContext
+  <span class="k">contains</span> LocationContext
+
+  CargoBookingContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] VoyagePlanningContext
+
+  CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
+
+  VoyagePlanningContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
+}
+</pre></div>

@@ -3,8 +3,28 @@ title: Generators Overview
 permalink: /docs/generators/
 ---
 
-The Context Mapper generators provide transformations to derive [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts, 
-[PlantUML diagrams](http://plantuml.com/) and [ServiceCutter input files](https://servicecutter.github.io/) from your CML context map.
+The Context Mapper generators provide transformations to derive graphical Context Maps, [PlantUML diagrams](http://plantuml.com/), 
+[MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts, and [ServiceCutter input files](https://servicecutter.github.io/) from your 
+CML context map.
+
+## Graphical Context Maps
+The Context Map generator allows you to transform the CML Context Map into graphical representation inspired by the illustrations of 
+[Vernon](https://www.amazon.de/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577) and 
+[Brandolini](https://www.infoq.com/articles/ddd-contextmapping/). [Here](/docs/context-map-generator/) you can find out how to generate them.
+
+An example Context Map produced with our generator:
+<a href="/img/context-map-generator-insurance-sample.png">![Insurance Company Example Context Map](/img/context-map-generator-insurance-sample.png)</a>
+
+## PlantUML Diagrams
+You can generate [plantUML](http://plantuml.com/) component diagrams out of CML context maps. Additionally, the transformation 
+generates class diagrams for all bounded contexts. If the implemented subdomains contain entities, the generator produces class diagrams
+for these subdomains as well. [Here](/docs/plant-uml/) you can find out how to generate them.
+
+Example component diagram (DDD sample): 
+<img src="/img/plantuml-ddd-sample.png" alt="DDD Sample Component Diagram" width="400px">
+
+Example class diagram (Cargo booking context): 
+<img src="/img/plantuml-cargo-booking-context.png" alt="Cargo Booking Context" width="500px">
 
 ## MDSL (Micro-)Service Contracts
 With our [MDSL](https://socadk.github.io/MDSL/) generator you can generate (micro-)service contracts out of your Context Maps.
@@ -57,17 +77,6 @@ This is an example [MDSL](https://socadk.github.io/MDSL/) service contract for o
 </pre></div>
 
 Learn more about the [MDSL](https://socadk.github.io/MDSL/) generator [here](/docs/mdsl/).
-
-## PlantUML Diagrams
-You can generate [plantUML](http://plantuml.com/) component diagrams out of CML context maps. Additionally, the transformation 
-generates class diagrams for all bounded contexts. If the implemented subdomains contain entities, the generator produces class diagrams
-for these subdomains as well. [Here](/docs/plant-uml/) you can find out how to generate them.
-
-Example component diagram (DDD sample): 
-<img src="/img/plantuml-ddd-sample.png" alt="DDD Sample Component Diagram" width="400px">
-
-Example class diagram (Cargo booking context): 
-<img src="/img/plantuml-cargo-booking-context.png" alt="Cargo Booking Context" width="500px">
 
 ## Service Cutter Input Files
 Find out how to produce Service Cutter input to calculate possible service cuts or new bounded contexts [here](/docs/service-cutter/):

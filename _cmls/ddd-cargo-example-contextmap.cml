@@ -1,0 +1,11 @@
+ContextMap DDDSampleMap {
+  contains CargoBookingContext
+  contains VoyagePlanningContext
+  contains LocationContext
+
+  CargoBookingContext [SK]<->[SK] VoyagePlanningContext
+
+  CargoBookingContext [D]<-[U,OHS,PL] LocationContext
+
+  VoyagePlanningContext [D]<-[U,OHS,PL] LocationContext
+}

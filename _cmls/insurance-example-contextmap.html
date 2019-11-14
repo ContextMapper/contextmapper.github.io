@@ -1,0 +1,44 @@
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> InsuranceContextMap {
+  <span class="k">type</span> = <span class="k">SYSTEM_LANDSCAPE</span>
+  <span class="k">state</span> = <span class="k">TO_BE</span>
+
+  <span class="c">/* Add bounded contexts to this context map: */</span>
+  <span class="k">contains</span> CustomerManagementContext, CustomerSelfServiceContext, PrintingContext
+  <span class="k">contains</span> PolicyManagementContext, RiskManagementContext, DebtCollection
+
+  <span class="c">/* Define the context relationships: */</span>
+
+  CustomerSelfServiceContext [<span class="k">D</span>,<span class="k">C</span>]&lt;-[<span class="k">U</span>,<span class="k">S</span>] CustomerManagementContext {
+    <span class="k">exposedAggregates</span> = Customers
+  }
+
+  CustomerManagementContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] PrintingContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+    <span class="k">downstreamRights</span> = <span class="k">INFLUENCER</span>
+    <span class="k">exposedAggregates</span> = Printing
+  }
+
+  PrintingContext [<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>]-&gt;[<span class="k">D</span>,<span class="k">ACL</span>] PolicyManagementContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+    <span class="k">exposedAggregates</span> = Printing
+  }
+
+  RiskManagementContext [<span class="k">P</span>]&lt;-&gt;[<span class="k">P</span>] PolicyManagementContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;RabbitMQ&quot;</span>
+  }
+
+  PolicyManagementContext [<span class="k">D</span>,<span class="k">CF</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] CustomerManagementContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTfulHTTP&quot;</span>
+    <span class="k">exposedAggregates</span> = Customers
+  }
+
+  DebtCollection [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] PrintingContext {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+    <span class="k">exposedAggregates</span> = Printing
+  }
+
+  PolicyManagementContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] DebtCollection {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;Shared Java Library, Communication over RESTful HTTP&quot;</span>
+  }
+}
+</pre></div>

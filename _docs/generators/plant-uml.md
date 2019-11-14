@@ -24,7 +24,8 @@ We assume you have a CML file with your model in Eclipse (with our plugin instal
 (right-click anywhere in the editor)
 </div>
 
-All the diagrams will be generated into the **src-gen** folder. If you have installed one of the recommended plantUML Eclipse plugins (see recommendations [here](/docs/home/)), you can directly open and view the diagrams in eclipse:
+All the diagrams will be generated into the **src-gen** folder. If you have installed one of the recommended plantUML Eclipse plugins 
+(see recommendations [here](/docs/getting-started/)), you can directly open and view the diagrams in eclipse:
 
 <a href="/img/plantuml-generation-2.png">![PlantUML View in Eclipse](/img/plantuml-generation-2.png)</a>
 

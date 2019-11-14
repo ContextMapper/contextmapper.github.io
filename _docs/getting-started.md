@@ -17,6 +17,10 @@ To use the ContextMapper DSL Eclipse plugin you need the following tools:
 * [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 8 or newer)
 * [Eclipse](https://www.eclipse.org/downloads/packages/)
 * ContextMapper Eclipse Plugin (Eclipse Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/))
+* If you want to use our [Context Map generator](/docs/context-map-generator/) you need to have [Graphviz](https://www.graphviz.org/) installed on your system.
+    * Ensure that the binaries are part of the _PATH_ environment variable and can be called from the terminal.
+    * Especially on Windows this is not the case after the installation of [Graphviz](https://www.graphviz.org/). The default installation path is
+      `C:\Program Files (x86)\GraphvizX.XX`, which means you have to add `C:\Program Files (x86)\GraphvizX.XX\bin` to your _PATH_ variable.
 * You may want to install one the following two plugins to display the plantUML diagrams directly in Eclipse:
     * [Asciidoctor Editor](https://marketplace.eclipse.org/content/asciidoctor-editor) (Update site: [https://dl.bintray.com/de-jcup/asciidoctoreditor](https://dl.bintray.com/de-jcup/asciidoctoreditor))
     * [PlantUML Eclipse Plugin](https://github.com/hallvard/plantuml) (Update site: [http://hallvard.github.io/plantuml/](http://hallvard.github.io/plantuml/))

@@ -1,0 +1,43 @@
+ContextMap InsuranceContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = TO_BE
+
+  /* Add bounded contexts to this context map: */
+  contains CustomerManagementContext, CustomerSelfServiceContext, PrintingContext
+  contains PolicyManagementContext, RiskManagementContext, DebtCollection
+
+  /* Define the context relationships: */
+
+  CustomerSelfServiceContext [D,C]<-[U,S] CustomerManagementContext {
+    exposedAggregates = Customers
+  }
+
+  CustomerManagementContext [D,ACL]<-[U,OHS,PL] PrintingContext {
+    implementationTechnology = "SOAP"
+    downstreamRights = INFLUENCER
+    exposedAggregates = Printing
+  }
+
+  PrintingContext [U,OHS,PL]->[D,ACL] PolicyManagementContext {
+    implementationTechnology = "SOAP"
+    exposedAggregates = Printing
+  }
+
+  RiskManagementContext [P]<->[P] PolicyManagementContext {
+    implementationTechnology = "RabbitMQ"
+  }
+
+  PolicyManagementContext [D,CF]<-[U,OHS,PL] CustomerManagementContext {
+    implementationTechnology = "RESTfulHTTP"
+    exposedAggregates = Customers
+  }
+
+  DebtCollection [D,ACL]<-[U,OHS,PL] PrintingContext {
+    implementationTechnology = "SOAP"
+    exposedAggregates = Printing
+  }
+
+  PolicyManagementContext [SK]<->[SK] DebtCollection {
+    implementationTechnology = "Shared Java Library, Communication over RESTful HTTP"
+  }
+}

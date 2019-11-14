@@ -53,6 +53,7 @@
 - title: Generators
   docs:
   - generators
-  - mdsl
+  - context-map-generator
   - plant-uml
+  - mdsl
   - service-cutter
