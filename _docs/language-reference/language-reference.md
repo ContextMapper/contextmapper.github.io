@@ -25,7 +25,7 @@ The syntax and semantic rules of all the patterns are documented on their indivi
  * **[Customer/Supplier](/docs/customer-supplier)**
  * **[Conformist](/docs/conformist)**
  * **[Open Host Service](/docs/open-host-service)** (OHS)
- * **[Anticurruption Layer](/docs/anticorruption-layer)** (ACL)
+ * **[Anticorruption Layer](/docs/anticorruption-layer)** (ACL)
  * **[Published Language](/docs/published-language)**
  * **[Responsibility Layers](/docs/responsibility-layers)**
  * **[Knowledge Level](/docs/knowledge-level)**
