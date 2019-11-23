@@ -18,6 +18,22 @@ you can generate new decomposition suggestions or _service cuts_ by using the fo
 
 <a href="/img/service-cut-generator-context-menu.png">![Generate New Service Cuts (Context Menu)](/img/service-cut-generator-context-menu.png)</a>
 
+### Input and Preconditions
+Service Cutter needs the system to be described in entities and so-called nanoentities. This structure is automatically derived from your CML model.
+In addition, you can provide user representations (use cases etc.) to improve the quality of the cuts. Thus, you can generate new Context Maps 
+describing service decompositions with the following input:
+
+ * CML file describing your system
+ * **Optionally:** User descriptions in form of a SCL (Service Cutter language) file.
+    * You can find out [here](/docs/service-cutter/) how to create such file.
+    
+The following **preconditions** have to be fulfilled so that we are able to derive the structure (ERD) required by Service Cutter:
+
+ * Your CML model must describe the Bounded Contexts including entities and attributes.
+    * Without attributes we cannot derive nanoentities and Service Cutter cannot calculate decompositions.
+    
+Note that if the _Leung_ algorithm is used, the decompositions can be different every time the generator is called (non-deterministic algorithm).
+
 ### Solver Configuration
 A dialog will allow you to configure the following inputs needed by Service Cutter:
 
