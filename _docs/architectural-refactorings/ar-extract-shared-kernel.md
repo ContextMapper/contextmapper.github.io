@@ -20,6 +20,8 @@ two Bounded Contexts. This AR can be applied if a Shared Kernel gets big, diffic
 a new team maintaining this shared part of the domain model in a separate Bounded Context. This may increase the autonomy of
 all involved teams.   
 
+<a href="/img/extract-shared-kernel.png">![Extract Shared Kernel Illustration](/img/extract-shared-kernel.png)</a>
+
 ## Preconditions
  * Your model needs **at least two bounded contexts** which are in a **Shared Kernel** relationship.
 
