@@ -13,12 +13,15 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2020**
+ * Stefan Kapferer and Olaf Zimmermann: **Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling**,
+   In _Proceedings of the 8th International Conference on Model-Driven Engineering and Software Development - MODELSWARD_, pages 299–306. INSTICC, SciTePress.
+     * [Paper (PDF)](https://www.insticc.org/Primoris/Resources/PaperPdf.ashx?idPaper=89105)
  * Stefan Kapferer: **A Modeling Framework for Strategic Domain-driven Design and Service Decomposition**, Master Thesis at University of 
    Applied Sciences of Eastern Switzerland (HSR FHO)
      * _Publication coming soon_
      
 **2019**
- * Stefan Kapferer & Olaf Zimmermann: **[Context Mapper: DSL and Tools for Domain-Driven Service Design](https://www.jug.ch/html/events/2019/context_mapper.html)** - _Bounded Context Modeling and Microservice Decomposition_,
+ * Stefan Kapferer and Olaf Zimmermann: **[Context Mapper: DSL and Tools for Domain-Driven Service Design](https://www.jug.ch/html/events/2019/context_mapper.html)** - _Bounded Context Modeling and Microservice Decomposition_,
    talk at [Java User Group Switzerland](https://www.jug.ch) in St. Gallen (September 10, 2019)
      * [Talk abstract](https://www.jug.ch/html/events/2019/context_mapper.html)
      * [Slides](/media/ZIOSK-ContextMapper4JUGv10p.pdf)
