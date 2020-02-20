@@ -10,6 +10,10 @@ Use the following Eclipse Update Site and install the plugin in Eclipse via *Hel
 
 Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
 
+### How do I create an Eclipse project with a new CML model to start modeling my Context Map?
+Consult the page [Create CML Model](/docs/getting-started-create-project/) which describes how you setup your project to get started with modeling CML
+Context Maps.
+
 ### How do I create a new context map?
 Just create a file with the file extension **cml** (Context Mapping Language). Take a look at our example to get an idea how it looks like: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples)
 
@@ -41,6 +45,10 @@ If you are interested in more details and all features, we refer to the [Sculpto
 
 ### I have other questions not listed here. How can I contribute?
 If you have any questions not answered by our documentation page, we are happy if you create an issue in our documentation [repo](https://github.com/ContextMapper/contextmapper.github.io/issues). Of course, PR's are always welcome as well.
+
+### How do I validate all CML models (*.cml files) in my Eclipse project?
+The CML models are validated when you save the *.cml automatically, if _"Build Automatically"_ is enabled in the _Project_ menu.
+If it is not enabled you can validate all models by triggering _"Build All"_ in the _Project_ menu. 
 
 Your [contribution](/getting-involved/) is welcome!
 
