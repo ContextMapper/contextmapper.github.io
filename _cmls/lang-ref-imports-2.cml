@@ -1,0 +1,11 @@
+import "./BoundedContexts.cml"
+
+ContextMap InsuranceContextMap {
+  contains CustomerManagementContext
+  contains PolicyManagementContext
+
+  PolicyManagementContext [D,CF]<-[U,OHS,PL] CustomerManagementContext {
+    implementationTechnology = "RESTfulHTTP"
+    exposedAggregates = Customers
+  }
+}

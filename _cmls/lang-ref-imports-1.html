@@ -1,0 +1,37 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext <span class="k">implements</span> CustomerManagementDomain {
+  <span class="k">Aggregate</span> Customers {
+    <span class="k">Entity</span> Customer {
+      <span class="k">aggregateRoot</span>
+
+      - <span class="k">SocialInsuranceNumber</span> sin
+      <span class="k">String</span> firstname
+      <span class="k">String</span> lastname
+      - <span class="k">List</span>&lt;Address&gt; addresses
+    }
+
+    <span class="k">Entity</span> Address {
+      <span class="k">String</span> street
+      <span class="k">int</span> postalCode
+      <span class="k">String</span> city
+    }
+  }
+}
+
+<span class="k">BoundedContext</span> PolicyManagementContext <span class="k">implements</span> PolicyManagementDomain {
+  <span class="k">Aggregate</span> Contract {
+    <span class="k">Entity</span> Contract {
+      <span class="k">aggregateRoot</span>
+
+      - <span class="k">ContractId</span> identifier
+      - <span class="k">Customer</span> client
+      - <span class="k">List</span>&lt;Product&gt; products
+    }
+
+    <span class="k">Entity</span> Policy {
+      <span class="k">int</span> policyNr
+      - <span class="k">Contract</span> contract
+      <span class="k">BigDecimal</span> price
+    }
+  }
+}
+</pre></div>

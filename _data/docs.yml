@@ -26,6 +26,7 @@
   - knowledge-level
   - aggregate
   - tactic-ddd
+  - imports
 
 - title: Architectural Refactorings (ARs)
   docs:
