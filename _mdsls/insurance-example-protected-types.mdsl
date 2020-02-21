@@ -4,12 +4,12 @@ usage context PUBLIC_API for BACKEND_INTEGRATION
 
 // ** BEGIN PROTECTED REGION for data types
 
-data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string>, "manuallyChangedThisDataType":V<string> }
+data type Address { "street":D<string>, "postalCode":D<int>, "city":D<string>, "manuallyChangedThisDataType":D<string> }
 
 // ** END PROTECTED REGION for data types
 
 data type AddressId P
-data type changeCustomerParameter { "firstname":V<string>, "lastname":V<string> }
+data type changeCustomerParameter { "firstname":D<string>, "lastname":D<string> }
 
 // removed the rest here to save space ...
 

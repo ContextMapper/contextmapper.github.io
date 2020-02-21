@@ -6,9 +6,9 @@ usage context PUBLIC_API for BACKEND_INTEGRATION
 
 // ** END PROTECTED REGION for data types
 
-data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string> }
+data type Address { "street":D<string>, "postalCode":D<int>, "city":D<string> }
 data type AddressId P
-data type changeCustomerParameter { "firstname":V<string>, "lastname":V<string> }
+data type changeCustomerParameter { "firstname":D<string>, "lastname":D<string> }
 
 // ** BEGIN PROTECTED REGION for endpoint types
 
@@ -28,7 +28,7 @@ endpoint type CustomersAggregate
       expecting
         payload changeCustomerParameter
       delivering
-        payload V<bool>
+        payload D<bool>
 
 // ** BEGIN PROTECTED REGION for API providers
 

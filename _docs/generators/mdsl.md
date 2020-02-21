@@ -28,13 +28,13 @@ The base/primitive types are mapped as follows:
 
 | CML type         | MDSL type                                   |
 |------------------|---------------------------------------------|
-| String           | V&lt;string&gt;                             |
-| int or Integer   | V&lt;int&gt;                                |
-| long or Long     | V&lt;long&gt;                               |
-| double or Double | V&lt;double&gt;                             |
-| boolean          | V&lt;bool&gt;                               |
-| Blob             | V&lt;blob&gt;                               |
-| Date             | V&lt;string&gt; (no date available in MDSL) |
+| String           | D&lt;string&gt;                             |
+| int or Integer   | D&lt;int&gt;                                |
+| long or Long     | D&lt;long&gt;                               |
+| double or Double | D&lt;double&gt;                             |
+| boolean          | D&lt;bool&gt;                               |
+| Blob             | D&lt;blob&gt;                               |
+| Date             | D&lt;string&gt; (no date available in MDSL) |
 
 <div class="alert alert-custom">
 <strong>Note:</strong> Types in CML are case sensitive. For example: If you write "string" instead of "String", you create a new abstract
@@ -54,7 +54,7 @@ Entity Address {
 }
 ```
 MDSL data type result:
-<div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lockbox&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;?, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lockbox&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;?, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 </pre></div>
 
 All abstract data types which are not base types and not specified in CML (no references to objects) will produce an abstract, 
@@ -68,9 +68,9 @@ An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follo
 <span class="k">API description</span> CustomerManagementContextAPI
 <span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
 
-<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 <span class="k">data type</span> AddressId <span class="k">P</span>
-<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 
 <span class="k">endpoint type</span> CustomersAggregate
   <span class="k">serves as</span> <span class="k">INFORMATION_HOLDER_RESOURCE</span>
@@ -86,7 +86,7 @@ An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follo
       <span class="k">expecting</span>
         <span class="k">payload</span> changeCustomerParameter
       <span class="k">delivering</span>
-        <span class="k">payload</span> V&lt;<span class="k">bool</span>&gt;
+        <span class="k">payload</span> D&lt;<span class="k">bool</span>&gt;
 
 <span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
 <span class="k">API provider</span> CustomerManagementContextProvider
@@ -150,9 +150,9 @@ end the four different protected regions:
 
 <span class="c">// ** END PROTECTED REGION for data types</span>
 
-<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 <span class="k">data type</span> AddressId <span class="k">P</span>
-<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 
 <span class="c">// ** BEGIN PROTECTED REGION for endpoint types</span>
 
@@ -172,7 +172,7 @@ end the four different protected regions:
       <span class="k">expecting</span>
         <span class="k">payload</span> changeCustomerParameter
       <span class="k">delivering</span>
-        <span class="k">payload</span> V&lt;<span class="k">bool</span>&gt;
+        <span class="k">payload</span> <span class="k">D</span>&lt;<span class="k">bool</span>&gt;
 
 <span class="c">// ** BEGIN PROTECTED REGION for API providers</span>
 
@@ -213,12 +213,12 @@ if you changed the data types manually after generation and want to protect them
 
 <span class="c">// ** BEGIN PROTECTED REGION for data types</span>
 
-<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;manuallyChangedThisDataType&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;manuallyChangedThisDataType&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 
 <span class="c">// ** END PROTECTED REGION for data types</span>
 
 <span class="k">data type</span> AddressId <span class="k">P</span>
-<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 
 <span class="c">// removed the rest here to save space ...</span>
 
