@@ -110,7 +110,7 @@ An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follo
 which you can find in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
 ### MAP Pattern Decorators
-The MDSL language allows modelers to specify the responsibilities of endpoints and operations according to the MAP (https://microservice-api-patterns.org/) 
+The MDSL language allows modelers to specify the responsibilities of endpoints and operations according to the MAP ([https://microservice-api-patterns.org/](https://microservice-api-patterns.org/)) 
 responsibility patterns. Our generators match the corresponding pattern names in comments on Aggregates and methods. The following CML code illustrates how
 the MAP patterns can be added in CML. In this case we use the _Information Holder Resource_ pattern on the Aggregate level and the _Retrieval Operation_ pattern
 on the method level:
