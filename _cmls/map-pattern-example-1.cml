@@ -1,0 +1,20 @@
+BoundedContext CustomerManagementContext {
+
+  "INFORMATION_HOLDER_RESOURCE"
+  Aggregate Customers {
+
+    Entity Customer {
+      aggregateRoot
+
+      - SocialInsuranceNumber sin
+      String firstname
+      String lastname
+      - List<Address> addresses
+
+      "RETRIEVAL_OPERATION"
+      def @Address getAddress(AddressId addressId);
+    }
+
+    Entity Address
+  }
+}

@@ -109,11 +109,76 @@ An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follo
 **Note:** This example has been generated from our [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example) 
 which you can find in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
-### Known Limitations
-We are aware of the following generator issues, which may lead to [MDSL](https://socadk.github.io/MDSL/) results which do not compile:
- * If you use reserved keywords of the MDSL language as _Aggregate name_, _Bounded Context name_, _operation name_ or _data type name_
-   in CML, the result may not be valid MDSL.
-   * Workaround: Do not use MDSL keywords within your CML model.
+### MAP Pattern Decorators
+The MDSL language allows modelers to specify the responsibilities of endpoints and operations according to the MAP (https://microservice-api-patterns.org/) 
+responsibility patterns. Our generators match the corresponding pattern names in comments on Aggregates and methods. The following CML code illustrates how
+the MAP patterns can be added in CML. In this case we use the _Information Holder Resource_ pattern on the Aggregate level and the _Retrieval Operation_ pattern
+on the method level:
+
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext {
+
+  <span class="s">&quot;INFORMATION_HOLDER_RESOURCE&quot;</span>
+  <span class="k">Aggregate</span> Customers {
+
+    <span class="k">Entity</span> Customer {
+      <span class="k">aggregateRoot</span>
+
+      - <span class="k">SocialInsuranceNumber</span> sin
+      <span class="k">String</span> firstname
+      <span class="k">String</span> lastname
+      - <span class="k">List</span>&lt;Address&gt; addresses
+
+      <span class="s">&quot;RETRIEVAL_OPERATION&quot;</span>
+      <span class="k">def</span> @Address getAddress(AddressId addressId);
+    }
+
+    <span class="k">Entity</span> Address
+  }
+}
+</pre></div> 
+
+The patterns are detected by our generator and mapped to the corresponding language features of MDSL. The following MDSL code illustrates the resulting resource
+for the Aggregate specified above:
+
+<div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> AddressId <span class="k">P</span>
+
+<span class="k">endpoint type</span> CustomersAggregate
+  <span class="k">serves as</span> <span class="k">INFORMATION_HOLDER_RESOURCE</span>
+  <span class="k">exposes</span>
+    <span class="k">operation</span> getAddress
+      <span class="k">with</span> <span class="k">responsibility</span> <span class="k">RETRIEVAL_OPERATION</span>
+      <span class="k">expecting</span>
+        <span class="k">payload</span> AddressId
+      <span class="k">delivering</span>
+        <span class="k">payload</span> Address
+</pre></div>
+
+As illustrated above, the patterns on the resource level are added with the _serves as_ keyword and on the operation level with the _with responsibility_ keyword.
+In the following we list the supported patterns:
+
+#### Endpoint Responsibility Patterns
+ * [PROCESSING_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/ProcessingResource)
+ * [INFORMATION_HOLDER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/InformationHolderResource)
+ * OPERATIONAL_DATA_HOLDER
+ * [MASTER_DATA_HOLDER](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/MasterDataHolder)
+ * REFERENCE_DATA_HOLDER
+ * [TRANSFER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/TransferResource)
+ * [LOOKUP_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/LookupResource)
+ * DATA_TRANSFER_RESOURCE
+ * LINK_LOOKUP_RESOURCE
+ * GATEWAY_RESOURCE
+ * COMPOSITION_RESOURCE
+ * GUARD_RESOURCE
+ * GROUND_RESOURCE
+
+#### Operation Responsibility Patterns
+ * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/ComputationFunction)
+ * NOTIFICATION_OPERATION
+ * [RETRIEVAL_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/RetrievalOperation)
+ * STATE_TRANSITION_OPERATION
+ * [EVENT_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/EventProcessor)
+ * [BUSINESS_ACTIVITY_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/BusinessActivityProcessor)
 
 ## User Guide
 You can generate [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts from your CML model as follows.
@@ -226,5 +291,5 @@ if you changed the data types manually after generation and want to protect them
 </pre></div>
 
 ## MDSL Support
-The current version of our MDSL generator is compatible with the MDSL version _1.0.2_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
+The current version of our MDSL generator is compatible with the MDSL version _1.1.0_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
 or contact Olaf Zimmermann.

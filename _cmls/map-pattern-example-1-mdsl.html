@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
+<span class="k">data type</span> AddressId <span class="k">P</span>
+
+<span class="k">endpoint type</span> CustomersAggregate
+  <span class="k">serves as</span> <span class="k">INFORMATION_HOLDER_RESOURCE</span>
+  <span class="k">exposes</span>
+    <span class="k">operation</span> getAddress
+      <span class="k">with</span> <span class="k">responsibility</span> <span class="k">RETRIEVAL_OPERATION</span>
+      <span class="k">expecting</span>
+        <span class="k">payload</span> AddressId
+      <span class="k">delivering</span>
+        <span class="k">payload</span> Address
+</pre></div>

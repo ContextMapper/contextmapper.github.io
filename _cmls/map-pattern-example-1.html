@@ -1,0 +1,21 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext {
+
+  <span class="s">&quot;INFORMATION_HOLDER_RESOURCE&quot;</span>
+  <span class="k">Aggregate</span> Customers {
+
+    <span class="k">Entity</span> Customer {
+      <span class="k">aggregateRoot</span>
+
+      - <span class="k">SocialInsuranceNumber</span> sin
+      <span class="k">String</span> firstname
+      <span class="k">String</span> lastname
+      - <span class="k">List</span>&lt;Address&gt; addresses
+
+      <span class="s">&quot;RETRIEVAL_OPERATION&quot;</span>
+      <span class="k">def</span> @Address getAddress(AddressId addressId);
+    }
+
+    <span class="k">Entity</span> Address
+  }
+}
+</pre></div>
