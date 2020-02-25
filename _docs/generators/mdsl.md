@@ -165,12 +165,6 @@ In the following we list the supported patterns:
  * REFERENCE_DATA_HOLDER
  * [TRANSFER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/TransferResource)
  * [LOOKUP_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/LookupResource)
- * DATA_TRANSFER_RESOURCE
- * LINK_LOOKUP_RESOURCE
- * GATEWAY_RESOURCE
- * COMPOSITION_RESOURCE
- * GUARD_RESOURCE
- * GROUND_RESOURCE
 
 #### Operation Responsibility Patterns
  * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/ComputationFunction)
