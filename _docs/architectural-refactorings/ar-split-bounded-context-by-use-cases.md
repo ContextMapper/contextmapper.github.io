@@ -55,4 +55,4 @@ The resulting model contains two bounded contexts, one for each use case:
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-2-Split-Bounded-Context-by-Use-Cases).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-02-Split-Bounded-Context-by-Use-Cases).
