@@ -418,3 +418,6 @@ To use the generic generator based on [Freemarker](https://freemarker.apache.org
  By finishing the dialog you generate the required file:
  
  <a href="/img/generic-generator-result.png">![Generic Textual Generator Dialog](/img/generic-generator-result.png)</a>
+
+### Freemarker Version
+Context Mapper uses [Freemarker](https://freemarker.apache.org/) in version 2.3.22.
