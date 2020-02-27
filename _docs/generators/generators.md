@@ -5,7 +5,14 @@ permalink: /docs/generators/
 
 The Context Mapper generators provide transformations to derive graphical Context Maps, [PlantUML diagrams](http://plantuml.com/), 
 [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts, and [ServiceCutter input files](https://servicecutter.github.io/) from your 
-CML context map.
+CML context map. In addition we provide a [generic generator](/docs/generic-freemarker-generator/) based on Freemarker which allows to generate arbitrary textual files.
+
+**Generators:**
+ * [Graphical Context Maps](#graphical-context-maps)
+ * [PlantUML Diagrams](#plantuml-diagrams)
+ * [MDSL (Micro-)Service Contracts](#mdsl-micro-service-contracts)
+ * [Service Cutter Input Files](#service-cutter-input-files)
+ * [Generic Textual Generator (Freemarker Templating)](#generic-textual-generator-freemarker-templating)
 
 ## Graphical Context Maps
 The Context Map generator allows you to transform the CML Context Map into graphical representation inspired by the illustrations of 
@@ -82,3 +89,7 @@ Learn more about the [MDSL](https://socadk.github.io/MDSL/) generator [here](/do
 Find out how to produce Service Cutter input to calculate possible service cuts or new bounded contexts [here](/docs/service-cutter/):
 
 ![Service Cutter DDD Sample](/img/service-cutter-ddd-sample.png)
+
+## Generic Textual Generator (Freemarker)
+With the generic generator based on [Freemarker](https://freemarker.apache.org/) templates Context Mapper users are allowed to generate arbitrary text files from CML Context Maps.
+Learn more about this generator [here](/docs/generic-freemarker-generator/)

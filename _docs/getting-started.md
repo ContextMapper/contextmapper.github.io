@@ -95,6 +95,7 @@ Once you created your first Context Map in CML you can use the following tools t
  * Generate [PlantUML](/docs/plant-uml/) component and class diagrams
  * Generate [MDSL](/docs/mdsl) (micro-)service contracts
  * Generate [Service Cutter](/docs/service-cutter/) input files
+ * Generate [arbitrary textual files with Freemarker templates](/docs/generic-freemarker-generator/)
  
 ## Reverse Engineer Context Map and Bounded Contexts
 In case you work on a project with existing monolithic or (micro-)service-oriented architectures you may want to reverse engineer an initial Context Map

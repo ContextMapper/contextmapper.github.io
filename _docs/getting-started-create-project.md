@@ -65,3 +65,4 @@ out Architectural Refactorings (ARs):
     * [PlantUML generator](/docs/plant-uml/)
     * [MDSL (Micro-)Service Contracts Generator](/docs/mdsl/)
     * [ServiceCutter generator](/docs/service-cutter/)
+    * [Generic generator](/docs/generic-freemarker-generator/) (Freemarker templates)

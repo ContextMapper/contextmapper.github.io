@@ -28,5 +28,6 @@ offer the following generators:
  * [PlantUML](http://plantuml.com/) component and class diagram [generator](/docs/plant-uml/)
  * [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts [generator](/docs/mdsl/)
  * [Service Cutter](http://servicecutter.github.io/) input files [generators](/docs/service-cutter/)
+ * [Generic Textual Generator based on Freemarker Templates](/docs/generic-freemarker-generator/)
 
-**Find out [how to start using Context Mapper](/docs/getting-started) right now.**
+**Find out [how to start using Context Mapper](/docs/getting-started/) right now.**
