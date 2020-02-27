@@ -15,7 +15,8 @@ and details about our projects in the papers listed below.
 **2020**
  * Stefan Kapferer and Olaf Zimmermann: **Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling**,
    In _Proceedings of the 8th International Conference on Model-Driven Engineering and Software Development - MODELSWARD_, pages 299–306. INSTICC, SciTePress.
-     * [Paper (PDF)](https://www.insticc.org/Primoris/Resources/PaperPdf.ashx?idPaper=89105)
+     * [Paper](https://www.insticc.org/Primoris/Resources/PaperPdf.ashx?idPaper=89105)
+     * [Presentation](/media/ZIOSK-Modelsward-Paper-Presentation-v101p.pdf)
  * Stefan Kapferer: **[A Modeling Framework for Strategic Domain-driven Design and Service Decomposition](https://eprints.hsr.ch/821/)**, Master Thesis at University of 
    Applied Sciences of Eastern Switzerland (HSR FHO)
      * [Project report](https://eprints.hsr.ch/821/)
