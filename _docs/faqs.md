@@ -29,10 +29,11 @@ system can be implemented in an (micro-)service-oriented architecture, [Service 
 to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams 
 out of your CML. The following pages explain the generators in detail:
 
- * [Generate graphical Context Maps](/docs/context-map-generator/)
+ * [Generate Graphical Context Maps](/docs/context-map-generator/)
  * [Generate PlantUML Diagrams](/docs/plant-uml/)
  * [Generate MDSL (Micro-)Service Contracts](/docs/mdsl/)
  * [Generate Service Cutter Input Files](/docs/service-cutter/)
+ * [Generate Arbitrary Text Files](/docs/generic-freemarker-generator/) (with Freemarker templates)
 
 ### How can I refactor my CML model?
 The Context Mapper tool provides a set of architectural refactorings which you can apply to your model. Find more information and all
