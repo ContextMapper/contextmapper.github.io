@@ -138,7 +138,7 @@ relationship
   |   |
   |   +- (1st, 2nd)
   |       |
-  |       +- name = "ACL"          Semantic only allows one role here (ACL or CF)
+  |       +- name = "ACL"          Semantics only allows one role here (ACL or CF)
   |
   +- upstreamExposedAggregates     List of Aggregate objects
   |

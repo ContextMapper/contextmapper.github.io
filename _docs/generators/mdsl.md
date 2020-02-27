@@ -12,7 +12,7 @@ DDD context map written in CML. The generator creates the contracts according to
 how we would derive (micro-)services from models based on strategic DDD. The generator aims for providing assistance regarding how your
 system can be implemented in an (micro-)service-oriented architecture.
 
-### Generator Mapping
+### Language Mapping
 
 | CML Input                                                                                                                        | MDSL Output                                        | Description                                                                                                                                                                                                                                                             |
 |----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -110,7 +110,7 @@ An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follo
 which you can find in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
 ### MAP Pattern Decorators
-The MDSL language allows modelers to specify the responsibilities of endpoints and operations according to the MAP ([https://microservice-api-patterns.org/](https://microservice-api-patterns.org/)) 
+The MDSL language allows modelers to specify the roles of endpoints and operations according to the MAP ([https://microservice-api-patterns.org/](https://microservice-api-patterns.org/)) 
 responsibility patterns. Our generators match the corresponding pattern names in comments on Aggregates and methods. The following CML code illustrates how
 the MAP patterns can be added in CML. In this case we use the _Information Holder Resource_ pattern on the Aggregate level and the _Retrieval Operation_ pattern
 on the method level:
@@ -157,7 +157,7 @@ for the Aggregate specified above:
 As illustrated above, the patterns on the resource level are added with the _serves as_ keyword and on the operation level with the _with responsibility_ keyword.
 In the following we list the supported patterns:
 
-#### Endpoint Responsibility Patterns
+#### Endpoint Role Patterns
  * [PROCESSING_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/ProcessingResource)
  * [INFORMATION_HOLDER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/InformationHolderResource)
  * OPERATIONAL_DATA_HOLDER
@@ -166,7 +166,7 @@ In the following we list the supported patterns:
  * [TRANSFER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/TransferResource)
  * [LOOKUP_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/LookupResource)
 
-#### Operation Responsibility Patterns
+#### Operation Role Patterns
  * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/ComputationFunction)
  * NOTIFICATION_OPERATION
  * [RETRIEVAL_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/RetrievalOperation)
