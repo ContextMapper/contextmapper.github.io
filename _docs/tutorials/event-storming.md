@@ -17,13 +17,13 @@ The output of an event storming basically describes the domain using the followi
  * Commands (that cause the domain events)
  * Aggregates
  * Issues
- * User Roles?
+ * User Roles ?
  * Views ?
  * Bounded Contexts
  * Subdomains
  * Event Flow
 
-Context Mapper supports modeling these concepts and can therefore be used to document the output of an event storming.
+Context Mapper supports modeling these concepts and can therefore be used to document the output of an event storming workshop.
 
 ### Domain Events
 The tactic DDD syntax of CML which is based on the [Sculptor DSL](http://sculptorgenerator.org/) supports to model _DomainEvent_'s within your Aggregates.
@@ -44,25 +44,36 @@ On the [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing
 modeled in Context Mapper.
 
 ### Commands
-The domain events are often a consequence of a user action or _command_. Commands in CML can either be modeled as methods in services or as _CommandEvent_'s.
+The domain events are often a consequence of a user action or _command_. Commands in CML can either be modeled as methods in services or as _CommandEvent_'s. The following examples
+illustrate how you can model commands in CML:
+
+```text
+Service CustomerCommandService {
+  void updateCustomer(@Customer customer);
+}
+
+CommandEvent UpdateCustomer {
+  - Customer customer
+}
+```
 
 ### Aggregates
-TODO
+Aggregates are supported by CML and can be modeled within Bounded Contexts. The syntax is documented [here](/docs/aggregate/).
 
 ### Issues
-TODO
+tbd: as comments?
 
 ### User Roles
-TODO
+tbd: as comments?
 
 ### Views
-TODO
+tbd: as comments?
 
 ### Bounded Contexts
-TODO
+Bounded Contexts are first class objects in CML. The syntax in documented [here](/docs/bounded-context/).
 
 ### Subdomains
-TODO
+Just like Bounded Contexts, subdomains are root objects in CML. The syntax how to model subdomains is documented [here](/docs/subdomain/).
 
 ### Event Flow
-TODO
+tbd: maybe enhance Sculptor so that an Event can reference its predecessor? thereby one could model a flow (chain of events)
