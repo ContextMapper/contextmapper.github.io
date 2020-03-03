@@ -40,9 +40,13 @@ DebtCollection
 In order to write our Freemarker templates you have to know our data model. In the following we provide an overview over this CML model.
 
 <div class="alert alert-custom">
-<strong>Please note:</strong> We do not document the tactic DDD parts within Bounded Contexts in all details. In case your template needs information on that level please use 
+<strong>Note:</strong> We do not document the tactic DDD parts within Bounded Contexts in all details. In case your template needs information on that level please use 
 our <a target="_blank" href="https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/dsl/contextMappingDSL/package-summary.html">JavaDoc</a> documentation
 to get the necessary information about the data model.
+</div>
+
+<div class="alert alert-custom">
+<strong>Note:</strong> The variable names of the model documented below must be used case-sensitive in Freemarker templates.
 </div>
 
 ### Root Level
@@ -64,6 +68,12 @@ The root level of the model contains the following elements:
   +- timestamp                     Time stamp with current/generation time
   |
   +- filename                      name of CML file
+  |
+  +- projectname                   name of Eclipse project
+  |
+  +- contextMapperVersion          version of the Context Mapper plugin and the CML language
+  |
+  +- username                      name of the current system user
 ```
 
 The corresponding CML objects and their syntax can be found in our language reference: [Context Map](/docs/context-map/), [Bounded Context](/docs/bounded-context/), 

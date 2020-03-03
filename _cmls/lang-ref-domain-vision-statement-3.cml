@@ -1,0 +1,11 @@
+Domain Insurance {
+  domainVisionStatement = "Insurance domain vision ..."
+
+  Subdomain Customers {
+    /* subdomain specification */
+  }
+
+  Subdomain PolicyManagement {
+    /* subdomain specification */
+  }
+}
