@@ -6,7 +6,9 @@ permalink: /docs/faq/
 Frequently asked questions:
 
 ### Where can I download the Eclipse Plugin?
-Use the following Eclipse Update Site and install the plugin in Eclipse via *Help -> Install New Software...* (copy past the update site link)
+Open the [Eclipse Marketplace](https://marketplace.eclipse.org/content/context-mapper) in Eclipse, search for "Context Mapper", and press "Install".
+
+Alternatively, use the following Eclipse update site and install the plugin in Eclipse via *Help -> Install New Software...* (copy past the update site link)
 
 Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
 

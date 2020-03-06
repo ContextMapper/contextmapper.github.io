@@ -8,7 +8,11 @@ Context Mapper is a modular and extensible modeling framework based on **Domain-
 The **[core component](/docs/language-reference/)** provides a DSL to create context maps based on these DDD patterns. The model behind the language and its semantic rules aim 
 to formalize **our interpretation of the DDD patterns** and how they can be combined in a concise manner. 
 
-**Eclipse Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)**
+**Eclipse Marketplace: [https://marketplace.eclipse.org/content/context-mapper/](https://marketplace.eclipse.org/content/context-mapper/)**
+
+**Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)**
+
+<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=5009351" class="drag" title="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client"><img typeof="foaf:Image" class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client" /></a>
 
 ![Context Mapper Framework Components](/img/context-mapper-framework-components.png)
 

@@ -12,7 +12,16 @@ includes the following first steps:
  4. Create a file with the file extension **.cml**
  
 ## 1. Install Context Mapper Plugin
-Follow this procedure to install the Context Mapper plugin:
+The Context Mapper Eclipse plugin can be installed via the marketplace:
+<br>([https://marketplace.eclipse.org/content/context-mapper](https://marketplace.eclipse.org/content/context-mapper))
+
+ 1. Open the marketplace in your Eclipse with the menu entry _Help -> Eclipse Marketplace..._
+ 2. Search for "Context Mapper"
+ 3. Press "Install" on the Context Mapper plugin
+
+<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=5009351" class="drag" title="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client"><img typeof="foaf:Image" class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client" /></a>
+
+Alternatively you can follow this procedure to install the plugin with our update site URL directly:
 
  1. Open the plugin installation dialog in Eclipse with the menu entry _Help -> Install New Software..._
  2. Enter the following update site URL to the field _Work with:_ on the top of the dialog:
