@@ -14,14 +14,14 @@ Event storming is a workshop technique to explore domains originally invented by
 The output of an event storming basically describes the domain using the following DDD concepts:
 
  * Domain Events
- * Commands (that cause the domain events)
- * Aggregates
- * Issues
- * User Roles ?
- * Views ?
+ * Commands (that cause the Domain Events)
+ * Aggregates 
+ * Issues (optional)
+ * User Roles (optional)
+ * Views (optional)
  * Bounded Contexts
  * Subdomains
- * Event Flow
+ * Event Flows (optional)
 
 Context Mapper supports many of these concepts, and can therefore be used to document the output of an event storming workshop. Once captured in Context Mapper, the workshop results can be processed further, for instance to generate UML diagrams or service contracts.
 
@@ -80,4 +80,5 @@ Bounded Contexts are first class citizens in CML. Their syntax in documented [he
 Just like Bounded Contexts, Subdomains are root objects in CML. The Subdomain syntax is documented [here](/docs/subdomain/).
 
 ### Event Flow
-tbd: maybe enhance Sculptor so that an Event can reference its predecessor? thereby one could model a flow (chain of events) <!-- TODO tbd -->
+Events flow between contexts. Hence, you can use the upstream-downstream influence flow relationships of strategic DDD to model them. 
+<!-- TODO tbd: maybe enhance Sculptor so that an Event can reference its predecessor? thereby one could model a flow (chain of events) -->
