@@ -8,7 +8,7 @@ Event storming is a workshop technique to explore domains originally invented by
  * [Introducing Event Storming](https://ziobrando.blogspot.com/2013/11/introducing-event-storming.html) by Alberto Brandolini (original blog post)
  * [Introducing Event Storming](https://leanpub.com/introducing_eventstorming) by Alberto Brandolini (Leanpub book)
  * [Domain-Driven Design Distilled](https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon/dp/0134434420) by Vaughn Vernon
- * [Event Storming Cheatsheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner (good cheatsheet for a quick introduction into the topic)
+ * [Event Storming Cheatsheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner (good cheat sheet for a quick introduction into the topic)
  
 ## Use Context Mapper to Model Event Storming Output
 The output of an event storming basically describes the domain using the following DDD concepts:
@@ -23,11 +23,11 @@ The output of an event storming basically describes the domain using the followi
  * Subdomains
  * Event Flow
 
-Context Mapper supports modeling these concepts and can therefore be used to document the output of an event storming workshop.
+Context Mapper supports many of these concepts, and can therefore be used to document the output of an event storming workshop. Once captured in Context Mapper, the workshop results can be processed further, for instance to generate UML diagrams or service contracts.
 
 ### Domain Events
-The tactic DDD syntax of CML which is based on the [Sculptor DSL](http://sculptorgenerator.org/) supports to model _DomainEvent_'s within your Aggregates.
-The following two examples illustrate how you can specify a domain event:
+The tactic DDD syntax of CML is based on the [Sculptor DSL](http://sculptorgenerator.org/). Hence, you can model _DomainEvent_'s within your Aggregates.
+The following two examples illustrate how to specify a domain event:
 
 ```text
 DomainEvent CustomerVerifiedEvent {
@@ -40,12 +40,10 @@ DomainEvent AddressUpdatedEvent {
 }
 ```
 
-On the [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) page we also describe how event sourcing and CQRS based systems can be 
-modeled in Context Mapper.
+*Note:* On the [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) page we describe how event sourcing and CQRS based systems can be modeled in Context Mapper.
 
 ### Commands
-The domain events are often a consequence of a user action or _command_. Commands in CML can either be modeled as methods in services or as _CommandEvent_'s. The following examples
-illustrate how you can model commands in CML:
+Domain events often result from a user action or _command_ execution. Commands in CML can either be modeled as methods in services or as _CommandEvent_'s. The following examples illustrate how you can model commands in CML:
 
 ```text
 Service CustomerCommandService {
@@ -58,22 +56,28 @@ CommandEvent UpdateCustomer {
 ```
 
 ### Aggregates
-Aggregates are supported by CML and can be modeled within Bounded Contexts. The syntax is documented [here](/docs/aggregate/).
+Aggregates are supported by CML and can be modeled within Bounded Contexts. The syntax is documented [here](/docs/aggregate/). Optionally, you may want to add entities to them. 
+
+<!-- TODO show example? rationale: some event storming material features entities rather than aggregates -->
 
 ### Issues
-tbd: as comments?
+At present, Context Mapper does not have any language construct for issues. You can capture them as comments; however, it might make more sense to capture them in the issue tracking tool or Kanban board of the project straight away.
+
+<!-- TODO show example: 
+// TODO to be decided (tbd): which command causes this event to be emitted? 
+-->
 
 ### User Roles
-tbd: as comments?
+At present, there is no concept of a user role in the Context Mapper DSL; however, use cases can be sketched<!-- how? -->. As fallback, tagged comments can be used. <!-- but comments are not visible to the generators and the Freemarker templating, so of limited use? -->
 
 ### Views
-tbd: as comments?
+tbd: as comments? <!-- how about a special `ViewAggregate` that exposes viewing services only (the R in CQRS)? -->
 
 ### Bounded Contexts
-Bounded Contexts are first class objects in CML. The syntax in documented [here](/docs/bounded-context/).
+Bounded Contexts are first class citizens in CML. Their syntax in documented [here](/docs/bounded-context/).
 
 ### Subdomains
-Just like Bounded Contexts, subdomains are root objects in CML. The syntax how to model subdomains is documented [here](/docs/subdomain/).
+Just like Bounded Contexts, Subdomains are root objects in CML. The Subdomain syntax is documented [here](/docs/subdomain/).
 
 ### Event Flow
-tbd: maybe enhance Sculptor so that an Event can reference its predecessor? thereby one could model a flow (chain of events)
+tbd: maybe enhance Sculptor so that an Event can reference its predecessor? thereby one could model a flow (chain of events) <!-- TODO tbd -->
