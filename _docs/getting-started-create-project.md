@@ -34,10 +34,12 @@ the Xtext nature. There are **two** easy **possibilities** to enable the Xtext n
     <a href="/img/convert-to-xtext-project.png">![Enable Xtext nature on Eclipse project](/img/convert-to-xtext-project.png)</a>
  * **Option 2**: Just jump to step four and create a file with the extension **.cml**. Eclipse will ask you if you want to enable the Xtext nature. Press _Yes_.
  
-## 4. Create .cml File
+## 4. Create .cml Model File
 Once you created your project, you can create a file with the extension **.cml** in order to start modeling with Context Mapper. Use the 
-_New File_ wizard:
-<a href="/img/create-cml-file.png">![Create CML file](/img/create-cml-file.png)</a>
+_New Context Mapper DSL (CML) File_ wizard:
+<a href="/img/screenshot-new-cml-file-1.png">![Create CML file wizard (1)](/img/screenshot-new-cml-file-1.png)</a>
+
+<a href="/img/screenshot-new-cml-file-2.png">![Create CML file wizard (2)](/img/screenshot-new-cml-file-2.png)</a>
 
 **Note**: If you already enabled the Xtext nature in step three, the file opens and you can start modeling. Otherwise Eclipse will ask you now if you
 want to enable it:
