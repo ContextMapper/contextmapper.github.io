@@ -7,6 +7,7 @@ permalink: /docs/generic-freemarker-generator/
  * [Data Model](#data-model)
  * [Helper Functions](#helper-functions)
  * [User Guide](#user-guide) 
+ * [Example Templates](#example-templates)
 
 ## Introduction
 With the generic generator based on [Freemarker](https://freemarker.apache.org/) templates Context Mapper users are allowed to generate arbitrary text files from CML Context Maps.
