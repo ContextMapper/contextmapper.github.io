@@ -12,6 +12,8 @@ The following example illustrates how you can specify a domain with subdomains i
 
 <div class="highlight"><pre><span></span><span class="c">/* Syntax example: Domain and Subdomains */</span>
 <span class="k">Domain</span> Insurance {
+  <span class="k">domainVisionStatement</span> = <span class="s">&quot;Insurance domain vision statement ...&quot;</span>
+
   <span class="k">Subdomain</span> CustomerManagementDomain {
     <span class="k">type</span> = <span class="k">CORE_DOMAIN</span>
     <span class="k">domainVisionStatement</span> = <span class="s">&quot;Subdomain managing everything customer-related.&quot;</span>
@@ -29,6 +31,7 @@ The following example illustrates how you can specify a domain with subdomains i
   <span class="c">/* Add more subdomains ... */</span>
 }
 </pre></div>
+
 Note that the equal sign (=) to assign an attribute value as done in the example above is optional and can be omitted.
 
 ### Subdomain Type
@@ -39,7 +42,8 @@ With the _type_ keyword you specify of which type your subdomain is. The followi
  * GENERIC_SUBDOMAIN
  
 ### Domain Vision Statement
-With the _domainVisionStatement_ keyword you can specify the vision statement for this subdomain, according to the DDD Domain Vision Statement pattern.
+With the _domainVisionStatement_ keyword you can specify a vision statement for domains and subdomains, according to the DDD [Domain Vision Statement](/docs/domain-vision-statement/) 
+pattern.
 
 ### Entities
 In order to provide further details about your subdomain and which domain objects are part of it, you can use entities within a subdomain. Note that the used _Entity_ rule is integrated from the [Sculptor DSL](http://sculptorgenerator.org/). 

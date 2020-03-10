@@ -5,6 +5,7 @@ permalink: /docs/generic-freemarker-generator/
 
  * [Introduction](#introduction)
  * [Data Model](#data-model)
+ * [Helper Functions](#helper-functions)
  * [User Guide](#user-guide) 
 
 ## Introduction
@@ -40,9 +41,13 @@ DebtCollection
 In order to write our Freemarker templates you have to know our data model. In the following we provide an overview over this CML model.
 
 <div class="alert alert-custom">
-<strong>Please note:</strong> We do not document the tactic DDD parts within Bounded Contexts in all details. In case your template needs information on that level please use 
+<strong>Note:</strong> We do not document the tactic DDD parts within Bounded Contexts in all details. In case your template needs information on that level please use 
 our <a target="_blank" href="https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/dsl/contextMappingDSL/package-summary.html">JavaDoc</a> documentation
 to get the necessary information about the data model.
+</div>
+
+<div class="alert alert-custom">
+<strong>Note:</strong> The variable names of the model documented below must be used case-sensitive in Freemarker templates.
 </div>
 
 ### Root Level
@@ -64,6 +69,12 @@ The root level of the model contains the following elements:
   +- timestamp                     Time stamp with current/generation time
   |
   +- filename                      name of CML file
+  |
+  +- projectname                   name of Eclipse project
+  |
+  +- contextMapperVersion          version of the Context Mapper plugin and the CML language
+  |
+  +- username                      name of the current system user
 ```
 
 The corresponding CML objects and their syntax can be found in our language reference: [Context Map](/docs/context-map/), [Bounded Context](/docs/bounded-context/), 
@@ -401,6 +412,56 @@ The following additional attributes are currently available on the root level of
  * _timestamp:_ generation time stamp (for example _26.02.2020 17:20:40 CET_)
  * _filename:_ name of the CML file (for example _ExampleModel.cml_)
 
+## Helper Functions
+The following functions can be used in the Freemarker templates and help processing the model described above:
+
+### Bounded Context Filtering
+The functions _filterBoundedContexts_ and _filterTeams_ can be used to filter teams and Bounded Contexts which are not teams respectively. The following example lists all Bounded Contexts
+which are not teams:
+
+```ftl
+<#list filterBoundedContexts(boundedContexts) as bc>
+  Bounded Context: ${bc.name}
+</#list>
+```
+
+This example on the other hand lists all teams:
+```ftl
+<#list filterTeams(boundedContexts) as bc>
+  Bounded Context: ${bc.name}
+</#list>
+```
+
+### Type Checking
+The meta-model behind CML contains a few inheritance hierarchies which make it unavoidable that you sometimes have to check of which type an object is. Examples with relationships and
+domains vs. subdomains have already been shown above. The function _instanceOf_ allows to check which type of relationship or subdomain an object has:
+
+```ftl
+<#if instanceOf(relationship, UpstreamDownstreamRelationship)>
+...
+</#if>
+```
+
+```ftl
+<#if instanceOf(domainPart, Subdomain)>
+...
+</#if>
+```
+
+### Get Type String of _ComplexType_
+If you work on the tactic DDD level with attributes and methods (parameters and return types) you may want to render the type of an attribute, parameter, or return type.
+This part of the DSL is based on [Sculptor](http://sculptorgenerator.org/) and the types are typically instances of the 
+[ComplexType](https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/tactic/dsl/tacticdsl/ComplexType.html) object. Depending on if it is 
+primitive type or a reference to another type, rendering the type as a string is quite cumbersome. The function _getType_ which takes a 
+[ComplexType](https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/tactic/dsl/tacticdsl/ComplexType.html) as a parameter returns a simple string 
+representing the type:
+
+```ftl
+<#list simpleDomainObject.operations as operation>
+  operation ${operation.name} returns type ${getType(operation.returnType)}
+</#list> 
+```
+
 ## User Guide
 To use the generic generator based on [Freemarker](https://freemarker.apache.org/) you need two files within your Eclipse workspace:
 
@@ -420,4 +481,16 @@ To use the generic generator based on [Freemarker](https://freemarker.apache.org
  <a href="/img/generic-generator-result.png">![Generic Textual Generator Dialog](/img/generic-generator-result.png)</a>
 
 ### Freemarker Version
-Context Mapper uses [Freemarker](https://freemarker.apache.org/) in version 2.3.22.
+Context Mapper uses [Freemarker](https://freemarker.apache.org/) in version 2.3.30.
+
+## Example Templates
+With the Context Mapper Eclipse plugin we also deliver example Freemarker templates. Use the _Freemarker Generator Template Examples_ wizard via _File -> New -> Other..._
+to create the sample project containing the Freemarker templates:
+
+<a href="/img/screenshot-new-freemarker-example-project-1.png">![Create Sample Project with Freemarker Templates (1)](/img/screenshot-new-freemarker-example-project-1.png)</a>
+
+<a href="/img/screenshot-new-freemarker-example-project-2.png">![Create Sample Project with Freemarker Templates (2)](/img/screenshot-new-freemarker-example-project-2.png)</a>
+
+The project currently contains the following example templates:
+
+ * Ubiquitous language glossary written in Markdown

@@ -58,5 +58,7 @@ applicable to the selected elements:
 
 <a href="/img/architectural-refactorings-context-menu.png">![Architectural Refactoring Context Menu Example](/img/architectural-refactorings-context-menu.png)</a>
 
+You can also use the Shift-Alt-T keybinding for quick access to the available refactorings (cursor must be on the object on which you want to start the refactoring).
+
 **Note** that the context menu only shows ARs for which your selected model element fulfills the preconditions.
 The preconditions for all ARs are mentioned on the corresponding detail pages linked above. 
