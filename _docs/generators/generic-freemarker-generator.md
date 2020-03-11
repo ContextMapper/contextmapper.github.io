@@ -67,15 +67,15 @@ The root level of the model contains the following elements:
   |
   +- useCases                      Use cases list
   |
-  +- timestamp                     Time stamp with current/generation time
+  +- timeStamp                     Time stamp with current/generation time
   |
-  +- filename                      name of CML file
+  +- fileName                      name of CML file
   |
-  +- projectname                   name of Eclipse project
+  +- projectName                   name of Eclipse project
   |
   +- contextMapperVersion          version of the Context Mapper plugin and the CML language
   |
-  +- username                      name of the current system user
+  +- userName                      name of the current system user
 ```
 
 The corresponding CML objects and their syntax can be found in our language reference: [Context Map](/docs/context-map/), [Bounded Context](/docs/bounded-context/), 
