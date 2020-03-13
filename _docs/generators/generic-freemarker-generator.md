@@ -417,11 +417,11 @@ The following additional attributes are currently available on the root level of
 The following functions can be used in the Freemarker templates and help processing the model described above:
 
 ### Bounded Context Filtering
-The functions _filterBoundedContexts_ and _filterTeams_ can be used to filter teams and Bounded Contexts which are not teams respectively. The following example lists all Bounded Contexts
+The functions _filterStructuralBoundedContexts_ and _filterTeams_ can be used to filter teams and Bounded Contexts which are not teams respectively. The following example lists all Bounded Contexts
 which are not teams:
 
 ```ftl
-<#list filterBoundedContexts(boundedContexts) as bc>
+<#list filterStructuralBoundedContexts(boundedContexts) as bc>
   Bounded Context: ${bc.name}
 </#list>
 ```
