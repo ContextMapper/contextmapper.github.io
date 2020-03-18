@@ -23,7 +23,7 @@ The output of an event storming describes the domain using the following DDD con
  * [Subdomains](#subdomains)
  * [Event Flows](#event-flow) (optional)
 
-Some event stormers also introduce policies (a.k.a. business rules) as special, self-triggered types of commands.
+*Note:* Some event stormers also introduce policies (a.k.a. business rules) as special, self-triggered types of commands.
 
 Context Mapper supports most of these concepts, and can therefore be used to document the output of an event storming workshop. Once captured in Context Mapper, the workshop results can be processed further, for instance to generate UML diagrams or service contracts.
 
@@ -101,14 +101,14 @@ Service ClaimService {
 }
 ```
 
-Each command is represented as an operation; we grouped them by Aggregates (see below) in this case. `@CheckClaimDocumentation`represents the command input, which we modelled as a command event. Alternatively, a value object or an entity could have been defined.  
-The return type of service operation indicate that the result of a command is a certain event. For example: If the `CheckClaimDocumentation` command is performed, an event `ClaimRegistered` will be the result. 
+Each command is represented as an operation; we grouped them by Aggregates (see below) in this case. `@CheckClaimDocumentation`represents the command input, which we modelled as a command event. Alternatively, a value object or an entity could have been defined.  The return type of service operation indicates that the result of a command is a certain event. For example: If the `CheckClaimDocumentation` command is performed, an event `ClaimRegistered` will be the result. 
 
 Policies can be modelled in the same way, and optionally their if-then rule character be modeled explitly. <!--  show how? -->
 
 ### Aggregates
 Aggregates are supported by CML and can be modeled within Bounded Contexts. The syntax is documented [here](/docs/aggregate/). Optionally, you may want to add entities to them.
-The following example illustrates the `Notification` Aggregate derived from ous Event Storming example above:
+
+The following example illustrates the `Notification` Aggregate derived from our Event Storming example above:
 
 ```text
 Aggregate Notification {
@@ -130,7 +130,7 @@ Aggregate Notification {
 }
 ``` 
 
-**Note:** Some Event Storming tutorials/guides also feature Entities instead of Aggregates. Typically these Entities become Aggregate roots (often the Aggregate even has the same name as the Aggregate root Entity). In CML, it does not really matter whether you work with Aggregates or Entities in your Event Storming model: You have to create an Aggregate in all cases. Within this Aggregate you can then create your Entity, as shown in the example above.
+*Note:* Some Event Storming tutorials/guides also feature Entities instead of Aggregates. Typically these Entities become Aggregate roots (often the Aggregate even has the same name as the Aggregate root Entity). In CML, it does not really matter whether you work with Aggregates or Entities in your Event Storming model: You have to create an Aggregate in all cases. Within this Aggregate you can then create your Entity, as shown in the example above.
 
 ### Issues
 At present, we do not have a language construct for issues since they mostly only used as notes for potential future model changes and are not further processed (do not influence the model structurally). However, you can capture them as comments, although it might make more sense to capture them in the issue tracking tool or Kanban board of the project straight away.
