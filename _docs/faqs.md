@@ -20,7 +20,7 @@ Context Maps.
 Just create a file with the file extension **cml** (Context Mapping Language). Take a look at our example to get an idea how it looks like: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples)
 
 ### Which DDD Patterns are supported by CML?
-Have a look at our [CML Reference - Introduction](/docs/language-reference/) page. There you will find all patterns supported by CML.
+Have a look at our [CML Reference - Introduction](/docs/language-reference/) page. You will find all patterns supported by CML there.
 
 ### Which combinations of Strategic DDD Patterns are allowed? 
 Have a look at the page [Language Semantic Model](/docs/language-model/) which introduces the semantic model of our DSL and lists the implemented semantic checkers.
@@ -56,6 +56,6 @@ The CML models are validated when you save the *.cml automatically, if _"Build A
 If it is not enabled you can validate all models by triggering _"Build All"_ in the _Project_ menu.
 
 ### Does Context Mapper support Event Sourcing and CQRS?
-The concepts behind event sourcing and CQRS do not require special modeling objects besides _DomainEvent_'s, which are supported by the Context Mapper DSL (CML). The syntax to specify
+The concepts behind event sourcing and CQRS do not require special modeling objects other than _DomainEvents_, which are supported by the Context Mapper DSL (CML). The syntax to specify
 the domain models within Bounded Contexts is based on [Sculptor](http://sculptorgenerator.org/) which supports event-driven concepts. Have a look at our 
 [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) page to learn how to model events in CML.  
