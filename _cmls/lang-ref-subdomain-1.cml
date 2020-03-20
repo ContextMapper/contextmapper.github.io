@@ -1,5 +1,7 @@
 /* Syntax example: Domain and Subdomains */
 Domain Insurance {
+  domainVisionStatement = "Insurance domain vision statement ..."
+
   Subdomain CustomerManagementDomain {
     type = CORE_DOMAIN
     domainVisionStatement = "Subdomain managing everything customer-related."

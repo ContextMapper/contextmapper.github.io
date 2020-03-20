@@ -14,6 +14,9 @@ CML context map. In addition we provide a [generic generator](/docs/generic-free
  * [Service Cutter Input Files](#service-cutter-input-files)
  * [Generic Textual Generator (Freemarker Templating)](#generic-textual-generator-freemarker-templating)
 
+The generator can be accessed through the Context Menu of the CML editor or with a right-click on the *.cml file in the project explorer. In the CML editor you can access all generators
+with the keybinding Shift-Alt-G quickly.
+
 ## Graphical Context Maps
 The Context Map generator allows you to transform the CML Context Map into graphical representation inspired by the illustrations of 
 [Vernon](https://www.amazon.de/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577) and 

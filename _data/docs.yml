@@ -62,4 +62,5 @@
 
 - title: Tutorials
   docs:
+  - event-storming
   - event-sourcing-and-cqrs-modeling

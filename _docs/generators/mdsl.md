@@ -33,7 +33,7 @@ The base/primitive types are mapped as follows:
 | long or Long     | D&lt;long&gt;                               |
 | double or Double | D&lt;double&gt;                             |
 | boolean          | D&lt;bool&gt;                               |
-| Blob             | D&lt;blob&gt;                               |
+| Blob             | D&lt;raw&gt;                                |
 | Date             | D&lt;string&gt; (no date available in MDSL) |
 
 <div class="alert alert-custom">

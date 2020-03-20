@@ -12,7 +12,16 @@ includes the following first steps:
  4. Create a file with the file extension **.cml**
  
 ## 1. Install Context Mapper Plugin
-Follow this procedure to install the Context Mapper plugin:
+The Context Mapper Eclipse plugin can be installed via the marketplace:
+<br>([https://marketplace.eclipse.org/content/context-mapper](https://marketplace.eclipse.org/content/context-mapper))
+
+ 1. Open the marketplace in your Eclipse with the menu entry _Help -> Eclipse Marketplace..._
+ 2. Search for "Context Mapper"
+ 3. Press "Install" on the Context Mapper plugin
+
+<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=5009351" class="drag" title="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client"><img typeof="foaf:Image" class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client" /></a>
+
+Alternatively you can follow this procedure to install the plugin with our update site URL directly:
 
  1. Open the plugin installation dialog in Eclipse with the menu entry _Help -> Install New Software..._
  2. Enter the following update site URL to the field _Work with:_ on the top of the dialog:
@@ -34,10 +43,12 @@ the Xtext nature. There are **two** easy **possibilities** to enable the Xtext n
     <a href="/img/convert-to-xtext-project.png">![Enable Xtext nature on Eclipse project](/img/convert-to-xtext-project.png)</a>
  * **Option 2**: Just jump to step four and create a file with the extension **.cml**. Eclipse will ask you if you want to enable the Xtext nature. Press _Yes_.
  
-## 4. Create .cml File
+## 4. Create .cml Model File
 Once you created your project, you can create a file with the extension **.cml** in order to start modeling with Context Mapper. Use the 
-_New File_ wizard:
-<a href="/img/create-cml-file.png">![Create CML file](/img/create-cml-file.png)</a>
+_New Context Mapper DSL (CML) File_ wizard:
+<a href="/img/screenshot-new-cml-file-1.png">![Create CML file wizard (1)](/img/screenshot-new-cml-file-1.png)</a>
+
+<a href="/img/screenshot-new-cml-file-2.png">![Create CML file wizard (2)](/img/screenshot-new-cml-file-2.png)</a>
 
 **Note**: If you already enabled the Xtext nature in step three, the file opens and you can start modeling. Otherwise Eclipse will ask you now if you
 want to enable it:
