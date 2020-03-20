@@ -109,7 +109,13 @@ Each command is represented as an operation; we grouped them by Aggregates (see 
 command event. Alternatively, a value object or an entity could have been defined. The return type of the service operations indicate that the result of a command is a certain event. 
 For example: If the `CheckClaimDocumentation` command is performed, an event `ClaimRegistered` will be the result. 
 
-Policies can be modelled in the same way, and optionally their if-then rule character can be modeled explicitly. <!--  show how? -->
+Policies can be modeled in the same way, and optionally their if-then rule character can be modeled explicitly. For example:
+
+```text
+abstract DomainEvent AbstractPolicy
+		
+DomainEvent CustomerNofiticationPolicy // triggers CustomerNotified event
+```
 
 ### Aggregates
 Aggregates are supported by CML and can be modeled within Bounded Contexts. The syntax is documented [here](/docs/aggregate/). Optionally, you may want to add entities to them.
@@ -145,8 +151,7 @@ At present, we do not have a language construct for issues since they mostly onl
 influence the model structurally). However, you can capture them as comments, although it might make more sense to capture them in the issue tracking tool or Kanban board of 
 the project straight away.
 
-The Lakeside Mutual Event Storming output above contains two issues (the two red cards) <!-- add this pointer to the card above too? --> for which we created the following 
-comment in our CML model:
+The Lakeside Mutual Event Storming output above contains two issues ([the two red cards in the Event Storming above](#example-lakeside-mutual)) for which we created the following comment in our CML model:
 
 ```text
 /**
@@ -164,7 +169,6 @@ BoundedContext ClaimsManagement {
 ### User Roles
 At present, there is no concept of a user role in the Context Mapper DSL; however, we used [Sculptor](http://sculptorgenerator.org/)'s `doc` comment which can be added to 
 all domain objects. Thereby we declare the user roles on our commands:
-<!--- this is good but limits possibility to use doc string for MAP decorators later (?) -->
 
 ```text
 "role: Administrator in charge"
