@@ -31,11 +31,15 @@ The following example illustrates how you can model domain events within your Ag
 
 <!-- add timestamp to examples? or not needed (done in base class)? -->
 ```text
-DomainEvent CustomerVerifiedEvent {
+abstract DomainEvent AbstractDomainEvent {
+  Date timestamp
+}
+
+DomainEvent CustomerVerifiedEvent extends AbstractDomainEvent {
   - CustomerId customer
 }
 
-DomainEvent AddressUpdatedEvent {
+DomainEvent AddressUpdatedEvent extends AbstractDomainEvent {
   - CustomerId customer  
   - AddressId address
 }
