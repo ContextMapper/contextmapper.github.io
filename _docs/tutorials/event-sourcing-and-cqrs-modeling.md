@@ -29,7 +29,6 @@ suggests that the scope of domain events is always based on Aggregates. The name
 
 The following example illustrates how you can model domain events within your Aggregate: 
 
-<!-- add timestamp to examples? or not needed (done in base class)? -->
 ```text
 abstract DomainEvent AbstractDomainEvent {
   Date timestamp
@@ -72,7 +71,7 @@ Service CustomerService {
 }
 ```
 
-You can CQRS-ify the above the above interface by splitting it into two service interfaces:
+You can CQRS-ify the above interface by splitting it into two service interfaces:
 
 ```text
 Service CustomerQueryService {
