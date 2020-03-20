@@ -145,3 +145,9 @@ The [Sculptor generator](http://sculptorgenerator.org) further supports event so
 [Event Sourcing with Sculptor](http://sculptorgenerator.org/2010/10/28/event-sourcing-with-sculptor). 
 However, the DSL syntax itself does not need additional concepts to support it. It is based on the _DomainEvents_, _Repositories_, and _Services_ provided by the Sculptor and also CML.
   * **Note:** We only used the Sculptor syntax for the tactic DDD grammar of our CML language. Using the Sculptor generator in Context Mapper is currently not supported.
+
+## Other Tutorials and Links
+ * Tutorial: [Document Event Storming Results with Context Mapper](/docs/event-storming/)
+ * [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) 
+ * [CQRS](https://martinfowler.com/bliki/CQRS.html)
+ 
