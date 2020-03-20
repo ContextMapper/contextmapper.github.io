@@ -28,7 +28,6 @@ A domain event is something that happened that affects the application/resource 
 suggests that the scope of domain events is always based on Aggregates. The names of domain events shall indicate that the event happened in the past. 
 
 The following example illustrates how you can model domain events within your Aggregate: 
-<!-- Q: do the generators (puml, MDSL) already process event emission (publish) and reception (subscribe)? do the below example cover these things? see http://sculptorgenerator.org/documentation/event-driven-tutorial -->
 
 <!-- add timestamp to examples? or not needed (done in base class)? -->
 ```text
@@ -36,7 +35,7 @@ DomainEvent CustomerVerifiedEvent {
   - CustomerId customer
 }
 
-DomainEvent AddressUpdatedEvent {$
+DomainEvent AddressUpdatedEvent {
   - CustomerId customer  
   - AddressId address
 }
@@ -53,15 +52,17 @@ Service AddressService {
 ### CQRS Example
 Applying CQRS to a Bounded Context definition in Context Mapper can be expressed with the standard language constructs of Context Mapper and Sculptor: you can simply apply this architectural pattern by 
 
-* separating the queries from the command methods and 
-* defining separate services. 
+* First step: separating the queries from the command methods and defining separate services (1)
+* Second step: defined separate command and query models (2)
 
-Here is an example of a conventional service interface that exposes both create, read, update, delete, and search methods/operations: <!-- TODO make C and D of CRUDS more explicit? -->
+#### 1: Separating Queries and Commands
+Here is an example of a conventional service interface that exposes both create, read, update, delete, and search methods/operations:
 
 ```text
 Service CustomerService {
-  @Customer saveCustomer(@Customer customer);
+  @CustomerId createCustomer(@Customer customer);
   void updateCustomer(@Customer customer);
+  boolean deleteCustomer(@CustomerId customer);
   @Customer findCustomerById(@CustomerId customerId);
   List<@Customer> findCustomersByName(String name);
 }
@@ -76,12 +77,11 @@ Service CustomerQueryService {
 }
 
 Service CustomerCommandService {
-  @Customer saveCustomer(@Customer customer);
+  @CustomerId createCustomer(@Customer customer);
   void updateCustomer(@Customer customer);
+  boolean deleteCustomer(@CustomerId customer);
 }
 ```
-
-<!-- Q: should these two service interfaces appear in same aggregate or go to two different ones? or both possible? -->
 
 Additionally, Sculptor introduces so-called command events specifically to support CQRS explicitly (described [here](http://sculptorgenerator.org/documentation/event-driven-tutorial#commandevent)).
 In comparison to a domain event which describes something that has happened, a command event is something that the system is asked to perform. The following CML/Sculptor snippet illustrates an example how to model command events:
@@ -93,6 +93,52 @@ CommmandEvent RecordShipmentArrival {
 }
 ```
 
+#### 2: Separating Read and Command Models
+In a second step you may want to defined completely different models for read and command access. The Context Mapper DSL supports currently no specific language construct for read models
+but we suggest that you use the Aggregate rule to specify your read models. The following example illustrates how you could model your Aggregate (command model) and the read model:
+
+```text
+Aggregate CustomerAggregate {
+  ValueObject CustomerId {
+    UUID uniqueCustomerId
+  }
+
+  Entity Customer {
+    aggregateRoot
+
+    CustomerId customerId
+    String firstName
+    String lastName
+    List<Address> addresses
+  }
+ 
+  Entity Address
+
+  Service CustomerCommandService {
+    @CustomerId createCustomer(@Customer customer);
+    void updateCustomer(@Customer customer);
+    boolean deleteCustomer(@CustomerId customer);
+  }
+}
+
+Aggregate CustomerReadModel {
+  DataTransferObject CustomerDTO {
+    String firstName
+    String lastName
+  }
+
+  Service CustomerQueryService {
+    @CustomerDTO findCustomerById(@CustomerId customerId);
+    List<@CustomerDTO> findCustomersByName(String name);
+  }
+}
+```
+
+**Note:** If you initially create an Aggregate with separate Entities for _reading_ and _updating_ you can also use our Architectural Refactoring (AR) [Split Aggregate by Entities](/docs/ar-split-aggregate-by-entities/)
+to separate the read model (Aggregate) from the command model Aggregate.
+
 ### Event Sourcing with Sculptor
-The [Sculptor generator](http://sculptorgenerator.org) further supports event sourcing specifically as described here: <!-- Q: can the Sculptor generator be used within CM(L)? if not, pls say so (or try to retrofit this capability, might require usage of Module concept) -->
-[Event Sourcing with Sculptor](http://sculptorgenerator.org/2010/10/28/event-sourcing-with-sculptor). However, the DSL syntax itself does not need additional concepts to support it. It is based on the _DomainEvent_'s, _Repository_'s, and _Services_'s provided by the Sculptor and also CML. 
+The [Sculptor generator](http://sculptorgenerator.org) further supports event sourcing specifically as described here: 
+[Event Sourcing with Sculptor](http://sculptorgenerator.org/2010/10/28/event-sourcing-with-sculptor). 
+However, the DSL syntax itself does not need additional concepts to support it. It is based on the _DomainEvents_, _Repositories_, and _Services_ provided by the Sculptor and also CML.
+  * **Note:** We only used the Sculptor syntax for the tactic DDD grammar of our CML language. Using the Sculptor generator in Context Mapper is currently not supported.
