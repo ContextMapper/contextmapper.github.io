@@ -8,7 +8,7 @@ literature and links:
 
  * [Introducing Event Storming](https://ziobrando.blogspot.com/2013/11/introducing-event-storming.html) by Alberto Brandolini (original blog post)
  * [Introducing Event Storming](https://leanpub.com/introducing_eventstorming) by Alberto Brandolini (Leanpub book)
- * [Domain-Driven Design Distilled](https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon/dp/0134434420) by Vaughn Vernon
+ * [Domain-Driven Design Distilled](https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon/dp/0134434420) by Vaughn Vernon. (Chapter 7 introduces Event Storming as an acceleration and management tool for DDD)
  * [Event Storming Cheatsheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner (good cheat sheet for a quick introduction into the topic)
  
 ## Use Context Mapper to Model Event Storming Output
@@ -50,7 +50,7 @@ The following examples and modeling suggestions are based on the Event Storming 
 ### Domain Events
 The domain events are typically the first objects that are discovered in an Event Storming.
 The tactic DDD syntax of CML is based on the [Sculptor DSL](http://sculptorgenerator.org/), which [supports event-driven concepts](http://sculptorgenerator.org/documentation/event-driven-tutorial). 
-Hence, you can model _DomainEvent_'s within your Aggregates.
+Hence, you can model _DomainEvents_ within your Aggregates.
 The following examples illustrate how we modeled the domain events from our Event Storming for Lakeside Mutual:
 
 ```text
@@ -114,7 +114,7 @@ Policies can be modeled in the same way, and optionally their if-then rule chara
 ```text
 abstract DomainEvent AbstractPolicy
 		
-DomainEvent CustomerNofiticationPolicy // triggers CustomerNotified event
+DomainEvent CustomerNotificationPolicy // triggers CustomerNotified event
 ```
 
 ### Aggregates
@@ -187,7 +187,7 @@ CommandEvent RejectClaim extends @AbstractClaimCommand
 ```
 
 ### Views / Read Models
-In our Event Storming for claims processing at Lakeside Mutual we did not work with read models; Context Mapper does not support read models explicitely yet. However, it is of 
+In our Event Storming for claims processing at Lakeside Mutual we did not work with read models; Context Mapper does not support read models explicitly yet. However, it is of 
 course possible that you define your read model simply by using separate Aggregates or Entities. For example:
 
 ```text
