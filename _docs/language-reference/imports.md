@@ -3,8 +3,8 @@ title: Imports
 permalink: /docs/imports/
 ---
 
-CML models can be divided into multiple *.cml files. For example, you may want to specify Bounded Contexts in separate files and use them in multiple Context Maps.
-One *.cml file can only contain one Context Map. However, multiple Context Maps in separate *.cml files can import the same files describing the Bounded Contexts.
+CML models can be divided into multiple `*.cml` files. For example, you may want to specify Bounded Contexts in separate files and use them in multiple Context Maps.
+One `*.cml` file can only contain one Context Map. However, multiple Context Maps in separate `*.cml` files can import the same files describing the Bounded Contexts.
 
 ## Example
 
@@ -63,7 +63,7 @@ A file containing the ContextMap can then import the Bounded Contexts with the *
 }
 </pre></div>
 
-It is also possible to import *.cml files located in other directories:
+It is also possible to import `*.cml` files located in other directories:
 
 <div class="highlight"><pre><span></span><span class="k">import</span> <span class="s">&quot;./BoundedContexts/CustomerManagement.cml&quot;</span>
 <span class="k">import</span> <span class="s">&quot;./BoundedContexts/PolicyManagement.cml&quot;</span>
@@ -80,6 +80,5 @@ It is also possible to import *.cml files located in other directories:
 </pre></div>
 
 <div class="alert alert-custom">
-<strong>Note:</strong> Although you can import *.cml files from different directories our Eclipse IDE plugin will only be able to resolve files 
-within the same Eclipse project.
+<strong>Note:</strong> Although you can import <strong>*.cml</strong> files from different directories, our Eclipse plugin will only be able to resolve files within the same Eclipse project.
 </div>

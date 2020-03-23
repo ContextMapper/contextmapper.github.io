@@ -20,9 +20,9 @@ If you are not fully familiar with the concepts of event sourcing and CQRS yet, 
 ## Tutorial
 
 ### Context and Objectives 
-This tutorial highlights the [Context Mapper DSL (CML)](/docs/language-reference/) concepts that support modeling event-sourced systems and CQRS. 
+This tutorial highlights the [Context Mapper DSL (CML)](/docs/language-reference/) concepts that support a) modeling event-sourced systems and b) CQRS. 
 
-Within CML Bounded Contexts and Aggregates, we integrated the [Sculptor DSL for tactic DDD](http://sculptorgenerator.org/) that allows domain-driven designers to specify the domain model of Bounded Contexts.
+Within CML Bounded Contexts and Aggregates, we integrated the [Sculptor DSL for tactic DDD](http://sculptorgenerator.org/) that allows domain-driven designers to specify the domain model of Bounded Contexts. This tutorial features this DSL.
 
 ### Events
 As explained in the [Sculptor documentation](http://sculptorgenerator.org/documentation/event-driven-tutorial), the syntax of Sculptor supports modeling events.

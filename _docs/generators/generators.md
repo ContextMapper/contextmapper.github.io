@@ -94,3 +94,5 @@ Find out how to produce Service Cutter input to calculate possible service cuts 
 The generic, template-based generator allows you to generate arbitrary text files from CML Context Maps. It uses [Freemarker](https://freemarker.apache.org/) as its template engine and exposes the entire CML content as an object tree whose elements can be injected into the template.
 
 Learn more about this generator [here](/docs/generic-freemarker-generator/).
+
+<!-- TODO document new control key here? and//or on individual generator pages? -->

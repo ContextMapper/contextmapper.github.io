@@ -4,16 +4,14 @@ permalink: /docs/mdsl/
 ---
 
 ## Introduction and Motivation
-The [Microservices Domain Specific Language (MDSL)](https://socadk.github.io/MDSL/) is a DSL to specify (micro-)service contracts 
-and data representations realizing the API Description pattern from [Microservice API Patterns (MAP)](https://microservice-api-patterns.org/).
+The [Microservices Domain Specific Language (MDSL)](https://socadk.github.io/MDSL/) is a [Domain-Specific Language (DSL)](https://en.wikipedia.org/wiki/Domain-specific_language)) to specify (micro-)service contracts and data representations, jointly realizing the technical part of the [API Description](https://microservice-api-patterns.org/patterns/foundation/APIDescription) pattern from [Microservice API Patterns (MAP)](https://microservice-api-patterns.org/).
 
-With our [MDSL](https://socadk.github.io/MDSL/) generator you can automatically produce (micro-)service contracts out of your strategic
-DDD context map written in CML. The generator creates the contracts according to the following mapping, which reflects our proposal
-how we would derive (micro-)services from models based on strategic DDD. The generator aims for providing assistance regarding how your
-system can be implemented in an (micro-)service-oriented architecture.
+Our [MDSL](https://socadk.github.io/MDSL/) generator automatically produces (micro-)service contracts out of strategic
+DDD context maps written in CML. The generator creates the contracts according to the following mapping, which reflects our proposal
+how we would derive (micro-)services from models based on strategic DDD <!-- (submitted for SummerSoC 2020) -->. The generator aims at providing assistance regarding how your system can be implemented as a (micro-)service-oriented architecture.
 
 ### Language Mapping
-
+<!-- TODO retrofit SummerSoC paper extensions to this table -->
 | CML Input                                                                                                                        | MDSL Output                                        | Description                                                                                                                                                                                                                                                             |
 |----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Upstream Bounded Contexts from upstream-downstream [relationships](/docs/context-map/#relationships)                             | Service Specification (API description)            | We create one service specification for each upstream Bounded Context of your Context Map.                                                                                                                                                                              |
@@ -24,7 +22,7 @@ system can be implemented in an (micro-)service-oriented architecture.
 | Downstream Bounded Contexts from upstream-downstream [relationships](/docs/context-map/#relationships)                           | API client                                         | Downstream Bounded Contexts are mapped to corresponding API clients.                                                                                                                                                                                                    |
 
 ### Data Type Mapping
-The base/primitive types are mapped as follows:
+The base/primitive types are mapped to [Atomic Parameters](https://microservice-api-patterns.org/patterns/structure/representationElements/AtomicParameter) as this:
 
 | CML type         | MDSL type                                   |
 |------------------|---------------------------------------------|
@@ -37,12 +35,10 @@ The base/primitive types are mapped as follows:
 | Date             | D&lt;string&gt; (no date available in MDSL) |
 
 <div class="alert alert-custom">
-<strong>Note:</strong> Types in CML are case sensitive. For example: If you write "string" instead of "String", you create a new abstract
-data type instead of using the primitive type "String".
+<strong>Note:</strong> Types in CML are case-sensitive. For example: If you write "string" instead of "String", you create a new abstract data type instead of using the primitive type "String".
 </div>
 
-If you declare a method with multiple parameters or refer to an object (such as entity or value object) in CML, we generate a corresponding
-parameter tree. For example the following entity would be mapped to the parameter tree below:
+If you declare a method with multiple parameters or refer to an object (such as Entity or Value Object) in CML, we generate a corresponding [Parameter Tree(https://microservice-api-patterns.org/patterns/structure/representationElements/ParameterTree). For example the following entity would be mapped to the (rather flat) parameter tree below:
 
 CML input:
 ```
@@ -57,13 +53,13 @@ MDSL data type result:
 <div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lockbox&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;?, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 </pre></div>
 
-All abstract data types which are not base types and not specified in CML (no references to objects) will produce an abstract, 
-unspecified element in [MDSL](https://socadk.github.io/MDSL/), as the following example illustrates:
+All abstract data types that are not base types and not specified in CML (no references to objects) will produce an abstract, 
+unspecified placeholder element `P` in [MDSL](https://socadk.github.io/MDSL/), as the following example illustrates:
 <div class="highlight"><pre><span></span><span class="k">data type</span> JustAnUnspecifiedParameterType <span class="k">P</span>
 </pre></div>
 
 ### Example
-An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follows: 
+An exemplary API description in [MDSL](https://socadk.github.io/MDSL/), generated by Context Mapper, is: 
 <div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
 <span class="k">API description</span> CustomerManagementContextAPI
 <span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
@@ -106,12 +102,11 @@ An example [MDSL](https://socadk.github.io/MDSL/) API description looks as follo
 <span class="k">IPA</span>
 </pre></div>
 
-**Note:** This example has been generated from our [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example) 
-which you can find in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
+*Note:* This example has been generated from our [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example), which you can find in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
-### MAP Pattern Decorators
-The MDSL language allows modelers to specify the roles of endpoints and operations according to the MAP ([https://microservice-api-patterns.org/](https://microservice-api-patterns.org/)) 
-responsibility patterns. Our generators match the corresponding pattern names in comments on Aggregates and methods. The following CML code illustrates how
+### Microservice API Patterns (MAP) Decorators
+The MDSL language allows modelers to specify the roles of endpoints and operations according to the endpoint- and operation-level 
+[responsibility patterns in MAP](https://microservice-api-patterns.org/patterns/responsibility/). Our generators match the corresponding pattern names in comments on Aggregates and methods. The following CML code illustrates how
 the MAP patterns can be added in CML. In this case we use the _Information Holder Resource_ pattern on the Aggregate level and the _Retrieval Operation_ pattern
 on the method level:
 
@@ -137,8 +132,7 @@ on the method level:
 }
 </pre></div> 
 
-The patterns are detected by our generator and mapped to the corresponding language features of MDSL. The following MDSL code illustrates the resulting resource
-for the Aggregate specified above:
+The patterns are detected by our generator and mapped to the corresponding language features of MDSL. The following MDSL code illustrates the resulting resource for the Aggregate specified above:
 
 <div class="highlight"><pre><span></span><span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">D</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">D</span>&lt;<span class="k">string</span>&gt; }
 <span class="k">data type</span> AddressId <span class="k">P</span>
@@ -154,52 +148,50 @@ for the Aggregate specified above:
         <span class="k">payload</span> Address
 </pre></div>
 
-As illustrated above, the patterns on the resource level are added with the _serves as_ keyword and on the operation level with the _with responsibility_ keyword.
-In the following we list the supported patterns:
+As illustrated above, the patterns on the endpoint/resource level are added with the _serves as_ keyword and on the operation level with the _with responsibility_ keyword. In the following we list the supported patterns:
 
 #### Endpoint Role Patterns
  * [PROCESSING_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/ProcessingResource)
  * [INFORMATION_HOLDER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/InformationHolderResource)
- * OPERATIONAL_DATA_HOLDER
+ * [OPERATIONAL_DATA_HOLDER](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/OperationalDataHolder)
  * [MASTER_DATA_HOLDER](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/MasterDataHolder)
- * REFERENCE_DATA_HOLDER
+ * [REFERENCE_DATA_HOLDER](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/ReferenceDataHolder)
  * [TRANSFER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/TransferResource)
  * [LOOKUP_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/LookupResource)
 
-#### Operation Role Patterns
+#### Operation Responsibility Patterns
  * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/ComputationFunction)
- * NOTIFICATION_OPERATION
+ * [NOTIFICATION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/NotificationOperation)
  * [RETRIEVAL_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/RetrievalOperation)
- * STATE_TRANSITION_OPERATION
- * [EVENT_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/EventProcessor)
- * [BUSINESS_ACTIVITY_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/BusinessActivityProcessor)
+ * [STATE_TRANSITION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/StateTransitionOperation)
+ <!-- * [EVENT_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/EventProcessor)
+ * [BUSINESS_ACTIVITY_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/BusinessActivityProcessor) -->
+
+Please refer to the pattern texts on the MAP website for explanations of these decorators.
 
 ## User Guide
 You can generate [MDSL](https://socadk.github.io/MDSL/) (micro-)service contracts from your CML model as follows.
 
-With a right-click to your CML-file in Eclipse you will find a **Context Mapper** context menu. With the action **MDSL:
-Generate Service Contracts** you generate the contracts for all upstreams in your Context Map:
+When you a right-click on a CML file in Eclipse, you a **Context Mapper** context menu will pop up. The action *MDSL:
+Generate Service Contracts* allows you to generate the contracts for all upstreams in your Context Map:
 
 <a href="/img/mdsl-generator-1.png">![MDSL Generator](/img/mdsl-generator-1.png)</a>
 
 <div class="alert alert-custom">
 <strong>Note</strong> that the <strong>Context Mapper</strong> menu entry is also available within the context menu uf the CML editor. 
-(right-click anywhere in the editor)
+(right-click anywhere in the editor).
 </div>
 
-All [MDSL](https://socadk.github.io/MDSL/) files will be generated into the **src-gen** folder of your project:
+All [MDSL](https://socadk.github.io/MDSL/) files will be generated into the **src-gen** folder of the project:
 
 <a href="/img/mdsl-generator-2.png">![MDSL Generator Result](/img/mdsl-generator-2.png)</a>
 
 <div class="alert alert-custom">
-<strong>Note:</strong> The MDSL Eclipse plugin is not yet available for download (update site). At the moment you can open the *.mdsl 
-files with a text editor only (no syntax highlighting and editor support available yet).
+<strong>Note:</strong> The MDSL Eclipse plugin is not yet available for download on an Eclipse update site. At the moment you can open the `*.mdsl` files with a text editor only (with no syntax highlighting and editor support). You can also request access to the MDSL repository on GitHub by [contacting the MAP team](https://microservice-api-patterns.org/about).
 </div>
 
 ### Protected Regions
-After you generated an MDSL contract you can add protected regions for **data types**, **endpoint types**, **API providers**, and **API clients**
-if you want to modify parts of the contract and protect them from being overwritten. The following example shows the corresponding comments needed to begin and
-end the four different protected regions:
+After you have generated an MDSL contract, you can add protected regions for **data types**, **endpoint types**, **API providers**, and **API clients** if you want to modify parts of the contract and protect them from being overwritten. The following example shows the corresponding comments that are required to begin and end the four different protected regions:
 
 <div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
 <span class="k">API description</span> CustomerManagementContextAPI
@@ -259,12 +251,9 @@ end the four different protected regions:
 <span class="k">IPA</span>
 </pre></div>
 
-The protected regions allow you to move _data types_, _endpoints_, _API providers_, and _API clients_ into its corresponding protected
-region so that they are not overwritten at re-generation. Thus, you can call the MDSL generator on the same file again and all objects
-within a protected region will not be changed. 
+The protected regions allow you to guard _data types_, _endpoints_, _API providers_, and _API clients_ into so that they are not overwritten at re-generation. Thus, you can call the MDSL generator on the same file again and all objects within a protected region will still be there and remain unchanged. 
 
-For example, you can move a set of _data types_ into the corresponding protected region 
-if you changed the data types manually after generation and want to protect them:
+For example, you can move a set of _data types_ into the corresponding protected region if you changed the data types manually after generation and want to protect them:
 
 <div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
 <span class="k">API description</span> CustomerManagementContextAPI
@@ -285,5 +274,4 @@ if you changed the data types manually after generation and want to protect them
 </pre></div>
 
 ## MDSL Support
-The current version of our MDSL generator is compatible with the MDSL version _1.1.0_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/) please visit the website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL)
-or contact Olaf Zimmermann.
+The current version of our MDSL generator is compatible with the MDSL version _1.2.0_. For further questions regarding [MDSL](https://socadk.github.io/MDSL/), please visit its website [https://socadk.github.io/MDSL](https://socadk.github.io/MDSL).
