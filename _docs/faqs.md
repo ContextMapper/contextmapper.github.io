@@ -20,7 +20,7 @@ Context Maps.
 Just create a file with the file extension **cml** (Context Mapping Language). Take a look at our example to get an idea how it looks like: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples)
 
 ### Which DDD Patterns are supported by CML?
-Have a look at our [CML Reference - Introduction](/docs/language-reference/) page. There you will find all patterns supported by CML.
+Have a look at our [CML Reference - Introduction](/docs/language-reference/) page. You will find all patterns supported by CML there.
 
 ### Which combinations of Strategic DDD Patterns are allowed? 
 Have a look at the page [Language Semantic Model](/docs/language-model/) which introduces the semantic model of our DSL and lists the implemented semantic checkers.
@@ -49,9 +49,18 @@ If you are interested in more details and all features, we refer to the [Sculpto
 ### I have other questions not listed here. How can I contribute?
 If you have any questions not answered by our documentation page, we are happy if you create an issue in our documentation [repo](https://github.com/ContextMapper/contextmapper.github.io/issues). Of course, PR's are always welcome as well.
 
-### How do I validate all CML models (*.cml files) in my Eclipse project?
-The CML models are validated when you save the *.cml automatically, if _"Build Automatically"_ is enabled in the _Project_ menu.
-If it is not enabled you can validate all models by triggering _"Build All"_ in the _Project_ menu. 
-
 Your [contribution](/getting-involved/) is welcome!
 
+### How do I validate all CML models (*.cml files) in my Eclipse project?
+The CML models are validated when you save the *.cml automatically, if _"Build Automatically"_ is enabled in the _Project_ menu.
+If it is not enabled you can validate all models by triggering _"Build All"_ in the _Project_ menu.
+
+### Does Context Mapper support Event Sourcing and CQRS?
+The concepts behind event sourcing and CQRS do not require special modeling objects other than _DomainEvents_, which are supported by the Context Mapper DSL (CML). The syntax to specify
+the domain models within Bounded Contexts is based on [Sculptor](http://sculptorgenerator.org/) which supports event-driven concepts. Have a look at our 
+[Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) page to learn how to model events in CML.  
+
+### Can I use Context Mapper to document Event Stormings?
+Yes, the results of an Event Storming are based on the DDD concepts that are supported by Context Mapper. Have a look at our 
+[Model Event Storming Results in Context Mapper](/docs/event-storming/) tutorial that illustrates how Context Mapper can be used to 
+document an Event Storming.

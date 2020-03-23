@@ -68,8 +68,8 @@ DomainEvent ClaimAccepted extends @AbstractClaimEvent // triggers SchedulePaymen
 DomainEvent ClaimRejected extends @AbstractClaimEvent // triggers NofifyCustomer command
 ```
 
-<!-- *Note:* On the [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) page we describe how event sourcing and CQRS based systems 
-can be modeled in Context Mapper.-->
+*Note:* In the [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) page we describe how event 
+sourcing and CQRS based systems can be modeled in Context Mapper.
 
 ### Commands
 Domain events often result from a user action or _command_ execution. Commands in CML can either be modeled as methods in services or as _CommandEvent_'s (or both). 
