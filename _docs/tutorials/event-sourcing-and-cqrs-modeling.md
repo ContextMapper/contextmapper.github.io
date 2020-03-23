@@ -152,6 +152,6 @@ However, the DSL syntax itself does not need additional concepts to support it. 
 
 ## Other Tutorials and Links
  * Tutorial: [Document Event Storming Results with Context Mapper](/docs/event-storming/)
- * [Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling](https://doi.org/10.5220/0008910502990306)
- * [Context Mapper: DSL and Tools for Domain-Driven Service Design - Bounded Context Modeling and Microservice Decomposition](https://contextmapper.org/media/ZIOSK-ContextMapper4JUGv10p.pdf)
+ * Presentation on Context Mapper:[Context Mapper: DSL and Tools for Domain-Driven Service Design - Bounded Context Modeling and Microservice Decomposition](https://contextmapper.org/media/ZIOSK-ContextMapper4JUGv10p.pdf)
+  * Paper introducing the Context Mapper DSL (CML): [Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling](https://doi.org/10.5220/0008910502990306)
  
