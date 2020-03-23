@@ -10,9 +10,9 @@ CQRS separates query processing from the create, update, delete business logic s
 If you are not fully familiar with the concepts of event sourcing and CQRS yet, you may find the following resources helpful:
 
  * [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler
- * [CQRS and Event Sourcing (Video)](https://www.youtube.com/watch?v=JHGkaShoyNs) by Greg Young
- * [Event sourcing pattern](https://microservices.io/patterns/data/event-sourcing.html) by Chris Richardson
  * [Event sourcing workshop slides](https://speakerdeck.com/mploed/event-sourcing-workshop-at-software-architecture-summit-2016) by Michael Plöd
+ * [Event sourcing pattern](https://microservices.io/patterns/data/event-sourcing.html) by Chris Richardson
+  * [CQRS and Event Sourcing (Video)](https://www.youtube.com/watch?v=JHGkaShoyNs) by Greg Young
  * [Command query separation](https://martinfowler.com/bliki/CommandQuerySeparation.html) and [CQRS](https://martinfowler.com/bliki/CQRS.html) by Martin Fowler
  * [Developing Transactional Microservices Using Aggregates, Event Sourcing and CQRS](https://www.infoq.com/articles/microservices-aggregates-events-cqrs-part-1-richardson/) by Chris Richardson
  * [Designing Event Sourced Microservices](https://www.infoq.com/news/2017/11/event-sourcing-microservices/) by Jan Stenberg
@@ -20,7 +20,7 @@ If you are not fully familiar with the concepts of event sourcing and CQRS yet, 
 ## Tutorial
 
 ### Context and Objectives 
-This tutorial highlights the [Context Mapper DSL (CML)](/docs/language-reference/) concepts that support a) modeling event-sourced systems and b) CQRS. 
+This tutorial highlights the [Context Mapper DSL (CML)](/docs/language-reference/) concepts that support a) modeling event-sourced systems and b) applying the CQRS pattern. 
 
 Within CML Bounded Contexts and Aggregates, we integrated the [Sculptor DSL for tactic DDD](http://sculptorgenerator.org/) that allows domain-driven designers to specify the domain model of Bounded Contexts. This tutorial features this DSL.
 
@@ -31,6 +31,8 @@ A domain event is something that happened that affects the application/resource 
 suggests that the scope of domain events should always be based on Aggregates. The names of domain events shall indicate that the event happened in the past. 
 
 The following example illustrates how you can model domain events within your Aggregate: 
+
+<!-- now using discovered AddressDto (tbd) -->
 
 ```text
 abstract DomainEvent AbstractDomainEvent {
@@ -43,7 +45,13 @@ DomainEvent CustomerVerifiedEvent extends AbstractDomainEvent {
 
 DomainEvent AddressUpdatedEvent extends AbstractDomainEvent {
   - CustomerId customer  
-  - AddressId address
+  - AddressDto address
+}
+
+ValueObject AddressDto {
+	String streetAddress
+	String city
+	String postalCode
 }
 ```
 
@@ -51,7 +59,7 @@ You can also reference your events in services, repositories, or any other tacti
 
 ```text
 Service AddressService {
-  @AddressUpdatedEvent updateAddress(@AddressId address);
+  @AddressUpdatedEvent updateAddress(@AddressDto address);
 }
 ```
 
@@ -64,13 +72,21 @@ Applying CQRS to a Bounded Context definition in Context Mapper can be expressed
 #### Step 1: Separating Queries and Commands
 Here is an example of a conventional service interface that exposes both create, read, update, delete, and search methods/operations:
 
+<!-- now using discovered CustomerDto (tbd) -->
+
 ```text
+ValueObject CustomerDto {
+	String customerId
+	CustomerProfileDto customerProfile
+	List<Link> links
+}
+
 Service CustomerService {
-  @CustomerId createCustomer(@Customer customer);
-  void updateCustomer(@Customer customer);
+  @CustomerId createCustomer(@CustomerDTO customer);
+  void updateCustomer(@CustomerDTO customer);
   boolean deleteCustomer(@CustomerId customer);
-  @Customer findCustomerById(@CustomerId customerId);
-  List<@Customer> findCustomersByName(String name);
+  @CustomerDTO findCustomerById(@CustomerId customerId);
+  List<@CustomerDTO> findCustomersByName(String name);
 }
 ```
 
@@ -78,31 +94,38 @@ You can CQRS-ify the above interface by splitting it into two service interfaces
 
 ```text
 Service CustomerCommandService {
-  @CustomerId createCustomer(@Customer customer);
-  void updateCustomer(@Customer customer);
+  @CustomerId createCustomer(@CustomerDTO customer);
+  void updateCustomer(@CustomerDTO customer);
   boolean deleteCustomer(@CustomerId customer);
 }
 
 Service CustomerQueryService {
-  @Customer findCustomerById(@CustomerId customerId);
-  List<@Customer> findCustomersByName(String name);
+  @CustomerDTO findCustomerById(@CustomerId customerId);
+  List<@CustomerDTO> findCustomersByName(String name);
 }
 ```
 
 Additionally, Sculptor introduces so-called *command events* to support CQRS explicitly (described [here](http://sculptorgenerator.org/documentation/event-driven-tutorial#commandevent)).
 In comparison to a domain event which describes something that has happened, a command event is something that the system is asked to perform. The following CML/Sculptor snippet illustrates an example how to model command events:
 
+<!-- can we use an LM example here too: -->
+```text
+		CommandEvent RecordAddressChange {
+ 			 -AddressDto newAddress
+ 			 Date changeDate
+		}	
+```
+<!-->
 ```text
 CommmandEvent RecordShipmentArrival {
   - ShipmentId shipment
   Date arrivalDate
 }
 ```
+-->
 
 #### Step 2: Separating Read and Command Models
-In a second step you may want to define completely different models for read and command access. At present, the Context Mapper DSL does not 
-have any specific language construct for read models; we suggest that you use the Michael's Aggregate rule from above to specify read models. 
-The following example illustrates how you could model your Aggregate (command model) and your read model:
+In a second step you may want to define completely different models for read and command access. At present, the Context Mapper DSL does not have any specific language construct for read models; we suggest that you use the Michael's Aggregate rule from above to specify read models. The following example illustrates how you could model your Aggregate (command model) and your read model:
 
 ```text
 Aggregate CustomerAggregate {
@@ -110,20 +133,11 @@ Aggregate CustomerAggregate {
     UUID uniqueCustomerId
   }
 
-  Entity Customer {
-    aggregateRoot
-
-    CustomerId customerId
-    String firstName
-    String lastName
-    List<Address> addresses
-  }
- 
   Entity Address // not designed in detail 
 
   Service CustomerCommandService {
-    @CustomerId createCustomer(@Customer customer);
-    void updateCustomer(@Customer customer);
+    @CustomerId createCustomer(@CustomerDTO customer);
+    void updateCustomer(@CustomerDTO customer);
     boolean deleteCustomer(@CustomerId customer);
   }
 }
@@ -151,6 +165,39 @@ The [Sculptor generator](http://sculptorgenerator.org) further supports event so
 [Event Sourcing with Sculptor](http://sculptorgenerator.org/2010/10/28/event-sourcing-with-sculptor). 
 However, the DSL syntax itself does not need additional concepts to support it. It is based on the _DomainEvents_, _Repositories_, and _Services_ provided by the Sculptor and also CML.
   * *Note:* We only used the Sculptor syntax for the tactic DDD grammar of our CML language. Using the Sculptor generator in Context Mapper is currently not supported.
+
+
+<!-- You can also model the CQRS infrastructure in Sculptor: 
+	Aggregate CQRS_CommonInfrastructure {
+		DomainEvent AbstractDomainEvent {
+			Date timestamp
+		}
+		ValueObject EventSequence {
+			-Set<@AbstractDomainEvent> events
+		}   
+	}
+	Aggregate CQRS_CommandInfrastructure { 
+		Service CommandDAO {
+			@EventSequence storeAndForwardEvents() publish to EventHandlerChannel;
+			// store in EventStore and let QueryInfrastructure know (via Handler)
+		} 
+		Entity EventStore { 
+			aggregateRoot
+			Repository EventStoreRepository {}
+		}
+	}
+	Aggregate CQRS_QueryInfrastructure {
+		Entity QueryDAO {
+			// talks to ReadStorage (BAU)
+		}
+		Entity ReadStorage { 
+			aggregateRoot
+			Repository ReadStorageRepository {
+				subscribe to EventHandlerChannel
+			}
+		}
+	}
+-->
 
 ## Other Tutorials and Links
  * Tutorial: [Document Event Storming Results with Context Mapper](/docs/event-storming/)
