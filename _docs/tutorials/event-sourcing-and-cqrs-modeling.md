@@ -10,6 +10,7 @@ CQRS separates query processing from the create, update, delete business logic s
 If you are not fully familiar with the concepts of event sourcing and CQRS yet, you may find the following resources helpful:
 
  * [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler
+ * [CQRS and Event Sourcing (Video)](https://www.youtube.com/watch?v=JHGkaShoyNs) by Greg Young
  * [Event sourcing pattern](https://microservices.io/patterns/data/event-sourcing.html) by Chris Richardson
  * [Event sourcing workshop slides](https://speakerdeck.com/mploed/event-sourcing-workshop-at-software-architecture-summit-2016) by Michael Plöd
  * [Command query separation](https://martinfowler.com/bliki/CommandQuerySeparation.html) and [CQRS](https://martinfowler.com/bliki/CQRS.html) by Martin Fowler
@@ -151,6 +152,6 @@ However, the DSL syntax itself does not need additional concepts to support it. 
 
 ## Other Tutorials and Links
  * Tutorial: [Document Event Storming Results with Context Mapper](/docs/event-storming/)
- * [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) 
- * [CQRS](https://martinfowler.com/bliki/CQRS.html)
+ * [Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling](https://doi.org/10.5220/0008910502990306)
+ * [Context Mapper: DSL and Tools for Domain-Driven Service Design - Bounded Context Modeling and Microservice Decomposition](https://contextmapper.org/media/ZIOSK-ContextMapper4JUGv10p.pdf)
  

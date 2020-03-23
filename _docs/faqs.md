@@ -59,3 +59,8 @@ If it is not enabled you can validate all models by triggering _"Build All"_ in 
 The concepts behind event sourcing and CQRS do not require special modeling objects other than _DomainEvents_, which are supported by the Context Mapper DSL (CML). The syntax to specify
 the domain models within Bounded Contexts is based on [Sculptor](http://sculptorgenerator.org/) which supports event-driven concepts. Have a look at our 
 [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) page to learn how to model events in CML.  
+
+### Can I use Context Mapper to document Event Stormings?
+Yes, the results of an Event Storming are based on the DDD concepts that are supported by Context Mapper. Have a look at our 
+[Model Event Storming Results in Context Mapper](/docs/event-storming/) tutorial that illustrates how Context Mapper can be used to 
+document an Event Storming.
