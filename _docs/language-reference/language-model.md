@@ -7,13 +7,18 @@ The CML language is based on the following strategic DDD domain model (or semant
 
 <a href="/img/Strategic_DDD_Domain_Model.png"><img src="/img/Strategic_DDD_Domain_Model.png" alt="CML Language Semantic Model" width="700px"></a>
 
-All the knowledge regarding the DDD patterns is derived from Evan's DDD book and his DDD reference:
+The language representation of the DDD patterns is derived from Evan's DDD book and DDD reference:
 
  * [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215)
  * [DDD Reference](http://domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf)
 
+<!-- How about the I-DDD book by VV (mentioned in papers, thesis)? Other sources? -->
+
+<!-- skipped rest of file in review; please "retrofit" latest paper/thesis version -->
 ## Semantic Rules
-The following semantic rules are either implicitely given by the domain model (see above) on which the language is base, or enforced by corresponding semantic checkers. Note that the model and the semantic rules express how we understand the DDD patterns and how they can be combined.
+The following semantic rules are either implicitly given by the domain model on which the language is based (see above), or enforced by corresponding semantic checkers. 
+
+Note that the model and the semantic rules express how we understand the DDD patterns and how they can be combined, and how we applied DDD on projects ourselves. Rationale: the literature is somewhat ambiguous.  
 
 **\#1: The relationship patterns Open Host Service (OHS), Published Language, Anticorruption Layer (ACL) and Conformist are not applicable for Partnership and Shared Kernel relationships.**
 A violation of this rule would lead to contradictions regarding the definitions of the patterns and how we understand them. In a Shared Kernel relationship, two bounded contexts share a subset of its domain model and thus, technically, share code. The interaction between the two bounded contexts happens via this shared code. The usage of the four mentioned patterns contradicts with this approach. The same applies to the very tightly coupled Partnership pattern. Even if the contexts do not share code, the two contexts can only succeed or fail together.
