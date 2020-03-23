@@ -7,7 +7,7 @@ Event sourcing and Command Query Responsibility Segregation (CQRS) are two diffe
 Event sourcing captures all changes to the state as a sequence of (or stream) of events so that state changes can be communicated flexibly without tightly coupling sender and receiver of the change message. This is one reason why this concept is interesting for microservice architectures. 
 CQRS separates query processing from the create, update, delete business logic so that different Non-Functional Requirements (NFRs), for instance regarding performance, for read and write access can be satisfied in different ways. In complex domains, this is often desired. 
 
-If you are not fully familiar with the concepts of event sourcing and CQRS yet, you ma yfind the following resources helpful:
+If you are not fully familiar with the concepts of event sourcing and CQRS yet, you may find the following resources helpful:
 
  * [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler
  * [Event sourcing pattern](https://microservices.io/patterns/data/event-sourcing.html) by Chris Richardson
@@ -97,7 +97,9 @@ CommmandEvent RecordShipmentArrival {
 ```
 
 #### Step 2: Separating Read and Command Models
-In a second step you may want to define completely different models for read and command access. At present, the Context Mapper DSL does not have any specific language construct for read models; we suggest that you use the Michael's Aggregate rule from above to specify  read models. The following example illustrates how you could model your Aggregate (command model) and your read model:
+In a second step you may want to define completely different models for read and command access. At present, the Context Mapper DSL does not 
+have any specific language construct for read models; we suggest that you use the Michael's Aggregate rule from above to specify read models. 
+The following example illustrates how you could model your Aggregate (command model) and your read model:
 
 ```text
 Aggregate CustomerAggregate {
