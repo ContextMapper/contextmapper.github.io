@@ -4,12 +4,12 @@ permalink: /docs/architectural-refactorings/
 image: /img/cm-og-image.png
 ---
 
-Within this section, we provide a documentation of all architectural refactorings (ARs) available in the Context Mapper tool.
+This section provides a documentation of all [architectural refactorings (ARs)](https://www.infoq.com/articles/architectural-refactoring/) available in the Context Mapper tool.
 
-## Motivation: Why refactorings?
-The provided refactorings offer the advantage that the result is always a correct CML model which compiles without errors. 
-If you perform similar changes manually, you also have to fix upcoming errors within the [Context Map](/docs/context-map/) manually.
-The AR's ensure that corresponding references and dependencies in other parts of the model are respected and adjusted if necessary.
+## Motivation: Why Refactoring?
+The provided refactorings ensure that the result is always a correct CML model which compiles without errors. 
+If you perform similar changes manually, you also have to fix errors that occur manually within the [Context Map](/docs/context-map/).
+The ARs ensure that corresponding references and dependencies in other parts of the model are respected and adjusted if necessary.
 
 ## Architectural Refactoring Categories
 The ARs are divided into the following categories:
@@ -19,7 +19,7 @@ The ARs are divided into the following categories:
 
 ## Refactoring Overview
 The Context Mapper tool offers you a set of architectural refactorings which can be applied to your CML models. The refactorings shall
-support you with evolving and improving the architecture of your system.
+support you while evolving and improving the architecture of your system.
 
 ### Structural Refactorings
 We currently provide the following structural ARs:
@@ -44,21 +44,18 @@ The following ARs to change Context Map relationships are currently implemented:
 | Name                                                                                           | Subject                    | Description                                                                     | Input                      | Output                     |
 |------------------------------------------------------------------------------------------------|----------------------------|---------------------------------------------------------------------------------|----------------------------|----------------------------|
 | [**AR-10: Change Shared Kernel to Partnership**](/docs/ar-change-shared-kernel-to-partnership) | Shared Kernel relationship | Changes the type of a Shared Kernel relationship to a Partnership relationship. | Shared Kernel relationship | Partnership relationship   |
-| [**AR-11: Change Partnership to Shared Kernel**](/docs/ar-change-partnership-to-shared-kernel) | Partnership relationship   | Changes the type of a Partnership relationship to a Shared Kernel relationship. | Partnership relationship   | Shared Kernel relationship |
+| [**AR-11: Change Partnership to Shared Kernel**](/docs/ar-change-partnership-to-shared-kernel) | Partnership relationship   | Changes the type of a Partnership relationship to a Shared Kernel relationship. | Partnership relationship | Shared Kernel relationship |
 
 ## Examples
-Within our [examples repository](https://github.com/ContextMapper/context-mapper-examples) you can find [input and corresponding 
-output examples](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings) 
-for all ARs listed above.
+You can find [input and corresponding output examples](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings) for all ARs listed above in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
 ## How to apply Architectural Refactorings (ARs)
 Architectural refactorings can be applied within the Context Mapper Eclipse plugin by using the context menu in the DSL editor. With a
-right-click on a bounded context or an aggregate the **Context Mapper: Refactor** menu entry appears and lists all refactorings which are 
-applicable to the selected elements:
+right-click on a bounded context or an aggregate the **Context Mapper: Refactor** menu entry appears and lists all refactorings which are applicable to the selected elements:
 
 <a href="/img/architectural-refactorings-context-menu.png">![Architectural Refactoring Context Menu Example](/img/architectural-refactorings-context-menu.png)</a>
 
-You can also use the Shift-Alt-T keybinding for quick access to the available refactorings (cursor must be on the object on which you want to start the refactoring).
+You can also use the Shift-Alt-T keybinding for quick access to the available refactorings (the cursor must be on the object on which you want to start the refactoring).
 
-**Note** that the context menu only shows ARs for which your selected model element fulfills the preconditions.
+*Note*: The context menu only shows ARs for which your selected model element fulfills the preconditions.
 The preconditions for all ARs are mentioned on the corresponding detail pages linked above. 
