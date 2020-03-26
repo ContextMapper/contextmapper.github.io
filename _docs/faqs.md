@@ -1,9 +1,7 @@
 ---
-title: "Frequently Asked Questions (FAQs)"
+title: "Frequently Asked Questions"
 permalink: /docs/faq/
 ---
-
-<!-- hopefully the metadata update in "..." works -->
 
 ### Where can I download the Eclipse Plugin?
 Open the [Eclipse Marketplace](https://marketplace.eclipse.org/content/context-mapper) in Eclipse, search for "Context Mapper", and press "Install".

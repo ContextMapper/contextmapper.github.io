@@ -56,8 +56,6 @@ The following example gives you a first impression how CML context maps look lik
 }
 </pre></div>
 
-<!-- could explain the syntax just a bit here, or point to reference page -->
-
 The bounded contexts have to be specified before you can use them within a context map.
 A simple example of a bounded context definition is:
 
@@ -86,7 +84,6 @@ A simple example of a bounded context definition is:
 </pre></div>
 
 ## Next steps...
-<!-- swapped order and changed H2/H3s a bit, pls check and feel free to undo -->
 
 ### A First Model 
 Once you have installed the Context Mapper Eclipse plugin, you can create a CML (Xtext) project and start modeling. Find more information how to create such a project here:

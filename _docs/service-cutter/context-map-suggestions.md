@@ -3,11 +3,16 @@ title: Context Map Suggestions with Service Cutter
 permalink: /docs/service-cutter-context-map-suggestions/
 ---
 
-The [Service Cutter](http://servicecutter.github.io/) tool proposes a structured way to service decomposition. It suggests how a system could be decomposed into services according to 14 prioritized [coupling criteria](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria). Domain model elements are required as input. The tool then applies graph clustering algorithms to identify possible *service cuts*, which are returned as output. <!-- TODO link to ESOCC paper -->
+The [Service Cutter](http://servicecutter.github.io/) tool proposes a structured way to service decomposition. It suggests how a system could be decomposed into services according 
+to 14 prioritized [coupling criteria](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria). Domain model elements are required as input. The tool then applies 
+graph clustering algorithms to identify possible *service cuts*, which are returned as output. The approach was proposed by 
+[this paper](https://link.springer.com/chapter/10.1007/978-3-319-44482-6_12).
 
 ## Context Mapper Integration
 We provide a [Service Cutter library](https://github.com/ContextMapper/service-cutter-library), which is a fork of the original 
-[Service Cutter](https://github.com/ServiceCutter/ServiceCutter), to be able to offer its structured decomposition approach in Context Mapper. The library allows you to generate new decomposition suggestions in the form of CML Context Maps. The decompositions are derived from the original [coupling criteria catalog](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria). <!-- this "based on" might actually be ok, pls check -->
+[Service Cutter](https://github.com/ServiceCutter/ServiceCutter), to be able to offer its structured decomposition approach in Context Mapper. The library allows you to generate 
+new decomposition suggestions in the form of CML Context Maps. The decompositions are derived from the original 
+[coupling criteria catalog](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
 
 Once you have modeled your system in [CML](/docs/language-reference/) or [discovered it from existing code](/docs/reverse-engineering/), you can generate new decomposition suggestions or _service cuts_ by using the following context menu entry:
 
@@ -20,10 +25,11 @@ Service Cutter needs the system to be described in entities and so-called *nanoe
  * **Optionally:** User descriptions in form of a SCL (Service Cutter Language) file.
     * You can find out [here](/docs/service-cutter/) how to create such file.
     
-The following **preconditions** have to be fulfilled so that we are able to derive the structure required by Service Cutter (called ERD): <!-- TODO add link to ERD, TLA? -->
+The following **preconditions** have to be fulfilled so that we are able to derive the structure required by Service Cutter 
+(called [ERD](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)):
 
  * Your CML model must include Bounded Contexts with entities and attributes.
-    * Without attributes, we cannot derive nanoentities and Service Cutter cannot calculate decompositions. <!-- TODO what about operations? -->
+    * Without attributes, we cannot derive nanoentities and Service Cutter cannot calculate decompositions.
     
 Note that if the _Leung_ algorithm is used, the decompositions can be different every time the generator is called (it is a non-deterministic algorithm).
 

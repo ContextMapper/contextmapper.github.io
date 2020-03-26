@@ -34,20 +34,19 @@ A SCL file can be generated out of a CML file. Again, a right-click to the CML-f
 
 <a href="/img/service-cutter-input-generation-2.png">![Generate ServiceCutter SCL File](/img/service-cutter-input-generation-2.png)</a>
 
-**Note:** The generated SCL file is a template that intends to help you by setting the structure expected by Service Cutter. The following generated parts are only examples, and will have to be adjusted:
+**Note:** The generated SCL file is a template that intends to help you by setting the structure expected by Service Cutter. The following generated parts are only examples, and 
+will have to be adjusted:
 
- * **Use Cases**
+ * **[Use Cases](https://github.com/ServiceCutter/ServiceCutter/wiki/Use-Cases)**
  * **All [Compatibilities](https://github.com/ServiceCutter/ServiceCutter/wiki/Compatibilities)**
- * **Security Access Groups**
- * **Separated Security Zone**
- * **Shared Owner Group**
+ * **[Security Access Groups](https://github.com/ServiceCutter/ServiceCutter/wiki/Security-access-groups)**
+ * **[Separated Security Zone](https://github.com/ServiceCutter/ServiceCutter/wiki/Separated-security-zones)**
+ * **[Shared Owner Group](https://github.com/ServiceCutter/ServiceCutter/wiki/Shared-owner-groups)**
 
 The following elements are actually derived from the CML model and do not have to be changed:
 
- * **Aggregates** (derived from your Aggregates in the CML file)
- * **PredefinedService** (derived from your bounded contexts in the CML file)
-
- <!-- TODO more links to SC wiki? -->
+ * **[Aggregates](https://github.com/ServiceCutter/ServiceCutter/wiki/Aggregates)** (derived from your Aggregates in the CML file)
+ * **[PredefinedService](https://github.com/ServiceCutter/ServiceCutter/wiki/Predefined-services)** (derived from your bounded contexts in the CML file)
 
 ### Generate User Representations JSON File
 Once you have prepared your SCL file, you can generate the corresponding JSON file with the action **Service Cutter: Generate User Representations File (JSON)** in the context menu:

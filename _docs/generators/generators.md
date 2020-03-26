@@ -14,7 +14,12 @@ The Context Mapper generators provide transformations to derive graphical Contex
  * [Service Cutter input files](#service-cutter-input-files)
  * [Generic, template-based textual generator (Freemarker Templating)](#generic-textual-generator-freemarker-templating)
 
-The generator can be accessed through the Context Menu of the CML editor or with a right-click on the `*.cml` file in the project explorer. In the CML editor, you can access all generators with the keybinding Shift-Alt-G quickly.
+## Using the Generators
+The generators can be accessed through the Context Menu in the project explorer (right-click to *.cml file) or directly in the CML editor as the following screenshot shows:
+
+<a href="/img/generators-context-menu.png">![Generators Context Menu in Eclipse](/img/generators-context-menu.png)</a>
+
+_Note_: In the CML editor, you can also access all generators with the keybinding **Shift+Alt+G** quickly.
 
 ## Graphical Context Maps
 The Context Map generator allows you to transform the CML Context Map into graphical representation inspired by the illustrations of 
@@ -95,5 +100,3 @@ Find out how to produce Service Cutter input to calculate possible service cuts 
 The generic, template-based generator allows you to generate arbitrary text files from CML Context Maps. It uses [Freemarker](https://freemarker.apache.org/) as its template engine and exposes the entire CML content as an object tree whose elements can be injected into the template.
 
 Learn more about this generator [here](/docs/generic-freemarker-generator/).
-
-<!-- TODO document new control key here? and//or on individual generator pages? -->
