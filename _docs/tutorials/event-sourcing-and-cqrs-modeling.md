@@ -31,8 +31,6 @@ suggests that the scope of domain events should always be based on Aggregates. T
 
 The following example illustrates how you can model domain events within your Aggregate: 
 
-<!-- now using discovered AddressDto (tbd) -->
-
 ```text
 abstract DomainEvent AbstractDomainEvent {
   Date timestamp
@@ -48,9 +46,9 @@ DomainEvent AddressUpdatedEvent extends AbstractDomainEvent {
 }
 
 ValueObject AddressDto {
-	String streetAddress
-	String city
-	String postalCode
+  String streetAddress
+  String city
+  String postalCode
 }
 ```
 
