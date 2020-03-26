@@ -157,8 +157,6 @@ relationship
       +- name = "INFLUENCER"
 ```
 
-<!-- TODO document new helpers? -->
-
 #### Relationship Type Checking
 To respect the different structures when processing the relationship list, we provide a method that allows you to check the type of the relationship:
 
@@ -480,7 +478,7 @@ You generate the required file when finishing the dialog:
 Context Mapper uses [Freemarker](https://freemarker.apache.org/), currently Version 2.3.30.
 
 ## Example Templates
-The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use the _Freemarker Generator Template Examples_ wizard via _File -> New -> Other..._ to create the sample project containing the Freemarker templates: <!-- TODO is this still current? -->
+The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use the _Freemarker Generator Template Examples_ wizard via _File -> New -> Example..._ to create the sample project containing the Freemarker templates:
 
 <a href="/img/screenshot-new-freemarker-example-project-1.png">![Create Sample Project with Freemarker Templates (1)](/img/screenshot-new-freemarker-example-project-1.png)</a>
 

@@ -31,7 +31,6 @@ The syntax and semantic rules of all the patterns are documented on their indivi
  * **[Anticorruption Layer](/docs/anticorruption-layer)** (ACL)
  * **[Responsibility Layers](/docs/responsibility-layers)**
  * **[Knowledge Level](/docs/knowledge-level)**
-<!-- swapped order a bit, pls check --> 
  
 ## Tactic DDD Patterns
 The tactic DDD part of the CML language(all grammar rules inside *Aggregates*s that is), are based on the [Sculptor DSL](https://github.com/sculptor/sculptor). 

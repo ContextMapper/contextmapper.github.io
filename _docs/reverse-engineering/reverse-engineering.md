@@ -157,4 +157,5 @@ The code above creates the following context map for the application:
 }
 </pre></div>
 
-Note that we removed the entities in the CML model above in order to save space here. The full example and the project <!-- 's' or no 's'? --> source code can be found [here](https://github.com/ContextMapper/context-map-discovery/tree/master/Examples/LakesideMutual).
+Note that we removed the entities in the CML model above in order to save space here. The full example and the project source code can be found 
+[here](https://github.com/ContextMapper/context-map-discovery/tree/master/Examples/LakesideMutual).

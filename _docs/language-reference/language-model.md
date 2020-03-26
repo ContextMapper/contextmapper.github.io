@@ -13,7 +13,6 @@ The language representation of the DDD patterns is derived from the DDD books of
  * [Implementing Domain-Driven Design](https://www.amazon.de/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577) by Vaughn Vernon
  * [DDD Reference](http://domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf) (Evans)
 
-<!-- skipped rest of file in review; please "retrofit" latest paper/thesis version -->
 ## Semantic Rules
 The following semantic rules are either implicitly given by the domain model on which the language is based (see above), or enforced by corresponding semantic checkers. 
 
