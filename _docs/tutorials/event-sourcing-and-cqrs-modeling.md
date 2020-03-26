@@ -17,10 +17,12 @@ If you are not fully familiar with the concepts of event sourcing and CQRS yet, 
  * [Developing Transactional Microservices Using Aggregates, Event Sourcing and CQRS](https://www.infoq.com/articles/microservices-aggregates-events-cqrs-part-1-richardson/) by Chris Richardson
  * [Designing Event Sourced Microservices](https://www.infoq.com/news/2017/11/event-sourcing-microservices/) by Jan Stenberg
  
-## Modeling in Context Mapper
-This page highlights the [Context Mapper DSL (CML)](/docs/language-reference/) concepts that support modeling event-sourced systems and CQRS. 
+## Tutorial
 
-Within CML Bounded Contexts and Aggregates, we integrated the [Sculptor DSL for tactic DDD](http://sculptorgenerator.org/) that allows domain-driven designers to specify the domain model of Bounded Contexts.
+### Context and Objectives 
+This tutorial highlights the [Context Mapper DSL (CML)](/docs/language-reference/) concepts that support a) modeling event-sourced systems and b) CQRS. 
+
+Within CML Bounded Contexts and Aggregates, we integrated the [Sculptor DSL for tactic DDD](http://sculptorgenerator.org/) that allows domain-driven designers to specify the domain model of Bounded Contexts. This tutorial features this DSL.
 
 ### Events
 As explained in the [Sculptor documentation](http://sculptorgenerator.org/documentation/event-driven-tutorial), the syntax of Sculptor supports modeling events.
@@ -152,6 +154,6 @@ However, the DSL syntax itself does not need additional concepts to support it. 
 
 ## Other Tutorials and Links
  * Tutorial: [Document Event Storming Results with Context Mapper](/docs/event-storming/)
- * [Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling](https://doi.org/10.5220/0008910502990306)
- * [Context Mapper: DSL and Tools for Domain-Driven Service Design - Bounded Context Modeling and Microservice Decomposition](https://contextmapper.org/media/ZIOSK-ContextMapper4JUGv10p.pdf)
+ * Presentation on Context Mapper: [Context Mapper: DSL and Tools for Domain-Driven Service Design - Bounded Context Modeling and Microservice Decomposition](https://contextmapper.org/media/ZIOSK-ContextMapper4JUGv10p.pdf)
+  * Paper introducing the Context Mapper DSL (CML): [Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling](https://doi.org/10.5220/0008910502990306)
  

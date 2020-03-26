@@ -3,46 +3,39 @@ title: Getting started
 permalink: /docs/getting-started/
 ---
 
-To model with Context Mapper you need our Eclipse Plugin providing the CML language and its surrounding tools. The integration of CML into other IDEs
-will be released in the future but is not ready yet.
+To model with Context Mapper you need our Eclipse Plugin providing the CML language and its surrounding tools. The integration of CML into other IDEs will be considered for future releases, but is not ready yet ([help wanted](/docs/getting-involved/)!). 
 
 ## Install Context Mapper Eclipse Plugin
-To start with Context Mapper install our Eclipse plugin via the **Eclipse Marketplace** or by using our **update site**: 
+To start using Context Mapper, please install the Eclipse plugin via the **Eclipse Marketplace** or our **update site**: 
 
 **Eclipse Marketplace: [https://marketplace.eclipse.org/content/context-mapper/](https://marketplace.eclipse.org/content/context-mapper/)**
 
 **Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)**
 
 ### System Requirements
-To use the ContextMapper DSL Eclipse plugin you need the following tools:
+To use the ContextMapper DSL Eclipse plugin, the following tools are required:
 
 * [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 8 or newer)
 * [Eclipse](https://www.eclipse.org/downloads/packages/)
 * ContextMapper Eclipse Plugin 
     * Eclipse Marketplace: [https://marketplace.eclipse.org/content/context-mapper/](https://marketplace.eclipse.org/content/context-mapper/)
     * Eclipse Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
-* If you want to use our [Context Map generator](/docs/context-map-generator/) you need to have [Graphviz](https://www.graphviz.org/) installed on your system.
+* If you want to use our [Context Map generator](/docs/context-map-generator/), you must have installed [Graphviz](https://www.graphviz.org/) on your system.
     * Ensure that the binaries are part of the _PATH_ environment variable and can be called from the terminal.
     * Especially on Windows this is not the case after the installation of [Graphviz](https://www.graphviz.org/). The default installation path is
       `C:\Program Files (x86)\GraphvizX.XX`, which means you have to add `C:\Program Files (x86)\GraphvizX.XX\bin` to your _PATH_ variable.
 * You may want to install one the following two plugins to display the plantUML diagrams directly in Eclipse:
     * [Asciidoctor Editor](https://marketplace.eclipse.org/content/asciidoctor-editor) (Update site: [https://dl.bintray.com/de-jcup/asciidoctoreditor](https://dl.bintray.com/de-jcup/asciidoctoreditor))
     * [PlantUML Eclipse Plugin](https://github.com/hallvard/plantuml) (Update site: [http://hallvard.github.io/plantuml/](http://hallvard.github.io/plantuml/))
-    * **Note:** Both plugins require [Graphviz](http://www.graphviz.org/) to be installed on your machine!
-    * Alternatively you can use the [plantUML online server](http://www.plantuml.com/plantuml/uml).
+    * **Note:** Both plugins also require [Graphviz](http://www.graphviz.org/) to be installed on your machine!
+    * Alternatively you can use a [plantUML online server](http://www.plantuml.com/plantuml/uml).
 
 **Note**: If you want to integrate the DSL and its tools as library within your application, find more information [here](/docs/library/).
 
 ### Latest Releases
 Release notes for all our latest releases can be found [here](https://github.com/ContextMapper/context-mapper-dsl/releases).
 
-## Next steps ...
-After you installed the Context Mapper Eclipse plugin you can create a CML (Xtext) project and start modeling. Find more information how to create
-such a project here:
- * [Create CML Project](/docs/getting-started-create-project/)
- 
-Check out our **[example models](/docs/examples/)** and the [language reference](/docs/language-reference/) to create your first CML models.
-
+## Example 
 The following example gives you a first impression how CML context maps look like: ([DDD Sample Application](https://github.com/citerus/dddsample-core))
 
 <div class="highlight"><pre><span></span><span class="c">/** </span>
@@ -64,7 +57,7 @@ The following example gives you a first impression how CML context maps look lik
 </pre></div>
 
 The bounded contexts have to be specified before you can use them within a context map.
-A simple example of a bounded context definition:
+A simple example of a bounded context definition is:
 
 <div class="highlight"><pre><span></span><span class="k">BoundedContext</span> LocationContext {
   <span class="k">Module</span> location {
@@ -90,7 +83,15 @@ A simple example of a bounded context definition:
 }
 </pre></div>
 
-## Refactorings and Generators
+## Next steps...
+
+### A First Model 
+Once you have installed the Context Mapper Eclipse plugin, you can create a CML (Xtext) project and start modeling. Find more information how to create such a project here:
+ * [Create CML Project](/docs/getting-started-create-project/)
+ 
+Check out our [example models](/docs/examples/) and the [language reference](/docs/language-reference/) if you do not want to start with an empty CML model.
+
+### Refactorings and Generators
 Once you created your first Context Map in CML you can use the following tools to evolve your model and generate other representations of your architecture:
 
  * Use [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) to evolve your model iteratively.
@@ -101,7 +102,6 @@ Once you created your first Context Map in CML you can use the following tools t
  * Generate [Service Cutter](/docs/service-cutter/) input files
  * Generate [arbitrary textual files with Freemarker templates](/docs/generic-freemarker-generator/)
  
-## Reverse Engineer Context Map and Bounded Contexts
-In case you work on a project with existing monolithic or (micro-)service-oriented architectures you may want to reverse engineer an initial Context Map
-or the domain models within your Bounded Contexts to simplify the start with our tool. In this case have a look at our [reverse engineering library](/docs/reverse-engineering)
+### Reverse Engineer Context Map and Bounded Contexts
+In case you work on a project with existing monolithic or (micro-)service-oriented architectures you may want to reverse engineer an initial Context Map or the domain models within your Bounded Contexts to simplify the start with our tool. In this case have a look at our [reverse engineering library](/docs/reverse-engineering)
 which is able to generate CML models from existing source code. 
