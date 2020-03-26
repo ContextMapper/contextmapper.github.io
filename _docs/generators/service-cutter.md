@@ -63,6 +63,3 @@ Have fun with cutting your services :)
 *Note:* Service Cutter has not been updated in a while, and only intended to demonstrate the possibilities of criteria-based graph clustering in the context of service decomposition (and establish a method and a first catalog of criteria). So do not expect mature, production-ready cuts to be suggested, but view them as a discussion and design workshop input. Further research is required to harden the approach; such research is ongoing (evidence: [40+ citations of the Service Cutter paper presented at ESOCC 2016](https://www.researchgate.net/publication/307873263_Service_Cutter_A_Systematic_Approach_to_Service_Decomposition)).  
 
 <a href="/img/service-cutter-insurance-example.png">![Service Cutter Insurance Example](/img/service-cutter-insurance-example.png)</a>
-
-
-
