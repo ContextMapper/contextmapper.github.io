@@ -65,7 +65,9 @@ With the _type_ keyword you define the bounded contexts type, which can be one o
  * TEAM
  
 The type provides an indicator for which reason a bounded context may have been evolved. It further allows you to specify from which 
-viewpoint you describe your bounded contexts. FEATURE contexts are analysis or early design abstractions, taking a functional scenario view. Application contexts represent more elaborated, logical designs and implementation views; system contexts add a more physical, process- and deployment-oriented view.  <!-- TODO compare this context taxonomy to Brown's C4 model? --> 
+viewpoint you describe your bounded contexts. FEATURE contexts are analysis or early design abstractions, taking a functional scenario view. Application contexts represent more 
+elaborated, logical designs and implementation views; system contexts add a more physical, process- and deployment-oriented view.  
+<!-- TODO compare this context taxonomy to Brown's C4 model --> 
 
 Finally, you may want to create a team map, within which every bounded context reflects a team, inspired by [Brandolini](https://www.infoq.com/articles/ddd-contextmapping). A team map further allows you to specify which team is implementing which bounded contexts (of type FEATURE, APPLICATION, or SYSTEM). Note that the context map type must be ORGANIZATIONAL to specify a team map. The corresponding syntax is described under [context map](/docs/context-map) and an example for a team map can be found 
 [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example).

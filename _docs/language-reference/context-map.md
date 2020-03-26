@@ -86,7 +86,8 @@ Upstream-Downstream relationships can be defined with three different syntax var
 <div class="highlight"><pre><span></span>CargoBookingContext <span class="k">Downstream-Upstream</span> LocationContext
 </pre></div>
 
-All of the four variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the upstream to the downstream and thus expresses an *influence flow* (the upstream has an influence on the downstream, but the downstream has no influence on the upstream). <!-- could link an M. Ploed preso here? -->
+All of the four variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the upstream to the downstream and thus expresses an *influence flow* 
+(the upstream has an influence on the downstream, but the downstream has no influence on the upstream).
 
 A colon at the end assigns a relationship a name:
 <div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext : CargoLocationRelationship

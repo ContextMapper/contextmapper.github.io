@@ -34,20 +34,19 @@ A SCL file can be generated out of a CML file. Again, a right-click to the CML-f
 
 <a href="/img/service-cutter-input-generation-2.png">![Generate ServiceCutter SCL File](/img/service-cutter-input-generation-2.png)</a>
 
-**Note:** The generated SCL file is a template that intends to help you by setting the structure expected by Service Cutter. The following generated parts are only examples, and will have to be adjusted:
+**Note:** The generated SCL file is a template that intends to help you by setting the structure expected by Service Cutter. The following generated parts are only examples, and 
+will have to be adjusted:
 
- * **Use Cases**
+ * **[Use Cases](https://github.com/ServiceCutter/ServiceCutter/wiki/Use-Cases)**
  * **All [Compatibilities](https://github.com/ServiceCutter/ServiceCutter/wiki/Compatibilities)**
- * **Security Access Groups**
- * **Separated Security Zone**
- * **Shared Owner Group**
+ * **[Security Access Groups](https://github.com/ServiceCutter/ServiceCutter/wiki/Security-access-groups)**
+ * **[Separated Security Zone](https://github.com/ServiceCutter/ServiceCutter/wiki/Separated-security-zones)**
+ * **[Shared Owner Group](https://github.com/ServiceCutter/ServiceCutter/wiki/Shared-owner-groups)**
 
 The following elements are actually derived from the CML model and do not have to be changed:
 
- * **Aggregates** (derived from your Aggregates in the CML file)
- * **PredefinedService** (derived from your bounded contexts in the CML file)
-
- <!-- TODO more links to SC wiki? -->
+ * **[Aggregates](https://github.com/ServiceCutter/ServiceCutter/wiki/Aggregates)** (derived from your Aggregates in the CML file)
+ * **[PredefinedService](https://github.com/ServiceCutter/ServiceCutter/wiki/Predefined-services)** (derived from your bounded contexts in the CML file)
 
 ### Generate User Representations JSON File
 Once you have prepared your SCL file, you can generate the corresponding JSON file with the action **Service Cutter: Generate User Representations File (JSON)** in the context menu:
@@ -64,6 +63,3 @@ Have fun with cutting your services :)
 *Note:* Service Cutter has not been updated in a while, and only intended to demonstrate the possibilities of criteria-based graph clustering in the context of service decomposition (and establish a method and a first catalog of criteria). So do not expect mature, production-ready cuts to be suggested, but view them as a discussion and design workshop input. Further research is required to harden the approach; such research is ongoing (evidence: [40+ citations of the Service Cutter paper presented at ESOCC 2016](https://www.researchgate.net/publication/307873263_Service_Cutter_A_Systematic_Approach_to_Service_Decomposition)).  
 
 <a href="/img/service-cutter-insurance-example.png">![Service Cutter Insurance Example](/img/service-cutter-insurance-example.png)</a>
-
-
-

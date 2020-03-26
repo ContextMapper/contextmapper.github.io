@@ -1,9 +1,7 @@
 ---
-title: "Frequently Asked Questions (FAQs)"
+title: "Frequently Asked Questions"
 permalink: /docs/faq/
 ---
-
-<!-- hopefully the metadata update in "..." works -->
 
 ### Where can I download the Eclipse Plugin?
 Open the [Eclipse Marketplace](https://marketplace.eclipse.org/content/context-mapper) in Eclipse, search for "Context Mapper", and press "Install".
@@ -32,7 +30,7 @@ The CML models are validated when you save the *.cml automatically, if _"Build A
 If it is not enabled, you can validate all models by triggering _"Build All"_ in the _Project_ menu.
 
 ### Which transformations can I apply to my CML model? Which generators are available?
-Currently you can generate [Microservice Domain-Soecific Language (MDSL)](https://socadk.github.io/MDSL/) (micro-)service contracts providing assistance regarding how your system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input  to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams out of your CML. The following pages explain the generators in detail:
+Currently you can generate [Microservice Domain-Specific Language (MDSL)](https://socadk.github.io/MDSL/) (micro-)service contracts providing assistance regarding how your system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input  to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams out of your CML. The following pages explain the generators in detail:
 
  * [Generate graphical Context Maps](/docs/context-map-generator/)
  * [Generate PlantUML diagrams](/docs/plant-uml/)

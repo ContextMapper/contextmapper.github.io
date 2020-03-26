@@ -408,7 +408,9 @@ The following additional attributes are currently available on the root level of
 
  * _timestamp:_ generation time stamp (for example _26.02.2020 17:20:40 CET_)
  * _filename:_ name of the CML file (for example _ExampleModel.cml_)
- <!-- TODO what about _projectname etc. (latest additions?) -->
+ * _projectName:_ name of the Eclipse project that contains the CML file
+ * _contextMapperVersion:_ the current version of Context Mapper that was used to generate the output (for example _v5.9.4_)
+ * _userName:_ the name of the user that generated the output (OS username)
 
 ## Helper Functions
 The following functions can be used in the Freemarker templates to help processing the model described above:
@@ -478,7 +480,7 @@ You generate the required file when finishing the dialog:
 Context Mapper uses [Freemarker](https://freemarker.apache.org/), currently Version 2.3.30.
 
 ## Example Templates
-The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use the _Freemarker Generator Template Examples_ wizard via _File -> New -> Other..._ to create the sample project containing the Freemarker templates: <!-- TODO is this still current? -->
+The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use the _Freemarker Generator Template Examples_ wizard via _File -> New -> Example..._ to create the sample project containing the Freemarker templates:
 
 <a href="/img/screenshot-new-freemarker-example-project-1.png">![Create Sample Project with Freemarker Templates (1)](/img/screenshot-new-freemarker-example-project-1.png)</a>
 
@@ -486,4 +488,5 @@ The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use th
 
 The project currently contains the following example templates:
 
- * Ubiquitous language glossary written in Markdown <!-- not really a glossary, more of a full report -->
+ * Ubiquitous language glossary written in Markdown (currently a full report)
+   * Currently a full report of the model. A future version of the template will generate a glossary only.

@@ -88,7 +88,7 @@ The Context Map generator can be used within our Eclipse plugin as described bel
 The generator requires [Graphviz](https://www.graphviz.org/) to be installed on your system because it uses it behind the scenes:
 
  * Ensure [Graphviz](https://www.graphviz.org/) is installed on your machine.
- * Verify that the binaries of the [Graphviz](https://www.graphviz.org/) installation are part of your PATH environment variable and can be called from the command line, for instance by executing `dot -V` from the command line. <!--  on Window; same for Linux? --> 
+ * Verify that the binaries of the [Graphviz](https://www.graphviz.org/) installation are part of your PATH environment variable and can be called from the command line, for instance by executing `dot -V` from the command line. 
     * In Windows this is not the case after the installation of [Graphviz](https://www.graphviz.org/). The default installation path is
       `C:\Program Files (x86)\GraphvizX.XX`, which means you have to add `C:\Program Files (x86)\GraphvizX.XX\bin` to your PATH variable.
 

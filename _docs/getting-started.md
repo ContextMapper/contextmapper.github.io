@@ -86,7 +86,6 @@ A simple example of a bounded context definition is:
 </pre></div>
 
 ## Next steps...
-<!-- swapped order and changed H2/H3s a bit, pls check and feel free to undo -->
 
 ### A First Model 
 Once you have installed the Context Mapper Eclipse plugin, you can create a CML (Xtext) project and start modeling. Find more information how to create such a project here:

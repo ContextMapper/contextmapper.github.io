@@ -10,7 +10,8 @@ For a short introduction to the syntax of the other tactic DDD patterns, please 
 For more details, we refer to the [Sculptor project](http://sculptorgenerator.org/) and its [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
 
 ## Syntax
-The aggregate supports the [Responsibility Layers](/docs/responsibility-layers/) pattern and the [Knowledge Level](/docs/knowledge-level) pattern. An aggregate can further contain Services, Resources, Consumers and SimpleDomainObjects (Entities, Value Objects, Domain Events, etc.) which are not further introduced here. <!-- TODO Service vs. service? etc. (tbd) -->
+The aggregate supports the [Responsibility Layers](/docs/responsibility-layers/) pattern and the [Knowledge Level](/docs/knowledge-level) pattern. An aggregate can further 
+contain Services, Resources, Consumers and SimpleDomainObjects (Entities, Value Objects, Domain Events, etc.) which are not further introduced here. 
 The respective rules are defined by the [Sculptor DSL](http://sculptorgenerator.org/), as already mentioned. 
 
 The following CML snippet illustrates an example of an aggregate to provide an impression how the rule can be used:
