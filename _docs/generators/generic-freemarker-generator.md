@@ -157,8 +157,6 @@ relationship
       +- name = "INFLUENCER"
 ```
 
-<!-- TODO document new helpers? -->
-
 #### Relationship Type Checking
 To respect the different structures when processing the relationship list, we provide a method that allows you to check the type of the relationship:
 

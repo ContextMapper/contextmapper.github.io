@@ -56,8 +56,6 @@ The following example gives you a first impression how CML context maps look lik
 }
 </pre></div>
 
-<!-- could explain the syntax just a bit here, or point to reference page -->
-
 The bounded contexts have to be specified before you can use them within a context map.
 A simple example of a bounded context definition is:
 

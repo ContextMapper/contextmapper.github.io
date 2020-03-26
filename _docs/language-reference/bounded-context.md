@@ -57,7 +57,7 @@ The example above also shows how you can let one bounded context refine another 
 All of the following attributes are **optional** and you do not have to specify them all. 
  
 ### Bounded Context Type
-With the _type_ keyword you define the bounded contexts type, which can be one of the following: <!-- what is teh default? -->
+With the _type_ keyword you define the bounded contexts type, which can be one of the following:
 
  * FEATURE
  * APPLICATION
