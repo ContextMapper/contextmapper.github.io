@@ -12,7 +12,7 @@ If you are not fully familiar with the concepts of event sourcing and CQRS yet, 
  * [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler
  * [Event sourcing workshop slides](https://speakerdeck.com/mploed/event-sourcing-workshop-at-software-architecture-summit-2016) by Michael Plöd
  * [Event sourcing pattern](https://microservices.io/patterns/data/event-sourcing.html) by Chris Richardson
-  * [CQRS and Event Sourcing (Video)](https://www.youtube.com/watch?v=JHGkaShoyNs) by Greg Young
+ * [CQRS and Event Sourcing (Video)](https://www.youtube.com/watch?v=JHGkaShoyNs) by Greg Young
  * [Command query separation](https://martinfowler.com/bliki/CommandQuerySeparation.html) and [CQRS](https://martinfowler.com/bliki/CQRS.html) by Martin Fowler
  * [Developing Transactional Microservices Using Aggregates, Event Sourcing and CQRS](https://www.infoq.com/articles/microservices-aggregates-events-cqrs-part-1-richardson/) by Chris Richardson
  * [Designing Event Sourced Microservices](https://www.infoq.com/news/2017/11/event-sourcing-microservices/) by Jan Stenberg
@@ -63,7 +63,8 @@ Service AddressService {
 ```
 
 ### CQRS Example
-Applying CQRS to a Bounded Context definition in Context Mapper can be expressed with the standard language constructs of Context Mapper and Sculptor: you can simply apply this architectural pattern by 
+Applying CQRS to a Bounded Context definition in Context Mapper can be expressed with the standard language constructs of Context Mapper and Sculptor: you can simply apply 
+this architectural pattern by 
 
 1. Separating the queries from the command methods and defining separate services
 2. Defining separate command and query models
@@ -71,13 +72,11 @@ Applying CQRS to a Bounded Context definition in Context Mapper can be expressed
 #### Step 1: Separating Queries and Commands
 Here is an example of a conventional service interface that exposes both create, read, update, delete, and search methods/operations:
 
-<!-- now using discovered CustomerDto (tbd) -->
-
 ```text
-ValueObject CustomerDto {
-	String customerId
-	CustomerProfileDto customerProfile
-	List<Link> links
+ValueObject CustomerDTO {
+  String customerId
+  CustomerProfileDto customerProfile
+  List<Link> links
 }
 
 Service CustomerService {
@@ -107,21 +106,12 @@ Service CustomerQueryService {
 Additionally, Sculptor introduces so-called *command events* to support CQRS explicitly (described [here](http://sculptorgenerator.org/documentation/event-driven-tutorial#commandevent)).
 In comparison to a domain event which describes something that has happened, a command event is something that the system is asked to perform. The following CML/Sculptor snippet illustrates an example how to model command events:
 
-<!-- can we use an LM example here too: -->
 ```text
-		CommandEvent RecordAddressChange {
- 			 -AddressDto newAddress
- 			 Date changeDate
-		}	
+CommandEvent RecordAddressChange {
+  -AddressDto newAddress
+  Date changeDate
+}	
 ```
-<!-->
-```text
-CommmandEvent RecordShipmentArrival {
-  - ShipmentId shipment
-  Date arrivalDate
-}
-```
--->
 
 #### Step 2: Separating Read and Command Models
 In a second step you may want to define completely different models for read and command access. At present, the Context Mapper DSL does not have any specific language construct for read models; we suggest that you use the Michael's Aggregate rule from above to specify read models. The following example illustrates how you could model your Aggregate (command model) and your read model:
