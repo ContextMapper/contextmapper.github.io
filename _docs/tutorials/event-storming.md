@@ -1,6 +1,7 @@
 ---
 title: Model Event Storming Results in Context Mapper
 permalink: /docs/event-storming/
+image: /img/cm-og-image.png
 ---
 
 Event storming is a workshop technique to explore domains originally invented by Alberto Brandolini. If you are not familiar with the technique we recommend the following 

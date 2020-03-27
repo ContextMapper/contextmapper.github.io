@@ -1,6 +1,7 @@
 ---
 title: Event Sourcing and CQRS Modeling in Context Mapper
 permalink: /docs/event-sourcing-and-cqrs-modeling/
+image: /img/cm-og-image.png
 ---
 
 Event sourcing and Command Query Responsibility Segregation (CQRS) are two different approaches, but they work together very well. Both concepts deal with application state.
