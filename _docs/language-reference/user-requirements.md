@@ -3,7 +3,7 @@ title: User Requirements
 permalink: /docs/user-requirements/
 ---
 
-As described in our [Rapid Object-oriented Analysis and Design](/docs/modeling-tools/rapid-ooad/) page, the CML syntax supports the specification of user stories and use cases.
+As described in our [Rapid Object-oriented Analysis and Design](/docs/rapid-ooad/) page, the CML syntax supports the specification of user stories and use cases.
 One can then derive DDD Subdomains and later Bounded Contexts from these stories and cases.
 
 The following examples illustrate the syntax for both concepts quickly. Both concepts allow to specify the _actor_/_user_, the _interactions_ (_so that I can_ part of user story), 
