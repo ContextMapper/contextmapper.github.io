@@ -1,0 +1,9 @@
+UserStory US1_Example {
+  As an "Insurance Employee" I want to "create" a "Customer" so that "I am able to manage customer data ..."
+}
+
+UseCase UC1_Example {
+  actor = "Insurance Employee"
+  interactions = "create" a "Customer"
+  benefit = "I am able to manage customer data ..."
+}

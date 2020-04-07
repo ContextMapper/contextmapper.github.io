@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span></span><span class="k">Domain</span> InsuranceDomain {
+  <span class="k">Subdomain</span> CustomerDomain {
+    <span class="k">domainVisionStatement</span> <span class="s">&quot;Aims at promoting the following benefit for a Insurance Employee: I am able to manage the customers data and offer them insurance contracts.&quot;</span>
+    <span class="k">Entity</span> Customer
+    <span class="k">Entity</span> Contract
+    <span class="k">Service</span> US1_ExampleService {
+      createCustomer;
+      updateCustomer;
+      offerContract;
+    }
+  }
+}
+</pre></div>

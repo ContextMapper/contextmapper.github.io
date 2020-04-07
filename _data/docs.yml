@@ -26,7 +26,12 @@
   - knowledge-level
   - aggregate
   - tactic-ddd
+  - user-requirements
   - imports
+
+- title: Analysis and Design Transformations
+  docs:
+    - rapid-ooad
 
 - title: Architectural Refactorings (ARs)
   docs:
