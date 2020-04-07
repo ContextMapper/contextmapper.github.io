@@ -19,6 +19,8 @@ The syntax to declare a use case rather briefly is as follows:
 }
 </pre></div>
 
+The predicate (verb) in the `interaction` can be one of the keywords `create`, `update` `delete`, or any string.
+
 ## User Story
 First and foremost, a user story is an invitation to communicate and collaborate, as well a planning item. That said, the [role-feature-reason template](https://www.agilealliance.org/glossary/user-story-template/) can also serve as a requirements specification element. Hence, the user story support in CML allows you to declare exactly the same information as seen in the use case above, but in another syntax:
 
@@ -31,4 +33,4 @@ First and foremost, a user story is an invitation to communicate and collaborate
 }
 </pre></div>
 
-*Note:* As you can see above, both variants allow users to specify multiple _interactions_ or _I want to_ parts in one use case or user story.
+*Note:* As you can see above, both variants allow users to specify multiple _interactions_ or _I want to_ parts in one use case or user story. You can see this as a way of expressing related features, for instance those originating from splitting a larger story, or the steps in a use case scenario.
