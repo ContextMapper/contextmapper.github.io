@@ -1,5 +1,5 @@
 UseCase UC1_Example {
   actor = "Insurance Employee"
-  interactions = "create" a "Customer", "update" a "Customer", "offer" a "Contract"
+  interactions = create a "Customer", update a "Customer", "offer" a "Contract" <!-- pls check edit -->
   benefit = "I am able to manage the customers data and offer them insurance contracts."
 }
