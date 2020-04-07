@@ -11,14 +11,14 @@ Context Mapper offers transformation tools that support users in creating object
 The transformations support the following process:
 
  - **Step 1**: Capture User Requirements as **Use Cases** and/or **User Stories** in the Context Mapper DSL (CML)
-   - This is a manual step
-   - The syntax documentation can be found [here](/docs/user-requirements/)
+   - This is a manual step.
+   - The syntax documentation can be found [here](/docs/user-requirements/).
  - **Step 2**: Derive DDD **Subdomains** from the functional requirements
-   - We offer a transformation that automates this step
-   - Of course you can adjust and improve the generated Subdomains manually
+   - We offer a transformation that automates this step.
+   - Of course you can adjust and improve the generated Subdomains manually.
  - **Step 3**: Derive DDD **Bounded Contexts** from the Subdomains
-   - Context Mapper offers a transformation that executes this step
-   - The generated model elements contain `TODO` suggestions for further elaboration
+   - Context Mapper offers a transformation that executes this step.
+   - The generated model elements contain `TODO` suggestions for further elaboration.
 
 In the following we illustrate the process with an example (fictitious insurance example).
 
@@ -62,9 +62,9 @@ The transformation can be found in Context Mappers refactoring context menu:
 
 <a target="_blank" href="/img/derive-subdomain-from-ur-1.png">![Derive Subdomain from User Requirements (Context Menu)](/img/derive-subdomain-from-ur-1.png)</a>
  
-A dialog allows you then to choose your domain (declare the domain first) and define the name of the subdomain that shall be created:
+A dialog then allows you to choose your domain (declare the domain first) and define the name of the subdomain that shall be created:
 
-*Note:* It is also possible to select an already existing Subdomain. In this case the transformation will only re-create the elements inside the Subdomain which do not already exist.
+*Note:* It is also possible to select an already existing Subdomain. In this case the transformation will only re-create the elements inside the Subdomain that do not exist already.
 You can update a Subdomain with new user stories or use cases iteratively without loosing your manual changes this way. 
 
 <a target="_blank" href="/img/derive-subdomain-from-ur-2.png">![Derive Subdomain from User Requirements (Domain Definition Dialog)](/img/derive-subdomain-from-ur-2.png)</a>
