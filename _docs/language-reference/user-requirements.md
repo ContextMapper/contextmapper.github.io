@@ -34,4 +34,4 @@ First and foremost, a user story is an invitation to communicate and collaborate
 </pre></div>
 
 *Note:* As you can see above, both variants allow users to specify multiple _interactions_ or _I want to_ parts in one use case or user story. You can see this as a way of 
-expressing related features, for instance those originating from splitting a larger story, or the steps in a use case scenario.
+expressing related features, for instance those originating from splitting a larger story - or the steps in a use case scenario.
