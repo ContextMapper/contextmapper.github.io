@@ -3,14 +3,14 @@ title: User Requirements
 permalink: /docs/user-requirements/
 ---
 
-As described in our [Rapid Object-oriented Analysis and Design](/docs/rapid-ooad/) page, the CML syntax supports the specification of user stories and use cases. From those stories
-and cases one can then derive DDD Subdomains and later Bounded Contexts.
+As described in our [Rapid Object-oriented Analysis and Design](/docs/rapid-ooad/) page, the CML syntax supports the specification of user stories and use cases. One can then derive DDD Subdomains and later Bounded Contexts from these stories
+and cases.
 
 The following examples illustrate the syntax for both concepts quickly. Both concepts allow to specify the _actor_/_user_, the _interactions_ (_so that I can_ part of user story), and
 the _benefit_ of a use case or user story. 
 
 ## Use Case
-The syntax to declare a use case is as follows:
+The syntax to declare a use case rather briefly is as follows:
 
 <div class="highlight"><pre><span></span><span class="k">UseCase</span> UC1_Example {
   <span class="k">actor</span> = <span class="s">&quot;Insurance Employee&quot;</span>
@@ -20,7 +20,7 @@ The syntax to declare a use case is as follows:
 </pre></div>
 
 ## User Story
-The user story in CML allows you to declare exactly the same information as seen in the use case above, but in another syntax:
+First and foremost, a user story is an invitation to communicate and collaborate, as well a planning item. That said, the [role-feature-reason template](https://www.agilealliance.org/glossary/user-story-template/) can also serve as a requirements specification element. Hence, the user story support in CML allows you to declare exactly the same information as seen in the use case above, but in another syntax:
 
 <div class="highlight"><pre><span></span><span class="k">UserStory</span> US1_Example {
   <span class="k">As</span> <span class="k">an</span> <span class="s">&quot;Insurance Employee&quot;</span>
