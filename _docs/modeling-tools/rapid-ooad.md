@@ -4,25 +4,26 @@ permalink: /docs/rapid-ooad/
 image: /img/cm-og-image.png
 ---
 
-Context Mapper offers transformation tools that support users in creating object-oriented models (that leverage DDD patterns) from use cases or user stories (functional
-requirements) rapidly. 
+Context Mapper offers transformation tools that support users in creating object-oriented [domain models](https://martinfowler.com/eaaCatalog/domainModel.html) (that leverage DDD patterns) from use cases or user stories (functional requirements) rapidly. 
 
 ## Modeling Process
-The tools support the following process:
+The transformations support the following process:
 
- - **Step 1**: Define **Use Cases** and/or **User Stories** in the Context Mapper DSL (CML)
+ - **Step 1**: Capture User Requirements as **Use Cases** and/or **User Stories** in the Context Mapper DSL (CML)
+   - This is a manual step
    - The syntax documentation can be found [here](/docs/user-requirements/)
  - **Step 2**: Derive DDD **Subdomains** from the functional requirements
    - We offer a transformation that automates this step
    - Of course you can adjust and improve the generated Subdomains manually
  - **Step 3**: Derive DDD **Bounded Contexts** from the Subdomains
    - Context Mapper offers a transformation that executes this step
+   - The generated model elements contain `TODO` suggestions for further elaboration
 
 In the following we illustrate the process with an example (fictitious insurance example).
 
-## Step 1: User Requirements
-The Context Mapper DSL (CML) language allows you to model requirements in the form of user stories or use cases. Both approaches, either use cases or user stories, provide the same
-information in CML. The following example illustrates the syntax for both variants:
+## Step 1: Capture User Requirements
+The Context Mapper DSL (CML) language allows you to model requirements in the form of [user stories](https://www.agilealliance.org/glossary/user-stories/) or rather brief [use cases](https://medium.com/@warren2lynch/all-you-need-to-know-about-use-case-modeling-828756da3215). These two concepts differ in their context, goals and templates widely; however, CML supports the same [role-feature-reason](https://www.agilealliance.org/glossary/user-story-template/) structure for both of them at present. 
+The following example illustrates the syntax for both notations:
 
 ```text
 UserStory US1_Example {
@@ -36,7 +37,7 @@ UseCase UC1_Example {
 }
 ```
 
-In addition, it is possible to specify multiple interactions in one use case or user story:
+It is also possible to specify multiple features or interactions in one use case or user story:
 
  ```text
 UserStory US1_Example {
@@ -54,16 +55,15 @@ UseCase UC1_Example {
 }
 ```
 
-## Step 2: Derive Subdomains
-Once you specified your user stories and/or use cases you can select them in the CML editor and derive Subdomains automatically. The transformation can be found in Context Mappers
-refactoring context menu:
+## Step 2: Derive Subdomains (with Services and Entities)
+Once you have specified your user stories and/or use cases, you can select them in the CML editor and derive Subdomains that contain tentative Entities and Services automatically. The transformation can be found in Context Mappers refactoring context menu:
 
 <a target="_blank" href="/img/derive-subdomain-from-ur-1.png">![Derive Subdomain from User Requirements (Context Menu)](/img/derive-subdomain-from-ur-1.png)</a>
  
 A dialog allows you then to choose your domain (declare the domain first) and define the name of the subdomain that shall be created:
 
 *Note:* It is also possible to select an already existing Subdomain. In this case the transformation will only re-create the elements inside the Subdomain which do not already exist.
-Thereby you can update a Subdomain with new user stories or use cases iteratively without loosing your manual changes. 
+You can update a Subdomain with new user stories or use cases iteratively without loosing your manual changes this way. 
 
 <a target="_blank" href="/img/derive-subdomain-from-ur-2.png">![Derive Subdomain from User Requirements (Domain Definition Dialog)](/img/derive-subdomain-from-ur-2.png)</a>
 
@@ -84,11 +84,12 @@ Domain InsuranceDomain {
 }
 ```
 
-The resulting Subdomains contain the entities and services including simple service operations. After the generation of the Subdomain one can detail and improve it manually.
+The resulting Subdomains contain entities that are derived from the objects that the use case/user story works with as as well as services that represent the use case/user story; the interactions are transformed into draft operations. 
+
+After the generation of the Subdomain one can detail and improve it manually; in order not to loose any manual additions when the transformation is executed multiple times, it makes sense to rename the element. A "rename element" refactoring can be used for this.
 
 ## Step 3: Derive Bounded Contexts
-Another transformation allows users to generate Bounded Context definitions from existing Subdomains in CML. You can simple select one or multiple Subdomains and apply 
-the _Derive Bounded Context from Subdomains_ transformation that can be found in the refactoring context menu:
+Another transformation allows you to transition from analysis to design and generate Bounded Context definitions from existing Subdomains in CML. You can simple select one or multiple Subdomains and select the _Derive Bounded Context from Subdomains_ option that can be found in the refactoring context menu:
 
 <a target="_blank" href="/img/derive-bc-from-subdomain-1.png">![Derive Bounded Context from Subdomains (Context Menu)](/img/derive-bc-from-subdomain-1.png)</a>
 
@@ -120,12 +121,11 @@ BoundedContext NewContextFromSubdomains implements CustomerDomain {
 }
 ```
 
-The generated Bounded Context implements the previously selected Subdomains and initially contains an Aggregate per Subdomain that includes all entities and services of those 
-Subdomains. The entities are enriched with identify attributes and the services operations get a generic return type and parameter. As the _TODO_ comments indicate, a user can
-now refactor the resulting Aggregate (for example by using [Split Aggregate by Entities](/docs/ar-split-aggregate-by-entities/)), and add further details such as attributes (entities)
-and operations (entities/services).
+The generated Bounded Context implements the previously selected Subdomains and initially contains an Aggregate per Subdomain that includes all entities and services of those Subdomains. The entities are enriched with identify attributes, and the services operations receive a generic return type and parameter. 
 
-## Whats’s Next?
+As the _TODO_ comments indicate, a user can now refactor the resulting Aggregate (for example by using [Split Aggregate by Entities](/docs/ar-split-aggregate-by-entities/)), and add further details such as attributes (entities) and operations (entities/services).
+
+## What’s Next?
 Once you derived your initial Bounded Contexts, you can:
 
  - Add more details to the domain models (attributes, operations, services, repositories, etc.)
