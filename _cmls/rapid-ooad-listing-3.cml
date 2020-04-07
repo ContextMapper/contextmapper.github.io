@@ -1,0 +1,12 @@
+Domain InsuranceDomain {
+  Subdomain CustomerDomain {
+    domainVisionStatement "Aims at promoting the following benefit for a Insurance Employee: I am able to manage the customers data and offer them insurance contracts."
+    Entity Customer
+    Entity Contract
+    Service US1_ExampleService {
+      createCustomer;
+      updateCustomer;
+      offerContract;
+    }
+  }
+}

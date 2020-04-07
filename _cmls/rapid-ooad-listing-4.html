@@ -1,0 +1,22 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> NewContextFromSubdomains <span class="k">implements</span> CustomerDomain {
+  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerDomain&quot;</span>
+  <span class="c">/* This Aggregate contains the entities and services of the &#39;CustomerDomain&#39; subdomain.</span>
+<span class="c">   * TODO: You can now refactor the Aggregate, for example by using the &#39;Split Aggregate by Entities&#39; architectural refactoring.</span>
+<span class="c">   * TODO: Add attributes and operations to the entities.</span>
+<span class="c">   * TODO: Add operations to the services.</span>
+<span class="c">   * Find examples and further instructions on our website: https://contextmapper.org/docs/rapid-ooad/ */</span>
+  <span class="k">Aggregate</span> CustomerDomainAggregate {
+    <span class="k">Service</span> US1_ExampleService {
+      CreateCustomerOutput createCustomer (CreateCustomerInput input);
+      UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
+      OfferContractOutput offerContract (OfferContractInput input);
+    }
+    <span class="k">Entity</span> Customer {
+      CustomerID customerId
+    }
+    <span class="k">Entity</span> Contract {
+      ContractID contractId
+    }
+  }
+}
+</pre></div>
