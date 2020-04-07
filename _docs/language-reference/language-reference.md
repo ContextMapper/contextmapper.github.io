@@ -51,3 +51,10 @@ The following patterns can be used in CML models as well (but currently are not 
   
 *Note:* Our Aggregate pattern implementation is different from the one in Sculptor; it does not correspond to Sculptor's implementation. 
 Therefore it is documented [here](/docs/aggregate).  
+
+## Additional Language Features
+The following (not DDD specific) language features are supported by CML as well: 
+
+ * **[User Requirements](/docs/user-requirements/)** (Use Cases and User Stories)
+   * Used for the Architectural Refactoring (AR) [Split Bounded Context by Use Cases](/docs/ar-split-bounded-context-by-use-cases/) and our [Rapid OOAD](/docs/rapid-ooad/) tools.
+ * **[Imports](/docs/imports/)** to include other CML files

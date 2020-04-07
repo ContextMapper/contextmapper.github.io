@@ -1,0 +1,7 @@
+UserStory US1_Example {
+  As an "Insurance Employee"
+    I want to "create" a "Customer"
+    I want to "update" a "Customer"
+    I want to "offer" a "Contract"
+  so that "I am able to manage the customers data and offer them insurance contracts."
+}
