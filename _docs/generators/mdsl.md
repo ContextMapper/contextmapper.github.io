@@ -12,6 +12,7 @@ how we would derive (micro-)services from models based on strategic DDD <!-- (su
 
 ### Language Mapping
 <!-- TODO retrofit SummerSoC paper extensions to this table -->
+
 | CML Input                                                                                                                        | MDSL Output                                        | Description                                                                                                                                                                                                                                                             |
 |----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Upstream Bounded Contexts from upstream-downstream [relationships](/docs/context-map/#relationships)                             | Service Specification (API description)            | We create one service specification for each upstream Bounded Context of your Context Map.                                                                                                                                                                              |
