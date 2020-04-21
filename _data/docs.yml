@@ -69,3 +69,4 @@
   docs:
   - event-storming
   - event-sourcing-and-cqrs-modeling
+  - jhipster-microservice-generation
