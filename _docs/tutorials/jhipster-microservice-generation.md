@@ -4,14 +4,13 @@ permalink: /docs/jhipster-microservice-generation/
 image: /img/cm-og-image.png
 ---
 
-[JHipster](https://www.jhipster.tech/) is a development platform to generate [Spring Boot](https://spring.io/projects/spring-boot) web applications and microservices. With
-the [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/) it is possible to specify the individual applications or microservices, including their Entities and relationships
-between these Entities. With a JDL file as input the JHipster generator is able to generate the code for the microservices (based on the Spring framework and several frontend
-frameworks).
+[JHipster](https://www.jhipster.tech/) is a development platform to generate [Spring Boot](https://spring.io/projects/spring-boot) web applications and microservices. Applications
+or microservices, including their Entities and relationships between these Entities, can be specified with the [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/).
+The JHipster generator is able to generate code for the microservices (based on the Spring framework and several frontend frameworks) with a JDL file as input.
 
-With the JDL template for our [generic generator (templating based on Freemarker)](/docs/generic-freemarker-generator/) we offer a tool to generate microservices from your [CML
-Context Map](/docs/context-map/) using [JHipster](https://www.jhipster.tech/). In this tutorial we show you how you can generate microservice applications from DDD-based models
-in Context Mapper.
+By providing a JDL template for our [generic generator (templating based on Freemarker)](/docs/generic-freemarker-generator/), we offer a tool to generate microservices from 
+your [CML Context Map](/docs/context-map/) using [JHipster](https://www.jhipster.tech/). In this tutorial we show you how you can generate microservice applications from 
+DDD-based models in Context Mapper.
 
 <div class="alert alert-custom">
 <strong>Note</strong> that the current solution with the Freemarker template is only temporary. We are working on an integration of the JDL language into Context Mapper.
@@ -25,9 +24,10 @@ microservice generation with JDL and JHipster. The following graphical Context M
 
 <a target="_blank" href="/img/insurance-example-for-JDL-generation_ContextMap.png">![Insurance example Context Map](/img/insurance-example-for-JDL-generation_ContextMap.png)</a> 
 
-The complete CML model used for this tutorial can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/microservice-generation/JDL-example). Please note that the current JDL template only filters/ignores Bounded Contexts of the type _TEAM_. The 
-model used to generate the JHipster microservice must therefore only contain teams or Bounded Contexts representing systems that shall be mapped to microservices. Our example 
-Context Map, shown in the following CML snippet, contains several Bounded Contexts of the type _SYSTEM_. The generator creates one microservice per Bounded Context. 
+The complete CML model used for this tutorial can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/microservice-generation/JDL-example). 
+Please note that the current JDL template only filters/ignores Bounded Contexts of the type _TEAM_ when creating microservices. For all other types of Bounded Contexts
+(FEATURES, APPLICATIONS, and SYSTEMS) are mapped to a corresponding microservice. Our example Context Map, shown in the following CML snippet, contains several Bounded 
+Contexts of the type _SYSTEM_. The generator creates one microservice per Bounded Context. 
 
 <div class="highlight"><pre><span></span><span class="k">ContextMap</span> InsuranceContextMap {
   <span class="k">type</span> = <span class="k">SYSTEM_LANDSCAPE</span>
@@ -162,7 +162,7 @@ $ mkdir microservice-tutorial
 $ cd microservice-tutorial/
 ```
 
-With the following command you can then start the JHipster generator with the JDL file as input (adjust path the generated JDL file):
+You can then start the JHipster generator with the JDL file as input (adjust path the generated JDL file) by using the following command:
 ```bash
 $ jhipster import-jdl ./../context-mapper-examples/src-gen/insurance-microservices.jdl
 ```
@@ -284,6 +284,19 @@ The current solution (JDL template) comes with a few limitations that we are awa
    * In the future we may create Entities for this types automatically (Post-Freemarker solution).
  
 If you run into other problems with the generator, [let us know](https://github.com/ContextMapper/context-mapper-dsl/issues/new/).
+
+## Frequently Asked Questions (FAQs)
+ * **How can I generate a monolithic application instead of microservices?**
+   * You have to adjust the generated JDL file a bit: remove the _microservice_ and _application_ definitions (only keep the _entities_ and _relationships_).
+   * After you changed the JDL as described above you can use the JHipster generator to generate a monolith with all Entities (for more instructions consult the
+     [JHipster documentation](https://www.jhipster.tech/)).
+   * _Hint_: You can also create one _application_ of the type _monolith_, so that you don't have to answer the questions during the generation. Find the corresponding JDL
+     documentation [here](https://www.jhipster.tech/jdl/applications).
+   * _Hint_: You can also change our Freemarker temple (JDL.ftl) accordingly.
+ * **How can I change the UI framework (for example React instead of Angular) of the gateway application or other configurations?**
+   * After you generated the JDL file with our template, you can adjust the _config_ section of all generated _applications_ in JDL.
+   * For example: add `clientFramework react` to the config block. 
+   * Find more documentation on how to configure your applications in JDL here: [https://www.jhipster.tech/jdl/applications#available-application-options](https://www.jhipster.tech/jdl/applications#available-application-options)
 
 ## More Links and Resources
  * [JHipster](https://www.jhipster.tech/)
