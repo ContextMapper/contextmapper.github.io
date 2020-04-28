@@ -1,0 +1,47 @@
+ContextMap {
+  contains CustomerManagementFrontend
+  contains CustomerManagementBackend
+
+  CustomerManagementBackend [PL] -> [CF] CustomerManagementFrontend {
+    implementationTechnology "RESTful HTTP"
+    exposedAggregates CustomerManagementAggregateBackend
+  }
+}
+
+BoundedContext CustomerManagementBackend implements CustomerManagement {
+  domainVisionStatement "This Bounded Context realizes the following subdomains: CustomerManagement"
+  type SYSTEM
+  implementationTechnology "Sprint Boot"
+  Aggregate CustomerManagementAggregateBackend {
+    Service US1_ExampleService {
+      CreateCustomerOutput createCustomer (CreateCustomerInput input);
+      UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
+      OfferContractOutput offerContract (OfferContractInput input);
+    }
+    Entity CustomerBackend {
+      CustomerID customerId
+    }
+    Entity ContractBackend {
+      ContractID contractId
+    }
+  }
+}
+
+BoundedContext CustomerManagementFrontend implements CustomerManagement {
+  domainVisionStatement "This Bounded Context realizes the following subdomains: CustomerManagement"
+  type SYSTEM
+  implementationTechnology "Angular"
+  Aggregate CustomerManagementAggregateViewModel {
+    Service US1_ExampleService {
+      CreateCustomerOutput createCustomer (CreateCustomerInput input);
+      UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
+      OfferContractOutput offerContract (OfferContractInput input);
+    }
+    Entity CustomerViewModel {
+      CustomerID customerId
+    }
+    Entity ContractViewModel {
+      ContractID contractId
+    }
+  }
+}
