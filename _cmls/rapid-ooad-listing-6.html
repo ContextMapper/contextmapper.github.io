@@ -1,0 +1,58 @@
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
+  <span class="k">contains</span> CustomerManagementFrontend
+  <span class="k">contains</span> CustomerManagementDomainLogic
+  <span class="k">contains</span> CustomerManagementDatabase
+
+  CustomerManagementDomainLogic [<span class="k">PL</span>] -&gt; [<span class="k">CF</span>] CustomerManagementFrontend {
+    <span class="k">implementationTechnology</span> <span class="s">&quot;RESTful HTTP&quot;</span>
+    <span class="k">exposedAggregates</span> CustomerManagementAggregateBackend
+  }
+
+  CustomerManagementDatabase [<span class="k">PL</span>] -&gt; [<span class="k">CF</span>] CustomerManagementDomainLogic {
+    <span class="k">implementationTechnology</span> <span class="s">&quot;JDBC&quot;</span>
+  }
+}
+
+<span class="k">BoundedContext</span> CustomerManagementFrontend <span class="k">implements</span> CustomerManagement {
+  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerManagement&quot;</span>
+  <span class="k">type</span> <span class="k">SYSTEM</span>
+  <span class="k">implementationTechnology</span> <span class="s">&quot;Angular&quot;</span>
+  <span class="k">Aggregate</span> CustomerManagementAggregateViewModel {
+    <span class="k">Service</span> US1_ExampleService {
+      CreateCustomerOutput createCustomer (CreateCustomerInput input);
+      UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
+      OfferContractOutput offerContract (OfferContractInput input);
+    }
+    <span class="k">Entity</span> CustomerViewModel {
+      CustomerID customerId
+    }
+    <span class="k">Entity</span> ContractViewModel {
+      ContractID contractId
+    }
+  }
+}
+
+<span class="k">BoundedContext</span> CustomerManagementDomainLogic <span class="k">implements</span> CustomerManagement {
+  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerManagement&quot;</span>
+  <span class="k">type</span> <span class="k">SYSTEM</span>
+  <span class="k">implementationTechnology</span> <span class="s">&quot;Sprint Boot&quot;</span>
+  <span class="k">Aggregate</span> CustomerManagementAggregateBackend {
+    <span class="k">Service</span> US1_ExampleService {
+      CreateCustomerOutput createCustomer (CreateCustomerInput input);
+      UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
+      OfferContractOutput offerContract (OfferContractInput input);
+    }
+    <span class="k">Entity</span> CustomerBackend {
+      CustomerID customerId
+    }
+    <span class="k">Entity</span> ContractBackend {
+      ContractID contractId
+    }
+  }
+}
+
+<span class="k">BoundedContext</span> CustomerManagementDatabase {
+  <span class="k">type</span> <span class="k">SYSTEM</span>
+  <span class="k">implementationTechnology</span> <span class="s">&quot;JDBC&quot;</span>
+}
+</pre></div>
