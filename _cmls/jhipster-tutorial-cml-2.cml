@@ -1,0 +1,31 @@
+BoundedContext CustomerManagement implements CustomerManagementDomain {
+  type = SYSTEM
+  domainVisionStatement = "The customer management context is responsible for managing all the data of the insurance companies customers."
+  implementationTechnology = "Java, JEE Application"
+  responsibilities = "Customers, Addresses"
+
+  Aggregate Customers {
+    Entity Customer {
+      aggregateRoot
+
+      - SocialInsuranceNumber sin
+      String firstname
+      String lastname
+      - List<Address> addresses
+
+      def AddressId createAddress(@Address address);
+      def boolean changeCustomer(String firstname, String lastname);
+    }
+
+    Entity Address {
+      String street
+      int postalCode
+      String city
+    }
+
+    ValueObject SocialInsuranceNumber {
+      String sin key
+    }
+  }
+
+}

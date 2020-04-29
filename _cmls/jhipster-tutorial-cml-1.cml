@@ -1,0 +1,40 @@
+ContextMap InsuranceContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = TO_BE
+
+  contains CustomerManagement, CustomerSelfService, Printing
+  contains PolicyManagement, RiskManagement, DebtCollection
+
+  CustomerSelfService [D,C]<-[U,S] CustomerManagement {
+    exposedAggregates = Customers
+  }
+
+  CustomerManagement [D,ACL]<-[U,OHS,PL] Printing {
+    implementationTechnology = "SOAP"
+    downstreamRights = INFLUENCER
+    exposedAggregates = Printing
+  }
+
+  Printing [U,OHS,PL]->[D,ACL] PolicyManagement {
+    implementationTechnology = "SOAP"
+    exposedAggregates = Printing
+  }
+
+  RiskManagement [P]<->[P] PolicyManagement {
+    implementationTechnology = "RabbitMQ"
+  }
+
+  PolicyManagement [D,CF]<-[U,OHS,PL] CustomerManagement {
+    implementationTechnology = "RESTfulHTTP"
+    exposedAggregates = Customers
+  }
+
+  DebtCollection [D,ACL]<-[U,OHS,PL] Printing {
+    implementationTechnology = "SOAP"
+    exposedAggregates = Printing
+  }
+
+  PolicyManagement [SK]<->[SK] DebtCollection {
+    implementationTechnology = "Shared Java Library, Communication over RESTful HTTP"
+  }
+}

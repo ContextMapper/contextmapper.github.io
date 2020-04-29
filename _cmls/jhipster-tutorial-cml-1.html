@@ -1,0 +1,41 @@
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> InsuranceContextMap {
+  <span class="k">type</span> = <span class="k">SYSTEM_LANDSCAPE</span>
+  <span class="k">state</span> = <span class="k">TO_BE</span>
+
+  <span class="k">contains</span> CustomerManagement, CustomerSelfService, Printing
+  <span class="k">contains</span> PolicyManagement, RiskManagement, DebtCollection
+
+  CustomerSelfService [<span class="k">D</span>,<span class="k">C</span>]&lt;-[<span class="k">U</span>,<span class="k">S</span>] CustomerManagement {
+    <span class="k">exposedAggregates</span> = Customers
+  }
+
+  CustomerManagement [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] Printing {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+    <span class="k">downstreamRights</span> = INFLUENCER
+    <span class="k">exposedAggregates</span> = Printing
+  }
+
+  Printing [<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>]-&gt;[<span class="k">D</span>,<span class="k">ACL</span>] PolicyManagement {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+    <span class="k">exposedAggregates</span> = Printing
+  }
+
+  RiskManagement [<span class="k">P</span>]&lt;-&gt;[<span class="k">P</span>] PolicyManagement {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;RabbitMQ&quot;</span>
+  }
+
+  PolicyManagement [<span class="k">D</span>,<span class="k">CF</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] CustomerManagement {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTfulHTTP&quot;</span>
+    <span class="k">exposedAggregates</span> = Customers
+  }
+
+  DebtCollection [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] Printing {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+    <span class="k">exposedAggregates</span> = Printing
+  }
+
+  PolicyManagement [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] DebtCollection {
+    <span class="k">implementationTechnology</span> = <span class="s">&quot;Shared Java Library, Communication over RESTful HTTP&quot;</span>
+  }
+}
+</pre></div>
