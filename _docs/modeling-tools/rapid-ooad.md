@@ -213,7 +213,7 @@ Now you already have an Upstream-Downstream relationship that exposes an Aggrega
 
 ### Split System Into Tiers
 Having derived a frontend and backend system, you may want to split the systems into multiple tiers. For example: your backend maybe consists of a _domain logic_ and a 
-_database_ tier. We provide another model transformation to split a system into two tears for such a case:
+_database_ tier. We provide another model transformation to split a system into two tiers for such a case:
 
 <a target="_blank" href="/img/split-system-into-two-tiers-1.png">![Split System Into Two Tiers](/img/split-system-into-two-tiers-1.png)</a>
 
@@ -223,7 +223,7 @@ Similar to the last transformation you can configure how the tiers are named and
 
 _Note:_ This transformation does not create two new Bounded Contexts. It uses the existing context for the first tier and creates one new Bounded Context for the second tier.
 
-Applied with the configuration as shown above, the transformation leads to the following result:
+The transformation leads to the following result (with the configuration as shown above):
 
 <div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
   <span class="k">contains</span> CustomerManagementFrontend
@@ -284,7 +284,7 @@ Applied with the configuration as shown above, the transformation leads to the f
 }
 </pre></div>
 
-_Note:_ With the checkbox on the dialog it is also possible to copy the domain model into the second tier (was not selected for the _CustomerManagementDatabase_ context above).
+_Note:_ It is also possible to copy the domain model into the second tier (was not selected for the _CustomerManagementDatabase_ context above) with the corresponding checkbox on the dialog.
 
 You can model application architectures with more than two tiers by applying this transformation multiple times.
 
