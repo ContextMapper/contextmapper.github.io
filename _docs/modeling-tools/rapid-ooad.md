@@ -25,7 +25,7 @@ The transformations support the following process:
    the application from a more physical perspective)
    - We offer transformations to model the FEATURE or APPLICATION Bounded Contexts in terms SYSTEMS in order to model the physical (deployment) perspective.
      - Find more about the different types of Bounded Contexts [here](/docs/bounded-context/#bounded-context-type).
-   - The generated Bounded Context model the different systems or tiers of one application (frontend and backend, and/or other tiers).
+   - The generated Bounded Context model the different systems or subsystems of one application (frontend and backend, and/or other subsystems).
 
 In the following we illustrate the process with an example (fictitious insurance example).
 
@@ -137,13 +137,13 @@ Subdomains. The entities are enriched with identify attributes, and the services
 As the _TODO_ comments indicate, a user can now refactor the resulting Aggregate (for example by using [Split Aggregate by Entities](/docs/ar-split-aggregate-by-entities/)), and 
 add further details such as attributes (entities) and operations (entities/services).
 
-## Step 4: Derive Systems (Application Tiers)
+## Step 4: Derive Systems
 The Bounded Contexts generated in the step three above represent FEATUREs and/or APPLICATIONs (find more about the different types of Bounded Context [here](/docs/bounded-context/#bounded-context-type)).
 If you want to model such an application or feature context from a more physical- or deployment perspective, you can now derive Bounded Contexts of the type SYSTEM from them.
 
 ### Derive Frontend and Backend Systems
 We renamed the Bounded Context _NewContextFromSubdomains_ from above to _CustomerManagement_ now. As already mentioned, it represents a feature or application. On such
-Bounded Context we can now apply the _Derive Frontend and Backend Systems_ transformation to model the systems/tiers of the application:
+Bounded Context we can now apply the _Derive Frontend and Backend Systems_ transformation to model the systems/subsystems of the application:
 
 <a target="_blank" href="/img/derive-frontend-backend-from-feature-1.png">![Derive Frontend and Backend Systems from FEATURE](/img/derive-frontend-backend-from-feature-1.png)</a>
 
@@ -211,17 +211,17 @@ Applying the transformation as shown above generates the following Bounded Conte
 Now you already have an Upstream-Downstream relationship that exposes an Aggregate, which means you can generate a service contract with our
 [MDSL (Micro-)Service Contracts Generator](/docs/mdsl/). Of course you can use all the other [generators](/docs/generators/) as well.
 
-### Split System Into Tiers
-Having derived a frontend and backend system, you may want to split the systems into multiple tiers. For example: your backend maybe consists of a _domain logic_ and a 
-_database_ tier. We provide another model transformation to split a system into two tiers for such a case:
+### Split System Context Into Subsystems
+Having derived a frontend and backend system, you may want to split the systems into multiple subsytems. For example: your backend maybe consists of a _domain logic_ and a 
+_database_ subsystem (or _tier_). We provide another model transformation to split a system into two subsystems for such a case:
 
-<a target="_blank" href="/img/split-system-into-two-tiers-1.png">![Split System Into Two Tiers](/img/split-system-into-two-tiers-1.png)</a>
+<a target="_blank" href="/img/split-system-into-two-tiers-1.png">![Split System Into Two Subsystems](/img/split-system-into-two-tiers-1.png)</a>
 
-Similar to the last transformation you can configure how the tiers are named and how they shall integrate (see CONFORMIST vs. ACL above):
+Similar to the last transformation you can configure how the subsystems are named and how they shall integrate (see CONFORMIST vs. ACL above):
 
-<a target="_blank" href="/img/split-system-into-two-tiers-2.png">![Split System Into Two Tiers (Dialog)](/img/split-system-into-two-tiers-2.png)</a>
+<a target="_blank" href="/img/split-system-into-two-tiers-2.png">![Split System Into Two Subsystems (Dialog)](/img/split-system-into-two-tiers-2.png)</a>
 
-_Note:_ This transformation does not create two new Bounded Contexts. It uses the existing context for the first tier and creates one new Bounded Context for the second tier.
+_Note:_ This transformation does not create two new Bounded Contexts. It uses the existing context for the first subsystem and creates one new Bounded Context for the second subsystem.
 
 The transformation leads to the following result (with the configuration as shown above):
 
@@ -284,9 +284,9 @@ The transformation leads to the following result (with the configuration as show
 }
 </pre></div>
 
-_Note:_ It is also possible to copy the domain model into the second tier (was not selected for the _CustomerManagementDatabase_ context above) with the corresponding checkbox on the dialog.
+_Note:_ It is also possible to copy the domain model into the second subsystem (was not selected for the _CustomerManagementDatabase_ context above) with the corresponding checkbox on the dialog.
 
-You can model application architectures with more than two tiers by applying this transformation multiple times.
+You can model application architectures with more than two subsystems by applying this transformation multiple times.
 
 ## What’s Next?
 Once you derived your initial Bounded Contexts, you can:
@@ -306,7 +306,7 @@ Once you derived your initial Bounded Contexts, you can:
 ## Frequently Asked Questions (FAQs)
 
  * Whats the difference between the transformations described above and the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/)?
-   * Some of the model transformations described here, such as _Split System Into Tiers_, may seem similar to some of our ARs (_Split Bounded Context by ..._). However, there
+   * Some of the model transformations described here, such as _Split System Context Into Two Subsystems_, may seem similar to some of our ARs (_Split Bounded Context by ..._). However, there
      are different ideas behind the concepts.
    * The OOAD transformations above are designed to evolve a CML model from functional requirements rapidly. The transformations typically generate new elements into your model.
    * The [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) on the other hand are designed to change/improve an existing model and architecture. They 
