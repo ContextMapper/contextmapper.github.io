@@ -21,14 +21,43 @@ The syntax to declare a use case rather briefly is as follows:
 
 The predicate (verb) in the `interaction` can be one of the keywords `create`, `read`, `update`, `delete` (CRUD), or any string.
 
+Optionally, it is further possible to add _attributes_ to the Entities and/or a reference to another Entity that acts as a _container_. The following example illustrates
+the use case including this features:
+
+<div class="highlight"><pre><span></span><span class="k">UseCase</span> UC1_Example {
+  <span class="k">actor</span> <span class="s">&quot;Insurance Employee&quot;</span>
+  <span class="k">interactions</span>
+    <span class="k">create</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;firstname&quot;</span>, <span class="s">&quot;lastname&quot;</span>,
+    <span class="k">update</span> <span class="k">an</span> <span class="s">&quot;Address&quot;</span> <span class="k">for</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>,
+    <span class="s">&quot;offer&quot;</span> <span class="k">a</span> <span class="s">&quot;Contract&quot;</span> <span class="k">for</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>
+  <span class="k">benefit</span> <span class="s">&quot;I am able to manage the customers data and offer them insurance contracts.&quot;</span>
+}
+</pre></div>
+
+The entity attributes follow the keyword _with its_ as illustrated above. The reference to the container Entity can be modelled with the following keywords: _for a_,
+_for an_, _in a_, _in an_.
+
+### Cockburn Style
+Our Use Case grammar also supports the _casual_ format [suggested by A. Cockburn](https://en.wikipedia.org/wiki/Use_case#Cockburn_style), but gives the prose paragraph some structure.
+The following example illustrates such a Use Case with the corresponding attributes:
+
+<div class="highlight"><pre><span></span><span class="k">UseCase</span> Offer_a_Contract { <span class="c">// title</span>
+  <span class="k">actor</span> <span class="s">&quot;Insurance Employee&quot;</span> <span class="c">// primary actor</span>
+  <span class="k">scope</span> <span class="s">&quot;Insurance ERP&quot;</span> <span class="c">// scope</span>
+  <span class="k">level</span> <span class="s">&quot;User Goal&quot;</span> <span class="c">// level</span>
+  <span class="k">benefit</span> <span class="s">&quot;An insurance employee is able to offer a customer a contract.&quot;</span> <span class="c">// story (brief description)</span>
+}
+</pre></div>
+
+
 ## User Story
 First and foremost, a user story is an invitation to communicate and collaborate, as well a planning item. That said, the [role-feature-reason template](https://www.agilealliance.org/glossary/user-story-template/) can also serve as a requirements specification element. Hence, the user story support in CML allows you to declare exactly the same information as seen in the use case above, but in another syntax:
 
 <div class="highlight"><pre><span></span><span class="k">UserStory</span> US1_Example {
   <span class="k">As</span> <span class="k">an</span> <span class="s">&quot;Insurance Employee&quot;</span>
-    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;create&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>
-    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;update&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>
-    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;offer&quot;</span> <span class="k">a</span> <span class="s">&quot;Contract&quot;</span>
+    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;create&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;firstname&quot;</span>, <span class="s">&quot;lastname&quot;</span> <span class="c">// attributes are optional (&#39;with its&#39; part)</span>
+    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;update&quot;</span> <span class="k">an</span> <span class="s">&quot;Address&quot;</span> <span class="k">for</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span> <span class="c">// reference is optional (&#39;for a&#39; part)</span>
+    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;offer&quot;</span> <span class="k">a</span> <span class="s">&quot;Contract&quot;</span> <span class="k">for</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span> <span class="c">// reference is optional (&#39;for a&#39; part)</span>
   <span class="k">so</span> <span class="k">that</span> <span class="s">&quot;I am able to manage the customers data and offer them insurance contracts.&quot;</span>
 }
 </pre></div>

@@ -1,7 +1,7 @@
 UserStory US1_Example {
   As an "Insurance Employee"
-    I want to "create" a "Customer"
-    I want to "update" a "Customer"
-    I want to "offer" a "Contract"
+    I want to "create" a "Customer" with its "firstname", "lastname" // attributes are optional ('with its' part)
+    I want to "update" an "Address" for a "Customer" // reference is optional ('for a' part)
+    I want to "offer" a "Contract" for a "Customer" // reference is optional ('for a' part)
   so that "I am able to manage the customers data and offer them insurance contracts."
 }
