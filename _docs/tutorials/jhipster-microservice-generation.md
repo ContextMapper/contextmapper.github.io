@@ -283,7 +283,9 @@ The current solution (JDL template) comes with a few limitations that we are awa
      corresponding relationship.
    * In the future we may create Entities for this types automatically (Post-Freemarker solution).
  * Potential keyword clashes: If you use keywords that are reserved in JDL (for example "microservice") as names of the used CML objects (Bounded Contexts, Entities, 
-   or Entity attributes), the resulting JDL file will not compile/validate. Please avoid the usage of such JDL keywords in order to ensure that the resulting file compiles.
+   or Entity attributes), the resulting JDL file will not compile/validate. Please avoid the usage of such JDL keywords in order to ensure that the resulting file compiles
+   (instead of "microservice", you could use "AMicroservice" or "My_microservice").
+   * The JDL language with its keywords is documented [here](https://www.jhipster.tech/jdl/getting-started).
  
 If you run into other problems with the generator, [let us know](https://github.com/ContextMapper/context-mapper-dsl/issues/new/).
 
@@ -301,7 +303,8 @@ If you run into other problems with the generator, [let us know](https://github.
    * Find more documentation on how to configure your applications in JDL here: [https://www.jhipster.tech/jdl/applications#available-application-options](https://www.jhipster.tech/jdl/applications#available-application-options)
  * **Why does the resulting JDL file not compile/validate?**
    * Please check the known limitations list above. You probably used a reserved keyword of the JDL language for CML objects. For example: If you name a Bounded Context
-     "microservice", which is a JDL keyword, the resulting JDL file will not be valid. Please avoid using such keywords.
+     "microservice", which is a JDL keyword, the resulting JDL file will not be valid. Please avoid using such keywords (instead of "microservice", you could use "AMicroservice" or "My_microservice").
+     * To check whether a word is a reserved keyword in JDL, please consult [JHipster's JDL documentation](https://www.jhipster.tech/jdl/getting-started). 
    * If you respected the known limitations, followed the corresponding instructions, and it still does not compile, please create a 
      [GitHub issue in our repository](https://github.com/ContextMapper/context-mapper-dsl/issues/new/).
 
