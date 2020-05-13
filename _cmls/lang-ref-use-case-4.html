@@ -1,0 +1,14 @@
+<div class="highlight"><pre><span></span><span class="k">UseCase</span> Get_paid_for_car_accident { <span class="c">// title</span>
+  <span class="k">actor</span> <span class="s">&quot;Claimant&quot;</span> <span class="c">// primary actor</span>
+  <span class="k">scope</span> <span class="s">&quot;Insurance company&quot;</span> <span class="c">// scope</span>
+  <span class="k">level</span> <span class="s">&quot;Summary&quot;</span> <span class="c">// level</span>
+  <span class="k">benefit</span> <span class="s">&quot;A claimant submits a claim and and gets paid from the insurance company.&quot;</span> <span class="c">// story (brief summary)</span>
+  <span class="k">interactions</span>
+    <span class="s">&quot;submit&quot;</span> <span class="k">a</span> <span class="s">&quot;Claim&quot;</span>,                <span class="c">// step 1: claimant submits claim</span>
+    <span class="s">&quot;verifyExistanceOf&quot;</span> <span class="s">&quot;Policy&quot;</span>,      <span class="c">// step 2: insurance company verifies that valid policy exists</span>
+    <span class="s">&quot;assign&quot;</span> <span class="k">an</span> <span class="s">&quot;Agent&quot;</span> <span class="k">for</span> <span class="k">a</span> <span class="s">&quot;Claim&quot;</span>, <span class="c">// step 3: agent is assigned to claim</span>
+    <span class="s">&quot;verify&quot;</span> <span class="s">&quot;Policy&quot;</span>,                 <span class="c">// step 4: agent verifies all details are within policy guidelines</span>
+    <span class="s">&quot;pay&quot;</span> <span class="s">&quot;Claimant&quot;</span>,                  <span class="c">// step 5 (1): claimant gets paid</span>
+    <span class="s">&quot;close&quot;</span> <span class="s">&quot;Claim&quot;</span>                    <span class="c">// step 5 (2): file/claim gets closed</span>
+}
+</pre></div>

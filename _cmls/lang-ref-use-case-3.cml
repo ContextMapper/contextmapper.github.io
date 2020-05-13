@@ -1,6 +1,6 @@
-UseCase Offer_a_Contract { // title
-  actor "Insurance Employee" // primary actor
-  scope "Insurance ERP" // scope
-  level "User Goal" // level
-  benefit "An insurance employee is able to offer a customer a contract." // story (brief description)
+UseCase Get_paid_for_car_accident { // title
+  actor "Claimant" // primary actor
+  scope "Insurance company" // scope
+  level "Summary" // level
+  benefit "A claimant submits a claim and and gets paid from the insurance company." // story (brief summary)
 }
