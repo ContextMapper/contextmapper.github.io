@@ -161,12 +161,12 @@ As illustrated above, the patterns on the endpoint/resource level are added with
  * [LOOKUP_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/LookupResource)
 
 #### Operation Responsibility Patterns
- * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/ComputationFunction)
- * [NOTIFICATION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/NotificationOperation)
- * [RETRIEVAL_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/RetrievalOperation)
- * [STATE_TRANSITION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/StateTransitionOperation)
- <!-- * [EVENT_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/EventProcessor)
- * [BUSINESS_ACTIVITY_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/BusinessActivityProcessor) -->
+ * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/ComputationFunction)
+ * [NOTIFICATION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/NotificationOperation) <!-- this name might change to "State Creation Operation" in MAP -->
+ * [RETRIEVAL_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/RetrievalOperation)
+ * [STATE_TRANSITION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/StateTransitionOperation)
+ <!-- * [EVENT_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/EventProcessor) -->
+ <!-- * [BUSINESS_ACTIVITY_PROCESSOR](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/BusinessActivityProcessor) -->
 
 Please refer to the pattern texts on the MAP website for explanations of these decorators.
 
