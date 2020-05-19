@@ -1,0 +1,6 @@
+UseCase Get_paid_for_car_accident { // title
+  actor "Claimant" // primary actor
+  scope "Insurance company" // scope
+  level "Summary" // level
+  benefit "A claimant submits a claim and and gets paid from the insurance company." // story (brief summary)
+}
