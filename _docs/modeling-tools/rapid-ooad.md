@@ -27,6 +27,10 @@ The transformations support the following process:
      - Find more about the different types of Bounded Contexts [here](/docs/bounded-context/#bounded-context-type).
    - The generated Bounded Context model the different systems or subsystems of one application (frontend and backend, and/or other subsystems).
 
+<div class="alert alert-custom">
+<strong>Note:</strong> Our Visual Studio Code extension only supports the steps 1, 2, and 3 for now. The transformations in step 4 are not yet supported. If you want to use them, please use our Eclipse plugin.
+</div>
+
 In the following we illustrate the process with an example (fictitious insurance example).
 
 ## Step 1: Capture User Requirements

@@ -8,6 +8,10 @@ to 14 prioritized [coupling criteria](https://github.com/ServiceCutter/ServiceCu
 graph clustering algorithms to identify possible *service cuts*, which are returned as output. The approach was proposed by 
 [this paper](https://link.springer.com/chapter/10.1007/978-3-319-44482-6_12).
 
+<div class="alert alert-custom">
+<strong>Note:</strong> This feature is not yet supported in our new Visual Studio Code extension. We continuously work on the extension and will support it soon! To use this feature you have to use the Eclipse plugin for now. You can find a feature support table for Eclipse and VS Code <a href="/docs/ide/">here</a>.
+</div>
+
 ## Context Mapper Integration
 We provide a [Service Cutter library](https://github.com/ContextMapper/service-cutter-library), which is a fork of the original 
 [Service Cutter](https://github.com/ServiceCutter/ServiceCutter), to be able to offer its structured decomposition approach in Context Mapper. The library allows you to generate 

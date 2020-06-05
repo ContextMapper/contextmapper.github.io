@@ -81,26 +81,15 @@ Our generator produces the following graphical result for the above Context Map:
 
 <a href="/img/context-map-generator-insurance-sample.png">![Insurance Company Example Context Map](/img/context-map-generator-insurance-sample.png)</a>
 
-## User Guide
-The Context Map generator can be used within our Eclipse plugin as described below. 
+## Generating Context Maps
+The generators can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
 
-### System Requirements
+**Note:** All generator outputs will be generated into the *src-gen* folder.
+
+### System Requirements for this Generator
 The generator requires [Graphviz](https://www.graphviz.org/) to be installed on your system because it uses it behind the scenes:
 
  * Ensure [Graphviz](https://www.graphviz.org/) is installed on your machine.
  * Verify that the binaries of the [Graphviz](https://www.graphviz.org/) installation are part of your PATH environment variable and can be called from the command line, for instance by executing `dot -V` from the command line. 
     * In Windows this is not the case after the installation of [Graphviz](https://www.graphviz.org/). The default installation path is
       `C:\Program Files (x86)\GraphvizX.XX`, which means you have to add `C:\Program Files (x86)\GraphvizX.XX\bin` to your PATH variable.
-
-### Generating Context Maps
-The generator can be called from the _Context Mapper_ context menu within the CML editor or on the corresponding CML file:
-
-<a href="/img/context-map-generator-context-menu.png">![Context Map Generator Context Menu](/img/context-map-generator-context-menu.png)</a>
-
-A dialog will allow you to adjust the following *parameters* before the Context Map is generated:
-
- * Formats which shall be exported (PNG, SVG, DOT)
- * Size of the image (you can fix the width or height of the image)
- * Spacing factor (you can increase or decrease the spacing between edges, which can help to handle overlapping labels)
- 
-All the diagrams will be generated into the *src-gen* folder.

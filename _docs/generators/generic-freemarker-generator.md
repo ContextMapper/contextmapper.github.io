@@ -457,33 +457,33 @@ This part of the DSL is based on [Sculptor](http://sculptorgenerator.org/), and 
 ```
 
 ## User Guide
-To use our generic, [Freemarker](https://freemarker.apache.org/ template-based generator, you need two files within your Eclipse workspace:
+To use our generic, [Freemarker](https://freemarker.apache.org/) template-based generator, you need two files within your workspace:
 
  * The input CML model (*.cml)
  * The [Freemarker](https://freemarker.apache.org/) template (*.ftl)
  
- With a right-click on the CML file or within the CML editor, you can start the generator. You find it in the _Context Mapper_ context menu:
- 
- <a href="/img/generic-generator-context-menu.png">![Generic Textual Generator Context Menu](/img/generic-generator-context-menu.png)</a>
- 
- A dialog allows you to select a [Freemarker](https://freemarker.apache.org/) template (*.ftl file), which must be located somewhere in your workspace:
- 
- <a href="/img/generic-generator-dialog.png">![Generic Textual Generator Dialog](/img/generic-generator-dialog.png)</a>
- 
-You generate the required file when finishing the dialog:
- 
- <a href="/img/generic-generator-result.png">![Generic Textual Generator Dialog](/img/generic-generator-result.png)</a>
+The generator can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
+
+**Note:** All generator outputs will be generated into the *src-gen* folder.
+
+Eclipse as well as VS Code will ask you to choose a *.ftl file from your filesystem and to define the output file name (which will then be generated into _src-gen_).
 
 ### Freemarker Version
 Context Mapper uses [Freemarker](https://freemarker.apache.org/), currently Version 2.3.30.
 
 ## Example Templates
+
+### Eclipse
 The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use the _Freemarker Generator Template Examples_ wizard via _File -> New -> Example..._ to create the sample project containing the Freemarker templates:
 
 <a href="/img/screenshot-new-freemarker-example-project-1.png">![Create Sample Project with Freemarker Templates (1)](/img/screenshot-new-freemarker-example-project-1.png)</a>
 
 <a href="/img/screenshot-new-freemarker-example-project-2.png">![Create Sample Project with Freemarker Templates (2)](/img/screenshot-new-freemarker-example-project-2.png)</a>
 
+### Visual Studio Code
+In VS Code we do not deliver the example templates with the extension itself. However, you can just download the *.ftl files from [here](https://github.com/ContextMapper/context-mapper-dsl/tree/master/org.contextmapper.dsl.ui/samples/freemarker) and use it with our generator in VS Code.
+
+### Provided Examples
 The project currently contains the following example templates:
 
  * Ubiquitous language glossary written in Markdown (currently a full report)

@@ -6,6 +6,10 @@ image: /img/cm-og-image.png
 
 This section provides a documentation of all [architectural refactorings (ARs)](https://www.infoq.com/articles/architectural-refactoring/) available in the Context Mapper tool.
 
+<div class="alert alert-custom">
+<strong>Note:</strong> Architectural Refactorings (AR) are not yet supported in our new Visual Studio Code extension. We continuously work on the extension and will support them soon! To apply the ARs to your CML model you have to use the Eclipse plugin for now. You can find a feature support table for Eclipse and VS Code <a href="/docs/ide/">here</a>.<br/><br/>The AR "Split Bounded Context by Owner" is already supported now (as an example to illustrate how they will be integrated to VS Code).
+</div>
+
 ## Motivation: Why Refactoring?
 The provided refactorings ensure that the result is always a correct CML model which compiles without errors. 
 If you perform similar changes manually, you also have to fix errors that occur manually within the [Context Map](/docs/context-map/).
@@ -49,7 +53,20 @@ The following ARs to change Context Map relationships are currently implemented:
 ## Examples
 You can find [input and corresponding output examples](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings) for all ARs listed above in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
-## How to apply Architectural Refactorings (ARs)
+## How to apply Architectural Refactorings
+
+### Visual Studio Code
+In VS Code we suggest the application of Architectural Refactorings via code actions. If your cursor is on a CML object on which an AR can be applied, a light bulb shows up:
+
+<a href="/img/architectural-refactoring-handling-in-vscode-1.png">![Architectural Refactoring Suggestion in VS Code](/img/architectural-refactoring-handling-in-vscode-1.png)</a>
+
+In the case illustrated above, the _PolicyManagementContext_ contains Aggregates that are maintained by different teams and [Split Bounded Context by Owner (AR-3)](/docs/ar-split-bounded-context-by-owners) can be applied:
+
+<a href="/img/architectural-refactoring-handling-in-vscode-2.png">![Architectural Refactoring Application in VS Code](/img/architectural-refactoring-handling-in-vscode-2.png)</a>
+
+By clicking on the light bulb and the AR you want to apply the model will be refactored accordingly.
+
+### Eclipse
 Architectural refactorings can be applied within the Context Mapper Eclipse plugin by using the context menu in the DSL editor. With a
 right-click on a bounded context or an aggregate the **Context Mapper: Refactor** menu entry appears and lists all refactorings which are applicable to the selected elements:
 

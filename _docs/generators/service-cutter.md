@@ -12,6 +12,10 @@ For more information about Service Cutter we refer to its projects wiki and two 
  * [Service Cutter: A Systematic Approach to Service Decomposition (Paper)](https://link.springer.com/chapter/10.1007/978-3-319-44482-6_12)
  * [Service Cutter: A Systematic Approach to Service Decomposition (HSR Bachelor Thesis)](https://eprints.hsr.ch/476/)
 
+<div class="alert alert-custom">
+<strong>Note:</strong> The Service Cutter generators are not yet supported in our new Visual Studio Code extension. We continuously work on the extension and will support them soon! To use this generators you have to use the Eclipse plugin for now. You can find a feature support table for Eclipse and VS Code <a href="/docs/ide/">here</a>.
+</div>
+
 ## User Guide
 The following sections describe how to use the Service Cutter generators and create the input files for Service Cutter.
 

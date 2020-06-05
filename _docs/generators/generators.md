@@ -16,6 +16,17 @@ based on Freemarker which allows to generate arbitrary textual files.
  * [Generic, template-based textual generator (Freemarker Templating)](#generic-textual-generator-freemarker-templating)
 
 ## Using the Generators
+
+### Visual Studio Code
+The generators are implemented as commands in VS Code. You can find them in the context menu of the CML editor:
+
+<a href="/img/generators-in-vscode-1.png">![Generators Context Menu in VS Code](/img/generators-in-vscode-1.png)</a>
+
+Alternatively you find them in the command palette (Ctrl+Shift+P):
+
+<a href="/img/generators-in-vscode-2.png">![Generators in the VS Code Command Palette](/img/generators-in-vscode-2.png)</a>
+
+### Eclipse
 The generators can be accessed through the Context Menu in the project explorer (right-click to *.cml file) or directly in the CML editor as the following screenshot shows:
 
 <a href="/img/generators-context-menu.png">![Generators Context Menu in Eclipse](/img/generators-context-menu.png)</a>

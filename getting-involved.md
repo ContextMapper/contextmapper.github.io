@@ -11,7 +11,8 @@ To get involved with Context Mapper consider the following options:
 ## Contribute bug reports or feature requests
 Use GitHub issues to report bugs or feature requests in our repositories:
 
- * Context Mapper tool related: [https://github.com/ContextMapper/context-mapper-dsl/issues](https://github.com/ContextMapper/context-mapper-dsl/issues)
+ * Context Mapper tool (Eclipse): [https://github.com/ContextMapper/context-mapper-dsl/issues](https://github.com/ContextMapper/context-mapper-dsl/issues)
+ * Context Mapper tool (Visual Studio Code): [https://github.com/ContextMapper/vscode-extension/issues](https://github.com/ContextMapper/vscode-extension/issues)
  * Examples related: [https://github.com/ContextMapper/context-mapper-examples/issues](https://github.com/ContextMapper/context-mapper-examples/issues)
  * Related to this website: [https://github.com/ContextMapper/contextmapper.github.io/issues](https://github.com/ContextMapper/contextmapper.github.io/issues)
 

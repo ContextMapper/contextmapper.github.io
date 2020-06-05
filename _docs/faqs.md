@@ -13,6 +13,9 @@ Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/]
 ### How do I create an Eclipse project with a new CML model to start modeling my Context Map?
 Consult the page [Create CML Model](/docs/getting-started-create-project/). It describes how to setup your project to get started with modeling CML Context Maps.
 
+### I read about a feature on the Context Mapper website but could not find it in the Visual Studio Code extension. Why?
+We have only recently published Context Mapper for Visual Studio Code and do not support all features yet. You can find a feature support table [here](/docs/ide/). If you need all Context Mapper features, you have to use our Eclipse plugin for now. However, we continuously enhance our VS Code extension and want to support all features soon!
+
 ### How do I create a new context map?
 Just create a file with the file extension **.cml** (Context Mapping Language). Take a look at our example to get an idea how the file content should look like: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples). Let the code completion and other editor features in Eclipse guide you while completing the map and modeling Bounded Contexts.
 
