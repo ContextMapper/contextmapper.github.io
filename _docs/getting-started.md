@@ -20,7 +20,7 @@ To start using Context Mapper in Eclipse, please install the plugin via the **Ec
 **Eclipse Marketplace: [Context Mapper](https://marketplace.eclipse.org/content/context-mapper/)**
  * Alternatively you can use the following update site URL for manual installation in Eclipse: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
 
-### System Requirements
+## System Requirements
 Besides the IDE plugin/extension, you need the following tools on your machine:
 
 * [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 8 or newer)
