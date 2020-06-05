@@ -8,7 +8,7 @@ We currently offer Context Mapper for Visual Studio Code and Eclipse:
  * [Context Mapper for VS Code](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension) (Marketplace)
  * [Context Mapper for Eclipse](https://marketplace.eclipse.org/content/context-mapper) (Marketplace)
 
-<div class="alert alert-custom">However, we have only recently published the <strong>VS Code extension</strong> and it does <strong>not support all the features yet</strong>. In case you need all the features, you have to work with Eclipse for now. We work on the VS code extension and hope to <strong>support all the features soon</strong>!
+<div class="alert alert-custom"><strong>Note:</strong> We have only recently published the <strong>VS Code extension</strong> and it does <strong>not support all the features yet</strong>. In case you need all the features, you have to work with Eclipse for now. We work on the VS code extension and hope to <strong>support all the features soon</strong>!
 </div>
 
 ## Feature Support
