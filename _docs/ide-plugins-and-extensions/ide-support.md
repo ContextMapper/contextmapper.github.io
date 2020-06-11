@@ -1,5 +1,5 @@
 ---
-title: IDE Support
+title: Feature Support
 permalink: /docs/ide/
 ---
 
@@ -11,7 +11,7 @@ We currently offer Context Mapper for Visual Studio Code and Eclipse:
 <div class="alert alert-custom"><strong>Note:</strong> We have only recently published the <strong>VS Code extension</strong> and it does <strong>not support all the features yet</strong>. In case you need all the features, you have to work with Eclipse for now. We work on the VS code extension and hope to <strong>support all the features soon</strong>!
 </div>
 
-## Feature Support
+## Supported Features per IDE
 The following table illustrates which features are already implemented in VS Code. Both IDEs shall support all features in the future.
 
 | Feature                                                      | Supported in Eclipse Plugin | Supported in VS Code Extension |

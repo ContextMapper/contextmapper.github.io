@@ -2,7 +2,6 @@
   docs:
   - home
   - getting-started
-  - ide
   - getting-started-create-project
   - examples
   - library
@@ -71,3 +70,9 @@
   - event-storming
   - event-sourcing-and-cqrs-modeling
   - jhipster-microservice-generation
+
+- title: IDE Plugins and Extensions
+  docs:
+  - vs-code
+  - eclipse
+  - ide
