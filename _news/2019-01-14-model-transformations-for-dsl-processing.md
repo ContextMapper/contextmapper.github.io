@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: news
 title:  "Model Transformations for DSL Processing"
 author: Stefan Kapferer
 ---

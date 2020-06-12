@@ -16,7 +16,7 @@
                 <li {% if page.sectionid=='docs' %} class="active" {% endif %}><a href="{{ "/docs/home/" | prepend: site.baseurl }}">Documentation</a></li>
                 <li {% if page.sectionid=='project-background' %} class="active" {% endif %}><a href="{{ "/background-and-publications/" | prepend: site.baseurl }}">Project Background</a></li>
                 <li {% if page.sectionid=='getting-involved' %} class="active" {% endif %}><a href="{{ "/getting-involved/" | prepend: site.baseurl }}">Getting Involved</a></li>
-                <li {% if page.sectionid=='blog' %} class="active" {% endif %}><a href="{{ site.posts.first.url | prepend: site.baseurl }}">Blogposts</a></li>
+                <li {% if page.sectionid=='news' %} class="active" {% endif %}><a href="{{ site.news.last.url | prepend: site.baseurl }}">News</a></li>
             </ul>
             <div class="navbar-right">
                 <form class="navbar-form navbar-left">

@@ -1,6 +1,6 @@
 ---
-layout: post
-title:  "A Modeling Framework for Strategic Domain-driven Design and Service Decomposition"
+layout: news
+title:  "Master Thesis Published"
 author: Stefan Kapferer
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: news
 title:  "A Domain-specific Language for Service Decomposition"
 author: Stefan Kapferer
 ---

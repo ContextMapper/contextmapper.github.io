@@ -1,13 +1,14 @@
 ---
-title: Blog
+title: News
 layout: default
-sectionid: blog
+sectionid: news
 ---
 
 
 <div class="container">
     <div class="inner-content">
-        <h1>All Posts</h1> {% for page in site.posts %}
+        {% assign sorted_news = site.news | sort:"date" %}
+        <h1>All News</h1> {% for page in sorted_news reversed %}
         <p>
             <strong><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></strong>
             <span>on {{ page.date | date: "%B %e, %Y" }} {% if page.author %} by {{ page.author }}{% endif %}</span>

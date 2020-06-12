@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: news
 title:  "First Context Mapper version released!"
 author: Stefan Kapferer
 ---

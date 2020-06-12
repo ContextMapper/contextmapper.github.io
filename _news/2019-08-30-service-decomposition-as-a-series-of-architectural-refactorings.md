@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: news
 title:  "Service Decomposition as a Series of Architectural Refactorings"
 author: Stefan Kapferer
 ---
