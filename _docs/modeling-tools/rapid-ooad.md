@@ -307,6 +307,10 @@ Once you derived your initial Bounded Contexts, you can:
    - [Generic output with Freemarker templates](/docs/generic-freemarker-generator/)
      - Use our [JHipster JDL generator template](/docs/jhipster-microservice-generation/) to generate microservices code from your Context Map.
 
+## Related Links
+
+ - The Context Mapper OOAD transformations were presented at [ICWE 2020](https://icwe2020.webengineering.org/) by [Olaf Zimmermann](https://ozimmer.ch/): Find the slides and the demo [here](https://ozimmer.ch/practices/2020/06/10/ICWEKeynoteAndDemo.html).
+
 ## Frequently Asked Questions (FAQs)
 
  * Whats the difference between the transformations described above and the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/)?
