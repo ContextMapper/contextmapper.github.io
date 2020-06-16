@@ -13,6 +13,9 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2020**
+ * Olaf Zimmermann: **Dimensions of Successful Web API Design and Evolution: Context, Contracts, Components**, Keynote ICWE 2020, _International Conference on Web Engineering (ICWE)_
+     * [Keynote](https://icwe2020.webengineering.org/keynotes/#academy)
+     * [Demo: Domain-Driven Service Design with Context Mapper and MDSL](https://ozimmer.ch/practices/2020/06/10/ICWEKeynoteAndDemo.html)
  * Stefan Kapferer and Olaf Zimmermann: **Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling**,
    In _Proceedings of the 8th International Conference on Model-Driven Engineering and Software Development - MODELSWARD_, pages 299–306. INSTICC, SciTePress.
      * [Paper](https://doi.org/10.5220/0008910502990306)
