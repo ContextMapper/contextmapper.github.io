@@ -5,11 +5,9 @@ image: /img/cm-og-image.png
 
 <div class="header-container jumbotron">
     <div class="container">
-	    <h1>A Modeling Framework for Strategic Domain-driven Design and Service Decomposition</h1>
-        <p>ContextMapper is an open source project providing a Domain-specific Language (DSL) based on Domain-driven Design (DDD) patterns for context mapping and service decomposition. The framework
-        components around the language support to reverse engineer Context Maps, analyze the models with respect to coupling criteria, improve the architecture iteratively, and generate other
-        representations out of the DDD Context Maps.</p>
-        <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | prepend: site.baseurl }}" role="button">Learn more</a></p>
+	    <h1>A Modeling Framework for Strategic Domain-driven Design</h1>
+        <p>ContextMapper is an open source project providing a Domain-specific Language and Tools for Strategic Domain-driven Design (DDD), Context Mapping, Bounded Context Modeling, and Service Decomposition.</p>
+        
     </div>
 </div>
 
@@ -17,21 +15,25 @@ image: /img/cm-og-image.png
   <div class="row">
     <div class="col-md-12">
       <h2 class="header-light regular-pad">
-        What is Context Mapper?
+        Quick Start
       </h2>
     </div>
   </div>
     <div class="row">
         <div class="col-md-6">
-	          <p class="lead">
-              Context Mapper provides a DSL to create <strong>Context Maps</strong> based on strategic <strong>Domain-driven Design (DDD)</strong>. DDD with its Bounded Contexts offers an approach for
-              <strong>decomposing a domain or system</strong> into multiple independently deployable (micro-)services. With our <strong><a href="/docs/architectural-refactorings/">Architectural
-              Refactorings (ARs)</a></strong> we provide transformation tools to refactor and decompose a system in an iterative way. With the
-              <strong><a href="/docs/service-cutter-context-map-suggestions/">Service Cutter</a></strong> integration you can generate suggestions for new Context Maps exhibiting services and Bounded Contexts with improved coupling.
-              With the <strong><a href="/docs/generators">generators</a></strong> you are able to derive other representations of the architectural model, such as <strong><a href="http://plantuml.com/">PlantUML</a></strong>
-              diagrams or <strong><a href="https://socadk.github.io/MDSL/">MDSL</a></strong> (micro-)service contracts. The <strong><a href="/docs/reverse-engineering">reverse engineering library</a></strong>
-              supports you in generating Context Maps of existing systems.
-	          </p>
+          <ul class="start-page-quicklinks">
+            <li><a href="/docs/home/">What is Context Mapper?</a> Learn more about the <a href="/docs/background-and-publications/">project's background</a>.</li>
+            <li>New to Context Mapper? - <a href="/docs/getting-started/">Get Started</a></li>
+            <li>Installation Links: <a href="https://marketplace.eclipse.org/content/context-mapper/">Eclipse Plugin</a>, <a href="https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension">Visual Studio Code Extension</a></li>
+            <li><a href="/docs/examples/">Example models</a></li>
+            <li><a href="{{ site.news.last.url | prepend: site.baseurl }}">Latest News and Release Notes</a></li>
+            <li>Learn more about: <a href="/docs/language-reference/">Context Mapping DSL (CML)</a>, <a href="/docs/architectural-refactorings/">Architectural Refactorings</a>, 
+              <a href="/docs/generators/">Generators</a>, <a href="/docs/rapid-ooad/">Rapid OOAD</a>, <a href="/docs/service-cutter-context-map-suggestions/">Service Decomposition</a>, 
+              <a href="/docs/reverse-engineering/">Reverse Engineering</a>, <a href="/docs/jhipster-microservice-generation/">Microservice Generation with JHipster</a>, 
+              <a href="/docs/event-storming/">Event Storming</a>, <a href="/docs/event-sourcing-and-cqrs-modeling/">CQRS</a></li>
+            <li><a href="/docs/faq/">Frequently Asked Questions (FAQ)</a></li>
+            <li>You want to help us improving Context Mapper? - <a href="/getting-involved/">Get Involved</a></li>
+          </ul>
         </div>
         <div class="col-md-6 text-center">
             <img src="img/cm.png" alt="" class="img-responsive">
@@ -43,32 +45,70 @@ image: /img/cm-og-image.png
     <div class="row features">
         <div class="col-sm-4">
           <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
-          <h3 class="text-center">Context Mapping Language (CML)</h3>
+          <h3 class="text-center">Context Mapping DSL (CML)</h3>
           <p>
-            CML is an easy to understand, Xtext-based, <strong>DSL for DDD context mapping</strong>. The language supports modeling the relationships between Bounded Contexts with the strategic DDD patterns.
-            The details of the Bounded Contexts with its Aggregates can be specified with the tactic DDD patterns. Checkout our <a href="/docs/home/">docs</a> and
-            <a href="https://github.com/ContextMapper/context-mapper-examples" target="_blank">examples</a> for an introduction into our language.
+            CML is an easy to understand, Xtext-based, <strong>DSL for DDD context mapping</strong>. The language supports modeling Bounded Contexts and their relationships with tactic and strategic DDD patterns.
+          </p>
+          <p>
+            <a class="btn btn-primary btn-lg" href="/docs/language-reference/" role="button">Learn more</a>
           </p>
         </div>
         <div class="col-sm-4">
-          <h1 class="text-center"><i class="fab fa-connectdevelop" aria-hidden="true"></i></h1>
-          <h3 class="text-center">Service Decomposition</h3>
+          <h1 class="text-center"><i class="fas fa-redo-alt" aria-hidden="true"></i></h1>
+          <h3 class="text-center">Continuous Refactorings</h3>
           <p>
-            <strong>Decompose</strong> your systems architecture by applying <strong><a href="/docs/architectural-refactorings/">Architectural Refactorings (ARs)</a></strong> iteratively. By splitting and merging
-            Bounded Contexts or Aggregates, the <strong>coupling</strong> between your Bounded Contexts and the <strong>cohesion</strong> between them can be improved. The
-            <strong><a href="/docs/service-cutter-context-map-suggestions/">Service Cutter</a></strong> tool can support the process by suggesting improved decompositions based on its <strong>
-            <a href="https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria">coupling criteria</a></strong> catalog.
+            <strong>Decompose</strong> your systems architecture by applying <strong>Architectural Refactorings (ARs)</strong> iteratively. 
+            Split and merge Bounded Contexts and/or Aggregates to improve <strong>coupling</strong> and <strong>cohesion</strong>.
+          </p>
+          <p>
+            <a class="btn btn-primary btn-lg" href="/docs/architectural-refactorings/" role="button">Learn more</a>
           </p>
         </div>
         <div class="col-sm-4">
-          <h1 class="text-center"><i class="fa fa-tools" aria-hidden="true"></i></h1>
-          <h3 class="text-center">Generators & Reverse Engineering</h3>
+          <h1 class="text-center"><i class="fas fa-project-diagram" aria-hidden="true"></i></h1>
+          <h3 class="text-center">Diagram and Contract Generation</h3>
           <p>
-            Use your Context Map to generate other representations of the architecture, such as <strong><a href="/docs/plant-uml/">PlantUML</a></strong> component and class diagrams. The
-            <strong><a href="/docs/mdsl/">MDSL (micro-)service contracts</a></strong> generator can provide assistance regarding how your system can be implemented in an (micro-)service-oriented architecture.
-            Our <strong><a href="/docs/reverse-engineering/">reverse engineering library</a></strong> can further generate CML Context Maps from existing source code.
+            Use your CML Context Maps to generate other representations of the architecture, such as <strong>graphical Context Maps</strong>, <strong>PlantUML</strong> component and class diagrams,
+            <strong>MDSL (micro-)service contracts</strong>, or <strong>code</strong>.
+          </p>
+          <p>
+            <a class="btn btn-primary btn-lg" href="/docs/generators/" role="button">Learn more</a>
           </p>
         </div>
+    </div>
+    <div class="row features">
+      <div class="col-sm-4">
+        <h1 class="text-center"><i class="fas fa-history" aria-hidden="true"></i></h1>
+        <h3 class="text-center">Context Map Discovery Library</h3>
+        <p>
+          Use our Java discovery library to <strong>reverse engineer a DDD Context Map</strong> from your existing monolith or microservice application (extensible library based on strategy pattern).
+        </p>
+        <p>
+          <a class="btn btn-primary btn-lg" href="/docs/reverse-engineering/" role="button">Learn more</a>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h1 class="text-center"><i class="fab fa-connectdevelop" aria-hidden="true"></i></h1>
+        <h3 class="text-center">Systematic Service Decomposition</h3>
+        <p>
+          With the <strong>Service Cutter</strong> integration you can calculate new Context Maps that shall <strong>improve coupling and cohesion</strong> by using <strong>graph clustering</strong> 
+          algorithms and <strong>coupling criteria</strong>.
+        </p>
+        <p>
+          <a class="btn btn-primary btn-lg" href="/docs/service-cutter-context-map-suggestions/" role="button">Learn more</a>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h1 class="text-center"><i class="far fa-file-code" aria-hidden="true"></i></h1>
+        <h3 class="text-center">Code (Microservice) Generation</h3>
+        <p>
+          Generate any <strong>text or code</strong> with our generic generator based on <strong>Freemarker</strong> templates. We offer a template to <strong>generate Microservice applications</strong> 
+          (Spring Boot) using <strong>JHipster</strong>.
+        </p>
+        <p>
+          <a class="btn btn-primary btn-lg" href="/docs/jhipster-microservice-generation/" role="button">Learn more</a>
+        </p>
+      </div>
     </div>
 
 </div>
