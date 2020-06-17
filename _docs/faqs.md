@@ -25,7 +25,7 @@ Have a look at the page [Language Semantic Model](/docs/language-model/). It int
 The tactic DDD part of our DSL is based on the [Sculptor DSL](http://sculptorgenerator.org/). We provide a short introduction and examples how you can detail your bounded contexts on the pages [Aggregate](/docs/aggregate/) and [Tactic DDD Syntax](/docs/tactic-ddd/). If you are interested in more details and all features, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
 
 ### Which transformations can I apply to my CML model? Which generators are available?
-Currently you can generate [Microservice Domain-Specific Language (MDSL)](https://socadk.github.io/MDSL/) (micro-)service contracts providing assistance regarding how your system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input  to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams out of your CML. The following pages explain the generators in detail:
+Currently you can generate [Microservice Domain-Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts providing assistance regarding how your system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input  to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams out of your CML. The following pages explain the generators in detail:
 
  * [Generate graphical Context Maps](/docs/context-map-generator/)
  * [Generate PlantUML diagrams](/docs/plant-uml/)

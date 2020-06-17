@@ -32,7 +32,7 @@ and details about our projects in the papers listed below.
      * [Slides](/media/ZIOSK-ContextMapper4JUGv10p.pdf)
  * Stefan Kapferer: **[Service Decomposition as a Series of Architectural Refactorings](https://eprints.hsr.ch/784/)**, student research project
      * **Term project on which the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) and the [MDSL generator](/docs/mdsl/) of Context Mapper are based on.**
-        * (see [Microservices Domain-Specific Language (MDSL)](https://socadk.github.io/MDSL/) for language details on MDSL)
+        * (see [Microservices Domain-Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) for language details on MDSL)
      * [Project report](https://eprints.hsr.ch/784/)
      * [Abstract](/media/FS19-MSE-Stefan-Kapferer-Service-Decomposition-Architectural-Refactorings-Abstract.pdf)
  * Olaf Zimmermann: **[Domain-Specific Service Decomposition with Microservices API Patterns](https://www.conf-micro.services/2019/slides//keynotes/Zimmerman.pdf)**,

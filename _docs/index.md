@@ -34,7 +34,7 @@ currently offer the following generators:
 
  * Graphical Context Map [generator](/docs/context-map-generator/) based on Graphviz (supported formats: .png, .cvg., .dot), 
  * [PlantUML](http://plantuml.com/) component and class diagram [generator](/docs/plant-uml/)
- * [Microservice Domain-Speciifc Language (MDSL)](https://socadk.github.io/MDSL/) (micro-)service contracts [generator](/docs/mdsl/)
+ * [Microservice Domain-Speciifc Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts [generator](/docs/mdsl/)
  * [Service Cutter](http://servicecutter.github.io/) input files [generators](/docs/service-cutter/)
  * [Generic Textual Generator based on Freemarker Templates](/docs/generic-freemarker-generator/)
 
