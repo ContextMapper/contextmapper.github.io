@@ -74,5 +74,6 @@
 - title: IDE Plugins and Extensions
   docs:
   - vs-code
+  - online-ide
   - eclipse
   - ide
