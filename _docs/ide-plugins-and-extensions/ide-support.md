@@ -30,8 +30,8 @@ The following table illustrates which features are already implemented in VS Cod
 | OOAD transformation: Derive Bounded Context from Subdomains  | yes                         | yes                            |
 | OOAD transformation: Derive frontend and backend systems     | yes                         | no                             |
 | OOAD transformation: Split system context into subsystems    | yes                         | no                             |
-| AR: "Split Aggregate by Entities"                            | yes                         | no                             |
-| AR: "Split Bounded Context by Use Cases"                     | yes                         | no                             |
+| AR: "Split Aggregate by Entities"                            | yes                         | yes                            |
+| AR: "Split Bounded Context by Use Cases"                     | yes                         | yes                            |
 | AR: "Split Bounded Context by Owner"                         | yes                         | yes                            |
 | AR: "Extract Aggregates by Volatility"                       | yes                         | no                             |
 | AR: "Extract Aggregates by Cohesion"                         | yes                         | no                             |
