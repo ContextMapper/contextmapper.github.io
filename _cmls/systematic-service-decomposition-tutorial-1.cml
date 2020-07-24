@@ -1,0 +1,48 @@
+BoundedContext CargoTracking {
+  Aggregate Cargo {
+    owner CargoPlaner
+
+    Entity Cargo {
+      aggregateRoot
+      - TrackingId trackingId
+      - Location origin
+      - RouteSpecification routeSpecification
+      - Itinerary itinerary
+      - Delivery delivery
+    }
+    /* shortened Aggregate here */
+  }
+  Aggregate Location {
+    owner Administrators
+
+    Entity Location {
+      aggregateRoot
+      - UnLocode unLocode
+      String name
+    }
+    /* shortened Aggregate here */
+  }
+  Aggregate Handling {
+    owner CargoTracker
+
+    DomainEvent HandlingEvent {
+      - HandlingEventType handlingEventType
+      - Voyage voyage
+      - Location location
+      Date completionTime
+      Date registrationTime
+      - Cargo cargo
+    }
+    /* shortened Aggregate here */
+  }
+  Aggregate Voyage {
+    owner VoyageManager
+
+    Entity Voyage {
+      aggregateRoot
+      - VoyageNumber voyageNumber
+      - Schedule schedule
+    }
+    /* shortened Aggregate here */
+  }
+}

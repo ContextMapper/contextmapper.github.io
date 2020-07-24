@@ -1,0 +1,19 @@
+UseCase ViewTracking {
+  reads "Cargo.trackingId", "HandlingEvent.type", "HandlingEvent.location", "HandlingEvent.completionTime", "Delivery.transportStatus", "Delivery.estimatedArrivalTime", "Delivery.misdirected", "Voyage.voyageNumber", "RouteSpecification.destination"
+}
+
+UseCase ViewCargos {
+  reads "Cargo.trackingId", "RouteSpecification.destination", "RouteSpecification.arrivalDeadline", "Delivery.routingStatus", "Itinerary.itineraryNumber"
+}
+
+UseCase BookCargo {
+  reads "Location.unLocode"
+  writes "Cargo.trackingId", "RouteSpecification.origin", "RouteSpecification.arrivalDeadline", "RouteSpecification.destination"
+}
+
+UseCase ChangeCargoDestination {
+  reads "Cargo.trackingId", "RouteSpecification.destination"
+  writes "RouteSpecification.destination"
+}
+
+/* we shortened this listing to save space (find all use cases in the original CML file) */
