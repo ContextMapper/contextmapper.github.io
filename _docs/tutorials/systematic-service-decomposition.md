@@ -8,9 +8,6 @@ Context Mapper provides a generator that decomposes your domain model into Bound
 
 Note that it is not our goal to automate the job of domain modelers and software architects! The generated decompositions are just suggestions and can give you hints how your domain objects are coupled. Don't expect that the perfect decomposition is generated for you without questioning it.
 
-<div class="alert alert-custom"><strong>Note:</strong> The Service Cutter tools in Context Mapper are now available for Visual Studio Code as well!
-</div>
-
 This tutorial illustrates how you can use Service Cutter inside Context Mapper, or export your domain model for Service Cutter out of a CML file.
 
 ## The Domain Model
@@ -152,5 +149,84 @@ Besides _Use Cases_ and _Shared Owner Groups_ Service Cutter uses additional use
  * Security Access Groups
  * Compatibilities
 
-Most of the user representations we can now derive from our CML model. 
+Most of the user representations we can now derive from our CML model. The ERM is derived from the Entities and their references in CML. As already explained above, the Use Cases and Shared Owner Groups are modeled in CML as well. We further derive the Aggregates and Entities for Service Cutter from the corresponding counterparts in CML. In addition, we derive Predefined Services from already existing Bounded Contexts of your CML model. The remaining user representations have to be added manually, in case they are relevant for your application.
 
+## The Service Cutter Configuration DSL (SCL)
+The Service Cutter tool takes the user representations as a JSON file. In order to ease the description of these representations we created another DSL. Once you created a CML model, you can easily derive an initial SCL file from it. You find two SCL generators in Context Mapper:
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-scl-menu-screenshot.png">![SCL Generators in Context Mapper](/img/systematic-service-decomposition-tutorial-scl-menu-screenshot.png)</a>
+
+The first generator ("Generate Service Cutter User Representations (SCL)") generates an SCL file that contains the user representations which can be derived from your CML model. You can enhance this file with additional user representations. However, the representations that can be derived from CML code will always be overwritten as soon as you call the generator again or if you generate new Service Cut's in Context Mapper. 
+
+**Note:** If you update your CML model (for example you create a new Aggregate with new Entities), you can always call the SCL generator again and it will update your *.scl file.
+
+The second generator ("Generate Service Cutter User Representation Example File (SCL)") only generates an exemplary file that illustrates the SCL syntax. The generated user representations do not make sense and should not be used to generate Service Cut's! In this file you find syntactic examples for all potential user representations you can model:
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-scl-example-file.png">![SCL Example File](/img/systematic-service-decomposition-tutorial-scl-example-file.png)</a>
+
+Now, having a CML and a SCL model, you have two options how you can proceed:
+
+ * Generate new service cut's in Context Mapper
+ * Analyze your model in [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/)
+
+## Generate Service Cut's
+You can create new CML files with new service decompositions by calling "Generate New Service Cut":
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-generate-new-service-cut.png">![Generate New Service Cut (Context Menu in VS Code)](/img/systematic-service-decomposition-tutorial-generate-new-service-cut.png)</a>
+
+Note that the graph clustering algorithm that we currently support is non-deterministic, which means that each time you call the generator you may get a different result. However, you can generete multiple suggestions by calling the generator multiple times; it always create a new *.cml file containing a new service decomposition for your model:
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-multiple-generation-screenshot.png">![Generate Multiple Service Cuts](/img/systematic-service-decomposition-tutorial-multiple-generation-screenshot.png)</a>
+
+**Note:** The generator always uses the *.scl file with the same name your *.cml file has. For example: if you call the generator for a file called _mymodel.cml_, your SCL file must be called _mymodel.scl_ and it must be stored in the same directory. The SCL file generator already creates the file under the correct file name.
+
+**Note:** If you have not already created an SCL file as described above, the service cut generator will automatically create one for you.
+
+### Criteria Scoring
+Service Cutter allows you to score the individual coupling criteria. Thereby you can define which criteria are more important than others in your specific case. In case you use Service Cutter, you can control the scores on the user interface (see screenshot below). In case you use the service cut generator in Context Mapper, you have to change the scores in the `.servicecutter.yml` file. The file is automatically generated into the root folder of your project when you call the service cut generator for the first time:
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-servicecutter-config-file.png">![Generate Multiple Service Cuts](/img/systematic-service-decomposition-tutorial-servicecutter-config-file.png)</a>
+
+You can change the scoring in the _priorities_ part of the YAML file (see screenshot above). The following values are allowed: _IGNORE_, _XS_, _S_, _M_, _L_, _XL_, and _XXL_.
+
+**Note:** In case you work with Eclipse you have to ensure that the _.* resources_ filter is disabled in the project/file explorer (so that you can see the .servicecutter.yml file):
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-eclipse-dot-file-filter.png">![Eclipse: Disable .* File Filter](/img/systematic-service-decomposition-tutorial-eclipse-dot-file-filter.png)</a>
+
+## Analyze Model in Service Cutter
+Instead of generating new service cuts in Context Mapper, it is also possible to analyze the decompositions in Service Cutter. While Context Mapper generates new CML models, Service Cutter illustrates the graph clusterings graphically.
+
+To use Service Cutter you need the ERM and user representations as JSON files. Both can now easily be generated with Context Mapper.
+The ERM is generated out of the CML file...
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-generate-erm-json.png">![Generate ERM JSON File](/img/systematic-service-decomposition-tutorial-generate-erm-json.png)</a>
+
+... and the user representations out of the SCL file:
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-generate-ur-json.png">![Generate User Representations JSON File](/img/systematic-service-decomposition-tutorial-generate-ur-json.png)</a>
+
+Now you can start Service Cutter and import the model to analyze it. You can start Service Cutter easily by cloning the repository and using Docker:
+
+```bash
+git clone git@github.com:ServiceCutter/ServiceCutter.git
+cd ServiceCutter
+docker-compose up
+```
+
+Once the application is up-and-running you can open it in your browser under http://localhost:8080 (user: admin, password: admin). 
+Under the _System Specification_ tab you can upload the ERD file first, and then add the user representations:
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-service-cutter-upload-files.png">![Import ERD and User Representations (JSON files) in Service Cutter](/img/systematic-service-decomposition-tutorial-service-cutter-upload-files.png)</a>
+
+After you have imported the two files you can switch to the _Service Cuts_ tab and analyze different decompositions depending on the criteria scoring:
+
+<a target="_blank" href="/img/systematic-service-decomposition-tutorial-service-cuts-in-service-cutter.png">![Analyze Service Cuts in Service Cutter](/img/systematic-service-decomposition-tutorial-service-cuts-in-service-cutter.png)</a>
+
+## Summary
+In this tutorial we have shown how you can use Service Cutter to generate decomposition suggestions for your system modeled in CML. It is important to note that we only understand them as suggestions. They can help to analyze the coupling between objects in your domain model and therefore may help you in finding the right service decomposition and Bounded Contexts. Don't expect that the produced result is the best decomposition without questioning them seriously!
+
+For our DDD sample application we used the generated outputs to discover some parts of the domain model which seem to be loosely coupled from the rest. Concretely, we extracted a Bounded Context for the _Location_ Aggregate and one for the _Voyage_ Aggregate. You can find this CML model [here](https://github.com/ContextMapper/context-mapper-examples/blob/master/src/main/cml/ddd-sample/DDD-Sample-Stage-5.cml).
+
+To extract new Bounded Contexts according to the ideas you have developed by using Service Cutter you may use our [Architectural Refactorings](/docs/architectural-refactorings/). For example, you can extract Aggregates by using [AR-5: Extract Aggregates by Cohesion](/docs/ar-extract-aggregates-by-cohesion/).
+
+In order to present and discuss decomposition suggestions with your colleagues, you can use our [generators](/docs/generators/) to create graphical representations ([graphical Context Map](/docs/context-map-generator/) or [PlantUML diagrams](/docs/plant-uml/)) of the service decompositions.
