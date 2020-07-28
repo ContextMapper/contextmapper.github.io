@@ -1,0 +1,28 @@
+BoundedContext CargoTracking {
+  Aggregate Cargo {
+    owner CargoPlaner
+
+    /* removed content here to save space */
+  }
+  Aggregate Location {
+    owner Administrators
+
+    /* removed content here to save space */
+  }
+  Aggregate Handling {
+    owner CargoTracker
+
+    /* removed content here to save space */ 
+  }
+  Aggregate Voyage {
+    owner VoyageManager
+
+    /* removed content here to save space */
+  }
+}
+
+/* team definitions: */
+BoundedContext CargoPlaner { type TEAM }
+BoundedContext CargoTracker { type TEAM }
+BoundedContext VoyageManager { type TEAM }
+BoundedContext Administrators { type TEAM }

@@ -1,0 +1,29 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CargoTracking {
+  <span class="k">Aggregate</span> Cargo {
+    <span class="k">owner</span> CargoPlaner
+
+    <span class="c">/* removed content here to save space */</span>
+  }
+  <span class="k">Aggregate</span> Location {
+    <span class="k">owner</span> Administrators
+
+    <span class="c">/* removed content here to save space */</span>
+  }
+  <span class="k">Aggregate</span> Handling {
+    <span class="k">owner</span> CargoTracker
+
+    <span class="c">/* removed content here to save space */</span> 
+  }
+  <span class="k">Aggregate</span> Voyage {
+    <span class="k">owner</span> VoyageManager
+
+    <span class="c">/* removed content here to save space */</span>
+  }
+}
+
+<span class="c">/* team definitions: */</span>
+<span class="k">BoundedContext</span> CargoPlaner { <span class="k">type</span> <span class="k">TEAM</span> }
+<span class="k">BoundedContext</span> CargoTracker { <span class="k">type</span> <span class="k">TEAM</span> }
+<span class="k">BoundedContext</span> VoyageManager { <span class="k">type</span> <span class="k">TEAM</span> }
+<span class="k">BoundedContext</span> Administrators { <span class="k">type</span> <span class="k">TEAM</span> }
+</pre></div>

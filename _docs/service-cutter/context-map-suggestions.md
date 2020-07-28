@@ -8,10 +8,6 @@ to 14 prioritized [coupling criteria](https://github.com/ServiceCutter/ServiceCu
 graph clustering algorithms to identify possible *service cuts*, which are returned as output. The approach was proposed by 
 [this paper](https://link.springer.com/chapter/10.1007/978-3-319-44482-6_12).
 
-<div class="alert alert-custom">
-<strong>Note:</strong> This feature is not yet supported in our new Visual Studio Code extension. We continuously work on the extension and will support it soon! To use this feature you have to use the Eclipse plugin for now. You can find a feature support table for Eclipse and VS Code <a href="/docs/ide/">here</a>.
-</div>
-
 ## Context Mapper Integration
 We provide a [Service Cutter library](https://github.com/ContextMapper/service-cutter-library), which is a fork of the original 
 [Service Cutter](https://github.com/ServiceCutter/ServiceCutter), to be able to offer its structured decomposition approach in Context Mapper. The library allows you to generate 
@@ -38,13 +34,13 @@ The following **preconditions** have to be fulfilled so that we are able to deri
 Note that if the _Leung_ algorithm is used, the decompositions can be different every time the generator is called (it is a non-deterministic algorithm).
 
 ### Solver Configuration
-A dialog will allow you to configure the following inputs needed by Service Cutter:
+Once you generated your first service cut you will find a `.servicecutter.yml` file in the root directory of your project: (if you work with Eclipse you have to disable the _.* resources_ filter to see the file in the project/file/package explorer)
 
- * **The algorithm**: Currently we only provide one algorithm, but others are forseen to be added in future releases (note that the _Girvan-Newman_ algorithm supported by Service Cutter cannot be integrated into Context Mapper due to licence issues). 
- * **Coupling criteria priorities**: You can customize the priority of each coupling criterion, as you can in Service Cutter.
- * **User representations (optional)**: The user representations can be provided with our SCL (Service Cutter Language) DSL. You can find out how to create/generate such a file [here](/docs/service-cutter/#generate-scl-file).
+<a href="/img/service-cut-generator-config-file.png">![Service Cut Generator Configuration File](/img/service-cut-generator-config-file.png)</a>
 
-<a href="/img/service-cut-generator-dialog.png">![Service Cut Generator Dialog](/img/service-cut-generator-dialog.png)</a>
+In this file you can customize the priority of each coupling criterion, as you can in Service Cutter.
+
+The user representations can be provided with our SCL (Service Cutter Language) DSL. You can find out how to create/generate such a file [here](/docs/service-cutter/#generate-scl-file). However, calling the service cut generator, will create an SCL file for you automatically. You can adjust it and add more user representations afterwards. Checkout our [service decomposition tutorial](/docs/systematic-service-decomposition/) to see how this works.
 
 ### Example Result
 When finishing the wizard illustrated above, Context Mapper will create a new CML file with a new decomposition suggestion. Note that the Leung algorithm is non-deterministic and will derive new decompositions every time you execute it. 
@@ -53,7 +49,5 @@ This is *one* example decomposition generated for the
 
 <a href="/img/service-cut-generator-ddd-sample-result.png">![Service Cut Generator Example Result (DDD Cargo sample application)](/img/service-cut-generator-ddd-sample-result.png)</a>
 
-*Known limitation*: Please note that the resulting model does not contain the original data types. We currently loose this information through the cutting process. However, the results still show how the entities are mapped to Bounded Contexts and how the single attributes are mapped to the entities. 
-
 ## Service Cutter Input File Generators
-If you want to work with the original [Service Cutter](http://servicecutter.github.io/) tool, a [JHipster](https://www.jhipster.tech/) application, you can also use our [Service Cutter generators](/docs/service-cutter/) to derive the needed input files in the JSON format from your Context Map. Simply save them here (in Context Mapper) and upload them there (in the original Service Cutter). 
+If you want to work with the original [Service Cutter](http://servicecutter.github.io/) tool, a [JHipster](https://www.jhipster.tech/) application, you can also use our [Service Cutter generators](/docs/service-cutter/) to derive the needed input files in the JSON format from your Context Map. Simply save them as JSON files (in Context Mapper) and upload them there (in the original Service Cutter). We also describe this in our [service decomposition tutorial](/docs/systematic-service-decomposition/).

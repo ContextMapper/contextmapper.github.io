@@ -1,0 +1,49 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CargoTracking {
+  <span class="k">Aggregate</span> Cargo {
+    <span class="k">owner</span> CargoPlaner
+
+    <span class="k">Entity</span> Cargo {
+      <span class="k">aggregateRoot</span>
+      - <span class="k">TrackingId</span> trackingId
+      - <span class="k">Location</span> origin
+      - <span class="k">RouteSpecification</span> routeSpecification
+      - <span class="k">Itinerary</span> itinerary
+      - <span class="k">Delivery</span> delivery
+    }
+    <span class="c">/* shortened Aggregate here */</span>
+  }
+  <span class="k">Aggregate</span> Location {
+    <span class="k">owner</span> Administrators
+
+    <span class="k">Entity</span> Location {
+      <span class="k">aggregateRoot</span>
+      - <span class="k">UnLocode</span> unLocode
+      <span class="k">String</span> name
+    }
+    <span class="c">/* shortened Aggregate here */</span>
+  }
+  <span class="k">Aggregate</span> Handling {
+    <span class="k">owner</span> CargoTracker
+
+    <span class="k">DomainEvent</span> HandlingEvent {
+      - <span class="k">HandlingEventType</span> handlingEventType
+      - <span class="k">Voyage</span> voyage
+      - <span class="k">Location</span> location
+      <span class="k">Date</span> completionTime
+      <span class="k">Date</span> registrationTime
+      - <span class="k">Cargo</span> cargo
+    }
+    <span class="c">/* shortened Aggregate here */</span>
+  }
+  <span class="k">Aggregate</span> Voyage {
+    <span class="k">owner</span> VoyageManager
+
+    <span class="k">Entity</span> Voyage {
+      <span class="k">aggregateRoot</span>
+      - <span class="k">VoyageNumber</span> voyageNumber
+      - <span class="k">Schedule</span> schedule
+    }
+    <span class="c">/* shortened Aggregate here */</span>
+  }
+}
+</pre></div>
