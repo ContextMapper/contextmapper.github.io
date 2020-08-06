@@ -174,7 +174,8 @@ You can create new CML files with new service decompositions by calling "Generat
 
 <a target="_blank" href="/img/systematic-service-decomposition-tutorial-generate-new-service-cut.png">![Generate New Service Cut (Context Menu in VS Code)](/img/systematic-service-decomposition-tutorial-generate-new-service-cut.png)</a>
 
-Note that the graph clustering algorithm that we currently support is non-deterministic, which means that each time you call the generator you may get a different result. However, you can generete multiple suggestions by calling the generator multiple times; it always create a new *.cml file containing a new service decomposition for your model:
+Note that depending on the [graph clustering algorithm](#algorithms) (we explain how you can change the algorithm below) you may get a different result each time you call the generator.
+In this case, you can generete multiple suggestions by calling the generator multiple times; it always create a new *.cml file containing a new service decomposition for your model:
 
 <a target="_blank" href="/img/systematic-service-decomposition-tutorial-multiple-generation-screenshot.png">![Generate Multiple Service Cuts](/img/systematic-service-decomposition-tutorial-multiple-generation-screenshot.png)</a>
 
@@ -192,6 +193,17 @@ You can change the scoring in the _priorities_ part of the YAML file (see screen
 **Note:** In case you work with Eclipse you have to ensure that the _.* resources_ filter is disabled in the project/file explorer (so that you can see the .servicecutter.yml file):
 
 <a target="_blank" href="/img/systematic-service-decomposition-tutorial-eclipse-dot-file-filter.png">![Eclipse: Disable .* File Filter](/img/systematic-service-decomposition-tutorial-eclipse-dot-file-filter.png)</a>
+
+### Algorithms
+You can further change the clustering algorithm in the `.servicecutter.yml` file. We currently support the following three algorithms:
+
+ * [Markov Clustering (MCL)](https://www.micans.org/mcl/): `MARKOV_CLUSTERING` (default)
+ * [Epidemic Label Propagation (Leung)](https://arxiv.org/abs/0808.2633): `LEUNG` (non-deterministic)
+ * [Chinese Whispers](https://dl.acm.org/doi/10.5555/1654758.1654774): `CHINESE_WHISPERS` (randomized)
+
+<div class="alert alert-custom">
+<strong>Note</strong> that that LEUNG and CHINESE_WHISPERS produce randomized and non-deterministic results. That means that you get different results each time you generate a new service cut.
+</div>
 
 ## Analyze Model in Service Cutter
 Instead of generating new service cuts in Context Mapper, it is also possible to analyze the decompositions in Service Cutter. While Context Mapper generates new CML models, Service Cutter illustrates the graph clusterings graphically.

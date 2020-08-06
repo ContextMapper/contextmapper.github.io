@@ -19,6 +19,11 @@ relationship and replace it with another strategy how the two Bounded Contexts d
    
    Since the two teams have to work very closely together, a solution might be to merge the teams and see them as one single Bounded Context.
    This strategy basically calls the [AR-7 Merge Bounded Contexts](./../AR-7-Merge-Bounded-Contexts) refactoring to merge the two contexts.
+
+   <div class="alert alert-custom">
+   <strong>Known limitation:</strong> Unfortunately, this strategy does not work in <a href="/docs/vs-code/">VS Code</a> and <a href="/docs/online-ide/">online</a> in case the removed Bounded Context is referenced in a Context Map. This is due to <a href="https://github.com/eclipse/xtext-core/issues/1494">a bug in the Xtext framework</a>.
+   </div>
+
    
  * **b) Extract a new Bounded Context for commonalities and establish upstream-downstream relationships:**
  

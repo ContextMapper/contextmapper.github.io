@@ -7,12 +7,12 @@
       
       <span class="k">int</span> offerId
       - <span class="k">Customer</span> client
-      - <span class="k">List&lt;Product&gt;</span> products
+      - <span class="k">List</span>&lt;Product&gt; products
       <span class="k">BigDecimal</span> price
     }
   }
   <span class="k">Aggregate</span> Products {
-    <span class="k">useCases</span> = CreateOfferForCustomer
+    <span class="k">userStories</span> = AddProductToOffer
     
     <span class="k">Entity</span> Product {
       <span class="k">aggregateRoot</span>
@@ -25,14 +25,14 @@
     }
   }
   <span class="k">Aggregate</span> Contract {
-    <span class="k">useCases</span> = UpdateContract
+    <span class="k">features</span> = CreateOfferForCustomer, UpdateContract
     
     <span class="k">Entity</span> Contract {
       <span class="k">aggregateRoot</span>
       
       - <span class="k">ContractId</span> identifier
       - <span class="k">Customer</span> client
-      - <span class="k">List&lt;Product&gt;</span> products
+      - <span class="k">List</span>&lt;Product&gt; products
     }
     <span class="k">ValueObject</span> ContractId {
       <span class="k">int</span> contractId <span class="k">key</span>
@@ -45,4 +45,8 @@
     }
   }
 }
+
+<span class="k">UseCase</span> CreateOfferForCustomer
+<span class="k">UserStory</span> UpdateContract
+<span class="k">UserStory</span> AddProductToOffer
 </pre></div>

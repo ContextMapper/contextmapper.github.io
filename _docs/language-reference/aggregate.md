@@ -95,10 +95,10 @@ Note that the _owner_ attribute refers to a team, which must be a bounded contex
 }
 </pre></div>
 
-## Aggregate Use Cases
-With CML you can further specify which use cases work with an aggregate. This information may be used for service decomposition when applying the [Split Bounded Context by Use Cases](/docs/ar-split-bounded-context-by-use-cases) architectural refactoring.
+## Aggregate Features
+With CML you can further specify which [features or user requirements (use cases and/or user stories)](/docs/user-requirements/) an Aggregate supports. This information may be used for service decomposition when applying the [Split Bounded Context by Features](/docs/ar-split-bounded-context-by-features) architectural refactoring.
 
-Aggregates are assigned to use cases with the _useCases_ attribute:
+Use Cases can be assigned with the _useCases_ keyword and User Stories with the _userStories_ keyword. You can also use the _features_ keyword and assign both, Use Cases and User Stories, at the same time:
 
 <div class="highlight"><pre><span></span><span class="k">BoundedContext</span> PolicyManagementContext <span class="k">implements</span> PolicyManagementDomain {
   <span class="k">Aggregate</span> Offers {
@@ -109,12 +109,12 @@ Aggregates are assigned to use cases with the _useCases_ attribute:
       
       <span class="k">int</span> offerId
       - <span class="k">Customer</span> client
-      - <span class="k">List&lt;Product&gt;</span> products
+      - <span class="k">List</span>&lt;Product&gt; products
       <span class="k">BigDecimal</span> price
     }
   }
   <span class="k">Aggregate</span> Products {
-    <span class="k">useCases</span> = CreateOfferForCustomer
+    <span class="k">userStories</span> = AddProductToOffer
     
     <span class="k">Entity</span> Product {
       <span class="k">aggregateRoot</span>
@@ -127,14 +127,14 @@ Aggregates are assigned to use cases with the _useCases_ attribute:
     }
   }
   <span class="k">Aggregate</span> Contract {
-    <span class="k">useCases</span> = UpdateContract
+    <span class="k">features</span> = CreateOfferForCustomer, UpdateContract
     
     <span class="k">Entity</span> Contract {
       <span class="k">aggregateRoot</span>
       
       - <span class="k">ContractId</span> identifier
       - <span class="k">Customer</span> client
-      - <span class="k">List&lt;Product&gt;</span> products
+      - <span class="k">List</span>&lt;Product&gt; products
     }
     <span class="k">ValueObject</span> ContractId {
       <span class="k">int</span> contractId <span class="k">key</span>
@@ -147,39 +147,16 @@ Aggregates are assigned to use cases with the _useCases_ attribute:
     }
   }
 }
+
+<span class="k">UseCase</span> CreateOfferForCustomer
+<span class="k">UserStory</span> UpdateContract
+<span class="k">UserStory</span> AddProductToOffer
 </pre></div>
 
-You can also refer to multiple use cases by providing a comma-separated list:
+Multiple User Stories and/or Use Cases can be assigned as a comma-separated list, as shown in the last Aggregate example above.
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Offers {
-  <span class="k">useCases</span> = CreateOfferForCustomer, UpdateOffer
-
-  <span class="k">Entity</span> Offer {
-    <span class="k">aggregateRoot</span>
-
-    <span class="k">int</span> offerId
-    - <span class="k">Customer</span> client
-    - <span class="k">List&lt;Product&gt;</span> products
-    <span class="k">BigDecimal</span> price
-  }
-}
-</pre></div>
-
-### Use Case Declaration
-The use cases you refer to have to be declared on the root level of your CML file. To declare a use case, use the keyword _UseCase_.
-A use case can be declared by simply giving it a name, as shown in the example below. If you want to provide further information
-about the use case, you can specify which attributes of which entities are read and written by this use case (strings only; no references): 
-
-<div class="highlight"><pre><span></span><span class="c">/* Simple use case (only name given) */</span>
-<span class="k">UseCase</span> UpdateContract
-<span class="k">UseCase</span> UpdateOffer
-
-<span class="c">/* Extended declaration with read and written attributes */</span>
-<span class="k">UseCase</span> CreateOfferForCustomer {
-  <span class="k">reads</span> <span class="s">&quot;Customer.id&quot;</span>, <span class="s">&quot;Customer.name&quot;</span>
-  <span class="k">writes</span> <span class="s">&quot;Offer.offerId&quot;</span>, <span class="s">&quot;Offer.price&quot;</span>, <span class="s">&quot;Offer.products&quot;</span>, <span class="s">&quot;Offer.client&quot;</span>
-}
-</pre></div>
+### Use Case and User Story Declaration
+The Use Cases and User Stories you refer to have to be declared on the root level of your CML file. Have a look at our [user requirements](/docs/user-requirements/) page to see how you can declare and specify your cases and stories.
 
 ## Likelihood for Change
 With the attribute _likelihoodForChange_ you can specify how [volatile](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-4-Structural-Volatility)
