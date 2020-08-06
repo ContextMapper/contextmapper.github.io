@@ -1,6 +1,7 @@
 ---
 title: Feature Support
 permalink: /docs/ide/
+image: /img/cm-og-image.png
 ---
 
 We currently offer Context Mapper for [Visual Studio Code](https://code.visualstudio.com/), in the Online IDE [Gitpod](https://www.gitpod.io/), and [Eclipse](https://www.eclipse.org/):
