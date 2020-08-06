@@ -31,14 +31,18 @@ The following **preconditions** have to be fulfilled so that we are able to deri
  * Your CML model must include Bounded Contexts with entities and attributes.
     * Without attributes, we cannot derive nanoentities and Service Cutter cannot calculate decompositions.
     
-Note that if the _Leung_ algorithm is used, the decompositions can be different every time the generator is called (it is a non-deterministic algorithm).
-
 ### Solver Configuration
 Once you generated your first service cut you will find a `.servicecutter.yml` file in the root directory of your project: (if you work with Eclipse you have to disable the _.* resources_ filter to see the file in the project/file/package explorer)
 
 <a href="/img/service-cut-generator-config-file.png">![Service Cut Generator Configuration File](/img/service-cut-generator-config-file.png)</a>
 
-In this file you can customize the priority of each coupling criterion, as you can in Service Cutter.
+In this file you can customize the priority of each coupling criterion, as you can in Service Cutter. You can further change the clustering algorithms. We currently support the following three algorithms:
+
+ * [Markov Clustering (MCL)](https://www.micans.org/mcl/): `MARKOV_CLUSTERING` (default)
+ * [Epidemic Label Propagation (Leung)](https://arxiv.org/abs/0808.2633): `LEUNG`
+ * [Chinese Whispers](https://dl.acm.org/doi/10.5555/1654758.1654774): `CHINESE_WHISPERS`
+
+Note that that _LEUNG_ and _CHINESE_WHISPERS_ produce randomized results. That means that you get different results each time you generate a new service cut.
 
 The user representations can be provided with our SCL (Service Cutter Language) DSL. You can find out how to create/generate such a file [here](/docs/service-cutter/#generate-scl-file). However, calling the service cut generator, will create an SCL file for you automatically. You can adjust it and add more user representations afterwards. Checkout our [service decomposition tutorial](/docs/systematic-service-decomposition/) to see how this works.
 
