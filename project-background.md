@@ -14,6 +14,7 @@ and details about our projects in the papers listed below.
 
 **2020**
  * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Service Design - Context Modeling, Model Refactoring and Contract Generation**, _14th Symposium and Summer School On Service-Oriented Computing (SommerSoC 2020)_
+     * [Presentation](/media/Stefan-Kapferer_SummerSoC2020_presentation.pdf)
  * Olaf Zimmermann: **Dimensions of Successful Web API Design and Evolution: Context, Contracts, Components**, Keynote ICWE 2020, _International Conference on Web Engineering (ICWE)_
      * [Keynote](https://icwe2020.webengineering.org/keynotes/#academy)
      * [Demo: Domain-Driven Service Design with Context Mapper and MDSL](https://ozimmer.ch/practices/2020/06/10/ICWEKeynoteAndDemo.html)
