@@ -199,10 +199,10 @@ You can further change the clustering algorithm in the `.servicecutter.yml` file
 
  * [Markov Clustering (MCL)](https://www.micans.org/mcl/): `MARKOV_CLUSTERING` (default)
  * [Epidemic Label Propagation (Leung)](https://arxiv.org/abs/0808.2633): `LEUNG` (non-deterministic)
- * [Chinese Whispers](https://dl.acm.org/doi/10.5555/1654758.1654774): `CHINESE_WHISPERS` (randomized)
+ * [Chinese Whispers](https://dl.acm.org/doi/10.5555/1654758.1654774): `CHINESE_WHISPERS` (randomized, and therefore non-deterministic)
 
 <div class="alert alert-custom">
-<strong>Note</strong> that that LEUNG and CHINESE_WHISPERS produce randomized and non-deterministic results. That means that you get different results each time you generate a new service cut.
+<strong>Note</strong> that that LEUNG and CHINESE_WHISPERS can produce different results for each execution due to their randomized and non-deterministic behavior. That means that you get CML models each time you generate a new service cut suggestion.
 </div>
 
 ## Analyze Model in Service Cutter
