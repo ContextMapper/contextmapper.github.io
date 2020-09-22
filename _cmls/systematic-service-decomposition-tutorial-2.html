@@ -1,19 +1,31 @@
 <div class="highlight"><pre><span></span><span class="k">UseCase</span> ViewTracking {
-  <span class="k">reads</span> <span class="s">&quot;Cargo.trackingId&quot;</span>, <span class="s">&quot;HandlingEvent.type&quot;</span>, <span class="s">&quot;HandlingEvent.location&quot;</span>, <span class="s">&quot;HandlingEvent.completionTime&quot;</span>, <span class="s">&quot;Delivery.transportStatus&quot;</span>, <span class="s">&quot;Delivery.estimatedArrivalTime&quot;</span>, <span class="s">&quot;Delivery.misdirected&quot;</span>, <span class="s">&quot;Voyage.voyageNumber&quot;</span>, <span class="s">&quot;RouteSpecification.destination&quot;</span>
+  <span class="k">interactions</span>
+    <span class="k">read</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackindId&quot;</span>,
+    <span class="k">read</span> <span class="s">&quot;HandlingEvent&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;handlingEventType&quot;</span>, <span class="s">&quot;location&quot;</span>, <span class="s">&quot;completionTime&quot;</span>,
+    <span class="k">read</span> <span class="s">&quot;Delivery&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;transportStatus&quot;</span>, <span class="s">&quot;estimatedArrivalTime&quot;</span>, <span class="s">&quot;misdirected&quot;</span>, 
+    <span class="k">read</span> <span class="s">&quot;Voyage&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;voyageNumber&quot;</span>,
+    <span class="k">read</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>
 }
 
 <span class="k">UseCase</span> ViewCargos {
-  <span class="k">reads</span> <span class="s">&quot;Cargo.trackingId&quot;</span>, <span class="s">&quot;RouteSpecification.destination&quot;</span>, <span class="s">&quot;RouteSpecification.arrivalDeadline&quot;</span>, <span class="s">&quot;Delivery.routingStatus&quot;</span>, <span class="s">&quot;Itinerary.itineraryNumber&quot;</span>
+  <span class="k">interactions</span>
+    <span class="k">read</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackingId&quot;</span>,
+    <span class="k">read</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>, <span class="s">&quot;arrivalDeadline&quot;</span>,
+    <span class="k">read</span> <span class="s">&quot;Delivery&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;routingStatus&quot;</span>
 }
 
 <span class="k">UseCase</span> BookCargo {
-  <span class="k">reads</span> <span class="s">&quot;Location.unLocode&quot;</span>
-  <span class="k">writes</span> <span class="s">&quot;Cargo.trackingId&quot;</span>, <span class="s">&quot;RouteSpecification.origin&quot;</span>, <span class="s">&quot;RouteSpecification.arrivalDeadline&quot;</span>, <span class="s">&quot;RouteSpecification.destination&quot;</span>
+  <span class="k">interactions</span>
+    <span class="k">read</span> <span class="s">&quot;Location&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;unLocode&quot;</span>,
+    <span class="k">update</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackingId&quot;</span>,
+    <span class="k">update</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;origin&quot;</span>, <span class="s">&quot;arrivalDeadline&quot;</span>, <span class="s">&quot;destination&quot;</span>
 }
 
 <span class="k">UseCase</span> ChangeCargoDestination {
-  <span class="k">reads</span> <span class="s">&quot;Cargo.trackingId&quot;</span>, <span class="s">&quot;RouteSpecification.destination&quot;</span>
-  <span class="k">writes</span> <span class="s">&quot;RouteSpecification.destination&quot;</span>
+  <span class="k">interactions</span>
+    <span class="k">read</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackingId&quot;</span>,
+    <span class="k">read</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>,
+    <span class="k">update</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>
 }
 
 <span class="c">/* we shortened this listing to save space (find all use cases in the original CML file) */</span>
