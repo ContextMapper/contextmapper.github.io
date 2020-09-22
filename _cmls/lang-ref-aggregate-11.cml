@@ -1,0 +1,11 @@
+Aggregate AggregateDemo1 {
+  contentVolatility = OFTEN // content changes more often in this Aggregate
+  
+  Entity DemoEntityOne
+}
+
+Aggregate AggregateDemo2 {
+  contentVolatility = NORMAL
+  
+  Entity DemoEntityTwo
+}

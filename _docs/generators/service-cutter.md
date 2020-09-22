@@ -23,7 +23,7 @@ We assume you have a CML file with your model in your IDE with Context Mapper in
 <a href="/img/service-cutter-input-generation-1.png">![Generate ServiceCutter ERD File](/img/service-cutter-input-generation-1.png)</a>
 
 ### Generate SCL File
-The second input file for Service Cutter deals with additional *User representations*. Service Cutter takes them in JSON format, but  there is some manual work required to create these file. Hence, we implemented another DSL which makes this step much easier. These files have the file extension `*.scl*` (for *Service Cutter Language*).
+The second input file for Service Cutter deals with additional *user representations*. Service Cutter takes them in JSON format, but we implemented another DSL which makes it easier to edit them (since Context Mapper v6.x.x not really necessary anymore, since we can generate the complete file out of your CML model). These files have the file extension `*.scl*` (for *Service Cutter Language*).
 
 An SCL file can be generated out of a CML file. Again, a right-click in the CML editor will allow you to call the action **Generate Service Cutter User Representations (SCL)**:
 
@@ -41,23 +41,17 @@ The SCL grammar allows you to describe all [user representations supported by Se
  * Security Access Groups
  * Compatibilities
 
-Most of the user representations we derive from the CML model automatically. The ERM is derived from the Entities and their references in CML. The Use Cases and Shared Owner Groups can be modeled in CML as well (have a look at our [service decomposition tutorial](/docs/systematic-service-decomposition/)). We further derive the Aggregates and Entities for Service Cutter from the corresponding counterparts in CML. In addition, we derive Predefined Services from already existing Bounded Contexts of your CML model. The remaining user representations have to be described manually, in case they are relevant for your application.
-
-However, the generated SCL file already contains most of the representations:
-
-<a href="/img/service-cutter-input-generation-2-1.png">![Generated SCL File](/img/service-cutter-input-generation-2-1.png)</a>
-
-**Note:** The automatically derived user representations are overwritten if you call the generator again.
+**Note:** As explained [here](/docs/service-cutter-context-map-suggestions/#input-and-preconditions), you don't have to edit the SCL file manually! Since Context Mapper v6.x.x all user representations are generated from the CML model. [This page](/docs/service-cutter-context-map-suggestions/#input-and-preconditions) describes which CML features you have to use so that Context Mapper will generate them for you.
 
 #### Examplary SCL File
-In case you want to add more user representations that are missing in the automatically generated ones, you can generate an exemplary SCL file that illustrates the syntax for all possible representations. Just call the **Generate Service Cutter User Representation Example File (SCL)** action to generate an example:
+In case you want to create an SCL file manually, you can generate an exemplary SCL file that illustrates the syntax for all possible representations. Just call the **Generate Service Cutter User Representation Example File (SCL)** action to generate an example:
 
 <a href="/img/service-cutter-input-generation-2-2.png">![Generate Exemplary SCL File](/img/service-cutter-input-generation-2-2.png)</a>
 
-**Note:** This generated SCL file is only exemplary and intended to help you setting up the structure in the actual SCL file generated in the step above.
+**Note:** This generated SCL file is only exemplary and only intended to help you understanding the grammar.
 
 ### Generate User Representations JSON File
-Once you have prepared your SCL file, you can generate the corresponding JSON file with the action **Generate Service Cutter User Representation JSON File** in the context menu:
+Once you have generated/prepared your SCL file, you can generate the corresponding JSON file with the action **Generate Service Cutter User Representation JSON File** in the context menu:
 
 <a href="/img/service-cutter-input-generation-3.png">![Generate ServiceCutter JSON out of SCL File](/img/service-cutter-input-generation-3.png)</a>
 
