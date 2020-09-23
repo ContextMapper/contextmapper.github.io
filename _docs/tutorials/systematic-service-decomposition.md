@@ -216,9 +216,11 @@ dot -Tpng DDD-Sample_Markov_Clustering_Cut_4.gv -o DDD-Sample_Markov_Clustering_
 
 This can also take a while but you have the generated file after a some seconds.
 
-Nevertheless, as you can see in the following image, this feature is really only usefull for small examples. The graph produced by our DDD sample model is simply too big:
+Nevertheless, as you can see in the following image, visualizing the graph is really only usefull for small examples. The graph produced by our DDD sample model is simply too big:
 
 <a target="_blank" href="/img/systematic-service-decomposition-tutorial-generated-png-graph.png">![Huge Graphviz graph for DDD Sample)](/img/systematic-service-decomposition-tutorial-generated-png-graph.png)</a>
+
+However, the file can still be useful to compare different results with different criteria scorings. In addition, one could use the file and process it using tool-support in the future. Other (research) projects could also use the output to analyze Service Cutter's behavior.
 
 ### Criteria Scoring
 Service Cutter allows you to score the individual coupling criteria. Thereby you can define which criteria are more important than others in your specific case. In case you use Service Cutter, you can control the scores on the user interface (see screenshot below). In case you use the service cut generator in Context Mapper, you have to change the scores in the `.servicecutter.yml` file. The file is automatically generated into the root folder of your project when you call the service cut generator for the first time:
