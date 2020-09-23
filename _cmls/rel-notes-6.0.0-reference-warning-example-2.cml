@@ -1,0 +1,28 @@
+ContextMap {
+  contains CustomerContext, AddressContext
+
+  CustomerContext -> AddressContext
+}
+
+BoundedContext CustomerContext {
+  Aggregate Customer {
+    Entity Customer {
+      aggregateRoot
+
+      String firstName
+      String lastName
+    }
+  }
+}
+
+BoundedContext AddressContext {
+  Aggregate Address {
+    Entity Address {
+      aggregateRoot
+
+      String street
+      String city
+      - Customer customer
+    }
+  }
+}
