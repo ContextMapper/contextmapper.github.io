@@ -1,0 +1,17 @@
+Aggregate AggregateDemo1 {
+  storageSimilarity = HUGE // similar storage requirements as AggregateDemo3
+  
+  Entity DemoEntityOne
+}
+
+Aggregate AggregateDemo2 {
+  storageSimilarity = NORMAL
+  
+  Entity DemoEntityTwo
+}
+
+Aggregate AggregateDemo3 {
+  storageSimilarity = HUGE // similar storage requirements as AggregateDemo1
+  
+  Entity DemoEntityThree
+}

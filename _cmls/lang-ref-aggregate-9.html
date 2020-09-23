@@ -1,0 +1,23 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> MyMonolith {
+  <span class="k">Aggregate</span> CustomerManagement {
+    <span class="k">securityAccessGroup</span> <span class="s">&quot;InsuranceEmployees&quot;</span>
+    
+    <span class="k">Entity</span> Customer {
+      <span class="k">String</span> firstName
+      <span class="k">String</span> lastName
+    }
+    <span class="k">Entity</span> Address {
+      - <span class="k">Customer</span> customer
+      <span class="k">String</span> street
+      <span class="k">String</span> city
+    }
+  }
+  <span class="k">Aggregate</span> CustomerFrontend {
+    <span class="k">securityAccessGroup</span> <span class="s">&quot;Customers&quot;</span>
+
+    <span class="k">DomainEvent</span> AddressChanged {
+      - <span class="k">Address</span> address
+    }
+  }
+}
+</pre></div>

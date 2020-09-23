@@ -51,6 +51,7 @@
 - title: Service Cutter
   docs:
   - service-cutter-context-map-suggestions
+  - service-cutter-config-file
 
 - title: Reverse Engineering
   docs:

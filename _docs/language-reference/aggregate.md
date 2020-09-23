@@ -158,16 +158,111 @@ Multiple User Stories and/or Use Cases can be assigned as a comma-separated list
 ### Use Case and User Story Declaration
 The Use Cases and User Stories you refer to have to be declared on the root level of your CML file. Have a look at our [user requirements](/docs/user-requirements/) page to see how you can declare and specify your cases and stories.
 
-## Likelihood for Change
-With the attribute _likelihoodForChange_ you can specify how [volatile](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-4-Structural-Volatility)
-an aggregate is. The attribute takes one of the following three values:
+## Security Zones
+The attribute _securityZone_ allows you to assign different Aggregates into different _security zones_. This language feature is primarily used to generate the [user representations for Service Cutter](/docs/service-cutter-context-map-suggestions/#input-and-preconditions), i.e. the [separated security zones](https://github.com/ServiceCutter/ServiceCutter/wiki/Separated-security-zones).
+
+This can be very helpful to model security-related requirements which can later help in decomposing a Bounded Context.
+
+A simple example:
+
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> MyMonolith {
+  <span class="k">Aggregate</span> CustomerManagement {
+    <span class="k">securityZone</span> <span class="s">&quot;Internal&quot;</span>
+    <span class="k">Entity</span> Customer {
+      <span class="k">String</span> firstName
+      <span class="k">String</span> lastName
+    }
+    <span class="k">Entity</span> Address {
+      - <span class="k">Customer</span> customer
+      <span class="k">String</span> street
+      <span class="k">String</span> city
+    }
+  }
+  <span class="k">Aggregate</span> CustomerFrontend {
+    <span class="k">securityZone</span> <span class="s">&quot;Public&quot;</span>
+    <span class="k">DomainEvent</span> AddressChanged {
+      - <span class="k">Address</span> address
+    }
+  }
+}
+</pre></div>
+
+## Security Access Groups
+The attribute _securityAccessGroup_ allows you to assign different Aggregates to different _security access groups_. This feature is primarily used to generate the [user representations for Service Cutter](/docs/service-cutter-context-map-suggestions/#input-and-preconditions), i.e. the [security access groups](https://github.com/ServiceCutter/ServiceCutter/wiki/Security-access-groups).
+
+This can be very helpful to declare that your Aggregates have different access requirements, which can later help when decomposing a Bounded Context.
+
+An example:
+
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> MyMonolith {
+  <span class="k">Aggregate</span> CustomerManagement {
+    <span class="k">securityAccessGroup</span> <span class="s">&quot;InsuranceEmployees&quot;</span>
+    <span class="k">Entity</span> Customer {
+      <span class="k">String</span> firstName
+      <span class="k">String</span> lastName
+    }
+    <span class="k">Entity</span> Address {
+      - <span class="k">Customer</span> customer
+      <span class="k">String</span> street
+      <span class="k">String</span> city
+    }
+  }
+  <span class="k">Aggregate</span> CustomerFrontend {
+    <span class="k">securityAccessGroup</span> <span class="s">&quot;Customers&quot;</span>
+    <span class="k">DomainEvent</span> AddressChanged {
+      - <span class="k">Address</span> address
+    }
+  }
+}
+</pre></div>
+
+## Characteristics Classification
+On the Aggregate level it is possible to classify parts of your domain model [according to Service Cutter's characteristics (compatibilities)](https://github.com/ServiceCutter/ServiceCutter/wiki/Compatibilities). This is primarily used to generate the [user representations for Service Cutter](/docs/service-cutter-context-map-suggestions/#input-and-preconditions), in case you generate service decomposition suggestions with Context Mapper.
+
+For example: you can declare how often a certain Aggregate changes. Later, when you decompose your system, parts that change often should probably be separated from parts that basically never change. You find all the characteristics in the [Service Cutter wiki](https://github.com/ServiceCutter/ServiceCutter/wiki/Compatibilities).
+
+In the following you find examples how you can classify Aggregates according to these criteria/characteristics in CML:
+
+ * [Content Volatility](#content-volatility)
+ * [Structural Volatility (a.k.a. Likelihood for Change)](#likelihood-for-change)
+ * [Availability Criticality](#availability-criticality)
+ * [Consistency Criticality](#consistency-criticality)
+ * [Storage Similarity](#storage-similarity)
+ * [Security Criticality](#security-criticality)
+
+### Content Volatility
+This characteristic corresponds to the [Content Volatility](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-8-Content-Volatility) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
+
+The attribute _contentVolatility_ takes the following values:
+ * RARELY
+ * NORMAL
+ * OFTEN
+
+An example:
+
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
+  <span class="k">contentVolatility</span> = <span class="k">OFTEN</span> <span class="c">// content changes more often in this Aggregate</span>
+  
+  <span class="k">Entity</span> DemoEntityOne
+}
+
+<span class="k">Aggregate</span> AggregateDemo2 {
+  <span class="k">contentVolatility</span> = <span class="k">NORMAL</span>
+  
+  <span class="k">Entity</span> DemoEntityTwo
+}
+</pre></div>
+
+
+### Likelihood for Change
+With the attribute _likelihoodForChange_ (or _structuralVolatility_) you can specify how [volatile](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-4-Structural-Volatility) an Aggregate is ([Structural Volatility](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-4-Structural-Volatility)). The attribute takes one of the following three values:
 
  * RARELY
  * NORMAL
  * OFTEN
  
 This attribute may be used for service decomposition, since parts which are likely to change should typically be isolated in separate
-components (see [Parnas](https://dl.acm.org/citation.cfm?doid=361598.361623)). You can use this in CML by applying the 
+components (see [Parnas](https://dl.acm.org/citation.cfm?doid=361598.361623)). Besides for [proposing new service cuts](/docs/service-cutter-context-map-suggestions), you can use this in CML by applying the 
 [Extract Aggregates by Volatility](/docs/ar-extract-aggregates-by-volatility) architectural refactoring.
 
 The likelihood on an aggregate is declared as follows:
@@ -181,6 +276,118 @@ The likelihood on an aggregate is declared as follows:
     - <span class="k">UserAccount</span> issuer
     - <span class="k">Address</span> changedAddress
   }
+}
+</pre></div>
+
+You can also use the _structuralVolatility_ keyword:
+
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> CustomerFrontend {
+  <span class="k">structuralVolatility</span> = <span class="k">OFTEN</span>
+  
+  <span class="k">DomainEvent</span> CustomerAddressChange {
+    <span class="k">aggregateRoot</span>
+    
+    - <span class="k">UserAccount</span> issuer
+    - <span class="k">Address</span> changedAddress
+  }
+}
+</pre></div>
+
+### Availability Criticality
+This characteristic corresponds to the [Availability Criticality](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-7-Availability-Criticality) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
+
+The attribute _availabilityCriticality_ takes the following values:
+ * LOW
+ * NORMAL
+ * HIGH
+
+An example:
+
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
+  <span class="k">availabilityCriticality</span> = <span class="k">HIGH</span> <span class="c">// higher availability requirements then other aggregate</span>
+  
+  <span class="k">Entity</span> DemoEntityOne
+}
+
+<span class="k">Aggregate</span> AggregateDemo2 {
+  <span class="k">availabilityCriticality</span> = <span class="k">NORMAL</span>
+  
+  <span class="k">Entity</span> DemoEntityTwo
+}
+</pre></div>
+
+### Consistency Criticality
+This characteristic corresponds to the [Consistency Criticality](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-6-Consistency-Criticality) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
+
+The attribute _consistencyCriticality_ takes the following values:
+ * LOW
+ * NORMAL
+ * HIGH
+
+An example:
+
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
+  <span class="k">consistencyCriticality</span> = <span class="k">HIGH</span> <span class="c">// higher consistency requirements then other aggregate</span>
+  
+  <span class="k">Entity</span> DemoEntityOne
+}
+
+<span class="k">Aggregate</span> AggregateDemo2 {
+  <span class="k">consistencyCriticality</span> = <span class="k">NORMAL</span>
+  
+  <span class="k">Entity</span> DemoEntityTwo
+}
+</pre></div>
+
+### Storage Similarity
+This characteristic corresponds to the [Storage Similarity](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-11-Storage-Similarity) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
+
+The attribute _storageSimilarity_ takes the following values:
+ * TINY
+ * NORMAL
+ * HUGE
+
+An example:
+
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
+  <span class="k">storageSimilarity</span> = <span class="k">HUGE</span> <span class="c">// similar storage requirements as AggregateDemo3</span>
+  
+  <span class="k">Entity</span> DemoEntityOne
+}
+
+<span class="k">Aggregate</span> AggregateDemo2 {
+  <span class="k">storageSimilarity</span> = <span class="k">NORMAL</span>
+  
+  <span class="k">Entity</span> DemoEntityTwo
+}
+
+<span class="k">Aggregate</span> AggregateDemo3 {
+  <span class="k">storageSimilarity</span> = <span class="k">HUGE</span> <span class="c">// similar storage requirements as AggregateDemo1</span>
+  
+  <span class="k">Entity</span> DemoEntityThree
+}
+</pre></div>
+
+### Security Criticality
+This characteristic corresponds to the [Security Criticality](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-15-Security-Criticality) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
+
+The attribute _securityCriticality_ takes the following values:
+ * LOW
+ * NORMAL
+ * HIGH
+
+An example:
+
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
+  <span class="k">securityCriticality</span> = <span class="k">HIGH</span> <span class="c">// high security requirements</span>
+  
+  <span class="k">Entity</span> DemoEntityOne
+}
+
+<span class="k">Aggregate</span> AggregateDemo2 {
+  <span class="k">securityCriticality</span> = <span class="k">NORMAL</span>
+  
+  <span class="k">Entity</span> DemoEntityTwo
 }
 </pre></div>
 

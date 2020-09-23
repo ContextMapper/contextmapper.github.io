@@ -1,0 +1,31 @@
+BoundedContext DemoContext {
+  Aggregate AggregateDemo1 {
+    securityZone "Zone1"
+    securityAccessGroup "Customers"
+    
+    availabilityCriticality HIGH
+    consistencyCriticality NORMAL
+    contentVolatility OFTEN
+    structuralVolatility NORMAL
+    securityCriticality HIGH
+    storageSimilarity NORMAL
+
+    Entity DemoEntityOne
+  }
+
+  Aggregate AggregateDemo2 {
+    securityZone "Zone2"
+    securityAccessGroup "Employees"
+    
+    availabilityCriticality NORMAL
+    consistencyCriticality NORMAL
+    contentVolatility NORMAL
+    structuralVolatility NORMAL
+    securityCriticality NORMAL
+    storageSimilarity NORMAL
+    
+    Entity DemoEntityTwo
+  }
+}
+
+

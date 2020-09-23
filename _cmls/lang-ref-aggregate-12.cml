@@ -1,0 +1,11 @@
+Aggregate AggregateDemo1 {
+  availabilityCriticality = HIGH // higher availability requirements then other aggregate
+  
+  Entity DemoEntityOne
+}
+
+Aggregate AggregateDemo2 {
+  availabilityCriticality = NORMAL
+  
+  Entity DemoEntityTwo
+}

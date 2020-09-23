@@ -1,0 +1,11 @@
+Aggregate AggregateDemo1 {
+  securityCriticality = HIGH // high security requirements
+  
+  Entity DemoEntityOne
+}
+
+Aggregate AggregateDemo2 {
+  securityCriticality = NORMAL
+  
+  Entity DemoEntityTwo
+}

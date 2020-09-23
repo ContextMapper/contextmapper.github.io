@@ -1,0 +1,11 @@
+<div class="highlight"><pre><span></span><span class="k">Aggregate</span> CustomerFrontend {
+  <span class="k">structuralVolatility</span> = <span class="k">OFTEN</span>
+  
+  <span class="k">DomainEvent</span> CustomerAddressChange {
+    <span class="k">aggregateRoot</span>
+    
+    - <span class="k">UserAccount</span> issuer
+    - <span class="k">Address</span> changedAddress
+  }
+}
+</pre></div>

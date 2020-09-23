@@ -1,19 +1,31 @@
 UseCase ViewTracking {
-  reads "Cargo.trackingId", "HandlingEvent.type", "HandlingEvent.location", "HandlingEvent.completionTime", "Delivery.transportStatus", "Delivery.estimatedArrivalTime", "Delivery.misdirected", "Voyage.voyageNumber", "RouteSpecification.destination"
+  interactions
+    read "Cargo" with its "trackindId",
+    read "HandlingEvent" with its "handlingEventType", "location", "completionTime",
+    read "Delivery" with its "transportStatus", "estimatedArrivalTime", "misdirected", 
+    read "Voyage" with its "voyageNumber",
+    read "RouteSpecification" with its "destination"
 }
 
 UseCase ViewCargos {
-  reads "Cargo.trackingId", "RouteSpecification.destination", "RouteSpecification.arrivalDeadline", "Delivery.routingStatus", "Itinerary.itineraryNumber"
+  interactions
+    read "Cargo" with its "trackingId",
+    read "RouteSpecification" with its "destination", "arrivalDeadline",
+    read "Delivery" with its "routingStatus"
 }
 
 UseCase BookCargo {
-  reads "Location.unLocode"
-  writes "Cargo.trackingId", "RouteSpecification.origin", "RouteSpecification.arrivalDeadline", "RouteSpecification.destination"
+  interactions
+    read "Location" with its "unLocode",
+    update "Cargo" with its "trackingId",
+    update "RouteSpecification" with its "origin", "arrivalDeadline", "destination"
 }
 
 UseCase ChangeCargoDestination {
-  reads "Cargo.trackingId", "RouteSpecification.destination"
-  writes "RouteSpecification.destination"
+  interactions
+    read "Cargo" with its "trackingId",
+    read "RouteSpecification" with its "destination",
+    update "RouteSpecification" with its "destination"
 }
 
 /* we shortened this listing to save space (find all use cases in the original CML file) */
