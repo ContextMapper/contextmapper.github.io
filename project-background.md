@@ -14,6 +14,8 @@ and details about our projects in the papers listed below.
 
 **2020**
  * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Service Design - Context Modeling, Model Refactoring and Contract Generation**, _14th Symposium and Summer School On Service-Oriented Computing (SommerSoC 2020)_
+     * [Paper](https://doi.org/10.1007/978-3-030-64846-6_11) (Springer _Communications in Computer and Information Science_)
+       * [Author's Copy](/media/SummerSoC-2020_Domain-driven-Service-Design_Authors-Copy.pdf)
      * [Presentation](/media/Stefan-Kapferer_SummerSoC2020_presentation.pdf)
      * [SummerSOC Young Researcher Award 2020 goes to Stefan Kapferer](https://www.ost.ch/de/news/article/stefan-kapferer-gewinnt-young-researcher-award/) (GERMAN)
  * Olaf Zimmermann: **Dimensions of Successful Web API Design and Evolution: Context, Contracts, Components**, Keynote ICWE 2020, _International Conference on Web Engineering (ICWE)_
