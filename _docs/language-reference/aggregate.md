@@ -25,7 +25,12 @@ The following CML snippet illustrates an example of an aggregate to provide an i
 
     - <span class="k">ContractId</span> identifier
     - <span class="k">Customer</span> client
-    - <span class="k">List&lt;Product&gt;</span> products
+    - <span class="k">List</span>&lt;Product&gt; products
+  }
+
+  <span class="k">enum</span> States {
+    <span class="k">aggregateLifecycle</span>
+    CREATED, POLICE_CREATED, RECALLED
   }
 
   <span class="k">ValueObject</span> ContractId {
@@ -37,8 +42,16 @@ The following CML snippet illustrates an example of an aggregate to provide an i
     - <span class="k">Contract</span> contract
     <span class="k">BigDecimal</span> price
   }
+
+  <span class="k">Service</span> ContractService {
+    @ContractId createContract(@Contract contrace) : <span class="k">write</span> [ -&gt; CREATED];
+    @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
+    <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span> [ CREATED -&gt; POLICE_CREATED ];
+    <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span> [ CREATED, POLICE_CREATED -&gt; RECALLED ];
+  }
 }
 </pre></div>
+
 The equal sign (=) to assign an attribute value is always optional and therefore can be omitted.
 
 <div class="alert alert-custom">
@@ -46,6 +59,64 @@ The equal sign (=) to assign an attribute value is always optional and therefore
 </div>
 
 Further examples can be found within our GitHub example repository [context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples).
+
+## Aggregate Lifecycle and State Transitions
+As already illustrated in the example above, you can declare an Aggregate's states with an _enum_. The _aggregateLifecycle_ keyword marks the enum that defines the states:
+
+<div class="highlight"><pre><span></span><span class="k">enum</span> States {
+  <span class="k">aggregateLifecycle</span>
+  CREATED, POLICE_CREATED, RECALLED
+}
+</pre></div>
+
+In addition, every operation (no matter if it is specified in a _Service_ or an _Entity_) can declare whether it is a "read only" or "write" operation with the keywords _read-only_ and _write_:
+
+<div class="highlight"><pre><span></span><span class="k">Service</span> ContractService {
+  @ContractId createContract(@Contract contrace) : <span class="k">write</span>;
+  @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
+  <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span>;
+  <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span>;
+}
+</pre></div>
+
+In case it is a _write_ operation it is possible that the operation changes the state of the Aggregate. Such state transitions can be specified in square brackets:
+
+<div class="highlight"><pre><span></span><span class="k">Service</span> ContractService {
+  @ContractId createContract(@Contract contrace) : <span class="k">write</span> [ -&gt; CREATED];
+  @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
+  <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span> [ CREATED -&gt; POLICE_CREATED ];
+  <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span> [ CREATED, POLICE_CREATED -&gt; RECALLED ];
+}
+</pre></div>
+
+With these language features you are able to define the lifecycle of an Aggregate. The following examples show all possible variants of state transitions:
+
+<div class="highlight"><pre><span></span><span class="c">// an initial state:</span>
+-<span class="k">&gt;</span> CREATED
+
+<span class="c">// simple state transition from one state into the other</span>
+CREATED -&gt; CHECK_REQUESTED
+
+<span class="c">// the left side can contain multiple states:</span>
+<span class="c">// (this means that the state on the right can be reached by any of those on the left side)</span>
+CREATED, CHECK_REQUESTED -&gt; CHECK_IN_PROGRESS
+
+<span class="c">// multiple target states possible</span>
+<span class="c">// X stands for XOR and means one OR the other will be reached but not both at the same time (exclusive OR)</span>
+CHECK_IN_PROGRESS -&gt; ACCEPTED <span class="k">X</span> REJECTED
+
+<span class="c">// target states can be marked as end states with a star:</span>
+CHECK_IN_PROGRESS -&gt; ACCEPTED* <span class="k">X</span> REJECTED*
+
+<span class="c">// a combination of multiple on the left and multiple on the right</span>
+CREATED, CHECK_REQUESTED -&gt; ACCEPTED <span class="k">X</span> REJECTED
+</pre></div>
+
+_Hint:_ You can also model the state transition inside your [event flows in the application layer]().
+
+With our [PlantUML generator](/docs/plant-uml/) you can visualize the lifecycle of your Aggregates with state diagrams. For example, the model at the top of this page generates the following state diagram:
+
+![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram.png)
 
 ## Aggregate Owner
 CML allows specifying an owner on the aggregate level. If aggregates are maintained by different teams, you can specify this as in the

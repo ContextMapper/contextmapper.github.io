@@ -7,7 +7,13 @@
 
     - <span class="k">ContractId</span> identifier
     - <span class="k">Customer</span> client
-    - <span class="k">List&lt;Product&gt;</span> products
+    - <span class="k">List</span>&lt;Product&gt; products
+  }
+
+  <span class="k">enum</span> States {
+    <span class="k">aggregateLifecycle</span>
+
+    CREATED, POLICE_CREATED, RECALLED
   }
 
   <span class="k">ValueObject</span> ContractId {
@@ -18,6 +24,13 @@
     <span class="k">int</span> policyNr
     - <span class="k">Contract</span> contract
     <span class="k">BigDecimal</span> price
+  }
+
+  <span class="k">Service</span> ContractService {
+    @ContractId createContract(@Contract contrace) : <span class="k">write</span> [ -&gt; CREATED];
+    @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
+    <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span> [ CREATED -&gt; POLICE_CREATED ];
+    <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span> [ CREATED, POLICE_CREATED -&gt; RECALLED ];
   }
 }
 </pre></div>

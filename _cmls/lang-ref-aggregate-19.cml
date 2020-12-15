@@ -1,0 +1,19 @@
+// an initial state:
+-> CREATED
+
+// simple state transition from one state into the other
+CREATED -> CHECK_REQUESTED
+
+// the left side can contain multiple states:
+// (this means that the state on the right can be reached by any of those on the left side)
+CREATED, CHECK_REQUESTED -> CHECK_IN_PROGRESS
+
+// multiple target states possible
+// X stands for XOR and means one OR the other will be reached but not both at the same time (exclusive OR)
+CHECK_IN_PROGRESS -> ACCEPTED X REJECTED
+
+// target states can be marked as end states with a star:
+CHECK_IN_PROGRESS -> ACCEPTED* X REJECTED*
+
+// a combination of multiple on the left and multiple on the right
+CREATED, CHECK_REQUESTED -> ACCEPTED X REJECTED
