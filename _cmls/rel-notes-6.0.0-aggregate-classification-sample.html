@@ -1,0 +1,30 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> DemoContext {
+  <span class="k">Aggregate</span> AggregateDemo1 {
+    <span class="k">securityZone</span> <span class="s">&quot;Zone1&quot;</span>
+    <span class="k">securityAccessGroup</span> <span class="s">&quot;Customers&quot;</span>
+    
+    <span class="k">availabilityCriticality</span> <span class="k">HIGH</span>
+    <span class="k">consistencyCriticality</span> <span class="k">NORMAL</span>
+    <span class="k">contentVolatility</span> <span class="k">OFTEN</span>
+    <span class="k">structuralVolatility</span> <span class="k">NORMAL</span>
+    <span class="k">securityCriticality</span> <span class="k">HIGH</span>
+    <span class="k">storageSimilarity</span> <span class="k">NORMAL</span>
+
+    <span class="k">Entity</span> DemoEntityOne
+  }
+
+  <span class="k">Aggregate</span> AggregateDemo2 {
+    <span class="k">securityZone</span> <span class="s">&quot;Zone2&quot;</span>
+    <span class="k">securityAccessGroup</span> <span class="s">&quot;Employees&quot;</span>
+    
+    <span class="k">availabilityCriticality</span> <span class="k">NORMAL</span>
+    <span class="k">consistencyCriticality</span> <span class="k">NORMAL</span>
+    <span class="k">contentVolatility</span> <span class="k">NORMAL</span>
+    <span class="k">structuralVolatility</span> <span class="k">NORMAL</span>
+    <span class="k">securityCriticality</span> <span class="k">NORMAL</span>
+    <span class="k">storageSimilarity</span> <span class="k">NORMAL</span>
+    
+    <span class="k">Entity</span> DemoEntityTwo
+  }
+}
+</pre></div>

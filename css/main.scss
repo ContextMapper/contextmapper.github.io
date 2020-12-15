@@ -69,6 +69,9 @@ body {
 }
 
 .post-list-container {
+  li {
+    padding-bottom: 10px;
+  }
   li a.active {
     font-weight: bold;
   }
@@ -86,4 +89,8 @@ body {
 
 .row.features p {
   text-align: center;
+}
+
+ul.start-page-quicklinks {
+  padding-left: 20px;
 }

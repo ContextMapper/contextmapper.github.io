@@ -1,0 +1,29 @@
+/* Syntax example for Subdomain that supports specific user requirements: */
+Domain Insurance {
+  domainVisionStatement = "Insurance domain vision statement ..."
+
+  Subdomain CustomerManagementDomain supports CreateCustomers, CreateCustomerAddresses {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Subdomain managing everything customer-related."
+
+    Entity Customer {
+      String firstname
+      String familyname
+    }
+  }
+
+}
+
+UserStory CreateCustomers {
+  As an "Insurance Employee"
+    I want to "create" a "Customer" with its "firstname", "lastname"
+  so that "I am able to manage the customers data and offer them insurance contracts."
+}
+
+UserStory CreateCustomerAddresses {
+  As an "Insurance Employee"
+    I want to "create" an "Address" for a "Customer"
+    I want to "update" an "Address" for a "Customer"
+  so that "I am able to manage the customers addresses."
+}
+

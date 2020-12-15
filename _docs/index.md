@@ -6,14 +6,21 @@ redirect_from: /docs/index.html
 
 Context Mapper is a modular and extensible modeling framework for **Domain-driven Design (DDD)** and its strategic patterns.
 The **[core component](/docs/language-reference/)** provides a DSL to create context maps featuring these DDD patterns. The model behind the language and its semantic rules express 
-**our interpretation of the DDD patterns** and how these patterns can be combined in a concise and consistent manner. At present, Context Mappers comes as an Eclipse plugin (with 
-a standalone Java [library version](/docs/library/) also being available):
+**our interpretation of the DDD patterns** and how these patterns can be combined in a concise and consistent manner. At present, Context Mapper comes as an Eclipse plugin, a Visual Studio Code extension, or as a standalone Java [library version](/docs/library/):
 
-**Eclipse Marketplace: [https://marketplace.eclipse.org/content/context-mapper/](https://marketplace.eclipse.org/content/context-mapper/)**
+## Installation
 
-**Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)**
+**Visual Studio Code Marketplace: [Context Mapper](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension)**
+ * Does not support all features we have in Eclipse yet. You can find a feature support table [here](/docs/ide/).
 
-<a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=5009351" class="drag" title="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client"><img typeof="foaf:Image" class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client" /></a>
+**Eclipse Marketplace: [Context Mapper](https://marketplace.eclipse.org/content/context-mapper/)**
+ * Alternatively you can install the Eclipse plugin manually with the following update site URL: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
+
+**Online IDE (Gitpod)**: In case you don't want to install Context Mapper locally and your project is hosted on Github, you can use [Gitpod](https://www.gitpod.io/) as online IDE with our VS Code extension.
+ * The extension is published to the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension), so you can easily find the extension in Gitpod. Installation instructions can be found [here](/docs/online-ide/).
+ * Or: **Start modeling in our Context Mapper demo repository [right now](https://contextmapper.org/demo/)**.
+
+## Framework Architecture
 
 ![Context Mapper Framework Components](/img/context-mapper-framework-components.png)
 
@@ -31,7 +38,7 @@ currently offer the following generators:
 
  * Graphical Context Map [generator](/docs/context-map-generator/) based on Graphviz (supported formats: .png, .cvg., .dot), 
  * [PlantUML](http://plantuml.com/) component and class diagram [generator](/docs/plant-uml/)
- * [Microservice Domain-Speciifc Language (MDSL)](https://socadk.github.io/MDSL/) (micro-)service contracts [generator](/docs/mdsl/)
+ * [Microservice Domain-Speciifc Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts [generator](/docs/mdsl/)
  * [Service Cutter](http://servicecutter.github.io/) input files [generators](/docs/service-cutter/)
  * [Generic Textual Generator based on Freemarker Templates](/docs/generic-freemarker-generator/)
 

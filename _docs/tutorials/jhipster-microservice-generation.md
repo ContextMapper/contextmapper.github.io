@@ -117,29 +117,16 @@ the corresponding Entities in each Bounded Context manually (for now).
 ## Generate JDL with Context Mapper
 Once you modeled your Bounded Contexts with the Entities, you can generate a JDL file using our [generic generator](/docs/generic-freemarker-generator/).
 
-The Freemarker template is available within our _example template project_ which can be created through `File > New > Example...`:
- 
-<a target="_blank" href="/img/jhipster-tutorial-freemarker-template-1.png">![Freemarker Example Templates (Create Menu)](/img/jhipster-tutorial-freemarker-template-1.png)</a>
+The Freemarker template can be downloaded [here](https://github.com/ContextMapper/context-mapper-dsl/blob/master/org.contextmapper.dsl.ui/samples/freemarker/jhipster/JDL.ftl). In Eclipse you can also import the template by [creating the example templates project](/docs/generic-freemarker-generator/#user-guide) (VS Code users please download the template manually).
 
-<a target="_blank" href="/img/jhipster-tutorial-freemarker-template-2.png">![Freemarker Example Templates (Wizard 1)](/img/jhipster-tutorial-freemarker-template-2.png)</a>
+You can the call the generator through the context menu of the CML editor (a more detailed documentation how to use our generators can be found [here](/docs/generators/#using-the-generators)).
+The Eclipse plugin or VS Code extension will ask you to choose the Freemarker template. Select the JDL.ftl file. Context Mapper will also ask you to choose a name for the output file. In this case type a file name ending with *.jdl.
 
-Finishing the project creation wizard will add the template project containing the `JDL.ftl` file to your workspace:
+The generator will write the output file into the `src-gen` folder:
 
-<a target="_blank" href="/img/jhipster-tutorial-freemarker-template-3.png">![Freemarker Example Templates (JDL Template)](/img/jhipster-tutorial-freemarker-template-3.png)</a>
+<a href="/img/vscode-jdl-output-sample.png">![JDL Output Example in VS Code](/img/vscode-jdl-output-sample.png)</a>
 
-You can then call the generator through the context menu (or Shift-Alt-G) of the CML editor:
-
-<a target="_blank" href="/img/jhipster-tutorial-generator-context-menu.png">![Generic Generator in Context Mapper Context Menu](/img/jhipster-tutorial-generator-context-menu.png)</a>
-
-In the generator dialog you can then select the `JDL.ftl` file as template and define the name of the JDL file that shall be created:
-
-<a target="_blank" href="/img/jhipster-tutorial-generator-dialog.png">![Generic Generator Dialog](/img/jhipster-tutorial-generator-dialog.png)</a>
-
-By finishing the dialog you generate the file into the `src-gen` folder:
-
-<a target="_blank" href="/img/jhipster-tutorial-generated-file-in-src-gen.png">![Generic Generator Dialog](/img/jhipster-tutorial-generated-file-in-src-gen.png)</a>
-
-_Note_: Install the [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) in your Eclipse if you want to have editing support for the JDL file (as in the Screenshot above).
+_Note_: Install the [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) in your Eclipse or VS Code if you want to have editing support for the JDL file.
 
 _Note_: We do not introduce the JDL language itself in this tutorial. You find the documentation of the language [here](https://www.jhipster.tech/jdl/).
 
@@ -282,6 +269,10 @@ The current solution (JDL template) comes with a few limitations that we are awa
    * Such types are currently mapped to _blobs_. You can avoid this by declaring corresponding Entities in CML. The generator will then add it to the JDL file and will create a 
      corresponding relationship.
    * In the future we may create Entities for this types automatically (Post-Freemarker solution).
+ * Potential keyword clashes: If you use keywords that are reserved in JDL (for example "microservice") as names of the used CML objects (Bounded Contexts, Entities, 
+   or Entity attributes), the resulting JDL file will not compile/validate. Please avoid the usage of such JDL keywords in order to ensure that the resulting file compiles
+   (instead of "microservice", you could use "AMicroservice" or "My_microservice").
+   * The JDL language with its keywords is documented [here](https://www.jhipster.tech/jdl/getting-started).
  
 If you run into other problems with the generator, [let us know](https://github.com/ContextMapper/context-mapper-dsl/issues/new/).
 
@@ -297,6 +288,12 @@ If you run into other problems with the generator, [let us know](https://github.
    * After you generated the JDL file with our template, you can adjust the _config_ section of all generated _applications_ in JDL.
    * For example: add `clientFramework react` to the config block. 
    * Find more documentation on how to configure your applications in JDL here: [https://www.jhipster.tech/jdl/applications#available-application-options](https://www.jhipster.tech/jdl/applications#available-application-options)
+ * **Why does the resulting JDL file not compile/validate?**
+   * Please check the known limitations list above. You probably used a reserved keyword of the JDL language for CML objects. For example: If you name a Bounded Context
+     "microservice", which is a JDL keyword, the resulting JDL file will not be valid. Please avoid using such keywords (instead of "microservice", you could use "AMicroservice" or "My_microservice").
+     * To check whether a word is a reserved keyword in JDL, please consult [JHipster's JDL documentation](https://www.jhipster.tech/jdl/getting-started). 
+   * If you respected the known limitations, followed the corresponding instructions, and it still does not compile, please create a 
+     [GitHub issue in our repository](https://github.com/ContextMapper/context-mapper-dsl/issues/new/).
 
 ## More Links and Resources
  * [JHipster](https://www.jhipster.tech/)

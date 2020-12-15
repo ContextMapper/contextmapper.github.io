@@ -12,7 +12,7 @@ BoundedContext PolicyManagementContext implements PolicyManagementDomain {
     }
   }
   Aggregate Products {
-    useCases = CreateOfferForCustomer
+    userStories = AddProductToOffer
     
     Entity Product {
       aggregateRoot
@@ -25,7 +25,7 @@ BoundedContext PolicyManagementContext implements PolicyManagementDomain {
     }
   }
   Aggregate Contract {
-    useCases = UpdateContract
+    features = CreateOfferForCustomer, UpdateContract
     
     Entity Contract {
       aggregateRoot
@@ -45,3 +45,7 @@ BoundedContext PolicyManagementContext implements PolicyManagementDomain {
     }
   }
 }
+
+UseCase CreateOfferForCustomer
+UserStory UpdateContract
+UserStory AddProductToOffer

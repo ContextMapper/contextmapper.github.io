@@ -4,7 +4,7 @@ permalink: /docs/generators/
 ---
 
 The Context Mapper generators provide transformations to derive graphical Context Maps, [PlantUML diagrams](http://plantuml.com/), 
-[Microservice Domain-Specific Langauge (MDSL)](https://socadk.github.io/MDSL/) (micro-)service contracts, and 
+[Microservice Domain-Specific Langauge (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts, and 
 [Service Cutter](https://servicecutter.github.io/) input files from your CML context map. We also provide a [generic, template-based generator](/docs/generic-freemarker-generator/) 
 based on Freemarker which allows to generate arbitrary textual files.
 
@@ -16,6 +16,17 @@ based on Freemarker which allows to generate arbitrary textual files.
  * [Generic, template-based textual generator (Freemarker Templating)](#generic-textual-generator-freemarker-templating)
 
 ## Using the Generators
+
+### Visual Studio Code
+The generators are implemented as commands in VS Code. You can find them in the context menu of the CML editor:
+
+<a href="/img/generators-in-vscode-1.png">![Generators Context Menu in VS Code](/img/generators-in-vscode-1.png)</a>
+
+Alternatively you find them in the command palette (Ctrl+Shift+P):
+
+<a href="/img/generators-in-vscode-2.png">![Generators in the VS Code Command Palette](/img/generators-in-vscode-2.png)</a>
+
+### Eclipse
 The generators can be accessed through the Context Menu in the project explorer (right-click to *.cml file) or directly in the CML editor as the following screenshot shows:
 
 <a href="/img/generators-context-menu.png">![Generators Context Menu in Eclipse](/img/generators-context-menu.png)</a>
@@ -41,11 +52,11 @@ Example class diagram (Cargo booking context):
 <img src="/img/plantuml-cargo-booking-context.png" alt="Cargo Booking Context" width="500px">
 
 ## MDSL (Micro-)Service Contracts
-With our [MDSL](https://socadk.github.io/MDSL/) generator you can generate (micro-)service contracts from your Context Maps (or, more precisely, from upstream bounded contexts that expose at least one aggregate that contains at least one operation in a service or entity).
+With our [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) generator you can generate (micro-)service contracts from your Context Maps (or, more precisely, from upstream bounded contexts that expose at least one aggregate that contains at least one operation in a service or entity).
 The resulting contracts illustrate how you can derive (micro-)services from strategic DDD context maps and provide 
 assistance regarding how to implement your system as a (micro-)service-oriented architecture.
 
-This is an examplary [MDSL](https://socadk.github.io/MDSL/) service contract for our 
+This is an examplary [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) service contract for our 
 [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example): 
 
 <div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
@@ -90,7 +101,7 @@ This is an examplary [MDSL](https://socadk.github.io/MDSL/) service contract for
 <span class="k">IPA</span>
 </pre></div>
 
-Learn more about the [MDSL](https://socadk.github.io/MDSL/) generator [here](/docs/mdsl/).
+Learn more about the [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) generator [here](/docs/mdsl/).
 
 ## Service Cutter Input Files
 Find out how to produce Service Cutter input to calculate possible service cuts or new bounded contexts [here](/docs/service-cutter/):

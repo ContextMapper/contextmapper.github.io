@@ -37,7 +37,7 @@
   docs:
   - architectural-refactorings
   - ar-split-aggregate-by-entities
-  - ar-split-bounded-context-by-use-cases
+  - ar-split-bounded-context-by-features
   - ar-split-bounded-context-by-owners
   - ar-extract-aggregates-by-volatility
   - ar-extract-aggregates-by-cohesion
@@ -51,6 +51,7 @@
 - title: Service Cutter
   docs:
   - service-cutter-context-map-suggestions
+  - service-cutter-config-file
 
 - title: Reverse Engineering
   docs:
@@ -70,3 +71,11 @@
   - event-storming
   - event-sourcing-and-cqrs-modeling
   - jhipster-microservice-generation
+  - systematic-service-decomposition
+
+- title: IDE Plugins and Extensions
+  docs:
+  - vs-code
+  - online-ide
+  - eclipse
+  - ide

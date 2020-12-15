@@ -1,0 +1,22 @@
+BoundedContext MyMonolith {
+  Aggregate CustomerManagement {
+    securityAccessGroup "InsuranceEmployees"
+    
+    Entity Customer {
+      String firstName
+      String lastName
+    }
+    Entity Address {
+      - Customer customer
+      String street
+      String city
+    }
+  }
+  Aggregate CustomerFrontend {
+    securityAccessGroup "Customers"
+
+    DomainEvent AddressChanged {
+      - Address address
+    }
+  }
+}

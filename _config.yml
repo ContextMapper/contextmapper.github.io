@@ -37,11 +37,11 @@ exclude:
 timezone: Europe/Berlin
 defaults:
 - scope:
-    path: _posts
-    type: posts
+    path: _news
+    type: news
   values:
-    layout: post
-    sectionid: blog
+    layout: news
+    sectionid: news
 
 - scope:
     path: _docs
@@ -56,6 +56,6 @@ collections:
   docs:
     permalink: /:collection/:path/
     output: true
-  posts:
-    permalink: /blog/:year/:month/:day/:title/
+  news:
+    permalink: /news/:year/:month/:day/:title/
     output: true

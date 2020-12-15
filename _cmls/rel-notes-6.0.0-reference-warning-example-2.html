@@ -1,0 +1,29 @@
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
+  <span class="k">contains</span> CustomerContext, AddressContext
+
+  CustomerContext -&gt; AddressContext
+}
+
+<span class="k">BoundedContext</span> CustomerContext {
+  <span class="k">Aggregate</span> Customer {
+    <span class="k">Entity</span> Customer {
+      <span class="k">aggregateRoot</span>
+
+      <span class="k">String</span> firstName
+      <span class="k">String</span> lastName
+    }
+  }
+}
+
+<span class="k">BoundedContext</span> AddressContext {
+  <span class="k">Aggregate</span> Address {
+    <span class="k">Entity</span> Address {
+      <span class="k">aggregateRoot</span>
+
+      <span class="k">String</span> street
+      <span class="k">String</span> city
+      - <span class="k">Customer</span> customer
+    }
+  }
+}
+</pre></div>

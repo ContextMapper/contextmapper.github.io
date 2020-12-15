@@ -1,0 +1,11 @@
+Aggregate AggregateDemo1 {
+  consistencyCriticality = HIGH // higher consistency requirements then other aggregate
+  
+  Entity DemoEntityOne
+}
+
+Aggregate AggregateDemo2 {
+  consistencyCriticality = NORMAL
+  
+  Entity DemoEntityTwo
+}

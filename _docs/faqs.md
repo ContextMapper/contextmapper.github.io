@@ -3,17 +3,16 @@ title: "Frequently Asked Questions"
 permalink: /docs/faq/
 ---
 
-### Where can I download the Eclipse Plugin?
-Open the [Eclipse Marketplace](https://marketplace.eclipse.org/content/context-mapper) in Eclipse, search for "Context Mapper", and press "Install".
+### Where do I find FAQs and tipps specific to the Eclipse plugin or the VS Code extension?
+Questions and answers specific to different IDE plugin/extensions are documented on the following pages:
 
-Alternatively, use the following Eclipse Update site and install the plugin in Eclipse via *Help -> Install New Software...* (copy past the update site link).
+ * [Eclipse](/docs/eclipse/)
+ * [Visual Studio Code](/docs/vs-code/)
 
-Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
+### I read about a feature on the Context Mapper website but could not find it in the Visual Studio Code extension. Why?
+We have only recently published Context Mapper for Visual Studio Code and do not support all features yet. You can find a feature support table [here](/docs/ide/). If you need all Context Mapper features, you have to use our Eclipse plugin for now. However, we continuously enhance our VS Code extension and want to support all features soon!
 
-### How do I create an Eclipse project with a new CML model to start modeling my Context Map?
-Consult the page [Create CML Model](/docs/getting-started-create-project/). It describes how to setup your project to get started with modeling CML Context Maps.
-
-### How do I create a new context map?
+### How do I create a new Context Map?
 Just create a file with the file extension **.cml** (Context Mapping Language). Take a look at our example to get an idea how the file content should look like: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples). Let the code completion and other editor features in Eclipse guide you while completing the map and modeling Bounded Contexts.
 
 ### Which DDD Patterns are supported by CML?
@@ -22,15 +21,11 @@ Have a look at our [CML Reference - Introduction](/docs/language-reference/) pag
 ### Which combinations of Strategic DDD Patterns are allowed? 
 Have a look at the page [Language Semantic Model](/docs/language-model/). It introduces the semantic model of our DSL and lists the implemented semantic checkers.
 
-### Where do I find a documentation regarding the tactic DDD syntax to specify a bounded context in detail?
+### Where do I find a documentation regarding the tactic DDD syntax to specify a Bounded Context in detail?
 The tactic DDD part of our DSL is based on the [Sculptor DSL](http://sculptorgenerator.org/). We provide a short introduction and examples how you can detail your bounded contexts on the pages [Aggregate](/docs/aggregate/) and [Tactic DDD Syntax](/docs/tactic-ddd/). If you are interested in more details and all features, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
 
-### How do I validate all CML models (*.cml files) in my Eclipse project?
-The CML models are validated when you save the *.cml automatically, if _"Build Automatically"_ is enabled in the _Project_ menu.
-If it is not enabled, you can validate all models by triggering _"Build All"_ in the _Project_ menu.
-
 ### Which transformations can I apply to my CML model? Which generators are available?
-Currently you can generate [Microservice Domain-Specific Language (MDSL)](https://socadk.github.io/MDSL/) (micro-)service contracts providing assistance regarding how your system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input  to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams out of your CML. The following pages explain the generators in detail:
+Currently you can generate [Microservice Domain-Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts providing assistance regarding how your system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input  to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams out of your CML. The following pages explain the generators in detail:
 
  * [Generate graphical Context Maps](/docs/context-map-generator/)
  * [Generate PlantUML diagrams](/docs/plant-uml/)

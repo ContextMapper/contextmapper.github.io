@@ -27,6 +27,10 @@ The transformations support the following process:
      - Find more about the different types of Bounded Contexts [here](/docs/bounded-context/#bounded-context-type).
    - The generated Bounded Context model the different systems or subsystems of one application (frontend and backend, and/or other subsystems).
 
+<div class="alert alert-custom">
+<strong>Note:</strong> Our Visual Studio Code extension only supports the steps 1, 2, and 3 for now. The transformations in step 4 are not yet supported. If you want to use them, please use our Eclipse plugin.
+</div>
+
 In the following we illustrate the process with an example (fictitious insurance example).
 
 ## Step 1: Capture User Requirements
@@ -302,6 +306,10 @@ Once you derived your initial Bounded Contexts, you can:
    - [Service Cutter input files](/docs/service-cutter/)
    - [Generic output with Freemarker templates](/docs/generic-freemarker-generator/)
      - Use our [JHipster JDL generator template](/docs/jhipster-microservice-generation/) to generate microservices code from your Context Map.
+
+## Related Links
+
+ - The Context Mapper OOAD transformations were presented at [ICWE 2020](https://icwe2020.webengineering.org/) by [Olaf Zimmermann](https://ozimmer.ch/): Find the slides and the demo [here](https://ozimmer.ch/practices/2020/06/10/ICWEKeynoteAndDemo.html).
 
 ## Frequently Asked Questions (FAQs)
 

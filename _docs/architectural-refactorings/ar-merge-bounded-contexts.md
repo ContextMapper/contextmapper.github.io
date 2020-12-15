@@ -6,6 +6,10 @@ permalink: /docs/ar-merge-bounded-contexts/
 Merges two bounded contexts together. The result is one bounded context containing all the aggregates of the two input bounded
 contexts.
 
+<div class="alert alert-custom">
+<strong>Known limitation:</strong> Unfortunately, this AR does not work in <a href="/docs/vs-code/">VS Code</a> and <a href="/docs/online-ide/">online</a> in case the removed Bounded Context is referenced in a Context Map. This is due to <a href="https://github.com/eclipse/xtext-core/issues/1494">a bug in the Xtext framework</a>.
+</div>
+
 ## Context & Rationales
 By decomposing a system into multiple bounded contexts we aim for loose coupling between the bounded context and a high cohesion 
 within them. However, sometimes a decomposition may be too fine-granular and merging bounded contexts with a high

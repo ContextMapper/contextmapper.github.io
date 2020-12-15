@@ -13,6 +13,14 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2020**
+ * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Service Design - Context Modeling, Model Refactoring and Contract Generation**, _14th Symposium and Summer School On Service-Oriented Computing (SommerSoC 2020)_
+     * [Paper](https://doi.org/10.1007/978-3-030-64846-6_11) (Springer _Communications in Computer and Information Science_)
+       * [Author's Copy](/media/SummerSoC-2020_Domain-driven-Service-Design_Authors-Copy.pdf)
+     * [Presentation](/media/Stefan-Kapferer_SummerSoC2020_presentation.pdf)
+     * [SummerSOC Young Researcher Award 2020 goes to Stefan Kapferer](https://www.ost.ch/de/news/article/stefan-kapferer-gewinnt-young-researcher-award/) (GERMAN)
+ * Olaf Zimmermann: **Dimensions of Successful Web API Design and Evolution: Context, Contracts, Components**, Keynote ICWE 2020, _International Conference on Web Engineering (ICWE)_
+     * [Keynote](https://icwe2020.webengineering.org/keynotes/#academy)
+     * [Demo: Domain-Driven Service Design with Context Mapper and MDSL](https://ozimmer.ch/practices/2020/06/10/ICWEKeynoteAndDemo.html)
  * Stefan Kapferer and Olaf Zimmermann: **Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling**,
    In _Proceedings of the 8th International Conference on Model-Driven Engineering and Software Development - MODELSWARD_, pages 299–306. INSTICC, SciTePress.
      * [Paper](https://doi.org/10.5220/0008910502990306)
@@ -29,7 +37,7 @@ and details about our projects in the papers listed below.
      * [Slides](/media/ZIOSK-ContextMapper4JUGv10p.pdf)
  * Stefan Kapferer: **[Service Decomposition as a Series of Architectural Refactorings](https://eprints.hsr.ch/784/)**, student research project
      * **Term project on which the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) and the [MDSL generator](/docs/mdsl/) of Context Mapper are based on.**
-        * (see [Microservices Domain-Specific Language (MDSL)](https://socadk.github.io/MDSL/) for language details on MDSL)
+        * (see [Microservices Domain-Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) for language details on MDSL)
      * [Project report](https://eprints.hsr.ch/784/)
      * [Abstract](/media/FS19-MSE-Stefan-Kapferer-Service-Decomposition-Architectural-Refactorings-Abstract.pdf)
  * Olaf Zimmermann: **[Domain-Specific Service Decomposition with Microservices API Patterns](https://www.conf-micro.services/2019/slides//keynotes/Zimmerman.pdf)**,

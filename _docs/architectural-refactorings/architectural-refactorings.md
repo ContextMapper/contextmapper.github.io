@@ -27,7 +27,7 @@ We currently provide the following structural ARs:
 | Name                                                                                                    | Subject                    | Description                                                                                                                                                                                   | Input                        | Output                                                            |
 |---------------------------------------------------------------------------------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|-------------------------------------------------------------------|
 | [**AR-1: Split Aggregate by Entities**](/docs/ar-split-aggregate-by-entities)                           | Aggregate                  | Splits an aggregate which contains multiple entities and produces one aggregate per entity.                                                                                                   | 1 Aggregate                  | n Aggregates                                                      |
-| [**AR-2: Split Bounded Context by Use Cases**<sup>1</sup>](/docs/ar-split-bounded-context-by-use-cases) | Bounded Context            | Splits a bounded context by grouping those aggregates together into one bounded context which are used by the same use case(s).                                                               | 1 Bounded Context            | n Bounded Contexts                                                |
+| [**AR-2: Split Bounded Context by Features**<sup>1</sup>](/docs/ar-split-bounded-context-by-features)   | Bounded Context            | Splits a bounded context by grouping those aggregates together into one bounded context which are used by the same use case(s) and/or user stories (features).                                | 1 Bounded Context            | n Bounded Contexts                                                |
 | [**AR-3: Split Bounded Context by Owner**<sup>1</sup>](/docs/ar-split-bounded-context-by-owners)        | Bounded Context            | Splits a bounded context by grouping those aggregates together into one bounded context which belong to the same team.                                                                        | 1 Bounded Context            | n Bounded Contexts                                                |
 | [**AR-4: Extract Aggregates by Volatility**](/docs/ar-extract-aggregates-by-volatility)                 | Bounded Context            | Extracts all aggregates from a bounded context by a given volatility, or likelihood for change (RARELY, NORMAL or OFTEN), and moves them to a separate context.                               | 1 Bounded Context            | 2 Bounded Contexts                                                |
 | [**AR-5: Extract Aggregates by Cohesion**](/docs/ar-extract-aggregates-by-cohesion)                     | Bounded Context            | Extracts a set of aggregates which are chosen by certain cohesion criteria and moves them to a separate bounded context.                                                                      | 1 Bounded Context            | 2 Bounded Contexts                                                |
@@ -36,7 +36,7 @@ We currently provide the following structural ARs:
 | [**AR-8: Extract Shared Kernel**](/docs/ar-extract-shared-kernel)                                       | Shared Kernel relationship | Extracts a new bounded context for the common model parts of the Shared Kernel and establishes two upstream-downstream relationship between the new and the existing Bounded Contexts.        | 1 Shared Kernel relationship | 1 New Bounded Context and 2 new upstream-downstream relationships |
 | [**AR-9: Suspend Partnership**](/docs/ar-suspend-partnership)                                           | Partnership relationship   | Suspends a Partnership relationship and replaces it with another structure how the two Bounded Context can depend on each other. The AR provides three strategies to suspend the partnership. | 1 Partnership relationship   | _Depends on the selected mode_                                    |
 
-<sup>1</sup>: An aggregate in CML can be used by **multiple** use cases and is owned by **one** owner (team).
+<sup>1</sup>: An aggregate in CML can be used by **multiple** features (use cases and/or user stories) and is owned by **one** owner (team).
 
 ### Relationship Refactorings
 The following ARs to change Context Map relationships are currently implemented:
@@ -49,7 +49,20 @@ The following ARs to change Context Map relationships are currently implemented:
 ## Examples
 You can find [input and corresponding output examples](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings) for all ARs listed above in our [examples repository](https://github.com/ContextMapper/context-mapper-examples).
 
-## How to apply Architectural Refactorings (ARs)
+## How to apply Architectural Refactorings
+
+### Visual Studio Code
+In VS Code we suggest the application of Architectural Refactorings via code actions. If your cursor is on a CML object on which an AR can be applied, a light bulb shows up:
+
+<a href="/img/architectural-refactoring-handling-in-vscode-1.png">![Architectural Refactoring Suggestion in VS Code](/img/architectural-refactoring-handling-in-vscode-1.png)</a>
+
+In the case illustrated above, the _PolicyManagementContext_ contains Aggregates that are maintained by different teams and [Split Bounded Context by Owner (AR-3)](/docs/ar-split-bounded-context-by-owners) can be applied:
+
+<a href="/img/architectural-refactoring-handling-in-vscode-2.png">![Architectural Refactoring Application in VS Code](/img/architectural-refactoring-handling-in-vscode-2.png)</a>
+
+By clicking on the light bulb and the AR you want to apply the model will be refactored accordingly.
+
+### Eclipse
 Architectural refactorings can be applied within the Context Mapper Eclipse plugin by using the context menu in the DSL editor. With a
 right-click on a bounded context or an aggregate the **Context Mapper: Refactor** menu entry appears and lists all refactorings which are applicable to the selected elements:
 
