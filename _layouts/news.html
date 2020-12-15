@@ -9,8 +9,8 @@ layout: default
             <div class="well">
                 <h4>Recent News</h4>
                 <ul class="list-unstyled post-list-container">
-                    {% assign sorted_news = site.news | sort:"date" %}
-                    {% for entry in sorted_news reversed limit:10 %}
+                    {% assign sorted_news = site.news | sort:"date" | reverse %}
+                    {% for entry in sorted_news limit:10 %}
                     <li><div>{{ entry.date | date: "%b %-d, %Y" }}</div><a href="{{ entry.url | prepend: site.baseurl }}" {% if page.title==entry.title %} class="active" {% endif %}>{{ entry.title }}</a></li>
                     {% endfor %}
                     <li><a href="{{ "/allnews" | prepend: site.baseurl }}">All news ...</a></li>
