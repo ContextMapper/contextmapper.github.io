@@ -160,11 +160,11 @@ As illustrated above, the patterns on the endpoint/resource level are added with
  * [TRANSFER_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/TransferResource)
  * [LOOKUP_RESOURCE](https://microservice-api-patterns.org/patterns/responsibility/informationHolderEndpoints/LookupResource)
 
-### Operation Responsibility Patterns
- * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/ComputationFunction)
- * [NOTIFICATION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/NotificationOperation)
- * [RETRIEVAL_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/RetrievalOperation)
- * [STATE_TRANSITION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/processingResponsibilities/StateTransitionOperation)
+#### Operation Responsibility Patterns
+ * [COMPUTATION_FUNCTION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/ComputationFunction)
+ * [STATE_CREATION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/StateCreationOperation)
+ * [RETRIEVAL_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/RetrievalOperation)
+ * [STATE_TRANSITION_OPERATION](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/StateTransitionOperation)
 
 Please refer to the pattern texts on the MAP website for explanations of these decorators.
 
