@@ -1,0 +1,4 @@
+event ClaimSubmitted triggers command CheckClaim X CheckPolicy
+
+// operation alternative:
+event ClaimSubmitted triggers operation checkClaim X checkPolicy

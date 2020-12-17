@@ -1,0 +1,22 @@
+Application {
+
+  /* we removed commands and events here to keep the sample shorter */
+
+  Flow ClaimsFlow {
+    command SubmitClaim emits event ClaimSubmitted
+    event ClaimSubmitted triggers command CheckClaimDocumentation
+    command CheckClaimDocumentation emits event ClaimRegistered
+    event ClaimRegistered triggers command CheckInsurance
+    command CheckInsurance emits event AssessmentPerformed
+
+    event AssessmentPerformed triggers command AcceptClaim X RejectClaim 
+    command AcceptClaim delegates to Claims [OPEN -> ACCEPTED] emits event ClaimAccepted
+    command RejectClaim delegates to Claims [OPEN -> REJECTED] emits event ClaimRejected
+
+    event ClaimAccepted triggers command SchedulePayment
+    command SchedulePayment emits event PaymentPerformed
+    event PaymentPerformed triggers command NofifyCustomer
+    event ClaimRejected triggers command NofifyCustomer
+    command NofifyCustomer delegates to Claims [ACCEPTED, REJECTED -> CUSTOMER_NOTIFIED] emits event CustomerNotified
+  }
+}

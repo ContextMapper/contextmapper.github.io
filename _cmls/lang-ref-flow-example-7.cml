@@ -1,0 +1,4 @@
+command SubmitClaim emits event Event1 O Event2 O Event3
+
+// alternative
+operation submitClaim emits event Event1 O Event2

@@ -123,7 +123,7 @@ The declaration of value objects is done with the _ValueObject_ keyword:
 Attributes (incl. type references) and methods/operations in value objects can be specified exactly the same way as within entities (see sections above).
 
 ## Domain Events
-The declaration of domain events is done with the _DomainEvent_ keyword:
+The declaration of domain events is done with the _DomainEvent_ keyword: (alternatively you can use the keyword _Event_)
 
 <div class="highlight"><pre><span></span><span class="k">DomainEvent</span> HandlingEvent {
   <span class="k">Type</span> handlingType;
@@ -132,6 +132,16 @@ The declaration of domain events is done with the _DomainEvent_ keyword:
   <span class="k">Date</span> completionTime;
   <span class="k">Date</span> registrationTime;
   - <span class="k">Cargo</span> cargo;
+}
+</pre></div>
+
+## Commands
+The declaration of commands is done with the _Command_ keyword: (alternatively you can use the original Sculptor keyword _CommandEvent_)
+
+<div class="highlight"><pre><span></span><span class="k">Command</span> RejectClaim {
+  - Claim claim2Reject
+  - Employee decisionMaker
+  <span class="k">String</span> reason4Rejection
 }
 </pre></div>
 

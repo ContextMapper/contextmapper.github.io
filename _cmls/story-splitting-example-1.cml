@@ -1,0 +1,4 @@
+
+UserStory Account_Admin_Story {
+    As an "Admin" I want to "manage" an "Account" so that "can enable users to work with the system."
+}

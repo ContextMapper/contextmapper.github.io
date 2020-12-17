@@ -1,0 +1,35 @@
+BoundedContext ClaimsManagement {
+  Application {
+    Service ClaimsApplicationService {
+      void submitClaim(@Claim claim);
+      void checkInsurance(@Claim claim);
+      void acceptClaim(@Claim claim);
+      void rejectClaim(@Claim claim);
+    }
+  }
+  
+  Aggregate Claims {
+    Entity Claim {
+      aggregateRoot
+      long claimId
+      CustomerId customer
+      String description
+      Blob requestDocument
+      boolean isComplete
+      boolean isAssessed
+      - ClaimState claimState
+    }
+    enum ClaimState {
+      aggregateLifecycle
+      OPEN, REJECTED, ACCEPTED
+    }
+    
+    abstract DomainEvent ClaimEvent {
+      long claimId
+      Date timestamp
+    }
+    DomainEvent ClaimSubmitted extends ClaimEvent
+    DomainEvent ClaimAccepted extends ClaimEvent
+    DomainEvent ClaimRejected extends ClaimEvent
+  }
+}

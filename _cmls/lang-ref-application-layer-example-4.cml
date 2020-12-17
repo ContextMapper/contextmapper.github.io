@@ -1,0 +1,13 @@
+Application {
+  Command SubmitClaim {
+    // attributes/body optional
+  }
+  Command AcceptClaim
+  Command RejectClaim
+  
+  Event ClaimSubmitted {
+    // attributes/body optional
+  }
+  Event ClaimAccepted
+  Event ClaimRejected
+}

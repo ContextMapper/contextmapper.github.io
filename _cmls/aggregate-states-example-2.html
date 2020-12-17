@@ -1,0 +1,7 @@
+<div class="highlight"><pre><span></span><span class="k">Service</span> ContractService {
+    @ContractId createContract(@Contract contrace) : <span class="k">write</span> [ -&gt; CREATED];
+    @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
+    <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span> [ CREATED -&gt; POLICE_CREATED ];
+    <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span> [ CREATED, POLICE_CREATED -&gt; RECALLED ];
+  }
+</pre></div>

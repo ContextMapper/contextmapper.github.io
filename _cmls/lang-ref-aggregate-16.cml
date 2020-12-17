@@ -1,0 +1,4 @@
+enum States {
+  aggregateLifecycle
+  CREATED, POLICE_CREATED, RECALLED
+}

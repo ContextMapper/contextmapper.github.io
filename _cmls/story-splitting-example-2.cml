@@ -1,0 +1,14 @@
+
+
+UserStory Account_Admin_Story split by Account_Admin_Story_Split {
+	As an "Admin" I want to "manage" an "Account" so that "can enable users to work with the system."
+}
+
+UserStory Account_Admin_Story_Split {
+	As an "Admin"
+	I want to "cancel" an "Account"
+	I want to "edit" an "Account"
+	I want to create an "Account"
+	so that "can enable users to work with the system."
+}
+

@@ -1,0 +1,9 @@
+<div class="highlight"><pre><span></span><span class="k">Application</span> {
+  <span class="k">Service</span> ClaimsApplicationService {
+    <span class="k">void</span> submitClaim(@Claim claim) : <span class="k">write</span> [ -&gt; OPEN];
+    <span class="k">void</span> checkInsurance(@Claim claim);
+    <span class="k">void</span> acceptClaim(@Claim claim) : <span class="k">write</span> [ OPEN -&gt; ACCEPTED ];
+    <span class="k">void</span> rejectClaim(@Claim claim) : <span class="k">write</span> [ OPEN -&gt; REJECTED ];
+  }
+}
+</pre></div>

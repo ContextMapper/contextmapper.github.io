@@ -1,0 +1,12 @@
+Application {
+
+  /* we removed commands and events here to keep the sample shorter */
+
+  Flow ClaimsFlow {
+    /* type 2: */
+    command SubmitClaim emits event ClaimSubmitted
+
+    /* type 1: */
+    event ClaimSubmitted triggers command CheckClaimDocumentation
+  }
+}

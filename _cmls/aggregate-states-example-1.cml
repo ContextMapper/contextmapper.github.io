@@ -1,0 +1,15 @@
+Aggregate Contract {
+  Entity Contract {
+    aggregateRoot
+
+    - State aggregateState
+    - ContractId identifier
+    - Customer client
+    - List<Product> products
+  }
+
+  enum State {
+    aggregateLifecycle
+    CREATED, POLICE_CREATED, RECALLED
+  }
+}

@@ -1,0 +1,4 @@
+command SubmitClaim delegates to Claims [ -> SUBMITTED ] emits event Event1 X Event2 X Event3
+
+// alternative
+operation submitClaim delegates to Claims [ -> SUBMITTED ] emits event Event1 X Event2

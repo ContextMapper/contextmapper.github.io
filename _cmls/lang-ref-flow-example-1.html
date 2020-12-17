@@ -1,0 +1,23 @@
+<div class="highlight"><pre><span></span><span class="k">Application</span> {
+
+  <span class="c">/* we removed commands and events here to keep the sample shorter */</span>
+
+  <span class="k">Flow</span> ClaimsFlow {
+    <span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> ClaimSubmitted
+    <span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">command</span> CheckClaimDocumentation
+    <span class="k">command</span> CheckClaimDocumentation <span class="k">emits</span> <span class="k">event</span> ClaimRegistered
+    <span class="k">event</span> ClaimRegistered <span class="k">triggers</span> <span class="k">command</span> CheckInsurance
+    <span class="k">command</span> CheckInsurance <span class="k">emits</span> <span class="k">event</span> AssessmentPerformed
+
+    <span class="k">event</span> AssessmentPerformed <span class="k">triggers</span> <span class="k">command</span> AcceptClaim <span class="k">X</span> RejectClaim 
+    <span class="k">command</span> AcceptClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; ACCEPTED] <span class="k">emits</span> <span class="k">event</span> ClaimAccepted
+    <span class="k">command</span> RejectClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; REJECTED] <span class="k">emits</span> <span class="k">event</span> ClaimRejected
+
+    <span class="k">event</span> ClaimAccepted <span class="k">triggers</span> <span class="k">command</span> SchedulePayment
+    <span class="k">command</span> SchedulePayment <span class="k">emits</span> <span class="k">event</span> PaymentPerformed
+    <span class="k">event</span> PaymentPerformed <span class="k">triggers</span> <span class="k">command</span> NofifyCustomer
+    <span class="k">event</span> ClaimRejected <span class="k">triggers</span> <span class="k">command</span> NofifyCustomer
+    <span class="k">command</span> NofifyCustomer <span class="k">delegates</span> <span class="k">to</span> Claims [ACCEPTED, REJECTED -&gt; CUSTOMER_NOTIFIED] <span class="k">emits</span> <span class="k">event</span> CustomerNotified
+  }
+}
+</pre></div>

@@ -1,0 +1,20 @@
+<div class="highlight"><pre><span></span><span class="c">// an initial state:</span>
+-<span class="k">&gt;</span> CREATED
+
+<span class="c">// simple state transition from one state into the other</span>
+CREATED -&gt; CHECK_REQUESTED
+
+<span class="c">// the left side can contain multiple states:</span>
+<span class="c">// (this means that the state on the right can be reached by any of those on the left side)</span>
+CREATED, CHECK_REQUESTED -&gt; CHECK_IN_PROGRESS
+
+<span class="c">// multiple target states possible</span>
+<span class="c">// X stands for XOR and means one OR the other will be reached but not both at the same time (exclusive OR)</span>
+CHECK_IN_PROGRESS -&gt; ACCEPTED <span class="k">X</span> REJECTED
+
+<span class="c">// target states can be marked as end states with a star:</span>
+CHECK_IN_PROGRESS -&gt; ACCEPTED* <span class="k">X</span> REJECTED*
+
+<span class="c">// a combination of multiple on the left and multiple on the right</span>
+CREATED, CHECK_REQUESTED -&gt; ACCEPTED <span class="k">X</span> REJECTED
+</pre></div>

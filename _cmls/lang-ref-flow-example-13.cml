@@ -1,0 +1,4 @@
+command SubmitClaim [ initiated by "Customer" ] delegates to Claims [ -> SUBMITTED ] emits event Event1
+
+// alternative
+operation submitClaim [ initiated by "Customer" ] delegates to Claims [ -> SUBMITTED ] emits event Event1

@@ -44,6 +44,7 @@ The most important tactic DDD patterns that we use in our [transformations (for 
  * **Service**
  * **Value Object**
  * **Domain Event**
+ * **Command**
  
 The following patterns can be used in CML models as well (but currently are not processed by in any transformation): 
 
@@ -55,6 +56,9 @@ Therefore it is documented [here](/docs/aggregate).
 ## Additional Language Features
 The following (not DDD specific) language features are supported by CML as well: 
 
+ * **[Application and Process Layer](/docs/application-and-process-layer)**
+   * Model application services and commands that are triggered from outside your Bounded Context
+   * Model processes and event/command flows (for example as an outcome of an [Event Storming](/docs/event-storming/): bring commands and events into a timeline)
  * **[User Requirements](/docs/user-requirements/)** (Use Cases and User Stories)
    * Used for the Architectural Refactoring (AR) [Split Bounded Context by Use Cases](/docs/ar-split-bounded-context-by-use-cases/) and our [Rapid OOAD](/docs/rapid-ooad/) tools.
  * **[Imports](/docs/imports/)** to include other CML files
