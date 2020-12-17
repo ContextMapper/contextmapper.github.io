@@ -1,0 +1,8 @@
+Application ClaimsApplicationLayer {
+  Service ClaimsApplicationService {
+    void submitClaim(@Claim claim);
+    void checkInsurance(@Claim claim);
+    void acceptClaim(@Claim claim);
+    void rejectClaim(@Claim claim);
+  }
+}

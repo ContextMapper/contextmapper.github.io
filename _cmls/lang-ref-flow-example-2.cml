@@ -1,0 +1,29 @@
+Application {
+  Service ClaimsApplicationService {
+    void submitClaim(@Claim claim);
+    void checkClaimDocumentation(@Claim claim);
+    void checkInsurance(@Claim claim);
+    void acceptClaim(@Claim claim);
+    void rejectClaim(@Claim claim);
+    void schedulePayment(@Claim claim);
+    void nofifyCustomer(@Claim claim);
+  }
+  
+  Flow ClaimsFlow {
+    operation submitClaim emits event ClaimSubmitted
+    event ClaimSubmitted triggers operation checkClaimDocumentation
+    operation checkClaimDocumentation emits event ClaimRegistered
+    event ClaimRegistered triggers operation checkInsurance
+    operation checkInsurance emits event AssessmentPerformed
+    
+    event AssessmentPerformed triggers operation acceptClaim X rejectClaim 
+    operation acceptClaim delegates to Claims [OPEN -> ACCEPTED] emits event ClaimAccepted
+    operation rejectClaim delegates to Claims [OPEN -> REJECTED] emits event ClaimRejected
+    
+    event ClaimAccepted triggers operation schedulePayment
+    operation schedulePayment emits event PaymentPerformed
+    event PaymentPerformed triggers operation nofifyCustomer
+    event ClaimRejected triggers operation nofifyCustomer
+    operation nofifyCustomer delegates to Claims[ACCEPTED, REJECTED -> CUSTOMER_NOTIFIED] emits event CustomerNotified
+  }
+}

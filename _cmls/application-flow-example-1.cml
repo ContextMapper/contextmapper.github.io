@@ -1,0 +1,42 @@
+
+/**
+ * A flow inspired by the Lakeside Mutual project (https://github.com/Microservice-API-Patterns/LakesideMutual).
+ * Find the original process visualization here:
+ * https://github.com/Microservice-API-Patterns/LakesideMutual/blob/master/policy-management-backend/src/main/java/com/lakesidemutual/policymanagement/domain/insurancequoterequest/RequestStatus.java
+ **/
+BoundedContext InsuranceQuotes {
+  Application {
+    Flow QuoteRequestFlow {
+      operation submitRequest delegates to QuoteRequest[-> SUBMITTED] emits event RequestSubmitted
+      event RequestSubmitted + RequestSubmitted triggers operation checkRequest
+      operation checkRequest delegates to QuoteRequest[SUBMITTED -> RECEIVED X REJECTED] emits event QuoteReceived X RequestRejected
+      event QuoteReceived triggers operation receiveAndCheckQuote
+      operation receiveAndCheckQuote delegates to QuoteRequest[RECEIVED -> REJECTED X ACCEPTED X EXPIRED] emits event QuoteRejected X QuoteAccepted X QuoteExpired
+      event QuoteAccepted triggers operation accept
+      operation accept delegates to QuoteRequest[ACCEPTED -> POLICY_CREATED X EXPIRED] emits event PolicyCreated X QuoteExpired
+    }
+  }
+  Aggregate QuoteRequest {
+    Entity Request {
+      aggregateRoot
+    }
+    DomainEvent RequestSubmitted
+    DomainEvent QuoteReceived
+    DomainEvent RequestRejected
+    DomainEvent QuoteRejected
+    DomainEvent QuoteAccepted
+    DomainEvent QuoteExpired
+    DomainEvent PolicyCreated
+    Service QuoteRequestService {
+      void submitRequest(@Request request);
+      void checkRequest(@Request request);
+      void receiveAndCheckQuote(@Request request);
+      void reject(@Request request);
+      void accept(@Request request);
+    }
+    enum RequestState {
+      aggregateLifecycle
+       SUBMITTED, RECEIVED, REJECTED, ACCEPTED, EXPIRED, POLICY_CREATED
+    }
+  }
+}

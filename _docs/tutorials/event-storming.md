@@ -13,6 +13,11 @@ literature and links:
  * [Event Storming Cheatsheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner (good cheat sheet for a quick introduction into the topic)
  
 ## Use Context Mapper to Model Event Storming Output
+
+<div class="alert alert-custom">
+<strong>Note</strong> that this tutorial has not yet been adjusted to the <a href="/docs/application-and-process-layer/#processes-and-eventcommand-flows">event/command flow features</a> that have been introduced by <a href="/news/2020/12/17/v6.2.0-released/">release v6.2.0</a>! With this new CML language features you can model event storming results even better then explained on this page.
+</div>
+
 The output of an event storming describes the domain using the following DDD concepts:
 
  * [Domain Events](#domain-events)

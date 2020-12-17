@@ -1,0 +1,6 @@
+Service ContractService {
+    @ContractId createContract(@Contract contrace) : write [ -> CREATED];
+    @Contract getContract(@ContractId contractId) : read-only;
+    boolean createPolicy(@ContractId contractId) : write [ CREATED -> POLICE_CREATED ];
+    boolean recall(@ContractId contractId) : write [ CREATED, POLICE_CREATED -> RECALLED ];
+  }

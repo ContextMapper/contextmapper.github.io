@@ -1,0 +1,4 @@
+event ClaimSubmitted + ContractChecked triggers command AssessClaim
+
+// alternative
+event ClaimSubmitted + ContractChecked triggers operation assessClaim

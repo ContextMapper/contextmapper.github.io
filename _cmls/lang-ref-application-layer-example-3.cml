@@ -1,0 +1,8 @@
+Application {
+  Service ClaimsApplicationService {
+    void submitClaim(@Claim claim) : write [ -> OPEN];
+    void checkInsurance(@Claim claim);
+    void acceptClaim(@Claim claim) : write [ OPEN -> ACCEPTED ];
+    void rejectClaim(@Claim claim) : write [ OPEN -> REJECTED ];
+  }
+}

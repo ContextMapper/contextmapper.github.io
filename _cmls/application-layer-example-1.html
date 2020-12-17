@@ -1,0 +1,33 @@
+<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> ClaimsManagement {
+  <span class="k">Application</span> {
+    <span class="k">Service</span> ClaimsApplicationService {
+      <span class="k">void</span> submitClaim(@Claim claim);
+      <span class="k">void</span> checkInsurance(@Claim claim);
+    }
+
+    <span class="k">Command</span> AcceptClaim {
+      - <span class="k">Claim</span> claim
+    }
+    <span class="k">Command</span> RejectClaim {
+      - <span class="k">Claim</span> claim
+    }
+  }
+  
+  <span class="k">Aggregate</span> Claims {
+    <span class="k">Entity</span> Claim {
+      <span class="k">aggregateRoot</span>
+      <span class="k">long</span> claimId
+      CustomerId <span class="k">customer</span>
+      <span class="k">String</span> description
+      <span class="k">Blob</span> requestDocument
+      <span class="k">boolean</span> isComplete
+      <span class="k">boolean</span> isAssessed
+      - <span class="k">ClaimState</span> claimState
+    }
+    <span class="k">enum</span> ClaimState {
+      <span class="k">aggregateLifecycle</span>
+      OPEN, REJECTED, ACCEPTED
+    }
+  }
+}
+</pre></div>

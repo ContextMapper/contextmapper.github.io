@@ -1,0 +1,5 @@
+Command RejectClaim {
+  - Claim claim2Reject
+  - Employee decisionMaker
+  String reason4Rejection
+}

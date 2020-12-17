@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span></span><span class="k">Application</span> {
+
+  <span class="c">/* we removed commands and events here to keep the sample shorter */</span>
+
+  <span class="k">Flow</span> ClaimsFlow {
+    <span class="c">/* type 2: */</span>
+    <span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> ClaimSubmitted
+
+    <span class="c">/* type 1: */</span>
+    <span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">command</span> CheckClaimDocumentation
+  }
+}
+</pre></div>

@@ -26,12 +26,14 @@
   - knowledge-level
   - aggregate
   - tactic-ddd
+  - application-and-process-layer
   - user-requirements
   - imports
 
 - title: Analysis and Design Transformations
   docs:
     - rapid-ooad
+    - story-splitting
 
 - title: Architectural Refactorings (ARs)
   docs:
@@ -62,6 +64,7 @@
   - generators
   - context-map-generator
   - plant-uml
+  - bpmn-sketch-miner
   - mdsl
   - service-cutter
   - generic-freemarker-generator

@@ -1,0 +1,30 @@
+<div class="highlight"><pre><span></span><span class="k">Application</span> {
+  <span class="k">Service</span> ClaimsApplicationService {
+    <span class="k">void</span> submitClaim(@Claim claim);
+    <span class="k">void</span> checkClaimDocumentation(@Claim claim);
+    <span class="k">void</span> checkInsurance(@Claim claim);
+    <span class="k">void</span> acceptClaim(@Claim claim);
+    <span class="k">void</span> rejectClaim(@Claim claim);
+    <span class="k">void</span> schedulePayment(@Claim claim);
+    <span class="k">void</span> nofifyCustomer(@Claim claim);
+  }
+  
+  <span class="k">Flow</span> ClaimsFlow {
+    <span class="k">operation</span> submitClaim <span class="k">emits</span> <span class="k">event</span> ClaimSubmitted
+    <span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">operation</span> checkClaimDocumentation
+    <span class="k">operation</span> checkClaimDocumentation <span class="k">emits</span> <span class="k">event</span> ClaimRegistered
+    <span class="k">event</span> ClaimRegistered <span class="k">triggers</span> <span class="k">operation</span> checkInsurance
+    <span class="k">operation</span> checkInsurance <span class="k">emits</span> <span class="k">event</span> AssessmentPerformed
+    
+    <span class="k">event</span> AssessmentPerformed <span class="k">triggers</span> <span class="k">operation</span> acceptClaim <span class="k">X</span> rejectClaim 
+    <span class="k">operation</span> acceptClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; ACCEPTED] <span class="k">emits</span> <span class="k">event</span> ClaimAccepted
+    <span class="k">operation</span> rejectClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; REJECTED] <span class="k">emits</span> <span class="k">event</span> ClaimRejected
+    
+    <span class="k">event</span> ClaimAccepted <span class="k">triggers</span> <span class="k">operation</span> schedulePayment
+    <span class="k">operation</span> schedulePayment <span class="k">emits</span> <span class="k">event</span> PaymentPerformed
+    <span class="k">event</span> PaymentPerformed <span class="k">triggers</span> <span class="k">operation</span> nofifyCustomer
+    <span class="k">event</span> ClaimRejected <span class="k">triggers</span> <span class="k">operation</span> nofifyCustomer
+    <span class="k">operation</span> nofifyCustomer <span class="k">delegates</span> <span class="k">to</span> Claims[ACCEPTED, REJECTED -&gt; CUSTOMER_NOTIFIED] <span class="k">emits</span> <span class="k">event</span> CustomerNotified
+  }
+}
+</pre></div>
