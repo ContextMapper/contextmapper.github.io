@@ -11,6 +11,6 @@ image: /img/Stefan-Kapferer_SummerSoC-Award.jpg
 
 The award, sponsored by the ServTech funding agency, was presented during the «Summer School on Service-Oriented Computing» ([SummerSoC](https://www.summersoc.eu/)). Kapferer, the award winner, as well as Zimmermann, his co-author, coach and mentor, are very proud that their research work has been honored.
 
-You can find the slides of the SummerSoC presentation [here](/background-and-publications/) (paper link will follow soon).
+The paper has been published in the Springer proceedings series [CCIS „Communications in Computer and Information Science”](https://www.springer.com/series/7899) and can be [downloaded here](https://doi.org/10.1007/978-3-030-64846-6_11). On our [project background page](/background-and-publications/) you can also find an author's copy of the paper and the slides of the SummerSoC presentation.
 
 [Click here for reading the OST (Eastern Switzerland University of Applied Sciences) news article.](https://www.ost.ch/de/news/article/stefan-kapferer-gewinnt-young-researcher-award/) (GERMAN)
