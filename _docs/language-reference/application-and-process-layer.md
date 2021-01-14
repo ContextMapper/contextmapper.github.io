@@ -5,12 +5,12 @@ permalink: /docs/application-and-process-layer/
 
 The original ["blue book"](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215) (by Evans) as well as the ["red book"](https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577) (by Vernon) talk about domain and application layers. Although Context Mapper is focused on strategic DDD and domain models (domain layer) inside Bounded Contexts, we support modeling services, commands, and events in an application layer. With the application layer concept in CML users have the possibility to declare which services and/or commands can be called/triggered from outside a Bounded Context and which events are published to the outside. 
 
-In addition to that, the application layer offers a syntax to model processes or event/command flows. This can for example be helpful to bring events and comands (maybe outcome of an [Event Storming](/docs/event-storming/)) into a timeline and explicitely state which event are emitted by which commands (or service operations) and which commands are triggered by events.
+In addition to that, the application layer offers a basic syntax to model processes or event/command flows. This can, for example, be helpful to bring events and commands (maybe outcome of an [Event Storming](/docs/event-storming/)) into a timeline and explicitly state which event are emitted by which commands (or service operations) and which commands are triggered by events.
 
 ## Application Services and Commands
-DDD practitioners and experts typically distinguish between domain services and application services. According to that CML offers the possibility to use the _service_ construct inside Aggregates (domain service) and inside the _application_ layer (application service). Note that the grammar/syntax for application services is exactly the same as for the [services inside the Aggregates](/docs/tactic-ddd/#services).
+DDD practitioners and experts typically distinguish between domain services and application services. Therefore, CML offers the possibility to use the _service_ construct both inside Aggregates (domain service) and inside the _application_ layer (application service). Note that the grammar/syntax for application services is exactly the same as for the [services inside the Aggregates](/docs/tactic-ddd/#services).
 
-The following example illustrates how you model an application layer in your Bounded Context and add application services:
+The following example illustrates how to model an application layer in a Bounded Context and add application services:
 
 <div class="highlight"><pre><span></span><span class="k">BoundedContext</span> ClaimsManagement {
   <span class="k">Application</span> {
@@ -49,7 +49,7 @@ The following example illustrates how you model an application layer in your Bou
 }
 </pre></div>
 
-_Note:_ Optionally, it is possible to name the application layer:
+Optionally, it is possible to name the application layer:
 
 <div class="highlight"><pre><span></span><span class="k">Application</span> ClaimsApplicationLayer {
   <span class="k">Service</span> ClaimsApplicationService {
@@ -61,7 +61,7 @@ _Note:_ Optionally, it is possible to name the application layer:
 }
 </pre></div>
 
-As documented on the [Aggregate page](/docs/aggregate/#aggregate-lifecycle-and-state-transitions) it is further possible to specify state transitions made by operations. Please consult the Aggregate documentation for the syntax of state transtions. However, note that this is also possible on the service operations of application services:
+As documented on the [Aggregate page](/docs/aggregate/#aggregate-lifecycle-and-state-transitions), it is also possible to specify state transitions made by operations. Please consult the Aggregate documentation for the syntax of state transitions. The same syntax is available for the operations of application services:
 
 <div class="highlight"><pre><span></span><span class="k">Application</span> {
   <span class="k">Service</span> ClaimsApplicationService {
@@ -75,7 +75,7 @@ As documented on the [Aggregate page](/docs/aggregate/#aggregate-lifecycle-and-s
 
 _Hint:_ If you model processes/flows (see documentation of syntax below) you may want to declare the state transitions in the flow steps instead of service operations.
 
-As an alternative to service operations you can also model commands and events in the application layer (maybe you work with [Event Sourcing and/or CQRS](/docs/event-sourcing-and-cqrs-modeling/) and these terms fit better).
+As an alternative to "service operations" you can also create semantically equivalent <!-- @SK; pls check edit --> commands and events in the application layer; maybe you work with [Event Sourcing and/or CQRS](/docs/event-sourcing-and-cqrs-modeling/), and these terms fit better.
 
 The syntax for domain events and commands is documented on the [tactic DDD reference page](/docs/tactic-ddd/#domain-events). The following example illustrates how you can use those concepts in the application layer as well:
 
@@ -94,10 +94,10 @@ The syntax for domain events and commands is documented on the [tactic DDD refer
 }
 </pre></div>
 
-_Hint:_ Modeling commands that are triggered by users or external systems in the application layer may feel natural. Events on the other hand may be part of your domain model and therefore you should decide whether you want to model events on the application layer or inside the corresponding Aggregate.
+_Hint:_ Modeling commands that are triggered by users or external systems in the application layer may feel natural. Events, however, may be part of your [domain model](https://github.com/socadk/design-practice-repository/blob/master/artifact-templates/DPR-DomainModel.md). Therefore you should decide consciously whether you want to model these events on the application layer or inside the corresponding domain layer Aggregate.
 
 ## Processes and Event/Command Flows
-In addition to application services and commands the application layer offers language features to model event/command flows. Events typically occur in a certain order over time. For example in [Event Storming's](/docs/event-storming/) Events are typically ordered by the timeline from left to right. An example: (from our [Event Storming tutorial](/docs/event-storming/))
+In addition to application services and commands, the application layer offers language features to model event/command flows. Events typically occur in a certain order over time. For example in [Event Stormings](/docs/event-storming/) Events are typically ordered by the timeline from left to right. An example: (from our [Event Storming tutorial](/docs/event-storming/))
 
 <a target="_blank" href="/img/lakeside-mutual-event-storming-result.jpg">![Lakeside Mutual Claim Processing Event Storming](/img/lakeside-mutual-event-storming-result.jpg)</a>
 
@@ -165,23 +165,23 @@ In the following we explain the grammar in detail and step by step...
 ### Flow Grammar
 There are basically two types of flow steps that are supported by CML:
 
- * _Type 1:_ an event triggers an operation/command (_command/operation invokation_)
+ * _Type 1:_ an event triggers an operation/command (_command/operation invocation_)
  * _Type 2:_ a command/operation emits an event (_event production_)
 
-These types of steps are inspired by the [Event Storming Cheatsheet of the DDD crew](https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet) and especially the following illustration:
+These types of steps are inspired by the [Event Storming Cheat sheet of the DDD crew](https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet), the following illustration in particular:
 
 <a href="https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet" target="_blank">![Event Storming Picture](https://raw.githubusercontent.com/ddd-crew/eventstorming-glossary-cheat-sheet/master/resources/software-picture.jpg)</a>
 
-_Note:_ We do not support all of the concepts illustrated above! Especially policies and the "query model / information" sticky are not supported explicitely.
+_Note:_ We do not support all of the concepts illustrated above! Especially policies and the "query model / information" sticky are not supported explicitly.
 
 The picture above illustrates the two main step types mentioned above.
 
  * _Type 1:_ an event _triggers_ (the DDD crew uses the term _issues_) a command (in CML without the policy in between)
  * _Type 2:_ a command (CML: or operation) _invoked on an_ Aggregate _emits_ (the DDD crew uses the term _produces_) an event
 
-In the following we will see that we also support the Aggregate in _type 2_ and the _actor_ that can trigger a command/operation.
+In the following we will see that we also support the Aggregate in _Type 2_; the _actor_ that can trigger a command/operation.
 
-The following example illustrates the basic syntax of the two types:
+The following example illustrates the basic syntax of the two step types:
 
 <div class="highlight"><pre><span></span><span class="k">Application</span> {
 
@@ -204,7 +204,7 @@ The following example illustrates the basic syntax of the two types:
 </pre></div>
 
 #### Emitting Events
-A command or operation can emit multiple events. This is done with the _+_ sign as follows:
+A command or operation can emit multiple events. This is expressed with the _+_ sign as follows:
 
 <div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> Event1 + Event2 + Event3 <span class="c">// and so on... (emit as many events as you want)</span>
 
@@ -214,7 +214,7 @@ A command or operation can emit multiple events. This is done with the _+_ sign 
 
 The example above illustrates that an operation emits **multiple** events events, which means, **all events are emitted**!
 
-There are situation where you want to express that **one OR an other** event is emitted. In this case we distinguish between exclusive OR (XOR: only one of the listed events is emitted) and inclusive OR (multiple events can be thrown, but not necessarily all). For these two cases we use the symbols _X_ and _O_, inspired by [BPMN](https://www.signavio.com/de/bpmn-einfuehrung/).
+There are situations in which you want to express that **one OR an other** event is emitted. In this case, we distinguish between exclusive OR (XOR: only one of the listed events is emitted) and inclusive OR (multiple events can be thrown, but not necessarily all). For these two cases we use the symbols _X_ and _O_, inspired by [BPMN](https://www.signavio.com/de/bpmn-einfuehrung/).
 
 **Exclusive variant:**
 
@@ -236,7 +236,7 @@ There are situation where you want to express that **one OR an other** event is 
 
 The following table summarizes the three symbols that are supported here:
 
-| Symbol         | Meaning                                                                        | Corresponding BPMN gateways                                                           |
+| Symbol         | Meaning                                                                        | Corresponding BPMN gateways (in German)                                                 |
 |----------------|--------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **+**          | **ALL** listed events are emitted.                                             | [Parallel Gateway](https://www.signavio.com/de/bpmn-einfuehrung/#Parallele-Gateways)  |
 | **X** or **x** | **ONLY ONE** of the listed events is emitted.                                  | [Exclusive Gateway](https://www.signavio.com/de/bpmn-einfuehrung/#Exklusive-Gateways) |
@@ -303,7 +303,7 @@ The following table summarizes the meaning of the supported symbols in the _comm
 #### Commands/Operations delegating to Aggregates
 Commands and operations are typically delegated to an Aggregate. This also corresponds to the illustration of the [DDD crew](https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet) depicted above.
 
-In CML this means that you can optionally add the following reference to _event production_ steps (_type 2_ above):
+In CML this means that you can optionally add the following reference to _event production_ steps (_Type 2_ above):
 
 <div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim <span class="k">delegates</span> <span class="k">to</span> Claims <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">X</span> Event2 <span class="k">X</span> Event3
 

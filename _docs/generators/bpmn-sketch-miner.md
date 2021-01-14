@@ -4,7 +4,7 @@ permalink: /docs/bpmn-sketch-miner/
 ---
 
 ## Introduction and Motivation
-We use the [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) tool to visualize [event/command flows in our application layers](/docs/application-and-process-layer/#processes-and-eventcommand-flows). You can model flows (for example as a result of an [Event Storming](/docs/event-storming/)) in the CML application layer of a Bounded Context and then generate the [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) DSL or directly open the tool from Context Mapper.
+We use the [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) tool to visualize [event/command flows in our application layers](/docs/application-and-process-layer/#processes-and-eventcommand-flows). You can model flows (for example, as resulting from an [Event Storming](/docs/event-storming/) workshop) in the CML application layer of a Bounded Context and then generate the [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) DSL or directly open the tool from Context Mapper.
 
 ## Example Flow
 The following CML code illustrates how you can model flows. A complete documentation on the syntax can be found in the [language reference](/docs/application-and-process-layer/#processes-and-eventcommand-flows).
