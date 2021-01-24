@@ -4,19 +4,18 @@ permalink: /docs/mdsl/
 ---
 
 ## Introduction and Motivation
-The [Microservices Domain Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) is a [Domain-Specific Language (DSL)](https://en.wikipedia.org/wiki/Domain-specific_language) to specify (micro-)service contracts and data representations, jointly realizing the technical part of the [API Description](https://microservice-api-patterns.org/patterns/foundation/APIDescription) pattern from [Microservice API Patterns (MAP)](https://microservice-api-patterns.org/).
+The [Microservices Domain Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) is a [Domain-Specific Language (DSL)](https://en.wikipedia.org/wiki/Domain-specific_language) to specify (micro-)service contracts and data representations, jointly realizing the technical part of the [API Description](https://microservice-api-patterns.org/patterns/foundation/APIDescription) pattern from [Microservice API Patterns (MAP)](https://microservice-api-patterns.org/). MDSL, in turn, has [generator tools](https://microservice-api-patterns.github.io/MDSL-Specification/tools) for Open API, gRPC, GraphQL, Jolie, and plain Java.
 
-Our [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) generator automatically produces (micro-)service contracts out of strategic
-DDD context maps written in CML. The generator creates the contracts according to the following mapping, which reflects our proposal
-how we would derive (micro-)services from models based on strategic DDD <!-- (submitted for SummerSoC 2020) -->. The generator aims at providing assistance regarding how your system can be implemented as a (micro-)service-oriented architecture.
+Our [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) generator automatically produces (micro-)service contracts out of strategic DDD context maps written in CML. The generator creates the contracts according to the following mapping, which reflects our proposal
+how we would derive (micro-)services from models based on strategic DDD. The generator aims at providing assistance regarding how your system can be implemented as a (micro-)service-oriented architecture.
 
 ## Language Mapping
-<!-- TODO retrofit SummerSoC paper extensions to this table -->
 
 | CML Input                                                                                                                        | MDSL Output                                        | Description                                                                                                                                                                                                                                                             |
 |----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Upstream Bounded Contexts from upstream-downstream [relationships](/docs/context-map/#relationships)                             | Service Specification (API description)            | We create one service specification for each upstream Bounded Context of your Context Map.                                                                                                                                                                              |
 | [Exposed Aggregates](/docs/context-map/#exposed-aggregates)                                                                      | Endpoint                                           | Every exposed Aggregate of your upstream Bounded Context results in one endpoint.                                                                                                                                                                                       |
+| [Application layer](/docs/application-and-process-layer)                                                                         | Endpoint                                           | In case you model an application layer, we generate an additional endpoint for it. The endpoint contains the operations of the application services and/or commands.                                                                                                    |
 | Public methods/operations of the [aggregate root entity](/docs/tactic-ddd/#entity) or of [Services](/docs/tactic-ddd/#services). | Operation                                          | Your exposed Aggregates should contain methods/operations, either on the [aggregate root entity](/docs/tactic-ddd/#entity) or in [Services](/docs/tactic-ddd/#services). For every method/operation in those objects we generate an operation in MDSL.                  |
 | Parameters & return values of methods/operations                                                                                 | Base types or data type specifications if possible | If you use primitive data types in CML, they are mapped to the base types of MDSL. If you refer to objects (such as entities) in CML, we produce a corresponding parameter tree. Types which are not further declared are mapped to abstract, unspecified elements (P). |
 | Upstream Bounded Contexts from upstream-downstream [relationships](/docs/context-map/#relationships)                             | API provider                                       | For the upstream Bounded Context we also generate an API provider.                                                                                                                                                                                                      |
@@ -39,7 +38,7 @@ The base/primitive types are mapped to [Atomic Parameters](https://microservice-
 <strong>Note:</strong> Types in CML are case-sensitive. For example: If you write "string" instead of "String", you create a new abstract data type instead of using the primitive type "String".
 </div>
 
-If you declare a method with multiple parameters or refer to an object (such as Entity or Value Object) in CML, we generate a corresponding [Parameter Tree(https://microservice-api-patterns.org/patterns/structure/representationElements/ParameterTree). For example the following entity would be mapped to the (rather flat) parameter tree below:
+If you declare a method with multiple parameters or refer to an object (such as Entity or Value Object) in CML, we generate a corresponding [Parameter Tree](https://microservice-api-patterns.org/patterns/structure/representationElements/ParameterTree). For example the following entity would be mapped to the (rather flat) parameter tree below:
 
 CML input:
 ```
@@ -58,6 +57,8 @@ All abstract data types that are not base types and not specified in CML (no ref
 unspecified placeholder element `P` in [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/), as the following example illustrates:
 <div class="highlight"><pre><span></span><span class="k">data type</span> JustAnUnspecifiedParameterType <span class="k">P</span>
 </pre></div>
+
+**Hint**: Find more information in our SummerSoC 2020 paper on [Domain-driven Service Design - Context Modeling, Model Refactoring and Contract Generation](/media/SummerSoC-2020_Domain-driven-Service-Design_Authors-Copy.pdf) (authors copy).
 
 ## Example
 An exemplary API description in [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/), generated by Context Mapper, is: 
@@ -257,4 +258,4 @@ For example, you can move a set of _data types_ into the corresponding protected
 </pre></div>
 
 ## MDSL Support
-The current version of our MDSL generator is compatible with the MDSL version _3.1.1_. For further questions regarding [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/), please visit its website [https://microservice-api-patterns.github.io/MDSL-Specification/](https://microservice-api-patterns.github.io/MDSL-Specification/). There you can also find the update site to install the MDSL plugin in Eclipse.
+The current version of our MDSL generator is compatible with the MDSL version _5.0_. For further questions regarding [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/), please visit its website [https://microservice-api-patterns.github.io/MDSL-Specification/](https://microservice-api-patterns.github.io/MDSL-Specification/). You can also find the update site to install the MDSL plugin in Eclipse there.

@@ -69,7 +69,7 @@ As already illustrated in the example above, you can declare an Aggregate's stat
 }
 </pre></div>
 
-In addition, every operation (no matter if it is specified in a _Service_ or an _Entity_) can declare whether it is a "read only" or "write" operation with the keywords _read-only_ and _write_:
+In addition, every operation (no matter whether it is specified in a _Service_ or an _Entity_) can declare whether it is a "read only" or "write" operation with the keywords _read-only_ and _write_:
 
 <div class="highlight"><pre><span></span><span class="k">Service</span> ContractService {
   @ContractId createContract(@Contract contrace) : <span class="k">write</span>;
@@ -79,7 +79,7 @@ In addition, every operation (no matter if it is specified in a _Service_ or an 
 }
 </pre></div>
 
-In case it is a _write_ operation it is possible that the operation changes the state of the Aggregate. Such state transitions can be specified in square brackets:
+A _write_ operation may changes the state of the Aggregate. Such state transitions can be specified in square brackets:
 
 <div class="highlight"><pre><span></span><span class="k">Service</span> ContractService {
   @ContractId createContract(@Contract contrace) : <span class="k">write</span> [ -&gt; CREATED];
@@ -89,7 +89,7 @@ In case it is a _write_ operation it is possible that the operation changes the 
 }
 </pre></div>
 
-With these language features you are able to define the lifecycle of an Aggregate. The following examples show all possible variants of state transitions:
+These language features allow you to define the lifecycle of an Aggregate. The following examples show all possible variants of state transitions:
 
 <div class="highlight"><pre><span></span><span class="c">// an initial state:</span>
 -<span class="k">&gt;</span> CREATED
