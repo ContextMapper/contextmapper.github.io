@@ -10,20 +10,12 @@ Our [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) gene
 how we would derive (micro-)services from models based on strategic DDD. The generator aims at providing assistance regarding how your system can be implemented as a (micro-)service-oriented architecture.
 
 ## Language Mapping
-<!-- TODO retrofit SummerSoC paper extensions to this table -->
-
-<!-- @SK: feature 6.3 enhancements? from Release Notes: 
-The MDSL generator has been enhanced as follows:
-
-    A new endpoint is generated for the application layer.
-        The endpoint contains the operations of the application services and/or commands.
-    Events and/or commands that are used as parameters or return types of operations in CML are now properly mapped to corresponding data types in MDSL
--->
 
 | CML Input                                                                                                                        | MDSL Output                                        | Description                                                                                                                                                                                                                                                             |
 |----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Upstream Bounded Contexts from upstream-downstream [relationships](/docs/context-map/#relationships)                             | Service Specification (API description)            | We create one service specification for each upstream Bounded Context of your Context Map.                                                                                                                                                                              |
 | [Exposed Aggregates](/docs/context-map/#exposed-aggregates)                                                                      | Endpoint                                           | Every exposed Aggregate of your upstream Bounded Context results in one endpoint.                                                                                                                                                                                       |
+| [Application layer](/docs/application-and-process-layer)                                                                         | Endpoint                                           | In case you model an application layer, we generate an additional endpoint for it. The endpoint contains the operations of the application services and/or commands.                                                                                                    |
 | Public methods/operations of the [aggregate root entity](/docs/tactic-ddd/#entity) or of [Services](/docs/tactic-ddd/#services). | Operation                                          | Your exposed Aggregates should contain methods/operations, either on the [aggregate root entity](/docs/tactic-ddd/#entity) or in [Services](/docs/tactic-ddd/#services). For every method/operation in those objects we generate an operation in MDSL.                  |
 | Parameters & return values of methods/operations                                                                                 | Base types or data type specifications if possible | If you use primitive data types in CML, they are mapped to the base types of MDSL. If you refer to objects (such as entities) in CML, we produce a corresponding parameter tree. Types which are not further declared are mapped to abstract, unspecified elements (P). |
 | Upstream Bounded Contexts from upstream-downstream [relationships](/docs/context-map/#relationships)                             | API provider                                       | For the upstream Bounded Context we also generate an API provider.                                                                                                                                                                                                      |
@@ -46,7 +38,7 @@ The base/primitive types are mapped to [Atomic Parameters](https://microservice-
 <strong>Note:</strong> Types in CML are case-sensitive. For example: If you write "string" instead of "String", you create a new abstract data type instead of using the primitive type "String".
 </div>
 
-If you declare a method with multiple parameters or refer to an object (such as Entity or Value Object) in CML, we generate a corresponding [Parameter Tree(https://microservice-api-patterns.org/patterns/structure/representationElements/ParameterTree). For example the following entity would be mapped to the (rather flat) parameter tree below:
+If you declare a method with multiple parameters or refer to an object (such as Entity or Value Object) in CML, we generate a corresponding [Parameter Tree](https://microservice-api-patterns.org/patterns/structure/representationElements/ParameterTree). For example the following entity would be mapped to the (rather flat) parameter tree below:
 
 CML input:
 ```
@@ -66,7 +58,7 @@ unspecified placeholder element `P` in [MDSL](https://microservice-api-patterns.
 <div class="highlight"><pre><span></span><span class="k">data type</span> JustAnUnspecifiedParameterType <span class="k">P</span>
 </pre></div>
 
-<!-- @SK: link to final authors copy of SummerSoC paper here? -->
+**Hint**: Find more information in our SummerSoC 2020 paper on [Domain-driven Service Design - Context Modeling, Model Refactoring and Contract Generation](/media/SummerSoC-2020_Domain-driven-Service-Design_Authors-Copy.pdf) (authors copy).
 
 ## Example
 An exemplary API description in [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/), generated by Context Mapper, is: 

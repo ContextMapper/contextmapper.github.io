@@ -11,7 +11,7 @@ The Context Mapper DSL (CML) supports capturing [user story](/docs/user-requirem
 </div>
 
 ## Split Story by Verb/Operation
-As a first proof of concept for this feature we implemented the transformation "Split Story by Verb/Operation". It splits a CML user story by its verb. <!-- @SK: is this a left over TODO comment? An example... -->
+As a first proof of concept for this feature we implemented the transformation "Split Story by Verb/Operation". It splits a CML user story by its verb.
 
 We illustrate the idea with the following user story written in CML:
 
@@ -56,4 +56,4 @@ With the _split by_ keyword we provide a back-reference so that you still know w
 <!-- @SK: are the various preconditions documented? can't split a story that has already been split etc. (from user test [FB]) -->
 
 ## Next Steps
-After you have modelled and split a sufficient amount user stories, you can use our [OOAD transformations](/docs/rapid-ooad/) to derive Subdomains and Bounded Contexts from them. The transformations will always use the _split_ <!-- split or splitted, not sure about participle --> version of a story and ignore the original one! <!-- @SK why is that, doesn't this depend on the story that I select? -->
+After you have modelled and split a sufficient amount user stories, you can use our [OOAD transformations](/docs/rapid-ooad/) to derive Subdomains and Bounded Contexts from them. The transformations will always use the _split_ version of a story and ignore the original one! <!-- @SK why is that, doesn't this depend on the story that I select? -->

@@ -116,8 +116,6 @@ _Hint:_ You can also model the state transition inside your [event flows in the 
 
 With our [PlantUML generator](/docs/plant-uml/) you can visualize the lifecycle of your Aggregates with state diagrams. For example, the model at the top of this page generates the following state diagram:
 
-<!-- @SK: this figure seems to be missing the v6.3 labels for the edges/arrows/transitions? -->
-
 ![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram.png)
 
 ## Aggregate Owner

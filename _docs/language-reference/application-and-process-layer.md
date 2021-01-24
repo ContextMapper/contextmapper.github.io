@@ -75,7 +75,7 @@ As documented on the [Aggregate page](/docs/aggregate/#aggregate-lifecycle-and-s
 
 _Hint:_ If you model processes/flows (see documentation of syntax below) you may want to declare the state transitions in the flow steps instead of service operations.
 
-As an alternative to "service operations" you can also create semantically equivalent <!-- @SK; pls check edit --> commands and events in the application layer; maybe you work with [Event Sourcing and/or CQRS](/docs/event-sourcing-and-cqrs-modeling/), and these terms fit better.
+As an alternative to "service operations" you can also create semantically equivalent commands and events in the application layer; maybe you work with [Event Sourcing and/or CQRS](/docs/event-sourcing-and-cqrs-modeling/), and these terms fit better.
 
 The syntax for domain events and commands is documented on the [tactic DDD reference page](/docs/tactic-ddd/#domain-events). The following example illustrates how you can use those concepts in the application layer as well:
 
