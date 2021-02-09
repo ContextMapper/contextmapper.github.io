@@ -12,6 +12,11 @@ and details about our projects in the papers listed below.
 
 ## Papers & _Context Mapper_ - Related Links
 
+**2021**
+ * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Architecture Modeling and Rapid Prototyping with Context Mapper**, _8th International Conference on Model-Driven Engineering and Software Development, MODELSWARD 2020, Valletta, Revised Selected Papers_
+     * [Paper](https://doi.org/10.1007/978-3-030-67445-8_11) (Springer _Communications in Computer and Information Science_)
+       * [Author's Copy](/media/978-3-030-67445-8_11_AuthorsCopy.pdf)
+
 **2020**
  * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Service Design - Context Modeling, Model Refactoring and Contract Generation**, _14th Symposium and Summer School On Service-Oriented Computing (SommerSoC 2020)_
      * [Paper](https://doi.org/10.1007/978-3-030-64846-6_11) (Springer _Communications in Computer and Information Science_)
