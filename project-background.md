@@ -13,22 +13,23 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2021**
- * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Architecture Modeling and Rapid Prototyping with Context Mapper**, _8th International Conference on Model-Driven Engineering and Software Development, MODELSWARD 2020, Valletta, Revised Selected Papers_
-     * [Paper](https://doi.org/10.1007/978-3-030-67445-8_11) (Springer _Communications in Computer and Information Science_)
-       * [Author's Copy](/media/978-3-030-67445-8_11_AuthorsCopy.pdf)
+ * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Architecture Modeling and Rapid Prototyping with Context Mapper**, _Revised and Extended Selected Papers_ from the 8th International Conference on Model-Driven Engineering and Software Development, MODELSWARD 2020, Valletta, 
+     * [Published paper](https://doi.org/10.1007/978-3-030-67445-8_11) (in: Springer _Communications in Computer and Information Science_)
+       * [Author's Copy (PDF)](/media/978-3-030-67445-8_11_AuthorsCopy.pdf)
 
 **2020**
  * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Service Design - Context Modeling, Model Refactoring and Contract Generation**, _14th Symposium and Summer School On Service-Oriented Computing (SommerSoC 2020)_
-     * [Paper](https://doi.org/10.1007/978-3-030-64846-6_11) (Springer _Communications in Computer and Information Science_)
-       * [Author's Copy](/media/SummerSoC-2020_Domain-driven-Service-Design_Authors-Copy.pdf)
+     * [Published paper](https://doi.org/10.1007/978-3-030-64846-6_11) (in: Springer _Communications in Computer and Information Science_)
+       * [Author's Copy (PDF)](/media/SummerSoC-2020_Domain-driven-Service-Design_Authors-Copy.pdf)
      * [Presentation](/media/Stefan-Kapferer_SummerSoC2020_presentation.pdf)
      * [SummerSOC Young Researcher Award 2020 goes to Stefan Kapferer](https://www.ost.ch/de/news/article/stefan-kapferer-gewinnt-young-researcher-award/) (GERMAN)
  * Olaf Zimmermann: **Dimensions of Successful Web API Design and Evolution: Context, Contracts, Components**, Keynote ICWE 2020, _International Conference on Web Engineering (ICWE)_
      * [Keynote](https://icwe2020.webengineering.org/keynotes/#academy)
+       * [Slides (PDF)](https://ozimmer.ch/assets/presos/ZIO-ICWEKeynoteWADEC3v10p.pdf)
      * [Demo: Domain-Driven Service Design with Context Mapper and MDSL](https://ozimmer.ch/practices/2020/06/10/ICWEKeynoteAndDemo.html)
  * Stefan Kapferer and Olaf Zimmermann: **Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling**,
    In _Proceedings of the 8th International Conference on Model-Driven Engineering and Software Development - MODELSWARD_, pages 299–306. INSTICC, SciTePress.
-     * [Paper](https://doi.org/10.5220/0008910502990306)
+     * [Published paper](https://doi.org/10.5220/0008910502990306)
      * [Presentation](/media/ZIOSK-Modelsward-Paper-Presentation-v101p.pdf)
  * Stefan Kapferer: **[A Modeling Framework for Strategic Domain-driven Design and Service Decomposition](https://eprints.hsr.ch/821/)**, Master Thesis at University of 
    Applied Sciences of Eastern Switzerland (HSR FHO)
