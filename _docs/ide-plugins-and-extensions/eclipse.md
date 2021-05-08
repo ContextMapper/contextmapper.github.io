@@ -10,7 +10,7 @@ This page contains FAQs and helpful tipps specific for the Context Mapper Eclips
 The Context Mapper Eclipse plugin can be installed via the marketplace or by using the update site URL in your Eclipse directly:
 
  * [Eclipse Marktplace](https://marketplace.eclipse.org/content/context-mapper)
- * Update site URL for manual installation: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
+ * Update site URL for manual installation: [https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/](https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/)
 
 ## Frequently Asked Questions (FAQs)
 
@@ -19,7 +19,7 @@ Open the [Eclipse Marketplace](https://marketplace.eclipse.org/content/context-m
 
 Alternatively, use the following Eclipse Update site and install the plugin in Eclipse via *Help -> Install New Software...* (copy past the update site link).
 
-Update Site: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
+Update Site: [https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/](https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/)
 
 ### How do I create an Eclipse project with a new CML model to start modeling my Context Map?
 Consult the page [Create CML Model](/docs/getting-started-create-project/). It describes how to setup your project to get started with modeling CML Context Maps.
