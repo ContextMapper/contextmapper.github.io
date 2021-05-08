@@ -14,7 +14,7 @@ The **[core component](/docs/language-reference/)** provides a DSL to create con
  * Does not support all features we have in Eclipse yet. You can find a feature support table [here](/docs/ide/).
 
 **Eclipse Marketplace: [Context Mapper](https://marketplace.eclipse.org/content/context-mapper/)**
- * Alternatively you can install the Eclipse plugin manually with the following update site URL: [https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/](https://dl.bintray.com/contextmapper/context-mapping-dsl/updates/)
+ * Alternatively you can install the Eclipse plugin manually with the following update site URL: [https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/](https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/)
 
 **Online IDE (Gitpod)**: In case you don't want to install Context Mapper locally and your project is hosted on Github, you can use [Gitpod](https://www.gitpod.io/) as online IDE with our VS Code extension.
  * The extension is published to the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension), so you can easily find the extension in Gitpod. Installation instructions can be found [here](/docs/online-ide/).
