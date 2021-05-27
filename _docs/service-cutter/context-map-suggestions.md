@@ -3,7 +3,7 @@ title: Context Map Suggestions with Service Cutter
 permalink: /docs/service-cutter-context-map-suggestions/
 ---
 
-The [Service Cutter](http://servicecutter.github.io/) tool proposes a structured way to service decomposition. It suggests how a system could be decomposed into services according to 14 prioritized [coupling criteria](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria). Domain model elements are required as input. The tool then applies graph clustering algorithms to identify possible *service cuts*, which are returned as output. The approach was proposed by [this paper](https://link.springer.com/chapter/10.1007/978-3-319-44482-6_12).
+The [Service Cutter](http://servicecutter.github.io/) tool proposes a structured way to service decomposition. It suggests how a system could be decomposed into services according to 14 prioritized [coupling criteria](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria). Domain model elements are required as input. The tool then applies graph clustering algorithms to identify possible *service cuts*, which are returned as output. The approach was proposed in [this paper](https://www.researchgate.net/publication/307873263_Service_Cutter_A_Systematic_Approach_to_Service_Decomposition).
 
 ## Context Mapper Integration
 We provide a [Service Cutter library](https://github.com/ContextMapper/service-cutter-library), which is a fork of the original 
