@@ -75,6 +75,7 @@
   - event-sourcing-and-cqrs-modeling
   - jhipster-microservice-generation
   - systematic-service-decomposition
+  - architecture-validation-with-archunit
 
 - title: IDE Plugins and Extensions
   docs:
