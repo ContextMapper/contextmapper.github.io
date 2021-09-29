@@ -29,6 +29,7 @@ In case your project is hosted by GitHub, you can use [Gitpod](https://www.gitpo
 Besides the IDE plugin/extension, you need the following tools on your machine:
 
 * [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 8 or newer)
+    * If using VS Code, there is an [active issue](https://github.com/ContextMapper/context-mapper-dsl/issues/290) with the recent versions of the JDK. Installing the archived version of JDK 15 GA seems to work.  
 * If you want to use our [Context Map generator](/docs/context-map-generator/), you must have installed [Graphviz](https://www.graphviz.org/) on your system.
     * Ensure that the binaries are part of the _PATH_ environment variable and can be called from the terminal.
     * Especially on Windows this is not the case after the installation of [Graphviz](https://www.graphviz.org/). The default installation path is
