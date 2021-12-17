@@ -13,6 +13,8 @@ and details about our projects in the papers listed below.
 ## Papers & _Context Mapper_ - Related Links
 
 **2021**
+ * Stefan Kapferer and Olaf Zimmermann: **«Domain-Driven Design in der Praxis - Erfahrungen mit dem Open-Source-Tool Context Mapper»** (GERMAN), In _[JavaSPEKTRUM 6/2021](https://webreader.javaspektrum.de/de/profiles/4967c6d5eae1-javaspektrum/editions/javaspektrum-06-2021)_, pages 20–23
+     * [Article PDF](/media/SD-00-Java-06-SP-Kapferer-Zimmermann.pdf) (sponsored by [mimacom](https://www.mimacom.com))
  * Stefan Kapferer and Olaf Zimmermann: **Domain-driven Architecture Modeling and Rapid Prototyping with Context Mapper**, _Revised and Extended Selected Papers_ from the 8th International Conference on Model-Driven Engineering and Software Development, MODELSWARD 2020, Valletta, 
      * [Published paper](https://doi.org/10.1007/978-3-030-67445-8_11) (in: Springer _Communications in Computer and Information Science_)
        * [Author's Copy (PDF)](/media/978-3-030-67445-8_11_AuthorsCopy.pdf)
