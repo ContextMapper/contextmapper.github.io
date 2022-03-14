@@ -16,7 +16,7 @@ A customer-supplier relationship is an upstream-downstream relationship where th
 into upstream planning. The upstream team may succeed interdependently of the fate of the downstream team and therefore the needs of
 the downstream have to be addressed by the upstream. They interact as <strong>customer</strong> and <strong>supplier</strong>.
 A generic upstream-downstream relationship is not necessarily a customer-supplier relationship! (in CML you have to express this
-explicitely)
+explicitly)
 </div>
 
 ## Syntax
