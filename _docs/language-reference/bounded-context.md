@@ -121,6 +121,7 @@ Further reading on bounded context canvases:
 - [_The Bounded Context Canvas_](https://github.com/ddd-crew/bounded-context-canvas)
 - [_Bounded Context Canvas V3: Simplifications and Additions_](https://medium.com/nick-tune-tech-strategy-blog/bounded-context-canvas-v2-simplifications-and-additions-229ed35f825f)
 - [_DDD re-distilled_](https://yoan-thirion.gitbook.io/knowledge-base/software-architecture/ddd-re-distilled)
+- [_What I talk about when I talk about Domain-Driven Design by Andrew Harmel-Law_](https://youtu.be/6nrRfCkeAKU)
 
 ### Team _realizes_ Bounded Context
 If your bounded context is of the type TEAM, you can specify which bounded context the team implements by using the _realizes_ keyword. The following example illustrates this:
