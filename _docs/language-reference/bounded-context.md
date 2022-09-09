@@ -99,11 +99,11 @@ With the _knowledgeLevel_ attribute you define the knowledge level of the bounde
  * CONCRETE
  * META
  
-This attribute allow you to define the knowledge level according to the DDD Knowledge Level pattern. See [this page](/docs/knowledge-level/).
+This attribute allows you to define the knowledge level according to the DDD Knowledge Level pattern. See [this page](/docs/knowledge-level/).
 
 ### Support for Bounded Context Canvases
 
-To support Bounded Context Canvases, these optional fields are part of `BoundedContext`:
+To support Bounded Context Canvases, use these optional fields in `BoundedContext`:
 - `businessModel`. One of:
   * UNDEFINED
   * REVENUE
@@ -117,7 +117,7 @@ To support Bounded Context Canvases, these optional fields are part of `BoundedC
   * PRODUCT
   * COMMODITY
 
-Some resources:
+Further reading on bounded context canvases:
 - [_The Bounded Context Canvas_](https://github.com/ddd-crew/bounded-context-canvas)
 - [_Bounded Context Canvas V3: Simplifications and Additions_](https://medium.com/nick-tune-tech-strategy-blog/bounded-context-canvas-v2-simplifications-and-additions-229ed35f825f)
 - [_DDD re-distilled_](https://yoan-thirion.gitbook.io/knowledge-base/software-architecture/ddd-re-distilled)
