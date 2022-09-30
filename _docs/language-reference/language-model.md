@@ -13,7 +13,7 @@ The language representation of the DDD patterns is derived from the DDD books of
  * [Implementing Domain-Driven Design](https://www.amazon.de/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577) by Vaughn Vernon
  * [DDD Reference](http://domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf) (Eric Evans)
 
- The [Strategic Domain-Driven Design](https://socadk.github.io/design-practice-repository/activities/DPR-StrategicDDD.html) activity in the Design Practice Repository summarizes the relationship types (by Olaf Zimmermann and Mirko Stocker).
+ The [Strategic Domain-Driven Design](https://socadk.github.io/design-practice-repository/activities/DPR-StrategicDDD.html) activity in the Design Practice Repository (by Olaf Zimmermann and Mirko Stocker) summarizes the relationship types.
 
 ## Semantic Rules
 The following semantic rules are either implicitly given by the domain model on which the language is based (see above), or enforced by corresponding semantic checkers. 
