@@ -3,7 +3,7 @@ title: Partnership
 permalink: /docs/partnership/
 ---
 
-The Partnership pattern describes a symmetric relationship between two bounded contexts and is used within a [context map](/docs/context-map/) in CML. See this [description of Strategic Domain-Driven Design](https://socadk.github.io/design-practice-repository/activities/DPR-StrategicDDD.html) for an explanation of the relationship semantics.
+The Partnership pattern describes a symmetric relationship between two bounded contexts and is used within a [context map](/docs/context-map/) in CML. The [Language Semantics](https://contextmapper.org/docs/language-model/) page describes all relationship types that are supported in CML.
 
 ## Syntax
 Note that currently two different syntax variants exist. The following code snippets illustrate both variants:
