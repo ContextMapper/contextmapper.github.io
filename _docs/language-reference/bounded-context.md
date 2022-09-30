@@ -104,7 +104,7 @@ This attribute allows you to define the knowledge level according to the DDD Kno
 ### Support for Bounded Context Canvases
 
 To support Bounded Context Canvases, use these optional fields in `BoundedContext`:
-- `businessModel`. One of:
+- `businessModel`. Free text; common values include:
   * UNDEFINED
   * REVENUE
   * ENGAGEMENT
