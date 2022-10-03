@@ -3,7 +3,7 @@ title: Shared Kernel
 permalink: /docs/shared-kernel/
 ---
 
-The Shared Kernel pattern describes a relationship between two bounded contexts and is used on a [context map](/docs/context-map/) in CML.
+The Shared Kernel pattern describes a relationship between two bounded contexts and is used on a [context map](/docs/context-map/) in CML. The [Language Semantics](https://contextmapper.org/docs/language-model/) page describes all relationship types that are supported in CML.
 
 ## Syntax
 Note that currently two different syntax variants exist. The following code snippets illustrate both variants:
