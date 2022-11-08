@@ -31,7 +31,7 @@ and details about our projects in the papers listed below.
      * [Demo: Domain-Driven Service Design with Context Mapper and MDSL](https://ozimmer.ch/practices/2020/06/10/ICWEKeynoteAndDemo.html)
  * Stefan Kapferer and Olaf Zimmermann: **Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling**,
    In _Proceedings of the 8th International Conference on Model-Driven Engineering and Software Development - MODELSWARD_, pages 299–306. INSTICC, SciTePress.
-     * [Published paper](https://doi.org/10.5220/0008910502990306)
+     * [Published paper](https://doi.org/10.5220/0008910502990306) ([PDF](https://www.scitepress.org/Papers/2020/89105/89105.pdf))
      * [Presentation](/media/ZIOSK-Modelsward-Paper-Presentation-v101p.pdf)
  * Stefan Kapferer: **[A Modeling Framework for Strategic Domain-driven Design and Service Decomposition](https://eprints.hsr.ch/821/)**, Master Thesis at University of 
    Applied Sciences of Eastern Switzerland (HSR FHO)
