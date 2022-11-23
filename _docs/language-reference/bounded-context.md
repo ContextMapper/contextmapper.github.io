@@ -3,7 +3,9 @@ title: Bounded Context
 permalink: /docs/bounded-context/
 ---
 
-Bounded contexts are defined on the root level of a CML (*.cml) file and then referenced on a context map which defines the relationships with other bounded contexts. Have a look at [context map](/docs/context-map/) to see how you add a bounded context to your context map. 
+Bounded Context a key concept in strategic DDD. The interpretation and usage of the pattern in Context Mapper is explained in the article ["Domain-driven Architecture Modeling and Rapid Prototyping with Context Mapper"](https://contextmapper.org/media/978-3-030-67445-8_11_AuthorsCopy.pdf).
+
+Bounded Contexts are defined on the root level of a CML (*.cml) file and then referenced on a context map which defines the relationships with other bounded contexts. Have a look at [context map](/docs/context-map/) to see how you add a bounded context to your context map. 
 
 ## Syntax
 The following example illustrates how a bounded context is defined in CML (syntactical features). The **Customer Management** context is a context within our fictitious insurance company example. The whole example with the context map and all bounded contexts can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example).

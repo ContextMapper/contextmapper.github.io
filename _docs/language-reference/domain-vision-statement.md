@@ -3,7 +3,7 @@ title: Domain Vision Statement
 permalink: /docs/domain-vision-statement/
 ---
 
-The Domain Vision Statement pattern is implemented as a String attribute on the [bounded context](/docs/bounded-context), the [domain](/docs/subdomain), and the 
+The Domain Vision Statement pattern from the ["blue book"](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215) is implemented as a String attribute on the [bounded context](/docs/bounded-context), the [domain](/docs/subdomain), and the 
 [subdomain](/docs/subdomain).
 
 ## Syntax

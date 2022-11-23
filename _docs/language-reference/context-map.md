@@ -4,7 +4,7 @@ permalink: /docs/context-map/
 ---
 
 The context map is the most important element of CML, implementing the DDD Context Map pattern.
-A context map contains bounded contexts and defines their relationships.
+A context map contains bounded contexts and defines their relationships. The interpretation and usage of the pattern in Context Mapper is explained in the article ["Domain-driven Architecture Modeling and Rapid Prototyping with Context Mapper"](https://contextmapper.org/media/978-3-030-67445-8_11_AuthorsCopy.pdf).
 
 ## Syntax
 

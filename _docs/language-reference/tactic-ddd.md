@@ -3,8 +3,7 @@ title: Tactic DDD Syntax
 permalink: /docs/tactic-ddd/
 ---
 
-The Context Mapper syntax for the tactic DDD part is based on the [Sculptor DSL](http://sculptorgenerator.org/). For this reason we do not
-document all details of the tactic language part, since all the information can be found in Sculptor's [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+The Context Mapper syntax for the tactic DDD part is based on the [Sculptor DSL](http://sculptorgenerator.org/). For this reason we do not document all details of the tactic language part, since all the information can be found in Sculptor's [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
 However, we still provide a short introduction into the most important elements on this page.
 
 ## Aggregates
