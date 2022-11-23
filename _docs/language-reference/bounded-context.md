@@ -101,7 +101,29 @@ With the _knowledgeLevel_ attribute you define the knowledge level of the bounde
  * CONCRETE
  * META
  
-This attribute allow you to define the knowledge level according to the DDD Knowledge Level pattern. See [this page](/docs/knowledge-level/).
+This attribute allows you to define the knowledge level according to the DDD Knowledge Level pattern. See [this page](/docs/knowledge-level/).
+
+### Support for Bounded Context Canvases
+
+To support Bounded Context Canvases, use these optional fields in `BoundedContext`:
+- `businessModel`. Free text; common values include:
+  * UNDEFINED
+  * REVENUE
+  * ENGAGEMENT
+  * COMPLIANCE
+  * COST_REDUCTION
+- `evolution`. One of:
+  * UNDEFINED
+  * GENESIS
+  * CUSTOM_BUILT
+  * PRODUCT
+  * COMMODITY
+
+Further reading on bounded context canvases:
+- [_The Bounded Context Canvas_](https://github.com/ddd-crew/bounded-context-canvas)
+- [_Bounded Context Canvas V3: Simplifications and Additions_](https://medium.com/nick-tune-tech-strategy-blog/bounded-context-canvas-v2-simplifications-and-additions-229ed35f825f)
+- [_DDD re-distilled_](https://yoan-thirion.gitbook.io/knowledge-base/software-architecture/ddd-re-distilled)
+- [_What I talk about when I talk about Domain-Driven Design by Andrew Harmel-Law_](https://youtu.be/6nrRfCkeAKU)
 
 ### Team _realizes_ Bounded Context
 If your bounded context is of the type TEAM, you can specify which bounded context the team implements by using the _realizes_ keyword. The following example illustrates this:
