@@ -1,9 +1,6 @@
 source "https://rubygems.org"
 ruby RUBY_VERSION
 
-gem "jekyll", "3.7.4"
-gem 'pygments.rb', '~> 1.0.0'
-
 # to use GitHub Pages
 gem "github-pages", group: :jekyll_plugins
 
@@ -13,6 +10,7 @@ group :jekyll_plugins do
    gem "jekyll-sitemap"
    gem "jekyll-redirect-from"
    gem "jekyll-seo-tag"
+   gem "webrick"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
