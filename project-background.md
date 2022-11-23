@@ -12,6 +12,11 @@ and details about our projects in the papers listed below.
 
 ## Papers & _Context Mapper_ - Related Links
 
+**2022**
+ * Stefan Kapferer and Olaf Zimmermann: **Domain-Driven Design (DDD) in Practice — Experience with Context Mapper**, two translated and mildly edited blogposts that cover the contents of the original article **«Domain-Driven Design in der Praxis - Erfahrungen mit dem Open-Source-Tool Context Mapper»** written in German; each part features one case and related lessons learned.
+     * [Part by Stefan Kapferer (mimacom)](https://blog.mimacom.com/ddd-and-context-mapper-experience/)
+     * [Part by Olaf Zimmermann (OST)](https://ozimmer.ch/modeling/2022/11/23/ContextMapperInsights.html)
+
 **2021**
  * Stefan Kapferer and Olaf Zimmermann: **«Domain-Driven Design in der Praxis - Erfahrungen mit dem Open-Source-Tool Context Mapper»** (GERMAN), In _[JavaSPEKTRUM 6/2021](https://webreader.javaspektrum.de/de/profiles/4967c6d5eae1-javaspektrum/editions/javaspektrum-06-2021)_, pages 20–23
      * [Article PDF](/media/SD-00-Java-06-SP-Kapferer-Zimmermann.pdf) (sponsored by [mimacom](https://www.mimacom.com))
