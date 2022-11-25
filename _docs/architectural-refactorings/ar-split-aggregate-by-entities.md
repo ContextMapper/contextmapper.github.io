@@ -53,4 +53,4 @@ The resulting bounded context contains two aggregates, one for each entity:
 
 ## Example Sources
  * You can find the CML sources for this AR example 
-   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-1-Split-Aggregate-by-Entities).
+   [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/architectural-refactorings/AR-01-Split-Aggregate-by-Entities).
