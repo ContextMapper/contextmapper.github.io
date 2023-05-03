@@ -148,8 +148,7 @@ The declaration of commands is done with the _Command_ keyword: (alternatively y
 Attributes (incl. type references) and methods/operations in domain events can be specified exactly the same way as within entities (see sections above).
 
 ## Services
-Within your aggregate you can also specify services according to the tactic DDD _Service_ pattern. Services are declared with the _Service_
-keyword and contain one or more methods/operations. These methods/operations are declared exactly the same way as within entities, value
+Within your [bounded context](/docs/bounded-context) (or also inside aggregates) you can specify domain services according to the tactic DDD _Service_ pattern. Domain services are declared with the _Service_ keyword and contain one or more methods/operations. These methods/operations are declared exactly the same way as within entities, value
 objects or domain events, **but without the _def_ keyword**:
 
 <div class="highlight"><pre><span></span><span class="k">Service</span> RoutingService {
@@ -158,6 +157,8 @@ objects or domain events, **but without the _def_ keyword**:
 </pre></div>
 
 With the _throws_ keyword you can specify that the method/operation can throw a specific exception (as in Java).
+
+**Note:** The [MDSL generator](/docs/mdsl/) currently only makes use of domain services that are declared inside aggregates that are [exposed in your Context Map](/docs/context-map/#exposed-aggregates).
  
 ## Repositories
 You can specify a repository with the _Repository_ keyword **within your aggregate root**. Only aggregate roots can contain repositories, 

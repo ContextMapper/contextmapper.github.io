@@ -68,6 +68,19 @@ you can use the _interactions_ introduced above to model the _main success scena
 }
 </pre></div>
 
+### Secondary Actors
+If your use case is performed by muliple or secondary actors, you can use the _secondaryActors_ keyword as shown in the following example:
+
+<div class="highlight"><pre><span></span><span class="k">UseCase</span> UC1_Example {
+  <span class="k">actor</span> = <span class="s">&quot;Insurance Employee&quot;</span>
+  <span class="k">secondaryActors</span> = <span class="s">&quot;Insurance Administrator&quot;</span>, <span class="s">&quot;Sales Person&quot;</span>
+  <span class="k">interactions</span> = <span class="k">create</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>, <span class="k">update</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>, <span class="s">&quot;offer&quot;</span> <span class="k">a</span> <span class="s">&quot;Contract&quot;</span>
+  <span class="k">benefit</span> = <span class="s">&quot;I am able to manage the customers data and offer them insurance contracts.&quot;</span>
+}
+</pre></div>
+
+All actors are respected in our [PlantUML Generator (Use Case Diagram)](/docs/plant-uml/).
+
 ## User Story
 First and foremost, a user story is an invitation to communicate and collaborate, as well a planning item. That said, the [role-feature-reason template](https://www.agilealliance.org/glossary/user-story-template/) can also serve as a requirements specification element. Hence, the user story support in CML allows you to declare exactly the same information as seen in the use case above, but in another syntax:
 
