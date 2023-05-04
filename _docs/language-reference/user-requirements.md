@@ -69,7 +69,7 @@ you can use the _interactions_ introduced above to model the _main success scena
 </pre></div>
 
 ### Secondary Actors
-If your use case is performed by muliple or secondary actors, you can use the _secondaryActors_ keyword as shown in the following example:
+If your use case involves secondary actors, you can use the _secondaryActors_ keyword as shown in the following example:
 
 <div class="highlight"><pre><span></span><span class="k">UseCase</span> UC1_Example {
   <span class="k">actor</span> = <span class="s">&quot;Insurance Employee&quot;</span>
