@@ -117,6 +117,10 @@ With our [PlantUML generator](/docs/plant-uml/) you can visualize the lifecycle 
 
 ![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram.png)
 
+**Note:** If you use the _target state_ markers (*) as documented above, we also use this information in our [PlantUML Generator](/docs/plant-uml/) and generate the corresponding end states:
+
+![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram_with-end-States.png)
+
 ## Aggregate Owner
 CML allows specifying an owner on the aggregate level. If aggregates are maintained by different teams, you can specify this as in the
 following example:

@@ -21,6 +21,15 @@ Your CML models can define the lifecycle of Aggregates either in the [Aggregate 
 
 <a href="/img/QuoteRequestFlow_BC_InsuranceQuotes_QuoteRequestFlow_StateDiagram.png">![PlantUML State Diagram](/img/QuoteRequestFlow_BC_InsuranceQuotes_QuoteRequestFlow_StateDiagram.png)</a>
 
+**Note:** If you you use the _end state_ markers (*) as documented [here](/docs/aggregate/#aggregate-lifecycle-and-state-transitions), we also generate the corresponding end state transitions in PlantUML:
+
+<a href="/img/QuoteRequestFlow_BC_InsuranceQuotes_QuoteRequestFlow_StateDiagram_with-end-States.png">![PlantUML State Diagram](/img/QuoteRequestFlow_BC_InsuranceQuotes_QuoteRequestFlow_StateDiagram_with-end-States.png)</a>
+
+## UML Use Case Diagrams
+CML also allows you to write Use Cases and User Stories. You can find the documentation about how to write such user requirements [here](/docs/user-requirements/). In case your CML model contains such user requirements, the PlantUML generator will also automatically generate a use case diagram for you. Here an example:
+
+<a href="/img/plantuml-generation-use-case-diagram-example.png">![PlantUML Use Case Diagram](/img/plantuml-generation-use-case-diagram-example.png)</a>
+
 ## Generating the PlantUML Diagrams
 The generators can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
 
