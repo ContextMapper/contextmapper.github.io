@@ -18,7 +18,7 @@ Or search for "Context Mapper" in the extension view of your visual studio code.
 To start using Context Mapper in Eclipse, please install the plugin via the **Eclipse Marketplace** or our **update site**: 
 
 **Eclipse Marketplace: [Context Mapper](https://marketplace.eclipse.org/content/context-mapper/)**
- * Alternatively you can use the following update site URL for manual installation in Eclipse: [https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/](https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/)
+ * Alternatively you can use the following update site URL for manual installation in Eclipse: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/)
 
 ## Online IDE (Gitpod)
 In case your project is hosted by GitHub, you can use [Gitpod](https://www.gitpod.io/) as online IDE. Our VS Code extension is published to the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension) and can be found in the extensions in your [Gitpod](https://www.gitpod.io/).

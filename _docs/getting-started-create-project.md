@@ -31,7 +31,7 @@ You can use Context Mapper in Eclipse, Visual Studio Code, or the online IDE Git
    * Alternatively, you can follow this procedure to install the plugin from update site URL directly:
       1. Open the plugin installation dialog in Eclipse with the menu entry _Help -> Install New Software..._
       2. Enter the following update site URL to the field _Work with:_ on the top of the dialog:
-    <br/>[https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/](https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/)
+    <br/>[https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/)
       3. Select the two features _ContextMappingDSL_ and _ContextMappingDSL (Sources)_ and continue with _Next_.
       4. Finish the plugin installation by completing the wizard.
 
