@@ -6,7 +6,7 @@ author: Stefan Kapferer
 
 Dear Context Mapper users
 
-**This is an important note for all of those who use Context Mapper in Eclipse!**
+**This is an important note for everybody using Context Mapper in Eclipse!**
 
 Since [jfrog.com](https://jfrog.com) no longer offers a "free" version of their [Artifactory](https://jfrog.com/artifactory/), we had to move our Eclipse update sites. 
 The old URL (~~https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/~~) is therefore no longer available.
