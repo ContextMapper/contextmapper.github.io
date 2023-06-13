@@ -19,5 +19,27 @@ bundle exec jekyll serve
 
 Gitpod allows you to make the open port public so that you are able to preview the page in your browser.
 
+## Running Locally
+If you don't want to use Gitpod and want to preview the website locally, follow these steps:
+
+ 1. Install Ruby and gem in case you don't have it already.
+ 2. Install the bundler: 
+
+ ```bash
+ gem install bundler
+ ```
+
+ 3. Install dependencies: 
+ 
+ ```bash
+ bundle install
+ ```
+
+ 4. Run Context Mapper website: 
+ 
+ ```bash
+ bundle exec jekyll serve
+ ```
+
 ## Contribution
 If you think something is missing on our documentation website and you still have unanswered questions, we are happy if you create an issue [here](https://github.com/ContextMapper/contextmapper.github.io/issues) allowing us to improve the docs. PRs are always welcome as well!
