@@ -8,8 +8,7 @@ Dear Context Mapper users
 
 **This is an important note for everybody using Context Mapper in Eclipse!**
 
-Since [jfrog.com](https://jfrog.com) no longer offers a "free" version of their [Artifactory](https://jfrog.com/artifactory/), we had to move our Eclipse update sites. 
-The old URL (~~https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/~~) is therefore no longer available.
+We decided to move our Eclipse update sites. The old URL (~~https://contextmapper.jfrog.io/artifactory/context-mapper-eclipse/updates/~~) is therefore no longer available.
 
 To update and install Context Mapper in Eclipse, use our **new update site URL: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/)** 
 (or just install it via [Marketplace](https://marketplace.eclipse.org/content/context-mapper)).
