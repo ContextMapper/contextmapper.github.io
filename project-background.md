@@ -83,7 +83,7 @@ and details about our projects in the papers listed below.
  * Eric Evans: [Domain-Driven Design: Tackling Complexity in the Heart of Software](http://dddcommunity.org/book/evans_2003/), Addison-Wesley, 2003
  * Eric Evans: [DDD Reference](http://domainlanguage.com/ddd/reference/)
 
-Find more DDD-related links [here](https://www.ifs.hsr.ch/index.php?id=15666&L=4de%2Fshops%2F2164%2F004) (Olaf Zimmermann, Institute for Software, HSR).
+Find more DDD-related links [here](https://www.ost.ch/de/forschung-und-dienstleistungen/informatik/ifs-institut-fuer-software/labs/cloud-application-lab/architectural-refactoring-for-the-cloud-arc/domain-driven-design-ddd) (Institute for Software, OST).
 
 ## Other Resources
  * [Context Mapper Example Models](https://github.com/ContextMapper/context-mapper-examples)
