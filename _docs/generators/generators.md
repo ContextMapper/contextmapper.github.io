@@ -3,16 +3,14 @@ title: Generators Overview
 permalink: /docs/generators/
 ---
 
-The Context Mapper generators provide transformations to derive graphical Context Maps, [PlantUML diagrams](http://plantuml.com/), 
-[Microservice Domain-Specific Langauge (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts, and 
-[Service Cutter](https://servicecutter.github.io/) input files from your CML context map. We also provide a [generic, template-based generator](/docs/generic-freemarker-generator/) 
+The Context Mapper generators provide transformations to derive graphical Context Maps, [PlantUML diagrams](http://plantuml.com/), and 
+[Microservice Domain-Specific Langauge (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts from your CML context map. We also provide a [generic, template-based generator](/docs/generic-freemarker-generator/) 
 based on Freemarker which allows to generate arbitrary textual files.
 
 **Generators:**
  * [Graphical context maps](#graphical-context-maps)
  * [PlantUML diagrams](#plantuml-diagrams)
  * [MDSL (micro-)service contracts](#mdsl-micro-service-contracts)
- * [Service Cutter input files](#service-cutter-input-files)
  * [Generic, template-based textual generator (Freemarker Templating)](#generic-textual-generator-freemarker-templating)
 
 ## Using the Generators
@@ -102,11 +100,6 @@ This is an examplary [MDSL](https://microservice-api-patterns.github.io/MDSL-Spe
 </pre></div>
 
 Learn more about the [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) generator [here](/docs/mdsl/).
-
-## Service Cutter Input Files
-Find out how to produce Service Cutter input to calculate possible service cuts or new bounded contexts [here](/docs/service-cutter/):
-
-![Service Cutter DDD Sample](/img/service-cutter-ddd-sample.png)
 
 ## Generic Textual Generator (Freemarker)
 The generic, template-based generator allows you to generate arbitrary text files from CML Context Maps. It uses [Freemarker](https://freemarker.apache.org/) as its template engine and exposes the entire CML content as an object tree whose elements can be injected into the template.

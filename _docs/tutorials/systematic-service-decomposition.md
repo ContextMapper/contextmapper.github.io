@@ -4,6 +4,10 @@ permalink: /docs/systematic-service-decomposition/
 image: /img/cm-og-image.png
 ---
 
+<div class="alert alert-danger">
+<strong>Note:</strong> This feature has been <strong>deactivated</strong> with <a href="https://contextmapper.org/news/2023/11/24/v6.10.0-released/">release v6.10.0</a> of Context Mapper.
+</div>
+
 Context Mapper provides a generator that decomposes your domain model into Bounded Contexts in a systematic manner. The service decomposition tool is based on [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/). Based on a [catalog of 16 coupling criteria](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria) and a graph clustering algorithm, the generator suggests how an application could be decomposed into Bounded Contexts, services, or components.
 
 Note that it is not our goal to automate the job of domain modelers and software architects! The generated decompositions are just suggestions and can give you hints how your domain objects are coupled. Don't expect that the perfect decomposition is generated for you without questioning it.
