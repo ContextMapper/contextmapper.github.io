@@ -3,6 +3,10 @@ title: Service Cutter Configuration File (.servicecutter.yml)
 permalink: /docs/service-cutter-config-file/
 ---
 
+<div class="alert alert-danger">
+<strong>Note:</strong> This feature has been <strong>deactivated</strong> with <a href="https://contextmapper.org/news/2023/11/24/v6.10.0-released/">release v6.10.0</a> of Context Mapper.
+</div>
+
 Context Mapper uses [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/) to [propose new Context Maps (service decompositions)](/docs/service-cutter-context-map-suggestions/). There is also a [tutorial](/docs/systematic-service-decomposition/) that explains how this works.
 
 However, since we do not provide a user interface to configure the coupling criteria priorities as the original [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/) tool does, we provide a file called `.servicecutter.yml` that allows you to configure the service cutting engine.

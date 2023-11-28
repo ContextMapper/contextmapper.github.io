@@ -23,8 +23,6 @@ The following table illustrates which features are already implemented in VS Cod
 | PlantUML generator                                           | yes                         | yes                                         |
 | MDSL generator                                               | yes                         | yes                                         |
 | Generic text file generator                                  | yes                         | yes                                         |
-| Service Cutter input file generators                         | yes                         | yes                                         |
-| New service cut generator                                    | yes                         | yes                                         |
 | OOAD transformation: Derive Subdomain from user requirements | yes                         | yes                                         |
 | OOAD transformation: Derive Bounded Context from Subdomains  | yes                         | yes                                         |
 | OOAD transformation: Derive frontend and backend systems     | yes                         | yes                                         |

@@ -303,7 +303,6 @@ Once you derived your initial Bounded Contexts, you can:
    - [Graphical Context Map](/docs/context-map-generator/)
    - [PlantUML diagrams](/docs/plant-uml/)
    - [MDSL (micro-)service contracts](/docs/mdsl/)
-   - [Service Cutter input files](/docs/service-cutter/)
    - [Generic output with Freemarker templates](/docs/generic-freemarker-generator/)
      - Use our [JHipster JDL generator template](/docs/jhipster-microservice-generation/) to generate microservices code from your Context Map.
 
