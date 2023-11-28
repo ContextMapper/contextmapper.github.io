@@ -422,13 +422,13 @@ PaymentManagement::PaymentApplicationService::performPayment;
 
 </pre></div>
 
-_Note:_ The type of workflow coordination (orchestration or choreography) is not explicitly supported in the syntax, but can still be modelled by assuming that the Bounded Context where the coordination is defined serves as either the orchestrator, or the start of the choreography.
+_Note:_ The type of workflow coordination (orchestration or choreography) is not explicitly supported in the syntax, but can still be modeled by assuming that the Bounded Context where the coordination is defined serves as either the orchestrator, or the start of the choreography.
 
 ### Coordination Grammar
 
-In CML, coordinations are composed of coordination steps. Each coordination step represents a call to an application service operation that can be defined inside the same Bounded Context, or in an outer Bounded Context.
+In CML, coordinations are composed of coordination steps. Each coordination step represents a call to an application service operation, which can be defined inside the same Bounded Context or in an outer Bounded Context.
 
-To correcly reference an application service operation, a coordination step is divided into three segments, seperated by the `::` symbol:
+To correctly reference an application service operation, a coordination step is divided into three segments, separated by the `::` symbol:
 
 - The name of the Bounded Context where the operation is defined;
 - The name of the application service where the operation is defined;
@@ -443,12 +443,12 @@ ClaimsManagement::ClaimsApplicationService::submitClaim;
 
 Each of the three segments of a coordination step is also subject to certain syntax rules to maintain the integrity of the model. Respectively, these are:
 
-- A reference to an outer Bouned Context must be reachable by Context Map relationships;
+- A reference to an outer Bounded Context must be reachable by Context Map relationships.
 - A reference to a service must originate from an application layer service;
 - A reference to an operation should be unique within the service.
 
 ### Coordination visualization in BPMN
 
-Like flows, coordinations can also be visuallized with [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/). The following example shows the output when using Context Mapper’s [BPMN Sketch Miner generator](/docs/bpmn-sketch-miner/) on coordinations:
+Like flows, coordinations can also be visualized with [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/). The following example shows the output when using Context Mapper’s [BPMN Sketch Miner generator](/docs/bpmn-sketch-miner/) on coordinations:
 
 ![BPMN Sketch Miner Example](/img/bpmn-sketch-miner-example-2.png)
