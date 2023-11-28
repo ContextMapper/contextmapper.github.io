@@ -7,6 +7,8 @@ The original ["blue book"](https://www.amazon.com/Domain-Driven-Design-Tackling-
 
 In addition to that, the application layer offers a basic syntax to model processes or event/command flows. This can, for example, be helpful to bring events and commands (maybe outcome of an [Event Storming](/docs/event-storming/)) into a timeline and explicitly state which event are emitted by which commands (or service operations) and which commands are triggered by events.
 
+The application layer also provides an alternative way to model processes without relying on event/command syntax. This is achieved by defining a coordination between service operations.
+
 ## Application Services and Commands
 
 DDD practitioners and experts typically distinguish between domain services and application services. Therefore, CML offers the possibility to use the _service_ construct both inside Aggregates (domain service) and inside the _application_ layer (application service). Note that the grammar/syntax for application services is exactly the same as for the [services inside the Aggregates](/docs/tactic-ddd/#services).
@@ -372,4 +374,81 @@ _Note:_ This is a process we took (modeled) from the [Lakeside Mutual project](h
 
 ## Coordination between Application Services
 
-In case you want to model distributed workflows without the use of events and commands, you can also do so by defining a coordination between multiple application services from different Bounded Contexts. This language feature is based on the concept of Coordination from the ["Software Architecture: The Hard Parts"](https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894) book by Neal Ford and others. They define Coordination as a property of workflows, which can either be orchestrated or choreographed (TODO: add link/reference to these terms or remove sentence if it is to technical). In Context Mapper, you use the _coordination_ construct inside the _application_ layer of a Bounded Context to model such workflows, as the following example illustrates:
+In case you want to model processes/workflows that span multiple Bounded Contexts without the use of event/command syntax, you can also do so by defining a coordination between application services. This language feature is based on the concept of Coordination from the ["Software Architecture: The Hard Parts"](https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894) book by Neal Ford and others. They define Coordination as a property of workflows, which can either be orchestrated (the workflow steps are coordinated by a central component) or choreographed (each step of the workflow shares coordination logic).
+
+To model these workflows in Context Mapper, you use the _coordination_ construct inside the _application_ layer of a Bounded Context. The following example illustrates this using an adaptation of the same claims processing concept from before:
+
+<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
+  <span class="k">contains</span> ClaimsManagement
+  <span class="k">contains</span> InsuranceManagement
+  <span class="k">contains</span> PaymentManagement
+
+ClaimsManagement &lt;-&gt; InsuranceManagement
+ClaimsManagement &lt;-&gt; PaymentManagement
+}
+
+<span class="k">BoundedContext</span> ClaimsManagement {
+<span class="k">Application</span> {
+<span class="k">Coordination</span> SubmitValidClaimCoordination {
+ClaimsManagement::ClaimsApplicationService::submitClaim;
+InsuranceManagement::InsuranceApplicationService::checkInsurance;
+ClaimsManagement::ClaimsApplicationService::acceptClaim;
+PaymentManagement::PaymentApplicationService::performPayment;
+}
+
+    <span class="k">Service</span> ClaimsApplicationService {
+      <span class="k">void</span> submitClaim(@Claim claim);
+      <span class="k">void</span> acceptClaim(@Claim claim);
+    }
+
+}
+}
+
+<span class="k">BoundedContext</span> InsuranceManagement {
+<span class="k">Application</span> {
+<span class="k">Service</span> InsuranceApplicationService {
+<span class="k">void</span> checkInsurance(@Claim claim);
+}
+}
+}
+
+<span class="k">BoundedContext</span> PaymentManagement {
+<span class="k">Application</span> {
+<span class="k">Service</span> PaymentApplicationService {
+<span class="k">void</span> performPayment(@Claim claim);
+}
+}
+}
+
+</pre></div>
+
+_Note:_ The type of workflow coordination (orchestration or choreography) is not explicitly supported in the syntax, but can still be modelled by assuming that the Bounded Context where the coordination is defined serves as either the orchestrator, or the start of the choreography.
+
+### Coordination Grammar
+
+In CML, coordinations are composed of coordination steps. Each coordination step represents a call to an application service operation that can be defined inside the same Bounded Context, or in an outer Bounded Context.
+
+To correcly reference an application service operation, a coordination step is divided into three segments, seperated by the `::` symbol:
+
+- The name of the Bounded Context where the operation is defined;
+- The name of the application service where the operation is defined;
+- And the name of the operation.
+
+The following is an example of a coordination step:
+
+<div class="highlight"><pre><span></span><span class="c">// Bounded context name :: application service name :: service operation name</span>
+ClaimsManagement::ClaimsApplicationService::submitClaim;
+
+</pre></div>
+
+Each of the three segments of a coordination step is also subject to certain syntax rules to maintain the integrity of the model. Respectively, these are:
+
+- A reference to an outer Bouned Context must be reachable by Context Map relationships;
+- A reference to a service must originate from an application layer service;
+- A reference to an operation should be unique within the service.
+
+### Coordination visualization in BPMN
+
+Like flows, coordinations can also be visuallized with [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/). The following example shows the output when using Context Mapper’s [BPMN Sketch Miner generator](/docs/bpmn-sketch-miner/) on coordinations:
+
+![BPMN Sketch Miner Example](/img/bpmn-sketch-miner-example-2.png)
