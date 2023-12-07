@@ -4,7 +4,7 @@ title:  "Master Thesis Published"
 author: Stefan Kapferer
 ---
 
-The Context Mapper project is developed at [HSR](https://www.hsr.ch). The master thesis of Stefan Kapferer, **A Modeling Framework for Strategic Domain-driven Design and Service Decomposition**,
+The Context Mapper project is developed at [HSR](https://www.ost.ch). The master thesis of Stefan Kapferer, **A Modeling Framework for Strategic Domain-driven Design and Service Decomposition**,
 which presents the framework architecture behind Context Mapper has been published now.
 
 ## Abstract
@@ -29,4 +29,4 @@ our concepts and improve the prototype iteratively. With case studies such as th
 and effectiveness of the suggested modeling framework. The conducted validation activities indicate that the hypothesis above holds true.
 
 ## Full report
-The full master thesis report can be found here: [https://eprints.hsr.ch/821/](https://eprints.hsr.ch/821/)
+The full master thesis report can be found here: [https://eprints.ost.ch/821/](https://eprints.ost.ch/821/)

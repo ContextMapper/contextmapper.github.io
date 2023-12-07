@@ -4,7 +4,7 @@ title:  "Service Decomposition as a Series of Architectural Refactorings"
 author: Stefan Kapferer
 ---
 
-The Context Mapper project is developed as part of term projects at [HSR](https://www.hsr.ch). The newest Context Mapper feature, the 
+The Context Mapper project is developed as part of term projects at [HSR](https://www.ost.ch) (former "HSR"). The newest Context Mapper feature, the 
 [Architectural Refactorings (ARs)](/docs/architectural-refactorings/), are a result of our latest project "**Service Decomposition as a Series of Architectural Refactorings**".
 
 ## Abstract
@@ -15,4 +15,4 @@ This work presents a series of Architectural Refactorings (ARs) for strategic DD
 The provided DSL with its seven ARs, implemented as model transformations, support evolving DDD-based models in an iterative way. The conducted validation activities support our hypothesis that software architects can benefit from such an approach and tool. Action research has been applied to improve Context Mapper in each iteration of the prototypical implementation. Basic case studies conducted on real world projects in the industry indicated the usefulness and effectiveness of the modeling language. More advanced validation activities still have to be conducted to analyze and demonstrate the practicability of the ARs.
 
 ## Full report
-The full project report can be found here: [https://eprints.hsr.ch/784/](https://eprints.hsr.ch/784/)
+The full project report can be found here: [https://eprints.ost.ch/784/](https://eprints.ost.ch/784/)

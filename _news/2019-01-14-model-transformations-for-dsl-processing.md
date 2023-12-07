@@ -6,7 +6,7 @@ author: Stefan Kapferer
 
 With our next major Context Mapper release we will provide architectural refactorings (ARs) which allow the user/architect to evolve and
 improve the modeled architecture iteratively. As a "proof-of-concept" we implemented a model transformation with the [Henshin](https://www.eclipse.org/henshin/)
-transformation tool. The implementation of this first refactoring was part of a seminar (paper & presentation) at [HSR](https://www.hsr.ch).
+transformation tool. The implementation of this first refactoring was part of a seminar (paper & presentation) at [OST](https://www.ost.ch) (former "HSR").
 
 Below you can find the links to the paper and the presentation.
 

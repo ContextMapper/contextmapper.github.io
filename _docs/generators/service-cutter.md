@@ -10,7 +10,7 @@ For more information about Service Cutter we refer to its projects wiki and two 
 
  * [Service Cutter Wiki](https://github.com/ServiceCutter/ServiceCutter/wiki)
  * [Service Cutter: A Systematic Approach to Service Decomposition (Paper)](https://link.springer.com/chapter/10.1007/978-3-319-44482-6_12)
- * [Service Cutter: A Systematic Approach to Service Decomposition (HSR Bachelor Thesis)](https://eprints.hsr.ch/476/)
+ * [Service Cutter: A Systematic Approach to Service Decomposition (HSR Bachelor Thesis)](https://eprints.ost.ch/476/)
 
 ## User Guide
 The following sections describe how to use the Service Cutter generators and create the input files for Service Cutter.

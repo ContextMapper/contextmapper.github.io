@@ -7,7 +7,7 @@ image: /img/cm-og-image.png
 ---
 
 The Context Mapper project has been developed as part of term projects at the 
-[University of Applied Sciences of Eastern Switzerland (HSR FHO)](https://www.hsr.ch). You can find further background information 
+[Eastern Switzerland University of Applied Sciences (OST)](https://www.ost.ch) (former "HSR"). You can find further background information 
 and details about our projects in the papers listed below.
 
 ## Papers & _Context Mapper_ - Related Links
@@ -38,9 +38,9 @@ and details about our projects in the papers listed below.
    In _Proceedings of the 8th International Conference on Model-Driven Engineering and Software Development - MODELSWARD_, pages 299–306. INSTICC, SciTePress.
      * [Published paper](https://doi.org/10.5220/0008910502990306) ([PDF](https://www.scitepress.org/Papers/2020/89105/89105.pdf))
      * [Presentation](/media/ZIOSK-Modelsward-Paper-Presentation-v101p.pdf)
- * Stefan Kapferer: **[A Modeling Framework for Strategic Domain-driven Design and Service Decomposition](https://eprints.hsr.ch/821/)**, Master Thesis at University of 
+ * Stefan Kapferer: **[A Modeling Framework for Strategic Domain-driven Design and Service Decomposition](https://eprints.ost.ch/821/)**, Master Thesis at University of 
    Applied Sciences of Eastern Switzerland (HSR FHO)
-     * [Project report](https://eprints.hsr.ch/821/)
+     * [Project report](https://eprints.ost.ch/821/)
      * [Abstract](/media/HS19-MSE-Master-Thesis-Abstract-Stefan-Kapferer-SDDD-Modeling-Framework.pdf)
      
 **2019**
@@ -48,10 +48,10 @@ and details about our projects in the papers listed below.
    talk at [Java User Group Switzerland](https://www.jug.ch) in St. Gallen (September 10, 2019)
      * [Talk abstract](https://www.jug.ch/html/events/2019/context_mapper.html)
      * [Slides](/media/ZIOSK-ContextMapper4JUGv10p.pdf)
- * Stefan Kapferer: **[Service Decomposition as a Series of Architectural Refactorings](https://eprints.hsr.ch/784/)**, student research project
+ * Stefan Kapferer: **[Service Decomposition as a Series of Architectural Refactorings](https://eprints.ost.ch/784/)**, student research project
      * **Term project on which the [Architectural Refactorings (ARs)](/docs/architectural-refactorings/) and the [MDSL generator](/docs/mdsl/) of Context Mapper are based on.**
         * (see [Microservices Domain-Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) for language details on MDSL)
-     * [Project report](https://eprints.hsr.ch/784/)
+     * [Project report](https://eprints.ost.ch/784/)
      * [Abstract](/media/FS19-MSE-Stefan-Kapferer-Service-Decomposition-Architectural-Refactorings-Abstract.pdf)
  * Olaf Zimmermann: **[Domain-Specific Service Decomposition with Microservices API Patterns](https://www.conf-micro.services/2019/slides//keynotes/Zimmerman.pdf)**,
    keynote slides mentioning Context Mapper, [Microservices Conference 2019](https://www.conf-micro.services/2019/)
@@ -60,9 +60,9 @@ and details about our projects in the papers listed below.
      * [Microservice API Patterns Website](https://microservice-api-patterns.org/)
 
 **2018**
- * Stefan Kapferer: **[A Domain-specific Language for Service Decomposition](https://eprints.hsr.ch/722/)**, student research project
+ * Stefan Kapferer: **[A Domain-specific Language for Service Decomposition](https://eprints.ost.ch/722/)**, student research project
    * **Term project on which the Context Mapping Language (CML) is based on.**
-   * [Project report](https://eprints.hsr.ch/722/)
+   * [Project report](https://eprints.ost.ch/722/)
    * [Abstract](/media/HS18-MSE-Stefan-Kapferer-A-DSL-for-Service-Decomposition-Abstract.pdf)
  * Stefan Kapferer: **[Model Transformations for DSL Processing](https://stefan.kapferer.ch/model-transformations-for-dsl-processing)**,
    seminar paper
