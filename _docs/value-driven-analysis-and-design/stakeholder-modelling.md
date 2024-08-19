@@ -1,6 +1,6 @@
 ---
 title: "Stakeholder Modelling"
-permalink: /docs/vdad-stakeholder-modelling/
+permalink: /docs/stakeholder-modelling/
 ---
 
 ## tbd

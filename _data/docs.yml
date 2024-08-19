@@ -54,8 +54,8 @@
 
 - title: Value-Driven Analysis and Design
   docs:
-  - vdad-stakeholder-modelling
-  - vdad-value-modelling
+  - stakeholder-modelling
+  - value-modelling
 
 - title: Service Cutter
   docs:

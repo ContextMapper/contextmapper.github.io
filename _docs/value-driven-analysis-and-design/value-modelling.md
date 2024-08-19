@@ -1,6 +1,6 @@
 ---
 title: "Value Modelling"
-permalink: /docs/vdad-value-modelling/
+permalink: /docs/value-modelling/
 ---
 
 ## tbd
