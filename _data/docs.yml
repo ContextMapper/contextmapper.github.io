@@ -28,6 +28,8 @@
   - tactic-ddd
   - application-and-process-layer
   - user-requirements
+  - stakeholders
+  - value-registers
   - imports
 
 - title: Analysis and Design Transformations
@@ -49,6 +51,11 @@
   - ar-suspend-partnership
   - ar-change-shared-kernel-to-partnership
   - ar-change-partnership-to-shared-kernel
+
+- title: Value-Driven Analysis and Design
+  docs:
+  - vdad-stakeholder-modelling
+  - vdad-value-modelling
 
 - title: Service Cutter
   docs:
