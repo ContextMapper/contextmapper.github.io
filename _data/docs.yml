@@ -36,6 +36,7 @@
   docs:
     - rapid-ooad
     - story-splitting
+    - stakeholder-and-value-modelling-transformations
 
 - title: Architectural Refactorings (ARs)
   docs:
@@ -54,8 +55,7 @@
 
 - title: Value-Driven Analysis and Design
   docs:
-  - stakeholder-modelling
-  - value-modelling
+  - project-JEDi
 
 - title: Service Cutter
   docs:

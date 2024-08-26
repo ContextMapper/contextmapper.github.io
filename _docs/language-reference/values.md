@@ -233,6 +233,9 @@ Once you have modelled your values and stakeholder priorities and impact, you ca
 
 ![Exemplary Value Impact Map - Generated out of a CML model with the PlantUML generator](./../../img/value-impact-map-sdd-sample.png)
 
+## Stakeholders Export to CSV
+In addition to the Value Impact Map visualization, you can export your modelled value register data as a CSV file. To do so, use the Freemarker temple [here](https://raw.githubusercontent.com/ContextMapper/context-mapper-dsl/master/org.contextmapper.dsl.ui/samples/freemarker/csv-files/value-registers.csv.ftl) together with our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/).
+
 ## Additional ESE Formats
 
 The following additional (experimental) CML features allow users to apply [Story Valuation by ESE](https://github.com/ethical-se/ese-practices/blob/main/practices/ESE-StoryValuation.md) and use the suggested notations _Value Epic_, _Value Weighting_ and _Value Narrative_.
@@ -276,3 +279,7 @@ The following additional (experimental) CML features allow users to apply [Story
 <span class="p">}</span>
 </pre></div>
 </div>
+
+## Transformations
+Note that we offer several transformations that might help modelling stakeholders and their values according to [VDAD (Value-Driven Analysis and Design)](tbd) more efficiently. The transformations are documented on the following page: [Stakeholder and Value Modelling Transformations](/docs/stakeholder-and-value-modelling-transformations/)
+

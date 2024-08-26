@@ -30,6 +30,18 @@ CML also allows you to write Use Cases and User Stories. You can find the docume
 
 <a href="/img/plantuml-generation-use-case-diagram-example.png">![PlantUML Use Case Diagram](/img/plantuml-generation-use-case-diagram-example.png)</a>
 
+## Stakeholder Maps
+As documented [here](/docs/stakeholders/), CML allows you to model the stakeholders for a specific project, system or feature. In case your CML file contains such a `Stakeholders` section with stakeholders and stakeholder groups, the PlantUML generator will automatically generate a stakeholder map for you. An example:
+
+<a href="/img/stakeholder-map-sdd-sample-simple.png">![PlantUML Stakeholder Map](/img/stakeholder-map-sdd-sample-simple.png)</a>
+
+For more information about stakeholder maps and the idea behind them, we refer to the [JEDi project and its VDAD (Value-Driven Analysis and Design) process](tbd).
+
+## Value Impact Maps
+In case you modelled a value register in CML, which you can do as documented [here](/docs/value-registers/), the PlantUML generator will automatically create a so-called "Value Impact Map" as suggested by the [JEDi project and its VDAD (Value-Driven Analysis and Design) process](tbd). An exemplary output:
+
+<a href="/img/value-impact-map-sdd-sample.png">![PlantUML Value Impact Map](/img/value-impact-map-sdd-sample.png)</a>
+
 ## Generating the PlantUML Diagrams
 The generators can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
 
