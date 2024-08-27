@@ -97,7 +97,7 @@ First and foremost, a user story is an invitation to communicate and collaborate
 expressing related features, for instance those originating from splitting a larger story - or the steps in a use case scenario.
 
 ### Story Valuation
-Since Context Mapper version 6.12.x, the user story syntax allows [Story Valuation according to ESE](https://github.com/ethical-se/ese-practices/blob/main/practices/ESE-StoryValuation.md). A user story with the existing `As a`, `I want to` and `so that` parts can now be enhanced with promoted and harmed ethical values as shown in the following example:
+Since Context Mapper version 6.12.x, the user story syntax supports [story valuation](https://github.com/ethical-se/ese-practices/blob/main/practices/ESE-StoryValuation.md). A user story with the existing `As a`, `I want to` and `so that` parts can now be enhanced with promoted and harmed [ethical values](https://github.com/ethical-se/ese-practices/blob/v11/ESE-Glossary.md#ethical-value), as shown in the following example:
 
 <div class="highlight"><div class="highlight"><pre><span></span><span class="k">UserStory</span> <span class="n">SampleStory</span> <span class="p">{</span>
   <span class="k">As</span> <span class="k">a</span> <span class="s">&quot;prospective customer of Lakeside Mutual&quot;</span> <span class="c1">// a fictitious insurance company</span>
