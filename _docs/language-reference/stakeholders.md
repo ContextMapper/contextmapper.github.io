@@ -3,7 +3,7 @@ title: Stakeholders
 permalink: /docs/stakeholders/
 ---
 
-The CML language supports the modelling of stakeholders of (digital) solutions and/or projects. This feature has been introduced to support the [JEDi project](tbd) and its Value-Driven Analysis and Design (VDAD) process. One part of this process supporting ethical software engineering is the identification of all relevant stakeholders. For more information about the whole process we refer to the [JEDi page](tbd). However, modelling stakeholders can support your requirements engineering process in different ways; no matter whether you apply VDAD or JEDi practices.
+The CML language supports the modelling of [stakeholders](https://en.wikipedia.org/wiki/Project_stakeholder) of (digital) solutions and/or projects. This feature has been introduced to support the [JEDi project](tbd) and its Value-Driven Analysis and Design (VDAD) process. One part of this process supporting ethical software engineering is the identification of all relevant stakeholders. For more information about the whole process we refer to the [JEDi page](tbd). However, modelling stakeholders can support your requirements engineering process in different ways; no matter whether you apply VDAD or JEDi practices.
 
 **Note**: With our [PlantUML generator](/docs/plant-uml/) you can automatically generate [Stakeholder Maps](tbd), once you modelled all your stakeholders and stakeholder groups. See example below.
 
@@ -47,7 +47,7 @@ Inside a `Stakeholders` container, you can define your stakeholders. This can be
 </pre></div>
 </div>
 
-In addition, you can provide additional information for a stakeholder using the `description`, `incluence` and `interest` keywords:
+In addition, you can provide additional information for a stakeholder using the `description`, `influence` and `interest` keywords:
 
 <div class="highlight"><div class="highlight"><pre><span></span><span class="k">BoundedContext</span> <span class="n">ExampleContext</span>
 
@@ -64,7 +64,7 @@ In addition, you can provide additional information for a stakeholder using the 
 </pre></div>
 </div>
 
-The `description` just describes why and/or how the stakeholder uses the system or is impacted by the system. As suggested by many stakeholder mapping tutorials (see [Miro](https://miro.com/blog/stakeholder-mapping/) or [Mural](https://www.mural.co/blog/stakeholder-mapping)), you can define what the `incluence` of the stakeholders is and how much they are interested (`interest`) in the new system or feature.
+The `description` just describes why and/or how the stakeholder uses the system or is impacted by the system. As suggested by many stakeholder mapping tutorials (see [Miro](https://miro.com/blog/stakeholder-mapping/) or [Mural](https://www.mural.co/blog/stakeholder-mapping)), you can define what the `influence` of the stakeholders is and how much they are interested (`interest`) in the new system or feature.
 
 ## Stakeholder Groups
 Stakeholder maps often group stakeholders of similar roles or with similar interest together. This is also possible in CML with the `StakeholderGroup` keyword, which can again contain stakeholders with the `Stakeholder` keyword:
@@ -100,7 +100,7 @@ Stakeholder maps often group stakeholders of similar roles or with similar inter
 </div>
 
 ## Visualization: Stakeholder Map
-Once your stakeholders are modelled in CML, you can generate a visual stakeholder map automatically. An example:
+Once your stakeholders are modelled in CML, you can generate a visual stakeholder map automatically. Here is an example:
 
 ![Sample Stakeholder Map (for a new 'same day delivery' feature for an online shop)](./../../img/stakeholder-map-sdd-sample-simple.png)
 
