@@ -26,7 +26,7 @@ Your CML models can define the lifecycle of Aggregates either in the [Aggregate 
 <a href="/img/QuoteRequestFlow_BC_InsuranceQuotes_QuoteRequestFlow_StateDiagram_with-end-States.png">![PlantUML State Diagram](/img/QuoteRequestFlow_BC_InsuranceQuotes_QuoteRequestFlow_StateDiagram_with-end-States.png)</a>
 
 ## UML Use Case Diagrams
-CML also allows you to write Use Cases and User Stories. You can find the documentation about how to write such user requirements [here](/docs/user-requirements/). In case your CML model contains such user requirements, the PlantUML generator will also automatically generate a use case diagram for you. Here an example:
+CML also allows you to write Use Cases and User Stories. You can find the documentation about how to write such user requirements [here](/docs/user-requirements/). In case your CML model contains such user requirements, the PlantUML generator will also automatically generate a use case diagram for you. Here is an example:
 
 <a href="/img/plantuml-generation-use-case-diagram-example.png">![PlantUML Use Case Diagram](/img/plantuml-generation-use-case-diagram-example.png)</a>
 
@@ -38,7 +38,7 @@ As documented [here](/docs/stakeholders/), CML allows you to model the stakehold
 For more information about stakeholder maps and the idea behind them, we refer to the [JEDi project and its VDAD (Value-Driven Analysis and Design) process](tbd).
 
 ## Value Impact Maps
-In case you modelled a value register in CML, which you can do as documented [here](/docs/value-registers/), the PlantUML generator will automatically create a so-called "Value Impact Map" as suggested by the [JEDi project and its VDAD (Value-Driven Analysis and Design) process](tbd). An exemplary output:
+In case you modelled a value register in CML, which you can do as documented [here](/docs/value-registers/), the PlantUML generator will automatically create a so-called "Value Impact Map" as suggested by the [JEDi project and its VDAD (Value-Driven Analysis and Design) process](tbd). An exemplary output is:
 
 <a href="/img/value-impact-map-sdd-sample.png">![PlantUML Value Impact Map](/img/value-impact-map-sdd-sample.png)</a>
 
