@@ -489,4 +489,4 @@ The project currently contains the following example templates:
  * Ubiquitous language glossary written in Markdown (currently a full report)
    * Currently a full report of the model. A future version of the template will generate a glossary only.
  * [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/) template to [generate Microservices from CML models](/docs/jhipster-microservice-generation/)
- * CSV files to export stakeholder and value register data (as part of the [project JEDi support](/docs/project-JEDi/))
+ * CSV files to export stakeholder and value register data (as part of the [VDAD support](/docs/vdad-support/))

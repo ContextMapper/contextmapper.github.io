@@ -35,10 +35,10 @@ As documented [here](/docs/stakeholders/), CML allows you to model the stakehold
 
 <a href="/img/stakeholder-map-sdd-sample-simple.png">![PlantUML Stakeholder Map](/img/stakeholder-map-sdd-sample-simple.png)</a>
 
-For more information about stakeholder maps and the idea behind them, we refer to the [JEDi project and its VDAD (Value-Driven Analysis and Design) process](tbd).
+For more information about stakeholder maps and the idea behind them, we refer to the [Value-Driven Analysis and Design (VDAD)](https://ethical-se.github.io/value-driven-analysis-and-design) process.
 
 ## Value Impact Maps
-In case you modelled a value register in CML, which you can do as documented [here](/docs/value-registers/), the PlantUML generator will automatically create a so-called "Value Impact Map" as suggested by the [JEDi project and its VDAD (Value-Driven Analysis and Design) process](tbd). An exemplary output is:
+In case you modelled a value register in CML, which you can do as documented [here](/docs/value-registers/), the PlantUML generator will automatically create a so-called "Value Impact Map", a [Value-Driven Analysis and Design (VDAD)](https://ethical-se.github.io/value-driven-analysis-and-design) practice. An exemplary output is:
 
 <a href="/img/value-impact-map-sdd-sample.png">![PlantUML Value Impact Map](/img/value-impact-map-sdd-sample.png)</a>
 

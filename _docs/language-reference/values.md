@@ -3,11 +3,9 @@ title: Value Registers
 permalink: /docs/value-registers/
 ---
 
-The CML language supports the modelling of stakeholders and their values that might be strengthened or harmed by digital systems. This feature has been introduced to support the [JEDi project](tbd) and its Value-Driven Analysis and Design (VDAD) process. Context Mapper and the language concepts documented on this page therefore support the modelling of ethical concerns in software projects. For more information about the whole process we refer to the [JEDi page](tbd).
+The CML language supports the modelling of stakeholders and their values that might be strengthened or harmed by digital systems. This feature has been introduced to support the [Value-Driven Analysis and Design (VDAD)](https://ethical-se.github.io/value-driven-analysis-and-design) process. Context Mapper and the language concepts documented on this page therefore support the modelling of ethical concerns in software projects. For more information about the whole process we refer to the [VDAD page](https://ethical-se.github.io/value-driven-analysis-and-design).
 
-**Note**: Some of the terminology of the language, such as value register or value cluster, is based on the [IEEE Standard Model Process for Addressing Ethical Concerns during System Design (a.k.a. IEEE 7000 standard)](https://ieeexplore.ieee.org/document/9536679).[^1] However, you do not necessarily need to know that terminology; you can also simply model the values of your stakeholders within a `ValueRegister` block.
-
-[^1]: Access to IEEE Std. 7000 is free after registration for IEEE Xplore (click on "Access via Subscription").
+**Note**: Some of the terminology of the language, such as value register or value cluster, is based on the [IEEE Standard Model Process for Addressing Ethical Concerns during System Design (a.k.a. IEEE 7000 standard)](https://ieeexplore.ieee.org/document/9536679). Access to IEEE 7000 standard is free after registration for IEEE Xplore (click on "Access via Subscription"). However, you do not necessarily need to know that terminology; you can also simply model the values of your stakeholders within a `ValueRegister` block.
 
 ## Value Register
 If you are interested in reading more about the ideas of a _value register_, we refer to the [IEEE 7000 standard](https://ieeexplore.ieee.org/document/9536679) or the [ESE Glossary](https://github.com/ethical-se/ese-practices/blob/main/ESE-Glossary.md). However, if you just want to move on quickly and model the values of your stakeholders - just consider the value register a _container object_ that allows to model values for a specific Bounded Context:
@@ -81,7 +79,7 @@ As always in CML, the 'equal' (=) sign is optional:
 </div>
 
 <div class="alert alert-custom">
-<strong>Note:</strong> Just modelling values, as seen here, does not allow you to generate any visualization yet (at least for now). Continue with the section <a href="#stakeholder-priorisation-impact--consequences">Stakeholder Priorisation, Impact & Consequences</a>, to define how important these values are to individual stakeholders and how these stakeholders are affected. After that, you can generate a [Value Stakeholder Map](tbd) with the <a href="/docs/plant-uml/">PlantUML generator</a>.
+<strong>Note:</strong> Just modelling values, as seen here, does not allow you to generate any visualization yet (at least for now). Continue with the section <a href="#stakeholder-priorisation-impact--consequences">Stakeholder Priorisation, Impact & Consequences</a>, to define how important these values are to individual stakeholders and how these stakeholders are affected. After that, you can generate a [Value Impact Map](https://ethical-se.github.io/value-driven-analysis-and-design/practices/value-impact-mapping) with the <a href="/docs/plant-uml/">PlantUML generator</a>.
 </div>
 
 ## Value Clusters
@@ -137,7 +135,7 @@ Further note that the attributes `demonstrator`, `relatedValue` and `opposingVal
 Generally, you can cluster values in CML but you do not necessarily have to.
 
 <div class="alert alert-custom">
-<strong>Note:</strong> Just modelling values and value clusters as seen here does not yet allow you to generate any visualization (at least for now). Continue with the section <a href="#stakeholder-priorisation-impact--consequences">Stakeholder Priorisation, Impact & Consequences</a>, to define how important these values are to the individual stakeholders and how they are affected. After that step, you can generate a [Value Stakeholder Map](tbd) with the <a href="/docs/plant-uml/">PlantUML generator</a>.
+<strong>Note:</strong> Just modelling values and value clusters as seen here does not yet allow you to generate any visualization (at least for now). Continue with the section <a href="#stakeholder-priorisation-impact--consequences">Stakeholder Priorisation, Impact & Consequences</a>, to define how important these values are to the individual stakeholders and how they are affected. After that step, you can generate a <a href="https://ethical-se.github.io/value-driven-analysis-and-design/practices/value-impact-mapping">Value Impact Map</a> with the <a href="/docs/plant-uml/">PlantUML generator</a>.
 </div>
 
 ## Stakeholder Prioritization, Impact & Consequences
@@ -231,7 +229,7 @@ The action types can be `ACT` (actively do something to reduce harm to values), 
 ## Example
 For a complete example, we refer to the [example repository](https://github.com/ContextMapper/context-mapper-examples). You can find a complete CML model for the "Same Day Delivery" example there. 
 
-Once you have modelled your values and stakeholder priorities and impact, you can generate a [Value Impact Map as suggested by the JEDi project](tbd). The diagram is part of the [PlantUML generator](/docs/plant-uml/).
+Once you have modelled your values and stakeholder priorities and impact, you can generate a [Value Impact Map (VDAD practice)](https://ethical-se.github.io/value-driven-analysis-and-design/practices/value-impact-mapping). The diagram is part of the [PlantUML generator](/docs/plant-uml/).
 
 ![Exemplary Value Impact Map - Generated out of a CML model with the PlantUML generator](./../../img/value-impact-map-sdd-sample.png)
 
@@ -283,5 +281,5 @@ The following additional (experimental) CML features allow users to apply [Story
 </div>
 
 ## Transformations
-Note that we offer several transformations that might help modelling stakeholders and their values according to [VDAD (Value-Driven Analysis and Design)](tbd) more efficiently. The transformations are documented on the following page: [Stakeholder and Value Modelling Transformations](/docs/stakeholder-and-value-modelling-transformations/).
+Note that we offer several transformations that might help modelling stakeholders and their values according to [VDAD (Value-Driven Analysis and Design)](https://ethical-se.github.io/value-driven-analysis-and-design) more efficiently. The transformations are documented on the following page: [Stakeholder and Value Modelling Transformations](/docs/stakeholder-and-value-modelling-transformations/).
 

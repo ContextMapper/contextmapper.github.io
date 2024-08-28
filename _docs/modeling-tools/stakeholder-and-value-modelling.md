@@ -4,7 +4,7 @@ permalink: /docs/stakeholder-and-value-modelling-transformations/
 image: /img/cm-og-image.png
 ---
 
-The following transformations aim at making modelling [stakeholders](/docs/stakeholders/) and [value registers](/docs/value-registers/) more efficient. These language features and transformations shall provide tool-support for applying the [Value-Driven Analysis and Design (VDAD) process of the JEDi project](tbd).
+The following transformations aim at making modelling [stakeholders](/docs/stakeholders/) and [value registers](/docs/value-registers/) more efficient. These language features and transformations shall provide tool-support for applying the [Value-Driven Analysis and Design (VDAD) process](https://ethical-se.github.io/value-driven-analysis-and-design).
 
 ## Add Ethical Value Assessment to User Story
 As documented under [User Requirements](/docs/user-requirements/) CML provides language features to write user stories and in addition, [Story Valuation according to ESE](https://github.com/ethical-se/ese-practices/blob/main/practices/ESE-StoryValuation.md).
@@ -22,7 +22,7 @@ You can then adjust the story with the actual values that are promoted and/or ha
 <a href="/img/add-ethical-value-assessment-sample-3.png">![Add Ethical Value Assessment - Example (3)](/img/add-ethical-value-assessment-sample-3.png)</a>
 
 ## Create Stakeholder for User Story Role
-When applying [Value-Driven Analysis and Design (VDAD)](tbd) or similar approaches, one typically starts with modelling requirements (use cases, user stories, etc.) and then continues with a stakeholder analysis and, later on, elicits ethical values. This transformation allows you to create stakeholders directly from roles inside user stories.
+When applying [Value-Driven Analysis and Design (VDAD)](https://ethical-se.github.io/value-driven-analysis-and-design) or similar approaches, one typically starts with modelling requirements (use cases, user stories, etc.) and then continues with a stakeholder analysis and, later on, elicits ethical values. This transformation allows you to create stakeholders directly from roles inside user stories.
 
 The following example shows such a user story and the transformation you can trigger:
 
@@ -72,7 +72,7 @@ The transformation wraps the value accordingly:
 
 Note that you have to adjust the name of the cluster manually after applying the transformation.
 
-<!-- mention currrent technical limittaion? -->
+**Note:** This transformation ("Wrap Value in Cluster") has some known technical limitations in Visual Studio Code. We are sorry for that. For the time being, use the Eclipse Plugin if you want to test this transformation.
 
 ## Feedback
 Please feel free to provide feedback which other transformations would be useful for you. [Get in touch with us](/getting-involved/).

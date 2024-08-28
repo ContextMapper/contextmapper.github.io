@@ -1,9 +1,9 @@
 ---
-title: "Project JEDi Support"
-permalink: /docs/project-JEDi/
+title: "Value-Driven Analysis and Design (VDAD) Support"
+permalink: /docs/vdad-support/
 ---
 
-Contributed by [Project JEDi («Just Enough Digitalization»)](tbd), Context Mapper offers tool support for multiple steps of the [Value-Driven Analysis and Design](tbd) process (such as [Stakeholder Mapping](tbd) and [Value Impact Mapping](tbd)) as well as [Story Valuation](https://github.com/ethical-se/ese-practices/blob/main/practices/ESE-StoryValuation.md) by [Ethical Software Engineering (ESE)](https://github.com/ethical-se/ese-practices). 
+Context Mapper offers tool support for multiple steps of the [Value-Driven Analysis and Design](https://ethical-se.github.io/value-driven-analysis-and-design) process (such as [Stakeholder Mapping](https://ethical-se.github.io/value-driven-analysis-and-design/practices/stakeholder-mapping) and [Value Impact Mapping](https://ethical-se.github.io/value-driven-analysis-and-design/practices/value-impact-mapping)) as well as [Story Valuation](https://github.com/ethical-se/ese-practices/blob/main/practices/ESE-StoryValuation.md) by [Ethical Software Engineering (ESE)](https://github.com/ethical-se/ese-practices). 
 
 ## Language Features
 
@@ -21,8 +21,8 @@ Context Mapper provides several transformations that ease the modelling of stake
 
 By using the language features mentioned above, you can automatically generate:
 
- * [Stakeholder Maps](tbd) with our [PlantUML generator](/docs/plant-uml/)
- * [Value Impact Maps](tbd) with our [PlantUML generator](/docs/plant-uml/)
+ * [Stakeholder Maps](https://ethical-se.github.io/value-driven-analysis-and-design/practices/stakeholder-mapping) with our [PlantUML generator](/docs/plant-uml/)
+ * [Value Impact Maps](https://ethical-se.github.io/value-driven-analysis-and-design/practices/value-impact-mapping) with our [PlantUML generator](/docs/plant-uml/)
  * CSV files with the stakeholder data by using our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/)
  * CSV files with the value register data by using our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/)
 
@@ -32,5 +32,5 @@ By using the language features mentioned above, you can automatically generate:
 
 For more information about the project and our initiatives towards ethical- and value-driven (software) engineering we refer to our project repositories:
 
- * [Just Enough Digitalization (JEDI)](https://github.com/ethical-se/JEDi) <!-- tbd; not yet defined -->
+ * [Value-Driven Analysis and Design (VDAD)](https://github.com/ethical-se/value-driven-analysis-and-design)
  * [Ethical Software Engineering (ESE)](https://github.com/ethical-se/ese-practices)
