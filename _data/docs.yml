@@ -28,12 +28,15 @@
   - tactic-ddd
   - application-and-process-layer
   - user-requirements
+  - stakeholders
+  - value-registers
   - imports
 
 - title: Analysis and Design Transformations
   docs:
     - rapid-ooad
     - story-splitting
+    - stakeholder-and-value-modelling-transformations
 
 - title: Architectural Refactorings (ARs)
   docs:
@@ -49,6 +52,10 @@
   - ar-suspend-partnership
   - ar-change-shared-kernel-to-partnership
   - ar-change-partnership-to-shared-kernel
+
+- title: Value-Driven Analysis and Design
+  docs:
+  - vdad-support
 
 - title: Service Cutter
   docs:

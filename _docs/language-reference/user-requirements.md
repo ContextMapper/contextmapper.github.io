@@ -95,3 +95,16 @@ First and foremost, a user story is an invitation to communicate and collaborate
 
 *Note:* As you can see above, both variants allow users to specify multiple _interactions_ or _I want to_ parts in one use case or user story. You can see this as a way of 
 expressing related features, for instance those originating from splitting a larger story - or the steps in a use case scenario.
+
+### Story Valuation
+Since Context Mapper version 6.12.x, the user story syntax supports [story valuation](https://github.com/ethical-se/ese-practices/blob/main/practices/ESE-StoryValuation.md). A user story with the existing `As a`, `I want to` and `so that` parts can now be enhanced with promoted and harmed [ethical values](https://github.com/ethical-se/ese-practices/blob/v11/ESE-Glossary.md#ethical-value), as shown in the following example:
+
+<div class="highlight"><div class="highlight"><pre><span></span><span class="k">UserStory</span> <span class="n">SampleStory</span> <span class="p">{</span>
+  <span class="k">As</span> <span class="k">a</span> <span class="s">&quot;prospective customer of Lakeside Mutual&quot;</span> <span class="c1">// a fictitious insurance company</span>
+  <span class="k">I</span> <span class="n">want</span> <span class="n">to</span> <span class="s">&quot;manage&quot;</span> <span class="n">the</span> <span class="s">&quot;PersonalDataProfile&quot;</span> 
+  <span class="k">so that</span> <span class="s">&quot;I am offered a valid and fair insurance rate&quot;</span>
+  <span class="k">and that</span> <span class="s">&quot;data privacy&quot;</span> <span class="k">is promoted</span>
+  <span class="k">accepting that</span> <span class="s">&quot;accountability and auditability&quot;</span> <span class="k">are harmed</span>
+<span class="p">}</span>
+</pre></div>
+</div>
