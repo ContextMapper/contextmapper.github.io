@@ -11,7 +11,7 @@ CQRS separates query processing from the create, update, delete business logic s
 If you are not fully familiar with the concepts of event sourcing and CQRS yet, you may find the following resources helpful:
 
  * [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) by Martin Fowler
- * [Event sourcing workshop slides](https://speakerdeck.com/mploed/event-sourcing-workshop-at-software-architecture-summit-2016) by Michael Plöd
+ * [Event sourcing workshop slides](https://files.speakerdeck.com/presentations/8423591f0e0044a68efc188a430f6768/ArchitectureSummit_EventSourcingAndCQRS_Kopie.pdf) by Michael Plöd
  * [Event sourcing pattern](https://microservices.io/patterns/data/event-sourcing.html) by Chris Richardson
  * [CQRS and Event Sourcing (Video)](https://www.youtube.com/watch?v=JHGkaShoyNs) by Greg Young
  * [Command query separation](https://martinfowler.com/bliki/CommandQuerySeparation.html) and [CQRS](https://martinfowler.com/bliki/CQRS.html) by Martin Fowler
