@@ -34,7 +34,7 @@ The syntax and semantic rules of all the patterns are documented on their indivi
  
 ## Tactic DDD Patterns
 The tactic DDD part of the CML language(all grammar rules inside *Aggregates*s that is), are based on the [Sculptor DSL](https://github.com/sculptor/sculptor). 
-Thus, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial#domain-driven-design) for details regarding the tactic DDD patterns.
+Thus, we refer to the [Sculptor documentation](https://sculptor.github.io/documentation/advanced-tutorial#domain-driven-design) for details regarding the tactic DDD patterns.
  
 The most important tactic DDD patterns that we use in our [transformations (for instance, plantUML generation)](/docs/generators/generators) are the following:
  

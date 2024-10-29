@@ -136,10 +136,10 @@ If your bounded context is of the type TEAM, you can specify which bounded conte
 
 
 ## The Bounded Context Building Blocks
-Within a bounded context, you can create _Modules_ and _Aggregates_ as illustrated in the example at the beginning of this page. On this tactical DDD level we integrated the [Sculptor DSL](http://sculptorgenerator.org/).
-This means within a module and an aggregate you can use all the [Sculptor features](http://sculptorgenerator.org/documentation/advanced-tutorial) to specify your bounded context, such as Entities, Value Objects, Domain Events, Services, Repositories, etc.
+Within a bounded context, you can create _Modules_ and _Aggregates_ as illustrated in the example at the beginning of this page. On this tactical DDD level we integrated the [Sculptor DSL](https://sculptor.github.io/).
+This means within a module and an aggregate you can use all the [Sculptor features](https://sculptor.github.io/documentation/advanced-tutorial) to specify your bounded context, such as Entities, Value Objects, Domain Events, Services, Repositories, etc.
 
-Use the [Sculptor Documentation](http://sculptorgenerator.org/documentation/advanced-tutorial) and our [examples](https://github.com/ContextMapper/context-mapper-examples) to find out how you specify your bounded context.
+Use the [Sculptor Documentation](https://sculptor.github.io/documentation/advanced-tutorial) and our [examples](https://github.com/ContextMapper/context-mapper-examples) to find out how you specify your bounded context.
 Note that the Aggregate pattern is the only tactical DDD pattern where we changed the Sculptor syntax and adapted it to our interpretation and requirements. See [Aggregate](/docs/aggregate/).
 
 ## Semantic Rules

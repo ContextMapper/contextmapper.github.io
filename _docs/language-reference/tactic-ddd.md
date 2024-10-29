@@ -3,7 +3,7 @@ title: Tactic DDD Syntax
 permalink: /docs/tactic-ddd/
 ---
 
-The Context Mapper syntax for the tactic DDD part is based on the [Sculptor DSL](http://sculptorgenerator.org/). For this reason we do not document all details of the tactic language part, since all the information can be found in Sculptor's [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+The Context Mapper syntax for the tactic DDD part is based on the [Sculptor DSL](https://sculptor.github.io/). For this reason we do not document all details of the tactic language part, since all the information can be found in Sculptor's [documentation](https://sculptor.github.io/documentation/advanced-tutorial).
 However, we still provide a short introduction into the most important elements on this page.
 
 ## Aggregates
@@ -192,4 +192,4 @@ the example below. These methods/operations are declared exactly the same way as
 </pre></div>
 
 ## More Details about the Tactic DDD Syntax
-If you want to read more details about the syntax of the tactic DDD part within bounded contexts, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+If you want to read more details about the syntax of the tactic DDD part within bounded contexts, we refer to the [Sculptor documentation](https://sculptor.github.io/documentation/advanced-tutorial).

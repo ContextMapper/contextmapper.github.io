@@ -55,7 +55,7 @@ The following examples and modeling suggestions are based on the Event Storming 
 
 ### Domain Events
 The domain events are typically the first objects that are discovered in an Event Storming.
-The tactic DDD syntax of CML is based on the [Sculptor DSL](http://sculptorgenerator.org/), which [supports event-driven concepts](http://sculptorgenerator.org/documentation/event-driven-tutorial). 
+The tactic DDD syntax of CML is based on the [Sculptor DSL](https://sculptor.github.io/), which [supports event-driven concepts](https://sculptor.github.io/documentation/event-driven-tutorial). 
 Hence, you can model _DomainEvents_ within your Aggregates.
 The following examples illustrate how we modeled the domain events from our Event Storming for Lakeside Mutual:
 
@@ -173,7 +173,7 @@ BoundedContext ClaimsManagement {
 ```
 
 ### User Roles
-At present, there is no concept of a user role in the Context Mapper DSL; however, we used [Sculptor](http://sculptorgenerator.org/)'s `doc` comment which can be added to 
+At present, there is no concept of a user role in the Context Mapper DSL; however, we used [Sculptor](https://sculptor.github.io/)'s `doc` comment which can be added to 
 all domain objects. Thereby we declare the user roles on our commands:
 
 ```text
@@ -272,7 +272,7 @@ The order in which we listed the events/commands above and the comments `// trig
 Once your CML that models the Event Storming output validates, you can:
 
 * Refine it, for instance by defining the data (attributes, operation parameters and return types) in more detail.
-    * Checkout the [tactic DDD syntax](/docs/tactic-ddd/) and the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+    * Checkout the [tactic DDD syntax](/docs/tactic-ddd/) and the [Sculptor documentation](https://sculptor.github.io/documentation/advanced-tutorial).
 * [Refactor it](/docs/architectural-refactorings/), starting with use cases and team assignments ([AR-2](/docs/ar-split-bounded-context-by-use-cases/), 
   [AR-3](/docs/ar-split-bounded-context-by-owners/), [etc.](/docs/architectural-refactorings/)).
 * [Generate output from it](/docs/generators/), for instance a [domain glossary](/docs/generic-freemarker-generator/), a [graphical Context Map](/docs/context-map-generator/), 

@@ -446,7 +446,7 @@ The meta-model behind CML contains a few inheritance hierarchies which make it u
 
 ### Get Type String of _ComplexType_
 If you work on the tactic DDD level with attributes and methods (parameters and return types) you may want to render the type of an attribute, parameter, or return type.
-This part of the DSL is based on [Sculptor](http://sculptorgenerator.org/), and the types are typically instances of the 
+This part of the DSL is based on [Sculptor](https://sculptor.github.io/), and the types are typically instances of the 
 [ComplexType](https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/tactic/dsl/tacticdsl/ComplexType.html) object. Depending on if it is primitive type or a reference to another type, rendering the type as a string is quite cumbersome. The function _getType_ which takes a 
 [ComplexType](https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/tactic/dsl/tacticdsl/ComplexType.html) as a parameter returns a simple string representing the type:
 

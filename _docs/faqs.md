@@ -22,7 +22,7 @@ Have a look at our [CML Reference - Introduction](/docs/language-reference/) pag
 Have a look at the page [Language Semantic Model](/docs/language-model/). It introduces the semantic model of our DSL and lists the implemented semantic checkers.
 
 ### Where do I find a documentation regarding the tactic DDD syntax to specify a Bounded Context in detail?
-The tactic DDD part of our DSL is based on the [Sculptor DSL](http://sculptorgenerator.org/). We provide a short introduction and examples how you can detail your bounded contexts on the pages [Aggregate](/docs/aggregate/) and [Tactic DDD Syntax](/docs/tactic-ddd/). If you are interested in more details and all features, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+The tactic DDD part of our DSL is based on the [Sculptor DSL](https://sculptor.github.io/). We provide a short introduction and examples how you can detail your bounded contexts on the pages [Aggregate](/docs/aggregate/) and [Tactic DDD Syntax](/docs/tactic-ddd/). If you are interested in more details and all features, we refer to the [Sculptor documentation](https://sculptor.github.io/documentation/advanced-tutorial).
 
 ### Which transformations can I apply to my CML model? Which generators are available?
 Currently you can generate [Microservice Domain-Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts providing assistance regarding how your system can be implemented in an (micro-)service-oriented architecture, [Service Cutter](http://servicecutter.github.io/) input  to get suggestions for service cuts or new bounded context, and you can generate UML ([PlantUML](http://plantuml.com/)) diagrams out of your CML. The following pages explain the generators in detail:
@@ -38,7 +38,7 @@ The Context Mapper tool provides a set of [architectural refactorings](https://s
 available refactorings [here](/docs/architectural-refactorings).
 
 ### Does Context Mapper support Event Sourcing and CQRS?
-The concepts behind event sourcing and CQRS do not require special modeling objects other than _DomainEvents_, which are supported by the Context Mapper DSL (CML). The syntax to specify the domain models within Bounded Contexts is based on [Sculptor](http://sculptorgenerator.org/) which supports event-driven concepts. 
+The concepts behind event sourcing and CQRS do not require special modeling objects other than _DomainEvents_, which are supported by the Context Mapper DSL (CML). The syntax to specify the domain models within Bounded Contexts is based on [Sculptor](https://sculptor.github.io/) which supports event-driven concepts. 
 Have a look at our [Event Sourcing and CQRS Modeling in Context Mapper](/docs/event-sourcing-and-cqrs-modeling/) tutorial to learn how to model events in CML.  
 
 ### Can I use Context Mapper to document Event Stormings?

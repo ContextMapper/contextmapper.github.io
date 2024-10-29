@@ -296,7 +296,7 @@ You can model application architectures with more than two subsystems by applyin
 Once you derived your initial Bounded Contexts, you can:
 
  - Add more details to the domain models (attributes, operations, services, repositories, etc.)
-   - [Here](/docs/tactic-ddd/) you can find a quick introduction into the tactic DDD syntax (based on [Sculptor](http://sculptorgenerator.org/)).
+   - [Here](/docs/tactic-ddd/) you can find a quick introduction into the tactic DDD syntax (based on [Sculptor](https://sculptor.github.io/)).
  - Refine and refactor them by using our [Architectural Refactorings](/docs/architectural-refactorings/).
  - Define a [Context Map](/docs/context-map/) that specifies the relationships between your Bounded Contexts.
  - [Generate](/docs/generators/) output and other representations of you CML model:

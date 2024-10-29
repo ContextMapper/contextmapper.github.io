@@ -3,15 +3,15 @@ title: Aggregate
 permalink: /docs/aggregate/
 ---
 
-The Aggregate pattern implementation from [Sculptor](http://sculptorgenerator.org/) has been adapted within CML to represent it with a separate grammar rule. 
+The Aggregate pattern implementation from [Sculptor](https://sculptor.github.io/) has been adapted within CML to represent it with a separate grammar rule. 
 
 For a short introduction to the syntax of the other tactic DDD patterns, please have a look at [Tactic DDD Syntax](/docs/tactic-ddd/). 
-For more details, we refer to the [Sculptor project](http://sculptorgenerator.org/) and its [documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+For more details, we refer to the [Sculptor project](https://sculptor.github.io/) and its [documentation](https://sculptor.github.io/documentation/advanced-tutorial).
 
 ## Syntax
 The aggregate supports the [Responsibility Layers](/docs/responsibility-layers/) pattern and the [Knowledge Level](/docs/knowledge-level) pattern. An aggregate can further 
 contain Services, Resources, Consumers and SimpleDomainObjects (Entities, Value Objects, Domain Events, etc.) which are not further introduced here. 
-The respective rules are defined by the [Sculptor DSL](http://sculptorgenerator.org/), as already mentioned. 
+The respective rules are defined by the [Sculptor DSL](https://sculptor.github.io/), as already mentioned. 
 
 The following CML snippet illustrates an example of an aggregate to provide an impression how the rule can be used:
 

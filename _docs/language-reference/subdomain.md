@@ -80,8 +80,8 @@ With the _domainVisionStatement_ keyword you can specify a vision statement for 
 pattern.
 
 ### Entities
-In order to provide further details about your subdomain and which domain objects are part of it, you can use entities within a subdomain. Note that the used _Entity_ rule is integrated from the [Sculptor DSL](http://sculptorgenerator.org/). 
-For more details about the features and possibilities of this Entity rule, we refer to the [Sculptor documentation](http://sculptorgenerator.org/documentation/advanced-tutorial).
+In order to provide further details about your subdomain and which domain objects are part of it, you can use entities within a subdomain. Note that the used _Entity_ rule is integrated from the [Sculptor DSL](https://sculptor.github.io/). 
+For more details about the features and possibilities of this Entity rule, we refer to the [Sculptor documentation](https://sculptor.github.io/documentation/advanced-tutorial).
 An example of a simple entity with attributes is illustrated above.
 
 <div class="alert alert-custom">
