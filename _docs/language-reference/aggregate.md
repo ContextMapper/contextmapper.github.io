@@ -88,7 +88,15 @@ A _write_ operation may changes the state of the Aggregate. Such state transitio
 }
 </pre></div>
 
-These language features allow you to define the lifecycle of an Aggregate. The following examples show all possible variants of state transitions:
+With our [PlantUML generator](/docs/plant-uml/) you can visualize the lifecycle of your Aggregates with state diagrams. For example, the model at the top of this page generates the following state diagram:
+
+![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram.png)
+
+**Note:** If you use the _target state_ markers (*) as documented above, we also use this information in our [PlantUML Generator](/docs/plant-uml/) and generate the corresponding end states:
+
+![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram_with-end-States.png)
+
+These language features allow you to define the lifecycle of an Aggregate. The following example show all possible variants of state transitions (note that the following example is not in line with the example above; it just shows all variants of possible state transitions):
 
 <div class="highlight"><pre><span></span><span class="c">// an initial state:</span>
 -<span class="k">&gt;</span> CREATED
@@ -111,15 +119,7 @@ CHECK_IN_PROGRESS -&gt; ACCEPTED* <span class="k">X</span> REJECTED*
 CREATED, CHECK_REQUESTED -&gt; ACCEPTED <span class="k">X</span> REJECTED
 </pre></div>
 
-_Hint:_ You can also model the state transition inside your [event flows in the application layer]().
-
-With our [PlantUML generator](/docs/plant-uml/) you can visualize the lifecycle of your Aggregates with state diagrams. For example, the model at the top of this page generates the following state diagram:
-
-![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram.png)
-
-**Note:** If you use the _target state_ markers (*) as documented above, we also use this information in our [PlantUML Generator](/docs/plant-uml/) and generate the corresponding end states:
-
-![Sample State Diagram](/img/LangRef-Aggregate_Sample-StateDiagram_with-end-States.png)
+_Hint:_ You can also model the state transition inside your [event flows in the application layer](/docs/application-and-process-layer/#processes-and-eventcommand-flows).
 
 ## Aggregate Owner
 CML allows specifying an owner on the aggregate level. If aggregates are maintained by different teams, you can specify this as in the
