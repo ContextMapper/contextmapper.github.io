@@ -26,7 +26,7 @@ and details about our projects in the papers listed below.
      * [Published Paper](https://ieeexplore.ieee.org/document/10372466) 
 
 **2023**
- * Context Mapper Language (CML) featured in **«Segregate Commands from Queries» refactoring**, available [online](https://interface-refactoring.github.io/refactorings/segregatecommandsfromqueries) and in Stocker M., Zimmermann O.: **API Refactoring to Patterns: Catalog, Template and Tools for Remote Interface Evolution**, _Proceedings of EuroPLoP 2023, ACM Digital Library_
+ * Context Mapper Language (CML) featured in **Segregate Commands from Queries** interface refactoring, available [online](https://interface-refactoring.github.io/refactorings/segregatecommandsfromqueries) and in Stocker M., Zimmermann O.: **API Refactoring to Patterns: Catalog, Template and Tools for Remote Interface Evolution**, _Proceedings of EuroPLoP 2023, ACM Digital Library_
      * Open Access, [PDF](https://dl.acm.org/doi/pdf/10.1145/3628034.3628073)
 
 **2022**
