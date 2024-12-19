@@ -12,7 +12,28 @@ and details about our projects in the papers listed below.
 
 ## Papers & _Context Mapper_ - Related Links
 
+**2024**
+ * Miguel Levezinho, Stefan Kapferer, Olaf Zimmermann and António Rito Silva: **Domain-Driven Design Representation of Monolith Candidate Decompositions**, _Enterprise Design, Operations, and Computing -- 28th International Conference, EDOC 2024, Vienna, Austria, September 10 - 13, 2024; Volume 15409_
+     * _to be published soon_ ([Pre-Print](https://arxiv.org/pdf/2407.02512))
+     * Related Context Mapper feature: [Coordination between Application Services](https://contextmapper.org/docs/application-and-process-layer#coordination-between-application-services)
+     * EDOC 2024 [presentation slides](/media/EDOC24_Presentation.pdf)
+ * Context Mapper supports [Value-Driven Analysis and Design (VDAD) process](https://ethical-se.github.io/value-driven-analysis-and-design/) published in Kapferer S., Zimmermann O., Stocker M.: **Value-Driven Analysis and Design: Applying Domain-Driven Practices in Ethical Software Engineering**, _Proceedings of EuroPLoP 2024, ACM Digital Library_
+      * Open Access, [PDF](https://dl.acm.org/doi/pdf/10.1145/3698322.3698332)
+      * Related Context Mapper features: [Value-Driven Analysis and Design (VDAD) Support](/docs/vdad-support/)
+      * [Ethical Software Engineering GitHub Organisation](https://github.com/ethical-se)
+ 
+ * Context Mapper project mentioned in Zimmermann O., Pautasso C., Kapferer S., Stocker M.: **Continuous Integration and Delivery in Open Source Development and Pattern Publishing: Lessons Learned With Tool Setup and Pipeline Evolution**, _IEEE Software (Volume: 41, Issue: 1, Jan.-Feb. 2024)_
+     * [Published Paper](https://ieeexplore.ieee.org/document/10372466) 
+
+**2023**
+ * Context Mapper Language (CML) featured in **«Segregate Commands from Queries» refactoring**, available [online](https://interface-refactoring.github.io/refactorings/segregatecommandsfromqueries) and in Stocker M., Zimmermann O.: **API Refactoring to Patterns: Catalog, Template and Tools for Remote Interface Evolution**, _Proceedings of EuroPLoP 2023, ACM Digital Library_
+     * Open Access, [PDF](https://dl.acm.org/doi/pdf/10.1145/3628034.3628073)
+
 **2022**
+ * Context Mapper and its CML language acknowledged in Zimmermann O., Stocker M., Lübke D., Zdun U., Pautasso C.: **Patterns for API Design: Simplifying Integration with Loosely Coupled Message Exchanges**, _Addison-Wesley Signature Series (Vernon)_
+     * [Book Website](https://api-patterns.org/book/) 
+ * The flow syntax of Context Mapper is acknowledged and adopted in Zimmermann O., Luban K., Stocker M., Bernard G.: **Continuous Process Model Refinement from Business Vision to Event Simulation and Software Automation: Bridging Gaps between Stakeholder Communities, Practices, Notations, and Tools**, _Proceedings of ICSE IWSIB 2022_
+     * [Published Paper](https://ieeexplore.ieee.org/document/9808807) 
  * Stefan Kapferer and Olaf Zimmermann: **Domain-Driven Design (DDD) in Practice — Experience with Context Mapper**, two translated and mildly edited blogposts that cover the contents of the original article **«Domain-Driven Design in der Praxis - Erfahrungen mit dem Open-Source-Tool Context Mapper»** written in German; each part features one case and related lessons learned.
      * [Part by Stefan Kapferer (mimacom)](https://blog.mimacom.com/ddd-and-context-mapper-experience/)
      * [Part by Olaf Zimmermann (OST)](https://ozimmer.ch/modeling/2022/11/23/ContextMapperInsights.html)
