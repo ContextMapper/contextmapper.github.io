@@ -13,7 +13,7 @@ literature and links:
  * [Event Storming: Collaborative Learning for Complex Domains](https://www.slideshare.net/slideshow/event-storming-76390807/76390807), AgileDenver 2017 presentation by Paul Rayner, comprehensive introduction and application example.
  * [Event Storming Workshop Cheat Sheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner, quick introduction to the topic and workshop preparation. 
  * [Awesome EventStorming](https://github.com/mariuszgil/awesome-eventstorming), a collection of online resources (articles, videos, presentations).
- * [Event Storming: 50.000 Orange Stickies Later](https://www.youtube.com/watch?v=NGXl1D-KwRI), Alberto Brandolini, GOTO 2018.
+ * [Event Storming: 50.000 Orange Stickies Later](https://www.youtube.com/watch?v=NGXl1D-KwRI), Alberto Brandolini. GOTO 2018 presentation video ([slides](https://www.slideshare.net/slideshow/50000-orange-stickies-later/81150857) from 2017 on the same topic).
  
 ## Use Context Mapper to Model Event Storming Output
 
