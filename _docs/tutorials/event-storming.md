@@ -8,9 +8,12 @@ Event storming is a workshop technique to explore domains originally invented by
 literature and links:
 
  * [Introducing Event Storming](https://ziobrando.blogspot.com/2013/11/introducing-event-storming.html) by Alberto Brandolini (original blog post)
- * [Introducing Event Storming](https://leanpub.com/introducing_eventstorming) by Alberto Brandolini (Leanpub book)
- * [Domain-Driven Design Distilled](https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon/dp/0134434420) by Vaughn Vernon. (Chapter 7 introduces Event Storming as an acceleration and management tool for DDD)
- * [Event Storming Cheatsheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner (good cheat sheet for a quick introduction into the topic)
+ * [Introducing Event Storming](https://leanpub.com/introducing_eventstorming) by Alberto Brandolini (LeanPub book)
+ * [Domain-Driven Design Distilled](https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon/dp/0134434420) by Vaughn Vernon. Chapter 7 introduces Event Storming as an acceleration and management tool for DDD.
+ * [Event Storming: Collaborative Learning for Complex Domains](https://www.slideshare.net/slideshow/event-storming-76390807/76390807), AgileDenver 2017 presentation by Paul Rayner, comprehensive introduction and application example.
+ * [Event Storming Workshop Cheat Sheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner, quick introduction to the topic and workshop preparation. 
+ * [Awesome EventStorming](https://github.com/mariuszgil/awesome-eventstorming), a collection of online resources (articles, videos, presentations).
+ * [Event Storming: 50.000 Orange Stickies Later](https://www.youtube.com/watch?v=NGXl1D-KwRI), Alberto Brandolini, GOTO 2018.
  
 ## Use Context Mapper to Model Event Storming Output
 
