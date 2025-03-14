@@ -7,13 +7,12 @@ image: /img/cm-og-image.png
 Event storming is a workshop technique to explore domains originally invented by Alberto Brandolini. If you are not familiar with the technique we recommend the following 
 literature and links:
 
- * [Introducing Event Storming](https://ziobrando.blogspot.com/2013/11/introducing-event-storming.html) by Alberto Brandolini (original blog post)
- * [Introducing Event Storming](https://leanpub.com/introducing_eventstorming) by Alberto Brandolini (LeanPub book)
+ * [Introducing Event Storming](https://ziobrando.blogspot.com/2013/11/introducing-event-storming.html) by Alberto Brandolini. Note that the author considers his original blog post to be superseeded by newer works such as his 70% complete LeanPub book ["Introducing Event Storming"](https://leanpub.com/introducing_eventstorming) and recorded conference tutorials such as ["100,000 Orange Stickies Later"](https://www.youtube.com/watch?v=fGm62ra_mQ8) by now.
  * [Domain-Driven Design Distilled](https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon/dp/0134434420) by Vaughn Vernon. Chapter 7 introduces Event Storming as an acceleration and management tool for DDD.
  * [Event Storming: Collaborative Learning for Complex Domains](https://www.slideshare.net/slideshow/event-storming-76390807/76390807), AgileDenver 2017 presentation by Paul Rayner, comprehensive introduction and application example.
  * [Event Storming Workshop Cheat Sheet](https://github.com/wwerner/event-storming-cheatsheet) by Wolfgang Werner, quick introduction to the topic and workshop preparation. 
  * [Awesome EventStorming](https://github.com/mariuszgil/awesome-eventstorming), a collection of online resources (articles, videos, presentations).
- * [Event Storming: 50.000 Orange Stickies Later](https://www.youtube.com/watch?v=NGXl1D-KwRI), Alberto Brandolini. GOTO 2018 presentation video ([slides](https://www.slideshare.net/slideshow/50000-orange-stickies-later/81150857) from 2017 on the same topic).
+ <!-- * [Event Storming: 50.000 Orange Stickies Later](https://www.youtube.com/watch?v=NGXl1D-KwRI), Alberto Brandolini. GOTO 2018 presentation video ([slides](https://www.slideshare.net/slideshow/50000-orange-stickies-later/81150857) from 2017 on the same topic). -->
  
 ## Use Context Mapper to Model Event Storming Output
 
