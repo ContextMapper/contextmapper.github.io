@@ -14,7 +14,7 @@ and details about our projects in the papers listed below.
 
 **2024**
  * Miguel Levezinho, Stefan Kapferer, Olaf Zimmermann and António Rito Silva: **Domain-Driven Design Representation of Monolith Candidate Decompositions**, _Enterprise Design, Operations, and Computing -- 28th International Conference, EDOC 2024, Vienna, Austria, September 10 - 13, 2024; Volume 15409_
-     * _to be published soon_ ([Pre-Print](https://arxiv.org/pdf/2407.02512))
+     * [Published Paper](https://link.springer.com/chapter/10.1007/978-3-031-78338-8_10) in proceedings, free [Author's Copy (PDF)](https://arxiv.org/pdf/2407.02512)
      * Related Context Mapper feature: [Coordination between Application Services](https://contextmapper.org/docs/application-and-process-layer#coordination-between-application-services)
      * EDOC 2024 [presentation slides](/media/EDOC24_Presentation.pdf)
  * Context Mapper supports [Value-Driven Analysis and Design (VDAD) process](https://ethical-se.github.io/value-driven-analysis-and-design/) published in Kapferer S., Zimmermann O., Stocker M.: **Value-Driven Analysis and Design: Applying Domain-Driven Practices in Ethical Software Engineering**, _Proceedings of EuroPLoP 2024, ACM Digital Library_
@@ -33,7 +33,7 @@ and details about our projects in the papers listed below.
  * Context Mapper and its CML language acknowledged in Zimmermann O., Stocker M., Lübke D., Zdun U., Pautasso C.: **Patterns for API Design: Simplifying Integration with Loosely Coupled Message Exchanges**, _Addison-Wesley Signature Series (Vernon)_
      * [Book Website](https://api-patterns.org/book/) 
  * The flow syntax of Context Mapper is acknowledged and adopted in Zimmermann O., Luban K., Stocker M., Bernard G.: **Continuous Process Model Refinement from Business Vision to Event Simulation and Software Automation: Bridging Gaps between Stakeholder Communities, Practices, Notations, and Tools**, _Proceedings of ICSE IWSIB 2022_
-     * [Published Paper](https://ieeexplore.ieee.org/document/9808807) 
+     * [Published Paper](https://ieeexplore.ieee.org/document/9808807), [Author's Copy (PDF)](https://ozimmer.ch/assets/From_Business_Process_Models_and_Process_Simulation_Models_to_API_Design_AuthorsCopyMarch29.pdf)
  * Stefan Kapferer and Olaf Zimmermann: **Domain-Driven Design (DDD) in Practice — Experience with Context Mapper**, two translated and mildly edited blogposts that cover the contents of the original article **«Domain-Driven Design in der Praxis - Erfahrungen mit dem Open-Source-Tool Context Mapper»** written in German; each part features one case and related lessons learned.
      * [Part by Stefan Kapferer (mimacom)](https://blog.mimacom.com/ddd-and-context-mapper-experience/)
      * [Part by Olaf Zimmermann (OST)](https://ozimmer.ch/modeling/2022/11/23/ContextMapperInsights.html)

@@ -17,9 +17,11 @@ If you are not fully familiar with the concepts of event sourcing and CQRS yet, 
  * [Command query separation](https://martinfowler.com/bliki/CommandQuerySeparation.html) and [CQRS](https://martinfowler.com/bliki/CQRS.html) by Martin Fowler
  * [Developing Transactional Microservices Using Aggregates, Event Sourcing and CQRS](https://www.infoq.com/articles/microservices-aggregates-events-cqrs-part-1-richardson/) by Chris Richardson
  * [Designing Event Sourced Microservices](https://www.infoq.com/news/2017/11/event-sourcing-microservices/) by Jan Stenberg
+
+Chapter 22 in "Patterns, Principles, and Practices of Domain-Driven Design" by Scott Millett and Nick Tune (Wrox 2015) is about event sourcing; Chapter 24 in that book features CQRS. "Implementing Domain-Driven Design" by Vaughn Vernon (Addison Wesley 2013) covers event sourcing and CQRS in Chapter 4 and Appendix A.
  
 ## Tutorial
-### Context and Objectives 
+### Context and Objectives
 This tutorial highlights the [Context Mapper DSL (CML)](/docs/language-reference/) concepts that support a) modeling event-sourced systems and b) CQRS. 
 
 Within CML Bounded Contexts and Aggregates, we integrated the [Sculptor DSL for tactic DDD](https://sculptor.github.io/) that allows domain-driven designers to specify the domain model of Bounded Contexts. This tutorial features this DSL.
