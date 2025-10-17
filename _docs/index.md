@@ -16,10 +16,6 @@ The **[core component](/docs/language-reference/)** provides a DSL to create con
 **Eclipse Marketplace: [Context Mapper](https://marketplace.eclipse.org/content/context-mapper/)**
  * Alternatively you can install the Eclipse plugin manually with the following update site URL: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/)
 
-**Online IDE (Gitpod)**: In case you don't want to install Context Mapper locally and your project is hosted on Github, you can use [Gitpod](https://www.gitpod.io/) as online IDE with our VS Code extension.
- * The extension is published to the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension), so you can easily find the extension in Gitpod. Installation instructions can be found [here](/docs/online-ide/).
- * Or: **Start modeling in our Context Mapper demo repository [right now](https://contextmapper.org/demo/)**.
-
 ## Framework Architecture
 
 ![Context Mapper Framework Components](/img/context-mapper-framework-components.png)

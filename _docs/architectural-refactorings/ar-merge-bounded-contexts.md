@@ -7,7 +7,7 @@ Merges two bounded contexts together. The result is one bounded context containi
 contexts.
 
 <div class="alert alert-custom">
-<strong>Known limitation:</strong> Unfortunately, this AR does not work in <a href="/docs/vs-code/">VS Code</a> and <a href="/docs/online-ide/">online</a> in case the removed Bounded Context is referenced in a Context Map. This is due to <a href="https://github.com/eclipse/xtext-core/issues/1494">a bug in the Xtext framework</a>.
+<strong>Known limitation:</strong> Unfortunately, this AR does not work in <a href="/docs/vs-code/">VS Code</a> in case the removed Bounded Context is referenced in a Context Map. This is due to <a href="https://github.com/eclipse/xtext-core/issues/1494">a bug in the Xtext framework</a>.
 </div>
 
 ## Context & Rationales
