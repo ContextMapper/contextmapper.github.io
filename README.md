@@ -4,21 +4,6 @@
 
 This is the repository of Context Mapper's website [https://contextmapper.org/](https://contextmapper.org/).
 
-## Start Editing
-The easiest way to get started with editing our website (including previewing) is starting the Gitpod IDE:
-
-<a href="https://gitpod.io/from-referrer/" style="padding: 10px;">
-    <img src="https://gitpod.io/button/open-in-gitpod.svg" width="150" alt="Push" align="center">
-</a>
-
-Once the IDE is started and the init task finished, you can preview the page by running the following command:
-
-```bash
-bundle exec jekyll serve
-```
-
-Gitpod allows you to make the open port public so that you are able to preview the page in your browser.
-
 ## Running Locally
 If you don't want to use Gitpod and want to preview the website locally, follow these steps:
 
