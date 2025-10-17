@@ -4,16 +4,15 @@ permalink: /docs/ide/
 image: /img/cm-og-image.png
 ---
 
-We currently offer Context Mapper for [Visual Studio Code](https://code.visualstudio.com/), in the Online IDE [Gitpod](https://www.gitpod.io/), and [Eclipse](https://www.eclipse.org/):
+We currently offer Context Mapper for [Visual Studio Code](https://code.visualstudio.com/) and [Eclipse](https://www.eclipse.org/):
 
  * [Context Mapper for VS Code](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension) (Marketplace)
- * [Context Mapper Online (Gitpod)](/docs/online-ide/)
  * [Context Mapper for Eclipse](https://marketplace.eclipse.org/content/context-mapper) (Marketplace)
 
 ## Supported Features per IDE
 The following table illustrates which features are already implemented in VS Code. Both IDEs shall support all features in the future.
 
-| Feature                                                      | Supported in Eclipse Plugin | Supported in VS Code Extension (and online) |
+| Feature                                                      | Supported in Eclipse Plugin | Supported in VS Code Extension              |
 |--------------------------------------------------------------|-----------------------------|---------------------------------------------|
 | Editor: Syntax Highlighting                                  | yes                         | yes                                         |
 | Editor: Auto-completion                                      | yes                         | yes                                         |

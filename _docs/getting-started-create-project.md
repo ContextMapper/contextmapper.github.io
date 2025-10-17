@@ -11,7 +11,7 @@ This page describes how you can start with Context Mapper and create your first 
  4. Create a file with the file extension **.cml**
  
 ## 1. Install Context Mapper
-You can use Context Mapper in Eclipse, Visual Studio Code, or the online IDE Gitpod. Find the links to the marketplaces below:
+You can use Context Mapper in Eclipse or Visual Studio Code. Find the links to the marketplaces below:
 
  * **Visual Studio Code:**
    * Marketplace: [Context Mapper for VS Code](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension)
@@ -19,10 +19,6 @@ You can use Context Mapper in Eclipse, Visual Studio Code, or the online IDE Git
       2. Search for "Context Mapper"
       3. Select the plugin with our Context Mapper logo and press "Install".
    * Note: Does not support all features we have in Eclipse yet. You can find a feature support table [here](/docs/ide/).
- * **Open VSX Registry for Gitpod:**
-   * Registry: [Context Mapper extension](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension)
-      1. The easiest way to start: [Start Gitpod with our demo repository right now](https://contextmapper.org/demo/) (you can also fork the repo first, in case you want to commit your own models).
-      2. Alternatively: Start your own [Gitpod](https://www.gitpod.io/) and search for "Context Mapper" in the extension view (and install it manually). You find [installation instructions here](/docs/online-ide/).
  * **Eclipse:**
    * Marketplace: [Context Mapper for Eclipse](https://marketplace.eclipse.org/content/context-mapper)
       1. Open the marketplace in your Eclipse with the menu entry _Help -> Eclipse Marketplace..._
