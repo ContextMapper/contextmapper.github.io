@@ -151,7 +151,7 @@ CREATED, CHECK_REQUESTED -> ACCEPTED X REJECTED
 _Hint:_ You can also model the state transition inside your [event flows in the application layer](/docs/application-and-process-layer/#processes-and-eventcommand-flows).
 
 ## Aggregate Owner
-CML allows specifying an owner on the aggregate level. If aggregates are maintained by different teams, you can specify this as in the
+CML allows specifying an owner on the aggregate level (and on the [bounded context](/docs/bounded-context/#bounded-context-owner) level). If aggregates are maintained by different teams, you can specify this as in the
 following example:
 
 ```cml
