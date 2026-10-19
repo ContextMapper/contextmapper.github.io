@@ -25,6 +25,27 @@ implementation 'org.contextmapper:context-mapper-dsl:{our-latest-version}'
 
 The latest release can be found here: [org.contextmapper:context-mapper-dsl on Maven Central](https://central.sonatype.com/artifact/org.contextmapper/context-mapper-dsl)
 
+The library runs on Java 11 or newer (tested with Java 11, 17 and 21).
+
+## Reading a CML Model in Your Code or Tests
+A common use case is to read your CML model in your own build or tests, for example to derive architecture tests or other checks from the context map. The following snippet loads a CML file and iterates over the relationships of its context map:
+
+```java
+StandaloneContextMapperAPI contextMapper = ContextMapperStandaloneSetup.getStandaloneAPI();
+CMLResource cml = contextMapper.loadCML("./src/main/cml/transit.cml");
+
+for (Relationship relationship : cml.getContextMappingModel().getMap().getRelationships()) {
+    if (relationship instanceof UpstreamDownstreamRelationship) {
+        UpstreamDownstreamRelationship upDown = (UpstreamDownstreamRelationship) relationship;
+        System.out.println(upDown.getUpstream().getName() + " " + upDown.getUpstreamRoles() + " -> "
+                + upDown.getDownstream().getName() + " " + upDown.getDownstreamRoles());
+    }
+}
+// prints for example: PaymentProvider [OHS] -> TicketSales [ACL]
+```
+
+The model classes (`BoundedContext`, `Aggregate`, `UpstreamDownstreamRelationship`, etc.) are located in the package `org.contextmapper.dsl.contextMappingDSL`; the API in `org.contextmapper.dsl.standalone`. If you want to check tactic DDD elements (Aggregates, Entities, etc.) against your Java code, have a look at our [ArchUnit extension](https://github.com/ContextMapper/context-mapper-archunit-extension).
+
 ## Example Project
 If you want to use Context Mapper as library within your application, have a look at our standalone example project:
 [https://github.com/ContextMapper/context-mapper-standalone-example](https://github.com/ContextMapper/context-mapper-standalone-example)
