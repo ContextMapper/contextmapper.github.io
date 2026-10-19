@@ -11,6 +11,7 @@ For more details, we refer to the [Sculptor project](https://sculptor.github.io/
 ## Syntax
 The aggregate supports the [Responsibility Layers](/docs/responsibility-layers/) pattern and the [Knowledge Level](/docs/knowledge-level) pattern. An aggregate can further 
 contain Services, Resources, Consumers and SimpleDomainObjects (Entities, Value Objects, Domain Events, etc.) which are not further introduced here. 
+Additionally, an aggregate can declare the [invariants](#invariants) it protects. 
 The respective rules are defined by the [Sculptor DSL](https://sculptor.github.io/), as already mentioned. 
 
 The following CML snippet illustrates an example of an aggregate to provide an impression how the rule can be used:
@@ -59,6 +60,29 @@ The equal sign (=) to assign an attribute value is always optional and therefore
 </div>
 
 Further examples can be found within our GitHub example repository [context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples).
+
+## Invariants
+An aggregate is a consistency boundary: it protects business rules that must always be true. You can declare these rules with the _Invariant_ keyword, followed by an optional name and a description (string):
+
+```cml
+Aggregate Tickets {
+  Entity Ticket {
+    aggregateRoot
+
+    String zone
+    - Money price
+  }
+
+  Invariant "The sum of refunds never exceeds the price paid"
+  Invariant ValidatedTicketsAreNotRefundable "A validated ticket cannot be refunded"
+}
+```
+
+The description is not interpreted by Context Mapper; it documents the rule for people and for tools (such as coding agents) that read your model. Engineers typically implement an invariant in the aggregate's code and verify it with tests, for example property-based tests. A name allows you to refer to an invariant, for instance from tests or documentation.
+
+Invariants are rules **within** one aggregate. Rules that span multiple aggregates or bounded contexts are policies; they are typically implemented with domain events instead.
+
+When two aggregates are merged with the [Merge Aggregates](/docs/ar-merge-aggregates/) refactoring, the invariants of both aggregates are kept.
 
 ## Aggregate Lifecycle and State Transitions
 As already illustrated in the example above, you can declare an Aggregate's states with an _enum_. The _aggregateLifecycle_ keyword marks the enum that defines the states:
