@@ -25,7 +25,7 @@ implementation 'org.contextmapper:context-mapper-dsl:{our-latest-version}'
 
 The latest release can be found here: [org.contextmapper:context-mapper-dsl on Maven Central](https://central.sonatype.com/artifact/org.contextmapper/context-mapper-dsl)
 
-The library runs on Java 11 or newer (tested with Java 11, 17 and 21).
+The library runs on Java 17 or newer (tested with Java 17 and 21).
 
 ## Reading a CML Model in Your Code or Tests
 A common use case is to read your CML model in your own build or tests, for example to derive architecture tests or other checks from the context map. The following snippet loads a CML file and iterates over the relationships of its context map:
