@@ -16,7 +16,7 @@ BoundedContext CustomerManagementContext implements CustomerManagementDomain {
   domainVisionStatement = "The customer management context is responsible for ..."
   implementationTechnology = "Java, JEE Application"
   responsibilities = "Customers", "Addresses"
-  notResponsibleFor = "Policies", "Debt collection"
+  nonResponsibilities = "Policies", "Debt collection"
   knowledgeLevel = CONCRETE
 
   Module addresses {
@@ -99,19 +99,19 @@ The _implementationTechnology_ attribute allows you to add information about how
 ### Responsibility Layers
 With the _responsibilities_ keyword you are allowed to specify the responsibilities of the bounded context, according to the DDD Responsibility Layers pattern. See [responsibility layers](/docs/responsibility-layers/).
 
-### Not Responsible For
-With the _notResponsibleFor_ keyword you can state explicitly what the bounded context is **not** responsible for. Like _responsibilities_, the attribute takes a comma-separated list of strings:
+### Non-Responsibilities
+With the _nonResponsibilities_ keyword you can state explicitly what the bounded context is **not** responsible for. Like _responsibilities_, the attribute takes a comma-separated list of strings:
 
 ```cml
 BoundedContext TicketSales implements FareSales {
   responsibilities = "Selling fare products", "Refunds"
-  notResponsibleFor = "Gate validation", "Support cases"
+  nonResponsibilities = "Gate validation", "Support cases"
 }
 ```
 
 Stating what is out of scope makes the boundary of a context explicit. This helps people as well as coding agents that read your model: they should not implement something in a context that the model explicitly excludes.
 
-When two bounded contexts are merged with the [Merge Bounded Contexts](/docs/ar-merge-bounded-contexts/) refactoring, the _notResponsibleFor_ lists are merged as well. Entries that are a responsibility of the merged context are removed.
+When two bounded contexts are merged with the [Merge Bounded Contexts](/docs/ar-merge-bounded-contexts/) refactoring, the _nonResponsibilities_ lists are merged as well. Entries that are a responsibility of the merged context are removed.
 
 ### Knowledge Level
 With the _knowledgeLevel_ attribute you define the knowledge level of the bounded context which can be one of the following two:
