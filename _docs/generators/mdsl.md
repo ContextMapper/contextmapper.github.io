@@ -41,7 +41,7 @@ The base/primitive types are mapped to [Atomic Parameters](https://microservice-
 If you declare a method with multiple parameters or refer to an object (such as Entity or Value Object) in CML, we generate a corresponding [Parameter Tree](https://microservice-api-patterns.org/patterns/structure/representationElements/ParameterTree). For example the following entity would be mapped to the (rather flat) parameter tree below:
 
 CML input:
-```
+```cml
 Entity Address {
   String street
   String lockbox nullable
