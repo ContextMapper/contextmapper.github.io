@@ -14,66 +14,69 @@ DDD practitioners and experts typically distinguish between domain services and 
 
 The following example illustrates how to model an application layer in a Bounded Context and add application services:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> ClaimsManagement {
-  <span class="k">Application</span> {
-    <span class="k">Service</span> ClaimsApplicationService {
-      <span class="k">void</span> submitClaim(@Claim claim);
-      <span class="k">void</span> checkInsurance(@Claim claim);
-      <span class="k">void</span> acceptClaim(@Claim claim);
-      <span class="k">void</span> rejectClaim(@Claim claim);
+```cml
+BoundedContext ClaimsManagement {
+  Application {
+    Service ClaimsApplicationService {
+      void submitClaim(@Claim claim);
+      void checkInsurance(@Claim claim);
+      void acceptClaim(@Claim claim);
+      void rejectClaim(@Claim claim);
     }
   }
-  
-  <span class="k">Aggregate</span> Claims {
-    <span class="k">Entity</span> Claim {
-      <span class="k">aggregateRoot</span>
-      <span class="k">long</span> claimId
-      CustomerId <span class="k">customer</span>
-      <span class="k">String</span> description
-      <span class="k">Blob</span> requestDocument
-      <span class="k">boolean</span> isComplete
-      <span class="k">boolean</span> isAssessed
-      - <span class="k">ClaimState</span> claimState
+
+  Aggregate Claims {
+    Entity Claim {
+      aggregateRoot
+      long claimId
+      CustomerId customer
+      String description
+      Blob requestDocument
+      boolean isComplete
+      boolean isAssessed
+      - ClaimState claimState
     }
-    <span class="k">enum</span> ClaimState {
-      <span class="k">aggregateLifecycle</span>
+    enum ClaimState {
+      aggregateLifecycle
       OPEN, REJECTED, ACCEPTED
     }
-    
-    <span class="k">abstract</span> <span class="k">DomainEvent</span> ClaimEvent {
-      <span class="k">long</span> claimId
-      <span class="k">Date</span> timestamp
+
+    abstract DomainEvent ClaimEvent {
+      long claimId
+      Date timestamp
     }
-    <span class="k">DomainEvent</span> ClaimSubmitted <span class="k">extends</span> ClaimEvent
-    <span class="k">DomainEvent</span> ClaimAccepted <span class="k">extends</span> ClaimEvent
-    <span class="k">DomainEvent</span> ClaimRejected <span class="k">extends</span> ClaimEvent
+    DomainEvent ClaimSubmitted extends ClaimEvent
+    DomainEvent ClaimAccepted extends ClaimEvent
+    DomainEvent ClaimRejected extends ClaimEvent
   }
 }
-</pre></div>
+```
 
 Optionally, it is possible to name the application layer:
 
-<div class="highlight"><pre><span></span><span class="k">Application</span> ClaimsApplicationLayer {
-  <span class="k">Service</span> ClaimsApplicationService {
-    <span class="k">void</span> submitClaim(@Claim claim);
-    <span class="k">void</span> checkInsurance(@Claim claim);
-    <span class="k">void</span> acceptClaim(@Claim claim);
-    <span class="k">void</span> rejectClaim(@Claim claim);
+```cml
+Application ClaimsApplicationLayer {
+  Service ClaimsApplicationService {
+    void submitClaim(@Claim claim);
+    void checkInsurance(@Claim claim);
+    void acceptClaim(@Claim claim);
+    void rejectClaim(@Claim claim);
   }
 }
-</pre></div>
+```
 
 As documented on the [Aggregate page](/docs/aggregate/#aggregate-lifecycle-and-state-transitions), it is also possible to specify state transitions made by operations. Please consult the Aggregate documentation for the syntax of state transitions. The same syntax is available for the operations of application services:
 
-<div class="highlight"><pre><span></span><span class="k">Application</span> {
-  <span class="k">Service</span> ClaimsApplicationService {
-    <span class="k">void</span> submitClaim(@Claim claim) : <span class="k">write</span> [ -&gt; OPEN];
-    <span class="k">void</span> checkInsurance(@Claim claim);
-    <span class="k">void</span> acceptClaim(@Claim claim) : <span class="k">write</span> [ OPEN -&gt; ACCEPTED ];
-    <span class="k">void</span> rejectClaim(@Claim claim) : <span class="k">write</span> [ OPEN -&gt; REJECTED ];
+```cml
+Application {
+  Service ClaimsApplicationService {
+    void submitClaim(@Claim claim) : write [ -> OPEN];
+    void checkInsurance(@Claim claim);
+    void acceptClaim(@Claim claim) : write [ OPEN -> ACCEPTED ];
+    void rejectClaim(@Claim claim) : write [ OPEN -> REJECTED ];
   }
 }
-</pre></div>
+```
 
 _Hint:_ If you model processes/flows (see documentation of syntax below) you may want to declare the state transitions in the flow steps instead of service operations.
 
@@ -81,20 +84,21 @@ As an alternative to "service operations" you can also create semantically equiv
 
 The syntax for domain events and commands is documented on the [tactic DDD reference page](/docs/tactic-ddd/#domain-events). The following example illustrates how you can use those concepts in the application layer as well:
 
-<div class="highlight"><pre><span></span><span class="k">Application</span> {
-  <span class="k">Command</span> SubmitClaim {
-    <span class="c">// attributes/body optional</span>
+```cml
+Application {
+  Command SubmitClaim {
+    // attributes/body optional
   }
-  <span class="k">Command</span> AcceptClaim
-  <span class="k">Command</span> RejectClaim
-  
-  <span class="k">Event</span> ClaimSubmitted {
-    <span class="c">// attributes/body optional</span>
+  Command AcceptClaim
+  Command RejectClaim
+
+  Event ClaimSubmitted {
+    // attributes/body optional
   }
-  <span class="k">Event</span> ClaimAccepted
-  <span class="k">Event</span> ClaimRejected
+  Event ClaimAccepted
+  Event ClaimRejected
 }
-</pre></div>
+```
 
 _Hint:_ Modeling commands that are triggered by users or external systems in the application layer may feel natural. Events, however, may be part of your [domain model](https://github.com/socadk/design-practice-repository/blob/master/artifact-templates/DPR-DomainModel.md). Therefore you should decide consciously whether you want to model these events on the application layer or inside the corresponding domain layer Aggregate.
 
@@ -105,62 +109,64 @@ In addition to application services and commands, the application layer offers l
 
 Our flow grammar supports Context Mapper users in modeling such event/command flows in CML. The following example models the event storming result illustrated above:
 
-<div class="highlight"><pre><span></span><span class="k">Application</span> {
+```cml
+Application {
 
-  <span class="c">/* we removed commands and events here to keep the sample shorter */</span>
+  /* we removed commands and events here to keep the sample shorter */
 
-  <span class="k">Flow</span> ClaimsFlow {
-    <span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> ClaimSubmitted
-    <span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">command</span> CheckClaimDocumentation
-    <span class="k">command</span> CheckClaimDocumentation <span class="k">emits</span> <span class="k">event</span> ClaimRegistered
-    <span class="k">event</span> ClaimRegistered <span class="k">triggers</span> <span class="k">command</span> CheckInsurance
-    <span class="k">command</span> CheckInsurance <span class="k">emits</span> <span class="k">event</span> AssessmentPerformed
+  Flow ClaimsFlow {
+    command SubmitClaim emits event ClaimSubmitted
+    event ClaimSubmitted triggers command CheckClaimDocumentation
+    command CheckClaimDocumentation emits event ClaimRegistered
+    event ClaimRegistered triggers command CheckInsurance
+    command CheckInsurance emits event AssessmentPerformed
 
-    <span class="k">event</span> AssessmentPerformed <span class="k">triggers</span> <span class="k">command</span> AcceptClaim <span class="k">X</span> RejectClaim 
-    <span class="k">command</span> AcceptClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; ACCEPTED] <span class="k">emits</span> <span class="k">event</span> ClaimAccepted
-    <span class="k">command</span> RejectClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; REJECTED] <span class="k">emits</span> <span class="k">event</span> ClaimRejected
+    event AssessmentPerformed triggers command AcceptClaim X RejectClaim
+    command AcceptClaim delegates to Claims [OPEN -> ACCEPTED] emits event ClaimAccepted
+    command RejectClaim delegates to Claims [OPEN -> REJECTED] emits event ClaimRejected
 
-    <span class="k">event</span> ClaimAccepted <span class="k">triggers</span> <span class="k">command</span> SchedulePayment
-    <span class="k">command</span> SchedulePayment <span class="k">emits</span> <span class="k">event</span> PaymentPerformed
-    <span class="k">event</span> PaymentPerformed <span class="k">triggers</span> <span class="k">command</span> NofifyCustomer
-    <span class="k">event</span> ClaimRejected <span class="k">triggers</span> <span class="k">command</span> NofifyCustomer
-    <span class="k">command</span> NofifyCustomer <span class="k">delegates</span> <span class="k">to</span> Claims [ACCEPTED, REJECTED -&gt; CUSTOMER_NOTIFIED] <span class="k">emits</span> <span class="k">event</span> CustomerNotified
+    event ClaimAccepted triggers command SchedulePayment
+    command SchedulePayment emits event PaymentPerformed
+    event PaymentPerformed triggers command NofifyCustomer
+    event ClaimRejected triggers command NofifyCustomer
+    command NofifyCustomer delegates to Claims [ACCEPTED, REJECTED -> CUSTOMER_NOTIFIED] emits event CustomerNotified
   }
 }
-</pre></div>
+```
 
 The example above works with commands. It is however possible to model the same flow with service operations:
 
-<div class="highlight"><pre><span></span><span class="k">Application</span> {
-  <span class="k">Service</span> ClaimsApplicationService {
-    <span class="k">void</span> submitClaim(@Claim claim);
-    <span class="k">void</span> checkClaimDocumentation(@Claim claim);
-    <span class="k">void</span> checkInsurance(@Claim claim);
-    <span class="k">void</span> acceptClaim(@Claim claim);
-    <span class="k">void</span> rejectClaim(@Claim claim);
-    <span class="k">void</span> schedulePayment(@Claim claim);
-    <span class="k">void</span> nofifyCustomer(@Claim claim);
+```cml
+Application {
+  Service ClaimsApplicationService {
+    void submitClaim(@Claim claim);
+    void checkClaimDocumentation(@Claim claim);
+    void checkInsurance(@Claim claim);
+    void acceptClaim(@Claim claim);
+    void rejectClaim(@Claim claim);
+    void schedulePayment(@Claim claim);
+    void nofifyCustomer(@Claim claim);
   }
-  
-  <span class="k">Flow</span> ClaimsFlow {
-    <span class="k">operation</span> submitClaim <span class="k">emits</span> <span class="k">event</span> ClaimSubmitted
-    <span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">operation</span> checkClaimDocumentation
-    <span class="k">operation</span> checkClaimDocumentation <span class="k">emits</span> <span class="k">event</span> ClaimRegistered
-    <span class="k">event</span> ClaimRegistered <span class="k">triggers</span> <span class="k">operation</span> checkInsurance
-    <span class="k">operation</span> checkInsurance <span class="k">emits</span> <span class="k">event</span> AssessmentPerformed
-    
-    <span class="k">event</span> AssessmentPerformed <span class="k">triggers</span> <span class="k">operation</span> acceptClaim <span class="k">X</span> rejectClaim 
-    <span class="k">operation</span> acceptClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; ACCEPTED] <span class="k">emits</span> <span class="k">event</span> ClaimAccepted
-    <span class="k">operation</span> rejectClaim <span class="k">delegates</span> <span class="k">to</span> Claims [OPEN -&gt; REJECTED] <span class="k">emits</span> <span class="k">event</span> ClaimRejected
-    
-    <span class="k">event</span> ClaimAccepted <span class="k">triggers</span> <span class="k">operation</span> schedulePayment
-    <span class="k">operation</span> schedulePayment <span class="k">emits</span> <span class="k">event</span> PaymentPerformed
-    <span class="k">event</span> PaymentPerformed <span class="k">triggers</span> <span class="k">operation</span> nofifyCustomer
-    <span class="k">event</span> ClaimRejected <span class="k">triggers</span> <span class="k">operation</span> nofifyCustomer
-    <span class="k">operation</span> nofifyCustomer <span class="k">delegates</span> <span class="k">to</span> Claims[ACCEPTED, REJECTED -&gt; CUSTOMER_NOTIFIED] <span class="k">emits</span> <span class="k">event</span> CustomerNotified
+
+  Flow ClaimsFlow {
+    operation submitClaim emits event ClaimSubmitted
+    event ClaimSubmitted triggers operation checkClaimDocumentation
+    operation checkClaimDocumentation emits event ClaimRegistered
+    event ClaimRegistered triggers operation checkInsurance
+    operation checkInsurance emits event AssessmentPerformed
+
+    event AssessmentPerformed triggers operation acceptClaim X rejectClaim
+    operation acceptClaim delegates to Claims [OPEN -> ACCEPTED] emits event ClaimAccepted
+    operation rejectClaim delegates to Claims [OPEN -> REJECTED] emits event ClaimRejected
+
+    event ClaimAccepted triggers operation schedulePayment
+    operation schedulePayment emits event PaymentPerformed
+    event PaymentPerformed triggers operation nofifyCustomer
+    event ClaimRejected triggers operation nofifyCustomer
+    operation nofifyCustomer delegates to Claims[ACCEPTED, REJECTED -> CUSTOMER_NOTIFIED] emits event CustomerNotified
   }
 }
-</pre></div>
+```
 
 In the following we explain the grammar in detail and step by step...
 
@@ -187,34 +193,36 @@ In the following we will see that we also support the Aggregate in _Type 2_; the
 
 The following example illustrates the basic syntax of the two step types:
 
-<div class="highlight"><pre><span></span><span class="k">Application</span> {
+```cml
+Application {
 
-  <span class="c">/* we removed commands and events here to keep the sample shorter */</span>
+  /* we removed commands and events here to keep the sample shorter */
 
-  <span class="k">Flow</span> ClaimsFlow {
-    <span class="c">/* type 2: (event production) */</span>
-    <span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> ClaimSubmitted
+  Flow ClaimsFlow {
+    /* type 2: (event production) */
+    command SubmitClaim emits event ClaimSubmitted
 
-    <span class="c">/* type 2 alternative: (event production) */</span>
-    <span class="k">operation</span> submitClaim <span class="k">emits</span> <span class="k">event</span> ClaimSubmitted
+    /* type 2 alternative: (event production) */
+    operation submitClaim emits event ClaimSubmitted
 
-    <span class="c">/* type 1: (command invokation) */</span>
-    <span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">command</span> CheckClaimDocumentation
+    /* type 1: (command invokation) */
+    event ClaimSubmitted triggers command CheckClaimDocumentation
 
-    <span class="c">/* type 1 alternative: (operation invokation) */</span>
-    <span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">operation</span> checkClaimDocumentation
+    /* type 1 alternative: (operation invokation) */
+    event ClaimSubmitted triggers operation checkClaimDocumentation
   }
 }
-</pre></div>
+```
 
 #### Emitting Events
 A command or operation can emit multiple events. This is expressed with the _+_ sign as follows:
 
-<div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> Event1 + Event2 + Event3 <span class="c">// and so on... (emit as many events as you want)</span>
+```cml
+command SubmitClaim emits event Event1 + Event2 + Event3 // and so on... (emit as many events as you want)
 
-<span class="c">// alternative</span>
-<span class="k">operation</span> submitClaim <span class="k">emits</span> <span class="k">event</span> Event1 + Event2
-</pre></div>
+// alternative
+operation submitClaim emits event Event1 + Event2
+```
 
 The example above illustrates that an operation emits **multiple** events events, which means, **all events are emitted**!
 
@@ -222,19 +230,21 @@ There are situations in which you want to express that **one OR an other** event
 
 **Exclusive variant:**
 
-<div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">X</span> Event2 <span class="k">X</span> Event3
+```cml
+command SubmitClaim emits event Event1 X Event2 X Event3
 
-<span class="c">// alternative</span>
-<span class="k">operation</span> submitClaim <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">X</span> Event2
-</pre></div>
+// alternative
+operation submitClaim emits event Event1 X Event2
+```
 
 **Inclusive variant:**
 
-<div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">O</span> Event2 <span class="k">O</span> Event3
+```cml
+command SubmitClaim emits event Event1 O Event2 O Event3
 
-<span class="c">// alternative</span>
-<span class="k">operation</span> submitClaim <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">O</span> Event2
-</pre></div>
+// alternative
+operation submitClaim emits event Event1 O Event2
+```
 
 **Symbol Summary:**
 
@@ -251,11 +261,12 @@ _Note:_ It is not possible to mix the symbols inside a single flow step (we do n
 #### Command/Operation triggered by multiple Events
 On the other hand a command or operation may only be triggered if multiple events happen. This is modelled as follows:
 
-<div class="highlight"><pre><span></span><span class="k">event</span> ClaimSubmitted + ContractChecked <span class="k">triggers</span> <span class="k">command</span> AssessClaim
+```cml
+event ClaimSubmitted + ContractChecked triggers command AssessClaim
 
-<span class="c">// alternative</span>
-<span class="k">event</span> ClaimSubmitted + ContractChecked <span class="k">triggers</span> <span class="k">operation</span> assessClaim
-</pre></div>
+// alternative
+event ClaimSubmitted + ContractChecked triggers operation assessClaim
+```
 
 This example expresses that both events (_ClaimSubmitted_ as well as _ContractChecked_) _must_ have been emitted so that _AssessClaim_ is triggered.
 
@@ -266,31 +277,34 @@ Similar to the _event productions_ explained above, it is possible that events t
 
 **Parallel variant:**
 
-<div class="highlight"><pre><span></span><span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">command</span> CheckClaim + CheckPolicy
+```cml
+event ClaimSubmitted triggers command CheckClaim + CheckPolicy
 
-<span class="c">// operation alternative:</span>
-<span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">operation</span> checkClaim + checkPolicy
-</pre></div>
+// operation alternative:
+event ClaimSubmitted triggers operation checkClaim + checkPolicy
+```
 
 This example expresses that all listed operations/commands are triggered (parallel).
 
 **Exclusive variant:**
 
-<div class="highlight"><pre><span></span><span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">command</span> CheckClaim <span class="k">X</span> CheckPolicy
+```cml
+event ClaimSubmitted triggers command CheckClaim X CheckPolicy
 
-<span class="c">// operation alternative:</span>
-<span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">operation</span> checkClaim <span class="k">X</span> checkPolicy
-</pre></div>
+// operation alternative:
+event ClaimSubmitted triggers operation checkClaim X checkPolicy
+```
 
 This example means that only one of the commands/operations is triggered.
 
 **Inclusive variant:**
 
-<div class="highlight"><pre><span></span><span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">command</span> CheckClaim <span class="k">O</span> CheckPolicy
+```cml
+event ClaimSubmitted triggers command CheckClaim O CheckPolicy
 
-<span class="c">// operation alternative:</span>
-<span class="k">event</span> ClaimSubmitted <span class="k">triggers</span> <span class="k">operation</span> checkClaim <span class="k">O</span> checkPolicy
-</pre></div>
+// operation alternative:
+event ClaimSubmitted triggers operation checkClaim O checkPolicy
+```
 
 This example expresses that one or multiple but not necessarily all commands/operations are triggered.
 
@@ -309,11 +323,12 @@ Commands and operations are typically delegated to an Aggregate. This also corre
 
 In CML this means that you can optionally add the following reference to _event production_ steps (_Type 2_ above):
 
-<div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim <span class="k">delegates</span> <span class="k">to</span> Claims <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">X</span> Event2 <span class="k">X</span> Event3
+```cml
+command SubmitClaim delegates to Claims emits event Event1 X Event2 X Event3
 
-<span class="c">// alternative</span>
-<span class="k">operation</span> submitClaim <span class="k">delegates</span> <span class="k">to</span> Claims <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">X</span> Event2
-</pre></div>
+// alternative
+operation submitClaim delegates to Claims emits event Event1 X Event2
+```
 
 Note that this is a reference to an Aggregate that must actually exist in your Bounded Context. In the example above there must be an Aggregate called _Claims_ in the same Bounded Context.
 
@@ -324,22 +339,24 @@ _Note:_ State transition can be modelled on service and domain object operations
 
 If you use flows you can add the state transitions to the flow steps instead of modeling them inside the Aggregate (operations). The state transitions can be added to the _event production_ steps (_type 2_ above) as follows (optionally):
 
-<div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim <span class="k">delegates</span> <span class="k">to</span> Claims [ -&gt; SUBMITTED ] <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">X</span> Event2 <span class="k">X</span> Event3
+```cml
+command SubmitClaim delegates to Claims [ -> SUBMITTED ] emits event Event1 X Event2 X Event3
 
-<span class="c">// alternative</span>
-<span class="k">operation</span> submitClaim <span class="k">delegates</span> <span class="k">to</span> Claims [ -&gt; SUBMITTED ] <span class="k">emits</span> <span class="k">event</span> Event1 <span class="k">X</span> Event2
-</pre></div>
+// alternative
+operation submitClaim delegates to Claims [ -> SUBMITTED ] emits event Event1 X Event2
+```
 
 For a complete documentation and examples for the state transition grammar we refer to the [Aggregate page](/docs/aggregate/#aggregate-lifecycle-and-state-transitions).
 
 #### Actors
 Commands or operations can be triggered by actors/users. In CML you can specify this (optionally) as follows:
 
-<div class="highlight"><pre><span></span><span class="k">command</span> SubmitClaim [ <span class="k">initiated</span> <span class="k">by</span> <span class="s">&quot;Customer&quot;</span> ] <span class="k">delegates</span> <span class="k">to</span> Claims [ -&gt; SUBMITTED ] <span class="k">emits</span> <span class="k">event</span> Event1
+```cml
+command SubmitClaim [ initiated by "Customer" ] delegates to Claims [ -> SUBMITTED ] emits event Event1
 
-<span class="c">// alternative</span>
-<span class="k">operation</span> submitClaim [ <span class="k">initiated</span> <span class="k">by</span> <span class="s">&quot;Customer&quot;</span> ] <span class="k">delegates</span> <span class="k">to</span> Claims [ -&gt; SUBMITTED ] <span class="k">emits</span> <span class="k">event</span> Event1
-</pre></div>
+// alternative
+operation submitClaim [ initiated by "Customer" ] delegates to Claims [ -> SUBMITTED ] emits event Event1
+```
 
 ### Visualization with BPMN Sketch Miner
 Once you modelled an application flow you can visualize it in the [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/). Use Context Mapper's [BPMN Sketch Miner generator](/docs/bpmn-sketch-miner/) to generate the Sketch Miner DSL output or directly open the visualization in the browser. 
@@ -355,48 +372,48 @@ In case you want to model processes/workflows that span multiple Bounded Context
 
 To model these workflows in Context Mapper, you use the _coordination_ construct inside the _application_ layer of a Bounded Context. The following example illustrates this using an adaptation of the same claims processing concept from before:
 
-<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
-  <span class="k">contains</span> ClaimsManagement
-  <span class="k">contains</span> InsuranceManagement
-  <span class="k">contains</span> PaymentManagement
+```cml
+ContextMap {
+  contains ClaimsManagement
+  contains InsuranceManagement
+  contains PaymentManagement
 
-  ClaimsManagement &lt;-&gt; InsuranceManagement
-  ClaimsManagement &lt;-&gt; PaymentManagement
+  ClaimsManagement <-> InsuranceManagement
+  ClaimsManagement <-> PaymentManagement
 }
 
-<span class="k">BoundedContext</span> ClaimsManagement {
-  <span class="k">Application</span> {
-    <span class="k">Coordination</span> SubmitValidClaimCoordination {
+BoundedContext ClaimsManagement {
+  Application {
+    Coordination SubmitValidClaimCoordination {
       ClaimsManagement::ClaimsApplicationService::submitClaim;
       InsuranceManagement::InsuranceApplicationService::checkInsurance;
       ClaimsManagement::ClaimsApplicationService::acceptClaim;
       PaymentManagement::PaymentApplicationService::performPayment;
     }
 
-    <span class="k">Service</span> ClaimsApplicationService {
-      <span class="k">void</span> submitClaim(@Claim claim);
-      <span class="k">void</span> acceptClaim(@Claim claim);
+    Service ClaimsApplicationService {
+      void submitClaim(@Claim claim);
+      void acceptClaim(@Claim claim);
     }
   }
 }
 
-<span class="k">BoundedContext</span> InsuranceManagement {
-  <span class="k">Application</span> {
-    <span class="k">Service</span> InsuranceApplicationService {
-      <span class="k">void</span> checkInsurance(@Claim claim);
+BoundedContext InsuranceManagement {
+  Application {
+    Service InsuranceApplicationService {
+      void checkInsurance(@Claim claim);
     }
   }
 }
 
-<span class="k">BoundedContext</span> PaymentManagement {
-  <span class="k">Application</span> {
-    <span class="k">Service</span> PaymentApplicationService {
-      <span class="k">void</span> performPayment(@Claim claim);
+BoundedContext PaymentManagement {
+  Application {
+    Service PaymentApplicationService {
+      void performPayment(@Claim claim);
     }
   }
 }
-
-</pre></div>
+```
 
 _Note:_ The type of workflow coordination (orchestration or choreography) is not explicitly supported in the syntax, but can still be modeled by assuming that the Bounded Context where the coordination is defined serves as either the orchestrator, or the start of the choreography.
 
@@ -411,10 +428,10 @@ To correctly reference an application service operation, a coordination step is 
 
 The following is an example of a coordination step:
 
-<div class="highlight"><pre><span></span><span class="c">// Bounded context name :: application service name :: service operation name</span>
+```cml
+// Bounded context name :: application service name :: service operation name
 ClaimsManagement::ClaimsApplicationService::submitClaim;
-
-</pre></div>
+```
 
 Each of the three segments of a coordination step is also subject to certain syntax rules to maintain the integrity of the model. Respectively, these are:
 

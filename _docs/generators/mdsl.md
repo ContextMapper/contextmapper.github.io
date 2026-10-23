@@ -112,27 +112,28 @@ The MDSL language allows modelers to specify the roles of endpoints and operatio
 the MAP patterns can be added in CML. In this case we use the _Information Holder Resource_ pattern on the Aggregate level and the _Retrieval Operation_ pattern
 on the method level:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext {
+```cml
+BoundedContext CustomerManagementContext {
 
-  <span class="s">&quot;INFORMATION_HOLDER_RESOURCE&quot;</span>
-  <span class="k">Aggregate</span> Customers {
+  "INFORMATION_HOLDER_RESOURCE"
+  Aggregate Customers {
 
-    <span class="k">Entity</span> Customer {
-      <span class="k">aggregateRoot</span>
+    Entity Customer {
+      aggregateRoot
 
-      - <span class="k">SocialInsuranceNumber</span> sin
-      <span class="k">String</span> firstname
-      <span class="k">String</span> lastname
-      - <span class="k">List</span>&lt;Address&gt; addresses
+      - SocialInsuranceNumber sin
+      String firstname
+      String lastname
+      - List<Address> addresses
 
-      <span class="s">&quot;RETRIEVAL_OPERATION&quot;</span>
-      <span class="k">def</span> @Address getAddress(AddressId addressId);
+      "RETRIEVAL_OPERATION"
+      def @Address getAddress(AddressId addressId);
     }
 
-    <span class="k">Entity</span> Address
+    Entity Address
   }
 }
-</pre></div> 
+``` 
 
 The patterns are detected by our generator and mapped to the corresponding language features of MDSL. The following MDSL code illustrates the resulting resource for the Aggregate specified above:
 

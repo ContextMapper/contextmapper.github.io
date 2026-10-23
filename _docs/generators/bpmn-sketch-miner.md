@@ -9,48 +9,49 @@ We use the [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) tool to visual
 ## Example Flow
 The following CML code illustrates how you can model flows. A complete documentation on the syntax can be found in the [language reference](/docs/application-and-process-layer/#processes-and-eventcommand-flows).
 
-<div class="highlight"><pre><span></span><span class="c">/**</span>
-<span class="c"> * A flow inspired by the Lakeside Mutual project (https://github.com/Microservice-API-Patterns/LakesideMutual).</span>
-<span class="c"> * Find the original process visualization here:</span>
-<span class="c"> * https://github.com/Microservice-API-Patterns/LakesideMutual/blob/master/policy-management-backend/src/main/java/com/lakesidemutual/policymanagement/domain/insurancequoterequest/RequestStatus.java</span>
-<span class="c"> **/</span>
-<span class="k">BoundedContext</span> InsuranceQuotes {
-  <span class="k">Application</span> {
-    <span class="k">Flow</span> QuoteRequestFlow {
-      <span class="k">operation</span> submitRequest <span class="k">delegates</span> <span class="k">to</span> QuoteRequest[-<span class="k">&gt;</span> SUBMITTED] <span class="k">emits</span> <span class="k">event</span> RequestSubmitted
-      <span class="k">event</span> RequestSubmitted + RequestSubmitted <span class="k">triggers</span> <span class="k">operation</span> checkRequest
-      <span class="k">operation</span> checkRequest <span class="k">delegates</span> <span class="k">to</span> QuoteRequest[SUBMITTED -&gt; RECEIVED <span class="k">X</span> REJECTED] <span class="k">emits</span> <span class="k">event</span> QuoteReceived <span class="k">X</span> RequestRejected
-      <span class="k">event</span> QuoteReceived <span class="k">triggers</span> <span class="k">operation</span> receiveAndCheckQuote
-      <span class="k">operation</span> receiveAndCheckQuote <span class="k">delegates</span> <span class="k">to</span> QuoteRequest[RECEIVED -&gt; REJECTED <span class="k">X</span> ACCEPTED <span class="k">X</span> EXPIRED] <span class="k">emits</span> <span class="k">event</span> QuoteRejected <span class="k">X</span> QuoteAccepted <span class="k">X</span> QuoteExpired
-      <span class="k">event</span> QuoteAccepted <span class="k">triggers</span> <span class="k">operation</span> accept
-      <span class="k">operation</span> accept <span class="k">delegates</span> <span class="k">to</span> QuoteRequest[ACCEPTED -&gt; POLICY_CREATED <span class="k">X</span> EXPIRED] <span class="k">emits</span> <span class="k">event</span> PolicyCreated <span class="k">X</span> QuoteExpired
+```cml
+/**
+ * A flow inspired by the Lakeside Mutual project (https://github.com/Microservice-API-Patterns/LakesideMutual).
+ * Find the original process visualization here:
+ * https://github.com/Microservice-API-Patterns/LakesideMutual/blob/master/policy-management-backend/src/main/java/com/lakesidemutual/policymanagement/domain/insurancequoterequest/RequestStatus.java
+ **/
+BoundedContext InsuranceQuotes {
+  Application {
+    Flow QuoteRequestFlow {
+      operation submitRequest delegates to QuoteRequest[-> SUBMITTED] emits event RequestSubmitted
+      event RequestSubmitted + RequestSubmitted triggers operation checkRequest
+      operation checkRequest delegates to QuoteRequest[SUBMITTED -> RECEIVED X REJECTED] emits event QuoteReceived X RequestRejected
+      event QuoteReceived triggers operation receiveAndCheckQuote
+      operation receiveAndCheckQuote delegates to QuoteRequest[RECEIVED -> REJECTED X ACCEPTED X EXPIRED] emits event QuoteRejected X QuoteAccepted X QuoteExpired
+      event QuoteAccepted triggers operation accept
+      operation accept delegates to QuoteRequest[ACCEPTED -> POLICY_CREATED X EXPIRED] emits event PolicyCreated X QuoteExpired
     }
   }
-  <span class="k">Aggregate</span> QuoteRequest {
-    <span class="k">Entity</span> Request {
-      <span class="k">aggregateRoot</span>
+  Aggregate QuoteRequest {
+    Entity Request {
+      aggregateRoot
     }
-    <span class="k">DomainEvent</span> RequestSubmitted
-    <span class="k">DomainEvent</span> QuoteReceived
-    <span class="k">DomainEvent</span> RequestRejected
-    <span class="k">DomainEvent</span> QuoteRejected
-    <span class="k">DomainEvent</span> QuoteAccepted
-    <span class="k">DomainEvent</span> QuoteExpired
-    <span class="k">DomainEvent</span> PolicyCreated
-    <span class="k">Service</span> QuoteRequestService {
-      <span class="k">void</span> submitRequest(@Request request);
-      <span class="k">void</span> checkRequest(@Request request);
-      <span class="k">void</span> receiveAndCheckQuote(@Request request);
-      <span class="k">void</span> reject(@Request request);
-      <span class="k">void</span> accept(@Request request);
+    DomainEvent RequestSubmitted
+    DomainEvent QuoteReceived
+    DomainEvent RequestRejected
+    DomainEvent QuoteRejected
+    DomainEvent QuoteAccepted
+    DomainEvent QuoteExpired
+    DomainEvent PolicyCreated
+    Service QuoteRequestService {
+      void submitRequest(@Request request);
+      void checkRequest(@Request request);
+      void receiveAndCheckQuote(@Request request);
+      void reject(@Request request);
+      void accept(@Request request);
     }
-    <span class="k">enum</span> RequestState {
-      <span class="k">aggregateLifecycle</span>
+    enum RequestState {
+      aggregateLifecycle
        SUBMITTED, RECEIVED, REJECTED, ACCEPTED, EXPIRED, POLICY_CREATED
     }
   }
 }
-</pre></div>
+```
 
 ## Open Flow in BPMN Sketch Miner
 The Context Mapper IDEs ([VS Code extension](/docs/vs-code/) as well as [Eclipse plugin](/docs/eclipse/)) allow you to open a flow in [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) with two (or max. three) clicks. The following example illustrates this in VS Code (Eclipse works the same way).

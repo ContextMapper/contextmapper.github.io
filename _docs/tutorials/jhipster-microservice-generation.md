@@ -29,81 +29,83 @@ Please note that the current JDL template only filters/ignores Bounded Contexts 
 (FEATURES, APPLICATIONS, and SYSTEMS) are mapped to a corresponding microservice. Our example Context Map, shown in the following CML snippet, contains several Bounded 
 Contexts of the type _SYSTEM_. The generator creates one microservice per Bounded Context. 
 
-<div class="highlight"><pre><span></span><span class="k">ContextMap</span> InsuranceContextMap {
-  <span class="k">type</span> = <span class="k">SYSTEM_LANDSCAPE</span>
-  <span class="k">state</span> = <span class="k">TO_BE</span>
+```cml
+ContextMap InsuranceContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = TO_BE
 
-  <span class="k">contains</span> CustomerManagement, CustomerSelfService, Printing
-  <span class="k">contains</span> PolicyManagement, RiskManagement, DebtCollection
+  contains CustomerManagement, CustomerSelfService, Printing
+  contains PolicyManagement, RiskManagement, DebtCollection
 
-  CustomerSelfService [<span class="k">D</span>,<span class="k">C</span>]&lt;-[<span class="k">U</span>,<span class="k">S</span>] CustomerManagement {
-    <span class="k">exposedAggregates</span> = Customers
+  CustomerSelfService [D,C]<-[U,S] CustomerManagement {
+    exposedAggregates = Customers
   }
 
-  CustomerManagement [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] Printing {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
-    <span class="k">downstreamRights</span> = INFLUENCER
-    <span class="k">exposedAggregates</span> = Printing
+  CustomerManagement [D,ACL]<-[U,OHS,PL] Printing {
+    implementationTechnology = "SOAP"
+    downstreamRights = INFLUENCER
+    exposedAggregates = Printing
   }
 
-  Printing [<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>]-&gt;[<span class="k">D</span>,<span class="k">ACL</span>] PolicyManagement {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
-    <span class="k">exposedAggregates</span> = Printing
+  Printing [U,OHS,PL]->[D,ACL] PolicyManagement {
+    implementationTechnology = "SOAP"
+    exposedAggregates = Printing
   }
 
-  RiskManagement [<span class="k">P</span>]&lt;-&gt;[<span class="k">P</span>] PolicyManagement {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RabbitMQ&quot;</span>
+  RiskManagement [P]<->[P] PolicyManagement {
+    implementationTechnology = "RabbitMQ"
   }
 
-  PolicyManagement [<span class="k">D</span>,<span class="k">CF</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] CustomerManagement {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTfulHTTP&quot;</span>
-    <span class="k">exposedAggregates</span> = Customers
+  PolicyManagement [D,CF]<-[U,OHS,PL] CustomerManagement {
+    implementationTechnology = "RESTfulHTTP"
+    exposedAggregates = Customers
   }
 
-  DebtCollection [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] Printing {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
-    <span class="k">exposedAggregates</span> = Printing
+  DebtCollection [D,ACL]<-[U,OHS,PL] Printing {
+    implementationTechnology = "SOAP"
+    exposedAggregates = Printing
   }
 
-  PolicyManagement [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] DebtCollection {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;Shared Java Library, Communication over RESTful HTTP&quot;</span>
+  PolicyManagement [SK]<->[SK] DebtCollection {
+    implementationTechnology = "Shared Java Library, Communication over RESTful HTTP"
   }
 }
-</pre></div>
+```
 
 Each Bounded Context of the model contains Aggregates with Entities and Services. The following CML snippet (CustomerManagement) illustrates an example:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagement <span class="k">implements</span> CustomerManagementDomain {
-  <span class="k">type</span> = <span class="k">SYSTEM</span>
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;The customer management context is responsible for managing all the data of the insurance companies customers.&quot;</span>
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;Java, JEE Application&quot;</span>
-  <span class="k">responsibilities</span> = <span class="s">&quot;Customers, Addresses&quot;</span>
+```cml
+BoundedContext CustomerManagement implements CustomerManagementDomain {
+  type = SYSTEM
+  domainVisionStatement = "The customer management context is responsible for managing all the data of the insurance companies customers."
+  implementationTechnology = "Java, JEE Application"
+  responsibilities = "Customers, Addresses"
 
-  <span class="k">Aggregate</span> Customers {
-    <span class="k">Entity</span> Customer {
-      <span class="k">aggregateRoot</span>
+  Aggregate Customers {
+    Entity Customer {
+      aggregateRoot
 
-      - <span class="k">SocialInsuranceNumber</span> sin
-      <span class="k">String</span> firstname
-      <span class="k">String</span> lastname
-      - <span class="k">List</span>&lt;Address&gt; addresses
+      - SocialInsuranceNumber sin
+      String firstname
+      String lastname
+      - List<Address> addresses
 
-      <span class="k">def</span> AddressId createAddress(@Address address);
-      <span class="k">def</span> boolean changeCustomer(String firstname, String lastname);
+      def AddressId createAddress(@Address address);
+      def boolean changeCustomer(String firstname, String lastname);
     }
 
-    <span class="k">Entity</span> Address {
-      <span class="k">String</span> street
-      <span class="k">int</span> postalCode
-      <span class="k">String</span> city
+    Entity Address {
+      String street
+      int postalCode
+      String city
     }
 
-    <span class="k">ValueObject</span> SocialInsuranceNumber {
-      <span class="k">String</span> sin <span class="k">key</span>
+    ValueObject SocialInsuranceNumber {
+      String sin key
     }
   }
 }
-</pre></div>
+```
 
 All other Bounded Context definitions and the complete model can be found [here](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/microservice-generation/JDL-example), as already mentioned. 
 

@@ -8,24 +8,26 @@ The Responsibility Layers pattern from the ["blue book"](https://www.amazon.com/
 ## Syntax
 The responsibilities can simply be defined with the keyword/attribute _responsibilities_ and a list of responsibilities (as strings):
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext <span class="k">implements</span> CustomerManagementDomain {
-  <span class="k">type</span> = <span class="k">FEATURE</span>
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;The customer management context is responsible for ...&quot;</span>
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;Java, JEE Application&quot;</span>
-  <span class="k">responsibilities</span> = <span class="s">&quot;Customers&quot;</span>, <span class="s">&quot;Addresses&quot;</span>
+```cml
+BoundedContext CustomerManagementContext implements CustomerManagementDomain {
+  type = FEATURE
+  domainVisionStatement = "The customer management context is responsible for ..."
+  implementationTechnology = "Java, JEE Application"
+  responsibilities = "Customers", "Addresses"
 }
-</pre></div>
+```
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Customers {
-  <span class="k">responsibilities</span> = <span class="s">&quot;Customers&quot;</span>, <span class="s">&quot;Addresses&quot;</span>
-  
-  <span class="k">Entity</span> Customer { 
-    <span class="k">aggregateRoot</span>
-    
-    - <span class="k">SocialInsuranceNumber</span> sin
-    <span class="k">String</span> firstname
-    <span class="k">String</span> lastname
-    - <span class="k">List&lt;Address&gt;</span> addresses
+```cml
+Aggregate Customers {
+  responsibilities = "Customers", "Addresses"
+
+  Entity Customer {
+    aggregateRoot
+
+    - SocialInsuranceNumber sin
+    String firstname
+    String lastname
+    - List<Address> addresses
   }
 }
-</pre></div>
+```

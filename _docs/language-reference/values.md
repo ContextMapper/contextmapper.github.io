@@ -10,73 +10,73 @@ The CML language supports the modelling of stakeholders and their values that mi
 ## Value Register
 If you are interested in reading more about the ideas of a _value register_, we refer to the [IEEE 7000 standard](https://ieeexplore.ieee.org/document/9536679) or the [ESE Glossary](https://github.com/ethical-se/ese-practices/blob/main/ESE-Glossary.md). However, if you just want to move on quickly and model the values of your stakeholders - just consider the value register a _container object_ that allows to model values for a specific Bounded Context:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">BoundedContext</span> <span class="n">Online_Shop_Same_Day_Delivery</span>
+```cml
+BoundedContext Online_Shop_Same_Day_Delivery
 
-<span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="k">for</span> <span class="n">Online_Shop_Same_Day_Delivery</span> <span class="p">{</span>
-  <span class="c1">// model values inside value register</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+ValueRegister SDD_Stakeholder_Values for Online_Shop_Same_Day_Delivery {
+  // model values inside value register
+}
+```
 
 If you just want to start to model some values without separating by Bounded Contexts, you can create a `ValueRegister` without that reference:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="p">{</span>
-  <span class="c1">// model values inside value register</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+```cml
+ValueRegister SDD_Stakeholder_Values {
+  // model values inside value register
+}
+```
 
 ## Values
 
 Inside a value register you can define the values important to your project, software and/or feature:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="p">{</span>
-  
-  <span class="k">Value</span> <span class="n">Privacy</span>
-  <span class="k">Value</span> <span class="n">Respect</span>
-  <span class="k">Value</span> <span class="n">Integrity</span>
-  <span class="k">Value</span> <span class="n">Love</span>
-  <span class="c1">// etc.</span>
+```cml
+ValueRegister SDD_Stakeholder_Values {
 
-<span class="p">}</span>
-</pre></div>
-</div>
+  Value Privacy
+  Value Respect
+  Value Integrity
+  Value Love
+  // etc.
+
+}
+```
 
 The following attributes that can be added, namely whether a value is a _core value_, _value demonstrators_, _related values_ and _opposing values_, follow the terminology of the [IEEE 7000 standard](https://ieeexplore.ieee.org/document/9536679). We refer to the standard for a more detailed introduction into these terms; in CML the attributes are however not mandatory.
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="p">{</span>
-  
-  <span class="k">Value</span> <span class="n">Privacy</span> <span class="p">{</span>
-    <span class="k">isCore</span>
+```cml
+ValueRegister SDD_Stakeholder_Values {
 
-    <span class="k">demonstrator</span> = <span class="s">&quot;right to be left alone&quot;</span>
-    <span class="k">demonstrator</span> = <span class="s">&quot;the right to refuse sharing private data&quot;</span>
-    <span class="k">relatedValue</span> = <span class="s">&quot;Intimacy&quot;</span>
-    <span class="k">opposingValue</span> = <span class="s">&quot;Transparency&quot;</span>
-    <span class="k">opposingValue</span> = <span class="s">&quot;Inclusiveness&quot;</span>
-  <span class="p">}</span>
+  Value Privacy {
+    isCore
 
-<span class="p">}</span>
-</pre></div>
-</div>
+    demonstrator = "right to be left alone"
+    demonstrator = "the right to refuse sharing private data"
+    relatedValue = "Intimacy"
+    opposingValue = "Transparency"
+    opposingValue = "Inclusiveness"
+  }
+
+}
+```
 
 As always in CML, the 'equal' (=) sign is optional:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="p">{</span>
-  
-  <span class="k">Value</span> <span class="n">Privacy</span> <span class="p">{</span>
-    <span class="k">isCore</span>
+```cml
+ValueRegister SDD_Stakeholder_Values {
 
-    <span class="k">demonstrator</span> <span class="s">&quot;right to be left alone&quot;</span>
-    <span class="k">demonstrator</span> <span class="s">&quot;the right to refuse sharing private data&quot;</span>
-    <span class="k">relatedValue</span> <span class="s">&quot;Intimacy&quot;</span>
-    <span class="k">opposingValue</span> <span class="s">&quot;Transparency&quot;</span>
-    <span class="k">opposingValue</span> <span class="s">&quot;Inclusiveness&quot;</span>
-  <span class="p">}</span>
+  Value Privacy {
+    isCore
 
-<span class="p">}</span>
-</pre></div>
-</div>
+    demonstrator "right to be left alone"
+    demonstrator "the right to refuse sharing private data"
+    relatedValue "Intimacy"
+    opposingValue "Transparency"
+    opposingValue "Inclusiveness"
+  }
+
+}
+```
 
 <div class="alert alert-custom">
 <strong>Note:</strong> Just modelling values, as seen here, does not allow you to generate any visualization yet (at least for now). Continue with the section <a href="#stakeholder-priorisation-impact--consequences">Stakeholder Priorisation, Impact & Consequences</a>, to define how important these values are to individual stakeholders and how these stakeholders are affected. After that, you can generate a [Value Impact Map](https://ethical-se.github.io/value-driven-analysis-and-design/practices/value-impact-mapping) with the <a href="/docs/plant-uml/">PlantUML generator</a>.
@@ -86,51 +86,51 @@ As always in CML, the 'equal' (=) sign is optional:
 
 If one applies or follows the [IEEE 7000 standard](https://ieeexplore.ieee.org/document/9536679), values are clustered around core values. For example, the value _confidentiality_ (a demonstrator could be: _right to be left alone_), is an enabler for the core value of _privacy_. Therefore the value _confidentiality_ would be added to the value cluster with the core value _privacy_. This can be modelled in CML as follows:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="p">{</span>
-  
-  <span class="k">ValueCluster</span> <span class="n">Privacy</span> <span class="p">{</span>
-    <span class="k">core</span> <span class="k">PRIVACY</span>
+```cml
+ValueRegister SDD_Stakeholder_Values {
 
-    <span class="k">Value</span> <span class="n">Confidentiality</span> <span class="p">{</span>
-      <span class="k">demonstrator</span> = <span class="s">&quot;right to be left alone&quot;</span>  
-    <span class="p">}</span>
-  <span class="p">}</span>
+  ValueCluster Privacy {
+    core PRIVACY
 
-<span class="p">}</span>
-</pre></div>
-</div>
+    Value Confidentiality {
+      demonstrator = "right to be left alone"
+    }
+  }
+
+}
+```
 
 The _core value_ can be modelled as shown above, by using the enumeration CML provides. That enumeration contains all _core values_ according to the [IEEE 7000 standard](https://ieeexplore.ieee.org/document/9536679): `AUTONOMY`, `CARE`, `CONTROL`, `FAIRNESS`, `INCLUSIVENESS`, `INNOVATION`, `PERFECTION`, `PRIVACY`, `RESPECT`, `SUSTAINABILITY`, `TRANSPARENCY`, `TRUST`.
 
 Alteratively, you can define the core value by a custom string:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="p">{</span>
-  
-  <span class="k">ValueCluster</span> <span class="n">MyCluster</span> <span class="p">{</span>
-    <span class="k">core</span> <span class="s">&quot;Respect&quot;</span>
-  <span class="p">}</span>
+```cml
+ValueRegister SDD_Stakeholder_Values {
 
-<span class="p">}</span>
-</pre></div>
-</div>
+  ValueCluster MyCluster {
+    core "Respect"
+  }
+
+}
+```
 
 Further note that the attributes `demonstrator`, `relatedValue` and `opposingValue`, as documented for the `Value` object already, can also be applied to value clusters:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">ValueRegister</span> <span class="n">SDD_Stakeholder_Values</span> <span class="p">{</span>
-  
-  <span class="k">ValueCluster</span> <span class="n">Privacy</span> <span class="p">{</span>
-    <span class="k">core</span> <span class="k">PRIVACY</span>
+```cml
+ValueRegister SDD_Stakeholder_Values {
 
-    <span class="k">demonstrator</span> = <span class="s">&quot;right to be left alone&quot;</span>
-    <span class="k">demonstrator</span> = <span class="s">&quot;the right to refuse sharing private data&quot;</span>
-    <span class="k">relatedValue</span> = <span class="s">&quot;Intimacy&quot;</span>
-    <span class="k">opposingValue</span> = <span class="s">&quot;Transparency&quot;</span>
-    <span class="k">opposingValue</span> = <span class="s">&quot;Inclusiveness&quot;</span>
-  <span class="p">}</span>
+  ValueCluster Privacy {
+    core PRIVACY
 
-<span class="p">}</span>
-</pre></div>
-</div>
+    demonstrator = "right to be left alone"
+    demonstrator = "the right to refuse sharing private data"
+    relatedValue = "Intimacy"
+    opposingValue = "Transparency"
+    opposingValue = "Inclusiveness"
+  }
+
+}
+```
 
 Generally, you can cluster values in CML but you do not necessarily have to.
 
@@ -144,85 +144,85 @@ Note that the following model snippets require stakeholder modelling as precondi
 
 The following example illustrates how you can assign the values ​​to the stakeholders who care about them. For each stakeholder you can define the `PRIORITY` this value has for the stakeholder, as well as the `IMPACT`. The `consequences` section allows you to model `good`, `bad`, and `neutral` consequences your system or feature has to the given value - from the perspective of the specific stakeholder:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">BoundedContext</span> <span class="n">SameDayDelivery</span>
+```cml
+BoundedContext SameDayDelivery
 
-<span class="k">Stakeholders</span> <span class="k">of</span> <span class="n">SameDayDelivery</span> <span class="p">{</span>
-  <span class="k">StakeholderGroup</span> <span class="n">Customers_and_Shoppers</span>
-  <span class="k">StakeholderGroup</span> <span class="n">Delivery_Staff_of_Suppliers</span>
-<span class="p">}</span>
+Stakeholders of SameDayDelivery {
+  StakeholderGroup Customers_and_Shoppers
+  StakeholderGroup Delivery_Staff_of_Suppliers
+}
 
-<span class="k">ValueRegister</span> <span class="n">SD_Values</span> <span class="k">for</span> <span class="n">SameDayDelivery</span> <span class="p">{</span>  
-  <span class="k">Value</span> <span class="n">Freedom</span> <span class="p">{</span>
-      <span class="k">Stakeholder</span> <span class="n">Customers_and_Shoppers</span> <span class="p">{</span>
-        <span class="k">priority</span> <span class="k">HIGH</span>
-        <span class="k">impact</span> <span class="k">MEDIUM</span>
-        <span class="k">consequences</span>
-          <span class="k">good</span> <span class="s">&quot;increased freedom&quot;</span>
-      <span class="p">}</span>
-      <span class="k">Stakeholder</span> <span class="n">Delivery_Staff_of_Suppliers</span> <span class="p">{</span>
-        <span class="k">priority</span> <span class="k">HIGH</span>
-        <span class="k">impact</span> <span class="k">HIGH</span>
-        <span class="k">consequences</span>
-          <span class="k">bad</span> <span class="s">&quot;work-life-balance&quot;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+ValueRegister SD_Values for SameDayDelivery {
+  Value Freedom {
+      Stakeholder Customers_and_Shoppers {
+        priority HIGH
+        impact MEDIUM
+        consequences
+          good "increased freedom"
+      }
+      Stakeholder Delivery_Staff_of_Suppliers {
+        priority HIGH
+        impact HIGH
+        consequences
+          bad "work-life-balance"
+      }
+    }
+}
+```
 
 This is again possible on the level of a `Value`, but as well on a `ValueCluster`:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">BoundedContext</span> <span class="n">SameDayDelivery</span>
+```cml
+BoundedContext SameDayDelivery
 
-<span class="k">Stakeholders</span> <span class="k">of</span> <span class="n">SameDayDelivery</span> <span class="p">{</span>
-  <span class="k">StakeholderGroup</span> <span class="n">Customers_and_Shoppers</span>
-  <span class="k">StakeholderGroup</span> <span class="n">Delivery_Staff_of_Suppliers</span>
-<span class="p">}</span>
+Stakeholders of SameDayDelivery {
+  StakeholderGroup Customers_and_Shoppers
+  StakeholderGroup Delivery_Staff_of_Suppliers
+}
 
-<span class="k">ValueRegister</span> <span class="n">SD_Values</span> <span class="k">for</span> <span class="n">SameDayDelivery</span> <span class="p">{</span>  
-  <span class="k">ValueCluster</span> <span class="n">Freedom</span> <span class="p">{</span>
-      <span class="k">core</span> <span class="n">AUTONOMY</span>
-      <span class="k">Stakeholder</span> <span class="n">Customers_and_Shoppers</span> <span class="p">{</span>
-        <span class="k">priority</span> <span class="k">HIGH</span>
-        <span class="k">impact</span> <span class="k">MEDIUM</span>
-        <span class="k">consequences</span>
-          <span class="k">good</span> <span class="s">&quot;increased freedom&quot;</span>
-      <span class="p">}</span>
-      <span class="k">Stakeholder</span> <span class="n">Delivery_Staff_of_Suppliers</span> <span class="p">{</span>
-        <span class="k">priority</span> <span class="k">HIGH</span>
-        <span class="k">impact</span> <span class="k">HIGH</span>
-        <span class="k">consequences</span>
-          <span class="k">bad</span> <span class="s">&quot;work-life-balance&quot;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+ValueRegister SD_Values for SameDayDelivery {
+  ValueCluster Freedom {
+      core AUTONOMY
+      Stakeholder Customers_and_Shoppers {
+        priority HIGH
+        impact MEDIUM
+        consequences
+          good "increased freedom"
+      }
+      Stakeholder Delivery_Staff_of_Suppliers {
+        priority HIGH
+        impact HIGH
+        consequences
+          bad "work-life-balance"
+      }
+    }
+}
+```
 
 ## Mitigation Actions
 
 In case your system has negative impact on values, you might want to model the mitigation actions you consider to implement to reduce harm. The following example shows how to model such mitigation actions in CML:
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">BoundedContext</span> <span class="n">SameDayDelivery</span>
+```cml
+BoundedContext SameDayDelivery
 
-<span class="k">Stakeholders</span> <span class="k">of</span> <span class="n">SameDayDelivery</span> <span class="p">{</span>
-  <span class="k">StakeholderGroup</span> <span class="n">Drivers</span>
-<span class="p">}</span>
+Stakeholders of SameDayDelivery {
+  StakeholderGroup Drivers
+}
 
-<span class="k">ValueRegister</span> <span class="n">SD_Values</span> <span class="k">for</span> <span class="n">SameDayDelivery</span> <span class="p">{</span>  
-  <span class="k">Value</span> <span class="n">WorkLifeBalance</span> <span class="p">{</span>
-    <span class="k">demonstrator</span> <span class="s">&quot;Drivers value a healthy work-life-balance&quot;</span>
-    <span class="k">Stakeholder</span> <span class="n">Drivers</span> <span class="p">{</span>
-      <span class="k">priority</span> <span class="k">HIGH</span>
-      <span class="k">impact</span> <span class="k">HIGH</span>
-      <span class="k">consequences</span>
-        <span class="k">bad</span> <span class="s">&quot;SDD will harm work-life-balance of drivers&quot;</span>
-          <span class="k">action</span> <span class="s">&quot;hire more drivers&quot;</span> <span class="k">ACT</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+ValueRegister SD_Values for SameDayDelivery {
+  Value WorkLifeBalance {
+    demonstrator "Drivers value a healthy work-life-balance"
+    Stakeholder Drivers {
+      priority HIGH
+      impact HIGH
+      consequences
+        bad "SDD will harm work-life-balance of drivers"
+          action "hire more drivers" ACT
+    }
+  }
+}
+```
 
 The action types can be `ACT` (actively do something to reduce harm to values), `MONITOR` (just monitor the issue; maybe to gather more information), or a custom string.
 
@@ -244,41 +244,41 @@ The following additional (experimental) CML features allow users to apply [Story
 <strong>Note:</strong> These language features are experimental and currently not used by any generator. The modelled information can therefore not be visualized, except you use the <a href="/docs/generic-freemarker-generator/">Generic Generator (Templating with Freemarker)</a> and process the data on your own.
 </div>
 
-<div class="highlight"><div class="highlight"><pre><span></span><span class="k">Stakeholders</span> <span class="p">{</span>
-  <span class="k">Stakeholder</span> <span class="n">Conference_Participant</span>
-<span class="p">}</span>
+```cml
+Stakeholders {
+  Stakeholder Conference_Participant
+}
 
-<span class="k">ValueRegister</span> <span class="n">Conference_Management_Sample</span> <span class="p">{</span>  
-  <span class="k">ValueEpic</span> <span class="n">Data_Privacy</span> <span class="p">{</span>
-    <span class="k">As</span> <span class="k">a</span> <span class="n">Conference_Participant</span>
-    <span class="k">I</span> <span class="k">value</span> <span class="s">&quot;data privacy&quot;</span>
-    <span class="k">as</span> <span class="k">demonstrated</span> <span class="k">in</span> 
-      <span class="k">realization</span> <span class="k">of</span> <span class="s">&quot;confidentiality of sensitive personal information such as my passport number&quot;</span> 
-      <span class="k">reduction</span> <span class="k">of</span> <span class="s">&quot;efficiency of operations for conference mansagement staff&quot;</span>
-  <span class="p">}</span>
+ValueRegister Conference_Management_Sample {
+  ValueEpic Data_Privacy {
+    As a Conference_Participant
+    I value "data privacy"
+    as demonstrated in
+      realization of "confidentiality of sensitive personal information such as my passport number"
+      reduction of "efficiency of operations for conference mansagement staff"
+  }
 
-  <span class="k">ValueWeigthing</span> <span class="n">Data_Privacy</span> <span class="p">{</span>
-    <span class="k">In the context of the SOI</span>,
-    <span class="k">stakeholder</span> <span class="n">Conference_Participant</span> <span class="k">values</span> <span class="s">&quot;data privacy&quot;</span> <span class="k">more than</span> <span class="s">&quot;efficiency from a registration management staff point of view&quot;</span>
-    <span class="k">expecting benefits such as</span> <span class="s">&quot;confidentiality of sensitive personal information&quot;</span>
-    <span class="k">running the risk of harms such as</span> <span class="s">&quot;higher conference fees and a slower registration process.&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+  ValueWeigthing Data_Privacy {
+    In the context of the SOI,
+    stakeholder Conference_Participant values "data privacy" more than "efficiency from a registration management staff point of view"
+    expecting benefits such as "confidentiality of sensitive personal information"
+    running the risk of harms such as "higher conference fees and a slower registration process."
+  }
+}
 
-<span class="k">ValueRegister</span> <span class="n">Same_Day_Delivery_Sample</span> <span class="p">{</span>
-  <span class="k">ValueNarrative</span> <span class="n">Sample_Narrative</span> <span class="p">{</span>
-    <span class="k">When the SOI executes</span> <span class="s">&quot;the same say delivery epic (incl. split user stories that meet the INVEST criteria)&quot;</span>,
-    <span class="k">stakeholders expect it to promote, protect or create</span> <span class="s">&quot;freedom and quality of life&quot;</span>,
-    <span class="k">possibly degrading or prohibiting</span> <span class="s">&quot;work-life balance of suppliers and shopper privacy&quot;</span>
-    <span class="k">with the following externally observable and/or internally auditable behavior</span>:
+ValueRegister Same_Day_Delivery_Sample {
+  ValueNarrative Sample_Narrative {
+    When the SOI executes "the same say delivery epic (incl. split user stories that meet the INVEST criteria)",
+    stakeholders expect it to promote, protect or create "freedom and quality of life",
+    possibly degrading or prohibiting "work-life balance of suppliers and shopper privacy"
+    with the following externally observable and/or internally auditable behavior:
 
-    <span class="s">&quot;Given: Shop is operational and suited suppliers and logistics firms are available. </span>
-<span class="s">    When: Same day delivery is promised during order acceptance and confirmation. </span>
-<span class="s">    Then: Order arrives at shipment address until 11:59pm on the same say.&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+    "Given: Shop is operational and suited suppliers and logistics firms are available.
+    When: Same day delivery is promised during order acceptance and confirmation.
+    Then: Order arrives at shipment address until 11:59pm on the same say."
+  }
+}
+```
 
 ## Transformations
 Note that we offer several transformations that might help modelling stakeholders and their values according to [VDAD (Value-Driven Analysis and Design)](https://ethical-se.github.io/value-driven-analysis-and-design) more efficiently. The transformations are documented on the following page: [Stakeholder and Value Modelling Transformations](/docs/stakeholder-and-value-modelling-transformations/).

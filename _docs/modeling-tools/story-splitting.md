@@ -15,10 +15,11 @@ As a first proof of concept for this feature we implemented the transformation "
 
 We illustrate the idea with the following user story written in CML:
 
-<div class="highlight"><pre><span></span><span class="k">UserStory</span> Account_Admin_Story {
-    <span class="k">As</span> <span class="k">an</span> <span class="s">&quot;Admin&quot;</span> <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;manage&quot;</span> <span class="k">an</span> <span class="s">&quot;Account&quot;</span> <span class="k">so</span> <span class="k">that</span> <span class="s">&quot;can enable users to work with the system.&quot;</span>
+```cml
+UserStory Account_Admin_Story {
+    As an "Admin" I want to "manage" an "Account" so that "can enable users to work with the system."
 }
-</pre></div>
+```
 
 The Context Mapper editor provides a quick fix on the verb:
 
@@ -38,18 +39,19 @@ Once you entered all desired verbs, you can press `ESC` and the transformation w
 
 The resulting CML model is:
 
-<div class="highlight"><pre><span></span><span class="k">UserStory</span> Account_Admin_Story <span class="k">split</span> <span class="k">by</span> Account_Admin_Story_Split {
-	<span class="k">As</span> <span class="k">an</span> <span class="s">&quot;Admin&quot;</span> <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;manage&quot;</span> <span class="k">an</span> <span class="s">&quot;Account&quot;</span> <span class="k">so</span> <span class="k">that</span> <span class="s">&quot;can enable users to work with the system.&quot;</span>
+```cml
+UserStory Account_Admin_Story split by Account_Admin_Story_Split {
+	As an "Admin" I want to "manage" an "Account" so that "can enable users to work with the system."
 }
 
-<span class="k">UserStory</span> Account_Admin_Story_Split {
-	<span class="k">As</span> <span class="k">an</span> <span class="s">&quot;Admin&quot;</span>
-	<span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;cancel&quot;</span> <span class="k">an</span> <span class="s">&quot;Account&quot;</span>
-	<span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;edit&quot;</span> <span class="k">an</span> <span class="s">&quot;Account&quot;</span>
-	<span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="k">create</span> <span class="k">an</span> <span class="s">&quot;Account&quot;</span>
-	<span class="k">so</span> <span class="k">that</span> <span class="s">&quot;can enable users to work with the system.&quot;</span>
+UserStory Account_Admin_Story_Split {
+	As an "Admin"
+	I want to "cancel" an "Account"
+	I want to "edit" an "Account"
+	I want to create an "Account"
+	so that "can enable users to work with the system."
 }
-</pre></div>
+```
 
 With the _split by_ keyword we provide a back-reference so that you still know which story was split by which other story (and how the original story looked like).
 

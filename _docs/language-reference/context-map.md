@@ -11,29 +11,31 @@ A context map contains bounded contexts and defines their relationships. The int
 The following CML code snippet illustrates an example for a context map, according to our customized [DDD Sample](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/ddd-sample).
 With the _contains_ keyword you add a bounded context to the map.
 
-<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
-  <span class="k">type</span> = <span class="k">SYSTEM_LANDSCAPE</span>
-  <span class="k">state</span> = <span class="k">AS_IS</span>
+```cml
+ContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = AS_IS
 
-  <span class="k">contains</span> CargoBookingContext
-  <span class="k">contains</span> VoyagePlanningContext
-  <span class="k">contains</span> LocationContext
-	
-  CargoBookingContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] VoyagePlanningContext
+  contains CargoBookingContext
+  contains VoyagePlanningContext
+  contains LocationContext
+
+  CargoBookingContext [SK]<->[SK] VoyagePlanningContext
 }
-</pre></div>
+```
 
 Alternatively, you can use only one _contains_ keyword and list all bounded contexts comma-separated:
 
-<div class="highlight"><pre><span></span><span class="k">ContextMap</span> DDDSampleContextMap {
-  <span class="k">type</span> <span class="k">SYSTEM_LANDSCAPE</span>
-  <span class="k">state</span> <span class="k">AS_IS</span>
+```cml
+ContextMap DDDSampleContextMap {
+  type SYSTEM_LANDSCAPE
+  state AS_IS
 
-  <span class="k">contains</span> CargoBookingContext, VoyagePlanningContext, LocationContext
+  contains CargoBookingContext, VoyagePlanningContext, LocationContext
 
-  CargoBookingContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] VoyagePlanningContext
+  CargoBookingContext [SK]<->[SK] VoyagePlanningContext
 }
-</pre></div>
+```
 
 As you can see in the example above, it is also possible to name a context map (the name is optional). The equal sign (=) to assign an attribute value as done in the first example can be omitted as well.
 
@@ -74,49 +76,59 @@ The symmetric relationships and their syntax are introduced on separate pages: [
 
 Upstream-Downstream relationships can be defined with three different syntax variants, all illustrated with the examples below:
 
-<div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext
-</pre></div>
+```cml
+CargoBookingContext [D]<-[U] LocationContext
+```
 
-<div class="highlight"><pre><span></span>LocationContext [<span class="k">U</span>]-&gt;[<span class="k">D</span>] CargoBookingContext
-</pre></div>
+```cml
+LocationContext [U]->[D] CargoBookingContext
+```
 
-<div class="highlight"><pre><span></span>LocationContext <span class="k">Upstream-Downstream</span> CargoBookingContext
-</pre></div>
+```cml
+LocationContext Upstream-Downstream CargoBookingContext
+```
 
-<div class="highlight"><pre><span></span>CargoBookingContext <span class="k">Downstream-Upstream</span> LocationContext
-</pre></div>
+```cml
+CargoBookingContext Downstream-Upstream LocationContext
+```
 
 All of the four variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the upstream to the downstream and thus expresses an *influence flow* 
 (the upstream has an influence on the downstream, but the downstream has no influence on the upstream).
 
 A colon at the end assigns a relationship a name:
-<div class="highlight"><pre><span></span>CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>] LocationContext : CargoLocationRelationship
-</pre></div>
+```cml
+CargoBookingContext [D]<-[U] LocationContext : CargoLocationRelationship
+```
 
 **Note:** The following quick upstream/downstream syntax without brackets can be used as well. It denotes a common upstream/downstream relationship without any roles. However, with this syntax it is less clear for a reader that you declare an upstream/downstream and *not* a customer/supplier relationship.
 
-<div class="highlight"><pre><span></span>CargoBookingContext &lt;- LocationContext
-</pre></div>
+```cml
+CargoBookingContext <- LocationContext
+```
 
-<div class="highlight"><pre><span></span>LocationContext -&gt; CargoBookingContext
-</pre></div>
+```cml
+LocationContext -> CargoBookingContext
+```
 
 ### Relationship Roles
 You can further specify the relationship roles such as Open Host Service (OHS) or Anti-Corruption Layer (ACL) within the brackets.
 Roles must always be specified behind the **U** (upstream) and the **D** (downstream) if they are not omitted. 
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
-</pre></div>
+```cml
+VoyagePlanningContext [D,ACL]<-[U,OHS,PL] LocationContext
+```
 
 Since the arrow already indicates which Bounded Context is upstream and which is downstream, it is also possible to add the relationship roles within the brackets without the **U** and the **D**:
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">ACL</span>]&lt;-[<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
-</pre></div>
+```cml
+VoyagePlanningContext [ACL]<-[OHS,PL] LocationContext
+```
 
 If you use the _Upstream-Downstream_ or _Downstream-Upstream_ keywords the roles are declared equivalently, but without the **D** and **U** (note that it does not matter if you write a whitespace before or after the brackets, or both):
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext[<span class="k">ACL</span>] <span class="k">Downstream-Upstream</span> [<span class="k">OHS</span>,<span class="k">PL</span>]LocationContext
-</pre></div>
+```cml
+VoyagePlanningContext[ACL] Downstream-Upstream [OHS,PL]LocationContext
+```
 
 Upstream roles are defined by the [Open Host Service (OHS)](/docs/open-host-service/) and 
 [Published Language (PL)](/docs/published-language/) patterns. Downstream roles are [Conformist (CF)](/docs/conformist/) and 
@@ -131,19 +143,21 @@ By using brackets {}, you can specify additional attributes for a relationship:
 
 #### Implementation Technology
 Within the body of the declaration, it is possible to specify the implementation technology used to realize this relationship:
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
+```cml
+VoyagePlanningContext [D,ACL]<-[U,OHS,PL] LocationContext {
+    implementationTechnology = "RESTful HTTP"
 }
-</pre></div>
+```
 
 #### Downstream Governance Rights
 The attribute _downstreamRights_ defines which governance rights, and therefore which influence, the downstream has on the upstream within the specified relationship:
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
-    <span class="k">downstreamRights</span> = <span class="k">VETO_RIGHT</span>
+```cml
+VoyagePlanningContext [D,ACL]<-[U,OHS,PL] LocationContext {
+    implementationTechnology = "RESTful HTTP"
+    downstreamRights = VETO_RIGHT
 }
-</pre></div>
+```
 
 The possible governance rights values are:
 
@@ -156,12 +170,13 @@ The possible governance rights values are:
 #### Exposed Aggregates
 The _exposedAggregates_ attribute offers the possibility to declare which [Aggregates](/docs/aggregate) of the **upstream** bounded context are exposed in order to realize this relationship. The attribute takes a comma-separated list of references to Aggregates. The referenced Aggregates must be part of the upstream context of the relationship.
 
-<div class="highlight"><pre><span></span>VoyagePlanningContext [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
-    <span class="k">downstreamRights</span> = <span class="k">VETO_RIGHT</span>
-    <span class="k">exposedAggregates</span> = Customers, Addresses
+```cml
+VoyagePlanningContext [D,ACL]<-[U,OHS,PL] LocationContext {
+    implementationTechnology = "RESTful HTTP"
+    downstreamRights = VETO_RIGHT
+    exposedAggregates = Customers, Addresses
 }
-</pre></div>
+```
  
 ### Special Case: Customer/Supplier
 For the Customer-Supplier relationship, which is a special form of Upstream-Downstream relationship, please visit [Customer-Supplier](/docs/customer-supplier).
