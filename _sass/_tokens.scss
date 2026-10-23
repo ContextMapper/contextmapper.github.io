@@ -1,0 +1,85 @@
+// Design tokens (light and dark theme)
+//
+// The theme follows the operating system setting (prefers-color-scheme) unless the visitor
+// chose one with the toggle in the header (data-theme attribute on <html>, see js/main.js).
+
+@mixin dark-tokens {
+  color-scheme: dark;
+  --bg: #151821;
+  --bg-subtle: #1b1f2a;
+  --bg-code: #0f1117;
+  --border: #262b38;
+  --border-strong: #353b4b;
+  --text: #e7e9ef;
+  --text-muted: #b4b9c8;
+  --text-faint: #8d93a5;
+  --accent: #ff6fa0;
+  --accent-hover: #ff9abd;
+  --accent-soft: #3a1f2b;
+  --blue: #5bb8e8;
+  --blue-soft: #1c2e3a;
+  --button-bg: #e5004f;
+  --button-bg-hover: #c8004a;
+  --danger-bg: #3a1c1c;
+  --danger-border: #7a3333;
+  --logo-dark: none;
+  --logo-light: inline;
+  --img-bg: #ffffff;
+
+  --syntax-comment: #8d93a5;
+  --syntax-keyword: #ff6fa0;
+  --syntax-string: #8fd18f;
+  --syntax-number: #f0b36b;
+  --syntax-name: #5bb8e8;
+  --syntax-tag: #5bb8e8;
+  --syntax-attribute: #c9a0f5;
+}
+
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-subtle: #f6f7f9;
+  --bg-code: #f6f7f9;
+  --border: #e6e8ee;
+  --border-strong: #d5d8e0;
+  --text: #1e2230;
+  --text-muted: #454b5e;
+  --text-faint: #636a7e;
+  --accent: #c8004a;
+  --accent-hover: #94003a;
+  --accent-soft: #fce6ee;
+  --blue: #1a7fb5;
+  --blue-soft: #e3f1f9;
+  --button-bg: #c8004a;
+  --button-bg-hover: #a3003c;
+  --danger-bg: #fdecec;
+  --danger-border: #f2b8b8;
+  --logo-dark: inline;
+  --logo-light: none;
+  --img-bg: transparent;
+
+  --syntax-comment: #6a7084;
+  --syntax-keyword: #c8004a;
+  --syntax-string: #2e7d32;
+  --syntax-number: #b35900;
+  --syntax-name: #1a7fb5;
+  --syntax-tag: #1a7fb5;
+  --syntax-attribute: #7b3fc4;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --container: 1200px;
+  --header-height: 64px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-tokens;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include dark-tokens;
+}
