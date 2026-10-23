@@ -2,26 +2,20 @@
 layout: default
 ---
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-          {% include docs_nav.html %}
+<div class="container page with-sidebar">
+    <aside class="sidebar" id="docs-sidebar">
+        <button type="button" class="sidebar-toggle" aria-expanded="true" aria-controls="docs-sidebar-body">Documentation menu</button>
+        <div class="sidebar-body" id="docs-sidebar-body">
+            {% include docs_nav.html %}
         </div>
+    </aside>
 
-        <div class="col-md-9">
-            <h1>{{ page.title }}</h1>
-            <div id="markdown-content-container">{{ content }}</div>
-            <div style="clear:both;">
-              <p class="text-center">
-                <br />
-                <a target="_blank" href="{{site.git_edit_address}}/{{ page.path }}" class="btn btn-default githubEditButton" role="button">
-                  <i class="fa fa-pencil fa-lg"></i> Improve this page
-                </a>
-              </p>
-            </div>
-            <hr>
+    <article class="sidebar-content">
+        <h1>{{ page.title }}</h1>
+        <div class="content">{{ content }}</div>
+        <div class="page-footer">
+            <a class="edit-link" href="{{ site.git_edit_address }}/{{ page.path }}">{% include icons.html name="edit" %} Improve this page on GitHub</a>
             {% include section_nav.html %}
         </div>
-
-    </div>
+    </article>
 </div>

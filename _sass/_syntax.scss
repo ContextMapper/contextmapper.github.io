@@ -1,0 +1,55 @@
+// Code blocks and syntax highlighting (Rouge classes; the CML examples are pre-highlighted HTML with the same classes)
+
+.highlight,
+pre.highlight {
+  background: var(--bg-code);
+  border-radius: var(--radius);
+}
+
+div.highlight,
+.content > pre {
+  border: 1px solid var(--border);
+  margin: 0 0 1.4em;
+}
+
+.highlight pre,
+pre.highlight,
+.content > pre {
+  margin: 0;
+  padding: 16px 20px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg-code);
+  border-radius: var(--radius);
+}
+
+.highlight pre code,
+pre.highlight code {
+  font-size: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.highlighter-rouge > .highlight {
+  border: 1px solid var(--border);
+  margin: 0 0 1.4em;
+}
+
+.highlight {
+  .c, .c1, .cm, .cs, .cd, .cp, .cpf { color: var(--syntax-comment); font-style: italic; }
+  .k, .kc, .kd, .kn, .kp, .kr, .kv, .ow { color: var(--syntax-keyword); }
+  .kt { color: var(--syntax-name); }
+  .s, .s1, .s2, .sa, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx, .dl { color: var(--syntax-string); }
+  .m, .mb, .mf, .mh, .mi, .mo, .il { color: var(--syntax-number); }
+  .nc, .nn, .ne, .nd, .nb, .bp, .no, .nf, .fm { color: var(--syntax-name); }
+  .nt { color: var(--syntax-tag); }
+  .na, .nv, .vi, .vc, .vg { color: var(--syntax-attribute); }
+  .err { color: inherit; background: none; }
+  .gd { color: var(--syntax-keyword); }
+  .gi { color: var(--syntax-string); }
+  .ge { font-style: italic; }
+  .gs { font-weight: 700; }
+}

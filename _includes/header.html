@@ -1,0 +1,52 @@
+{%- comment -%} the docs section of the current page decides which navigation entry is active {%- endcomment -%}
+{%- assign current_section = "" -%}
+{%- if page.sectionid == "docs" -%}
+  {%- for section in site.data.docs -%}
+    {%- for item in section.docs -%}
+      {%- assign item_url = item | prepend: "/docs/" | append: "/" -%}
+      {%- if item_url == page.url -%}{%- assign current_section = section.title -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign nav_active = page.sectionid -%}
+{%- if current_section contains "Language Reference" -%}{%- assign nav_active = "language" -%}
+{%- elsif current_section == "Generators" -%}{%- assign nav_active = "generators" -%}{%- endif -%}
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="{{ "/" | relative_url }}">
+      <img class="logo-dark" src="{{ "/img/logo-icon.png" | relative_url }}" alt="">
+      <img class="logo-light" src="{{ "/img/logo-icon-light.png" | relative_url }}" alt="">
+      CONTEXT MAPPER
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav-links">
+        <li><a href="{{ "/docs/home/" | relative_url }}"{% if nav_active == "docs" %} aria-current="page"{% endif %}>Docs</a></li>
+        <li><a href="{{ "/docs/language-reference/" | relative_url }}"{% if nav_active == "language" %} aria-current="page"{% endif %}>Language Reference</a></li>
+        <li><a href="{{ "/docs/generators/" | relative_url }}"{% if nav_active == "generators" %} aria-current="page"{% endif %}>Generators</a></li>
+        <li><a href="{{ "/allnews/" | relative_url }}"{% if nav_active == "news" %} aria-current="page"{% endif %}>News</a></li>
+        <li><a href="{{ "/background-and-publications/" | relative_url }}"{% if nav_active == "project-background" %} aria-current="page"{% endif %}>Background</a></li>
+        <li><a href="{{ "/getting-involved/" | relative_url }}"{% if nav_active == "getting-involved" %} aria-current="page"{% endif %}>Get Involved</a></li>
+      </ul>
+      <div class="search" role="search">
+        <label class="search-field">
+          {% include icons.html name="search" %}
+          <span class="visually-hidden">Search the documentation</span>
+          <input id="search-input" type="search" placeholder="Search docs" autocomplete="off"
+                 role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list"
+                 data-index="{{ "/search.json" | relative_url }}">
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+        <ul class="search-results" id="search-results" role="listbox" hidden></ul>
+      </div>
+    </nav>
+    <div class="header-tools">
+      <button type="button" class="icon-button theme-toggle" id="theme-toggle" aria-label="Switch between light and dark theme" title="Switch theme">
+        <span class="icon-moon">{% include icons.html name="moon" %}</span>
+        <span class="icon-sun">{% include icons.html name="sun" %}</span>
+      </button>
+      <a class="icon-button" href="{{ site.git_address }}" aria-label="Context Mapper on GitHub" title="GitHub">{% include icons.html name="github" %}</a>
+      <button type="button" class="icon-button menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">{% include icons.html name="menu" %}</button>
+    </div>
+  </div>
+</header>

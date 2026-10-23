@@ -10,74 +10,77 @@ One `*.cml` file can only contain one Context Map. However, multiple Context Map
 
 The following CML snippet could be in a file `BoundedContexts.cml` and specify some Bounded Contexts:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext <span class="k">implements</span> CustomerManagementDomain {
-  <span class="k">Aggregate</span> Customers {
-    <span class="k">Entity</span> Customer {
-      <span class="k">aggregateRoot</span>
+```cml
+BoundedContext CustomerManagementContext implements CustomerManagementDomain {
+  Aggregate Customers {
+    Entity Customer {
+      aggregateRoot
 
-      - <span class="k">SocialInsuranceNumber</span> sin
-      <span class="k">String</span> firstname
-      <span class="k">String</span> lastname
-      - <span class="k">List</span>&lt;Address&gt; addresses
+      - SocialInsuranceNumber sin
+      String firstname
+      String lastname
+      - List<Address> addresses
     }
 
-    <span class="k">Entity</span> Address {
-      <span class="k">String</span> street
-      <span class="k">int</span> postalCode
-      <span class="k">String</span> city
-    }
-  }
-}
-
-<span class="k">BoundedContext</span> PolicyManagementContext <span class="k">implements</span> PolicyManagementDomain {
-  <span class="k">Aggregate</span> Contract {
-    <span class="k">Entity</span> Contract {
-      <span class="k">aggregateRoot</span>
-
-      - <span class="k">ContractId</span> identifier
-      - <span class="k">Customer</span> client
-      - <span class="k">List</span>&lt;Product&gt; products
-    }
-
-    <span class="k">Entity</span> Policy {
-      <span class="k">int</span> policyNr
-      - <span class="k">Contract</span> contract
-      <span class="k">BigDecimal</span> price
+    Entity Address {
+      String street
+      int postalCode
+      String city
     }
   }
 }
-</pre></div>
+
+BoundedContext PolicyManagementContext implements PolicyManagementDomain {
+  Aggregate Contract {
+    Entity Contract {
+      aggregateRoot
+
+      - ContractId identifier
+      - Customer client
+      - List<Product> products
+    }
+
+    Entity Policy {
+      int policyNr
+      - Contract contract
+      BigDecimal price
+    }
+  }
+}
+```
 
 A file containing the ContextMap can then import the Bounded Contexts with the **import keyword**:
 
-<div class="highlight"><pre><span></span><span class="k">import</span> <span class="s">&quot;./BoundedContexts.cml&quot;</span>
+```cml
+import "./BoundedContexts.cml"
 
-<span class="k">ContextMap</span> InsuranceContextMap {
-  <span class="k">contains</span> CustomerManagementContext
-  <span class="k">contains</span> PolicyManagementContext
+ContextMap InsuranceContextMap {
+  contains CustomerManagementContext
+  contains PolicyManagementContext
 
-  PolicyManagementContext [<span class="k">D</span>,<span class="k">CF</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] CustomerManagementContext {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTfulHTTP&quot;</span>
-    <span class="k">exposedAggregates</span> = Customers
+  PolicyManagementContext [D,CF]<-[U,OHS,PL] CustomerManagementContext {
+    implementationTechnology = "RESTfulHTTP"
+    exposedAggregates = Customers
   }
 }
-</pre></div>
+```
 
 It is also possible to import `*.cml` files located in other directories:
 
-<div class="highlight"><pre><span></span><span class="k">import</span> <span class="s">&quot;./BoundedContexts/CustomerManagement.cml&quot;</span>
-<span class="k">import</span> <span class="s">&quot;./BoundedContexts/PolicyManagement.cml&quot;</span>
+```cml
+import "./BoundedContexts/CustomerManagement.cml"
+import "./BoundedContexts/PolicyManagement.cml"
 
-<span class="k">ContextMap</span> InsuranceContextMap {
-  <span class="k">contains</span> CustomerManagementContext
-  <span class="k">contains</span> PolicyManagementContext
+ContextMap InsuranceContextMap {
+  contains CustomerManagementContext
+  contains PolicyManagementContext
 
-  PolicyManagementContext [<span class="k">D</span>,<span class="k">CF</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] CustomerManagementContext {
-    <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTfulHTTP&quot;</span>
-    <span class="k">exposedAggregates</span> = Customers
+  PolicyManagementContext [D,CF]<-[U,OHS,PL] CustomerManagementContext {
+    implementationTechnology = "RESTfulHTTP"
+    exposedAggregates = Customers
   }
 }
-</pre></div>
+```
 
 <div class="alert alert-custom">
 <strong>Note:</strong> Although you can import <strong>*.cml</strong> files from different directories, our Eclipse plugin will only be able to resolve files within the same Eclipse project.

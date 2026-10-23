@@ -9,10 +9,11 @@ The Anticorruption Layer pattern describes a relationship between two bounded co
 The Anticorruption Layer pattern can be used as a role for the downstream context in a Upstream/Downstream relationship by using the **ACL** abbreviation.
 The following example illustrates the syntax:
 
-<div class="highlight"><pre><span></span>DebtCollection [<span class="k">D</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] PrintingContext {
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+```cml
+DebtCollection [D,ACL]<-[U,OHS,PL] PrintingContext {
+  implementationTechnology = "SOAP"
 }
-</pre></div>
+```
 
 ## Semantic Rules
 Note that semantic rules (validators) exist for Anticorruption Layer within CML. This means that not every combination of patterns and concepts is allowed, even if it would be syntactically correct.

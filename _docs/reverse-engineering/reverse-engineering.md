@@ -10,7 +10,7 @@ The discovery library supports the reverse engineering of bounded contexts and c
 Contributions to the discovery library are very welcome! If you implement a new discovery strategy for another programming language or framework, please contribute it to our project and create a Pull Request (PR) in our [GitHub repository](https://github.com/ContextMapper/context-map-discovery).
 
 ## Usage
-The latest version of the discovery library is available through Maven Central: [![Maven Central](https://img.shields.io/maven-central/v/org.contextmapper/context-map-discovery.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.contextmapper%22%20AND%20a:%22context-map-discovery%22)
+The latest version of the discovery library is available through Maven Central: [org.contextmapper:context-map-discovery on Maven Central](https://central.sonatype.com/artifact/org.contextmapper/context-map-discovery)
 
 You can find all information about the library, how to use it, and how to extend it with new discovery strategies in our Github repository:
 
@@ -74,88 +74,89 @@ derives [Bounded Contexts](/docs/language-reference/bounded_context) from applic
 
 The code above creates the following context map for the application:
 
-<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
-  <span class="k">contains</span> PolicyManagement
-  <span class="k">contains</span> CustomerManagement
-  <span class="k">contains</span> CustomerSelfService
-  <span class="k">contains</span> CustomerCore
+```cml
+ContextMap {
+  contains PolicyManagement
+  contains CustomerManagement
+  contains CustomerSelfService
+  contains CustomerCore
 
-  CustomerCore -&gt; PolicyManagement
+  CustomerCore -> PolicyManagement
 
-  CustomerCore -&gt; CustomerManagement
+  CustomerCore -> CustomerManagement
 
-  PolicyManagement -&gt; CustomerSelfService
+  PolicyManagement -> CustomerSelfService
 
-  CustomerCore -&gt; CustomerSelfService
+  CustomerCore -> CustomerSelfService
 
 }
 
-<span class="k">BoundedContext</span> PolicyManagement {
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.RiskComputationService.</span>
-  <span class="k">Aggregate</span> riskfactor
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.InsuranceQuoteRequestInformationHolder.</span>
-  <span class="k">Aggregate</span> PolicyManagement_insurance_quote_requests {
-    <span class="c">/* removed to save space here */</span>
+BoundedContext PolicyManagement {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.RiskComputationService.
+  Aggregate riskfactor
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.InsuranceQuoteRequestInformationHolder.
+  Aggregate PolicyManagement_insurance_quote_requests {
+    /* removed to save space here */
   }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.PolicyInformationHolder.</span>
-  <span class="k">Aggregate</span> policies {
-    <span class="c">/* removed to save space here */</span>
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.PolicyInformationHolder.
+  Aggregate policies {
+    /* removed to save space here */
   }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.CustomerInformationHolder.</span>
-  <span class="k">Aggregate</span> PolicyManagement_customers {
-    <span class="c">/* removed to save space here */</span>
-  }
-}
-
-<span class="k">BoundedContext</span> CustomerManagement {
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.CustomerInformationHolder.</span>
-  <span class="k">Aggregate</span> CustomerManagement_customers {
-    <span class="c">/* removed to save space here */</span>
-  }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.InteractionLogInformationHolder.</span>
-  <span class="k">Aggregate</span> interaction_logs {
-    <span class="c">/* removed to save space here */</span>
-  }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.NotificationInformationHolder.</span>
-  <span class="k">Aggregate</span> notifications
-}
-
-<span class="k">BoundedContext</span> CustomerSelfService {
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.AuthenticationController.</span>
-  <span class="k">Aggregate</span> auth
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CityStaticDataHolder.</span>
-  <span class="k">Aggregate</span> cities {
-    <span class="c">/* removed to save space here */</span>
-  }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.InsuranceQuoteRequestInformationHolder.</span>
-  <span class="k">Aggregate</span> insurance_quote_requests {
-    <span class="c">/* removed to save space here */</span>
-  }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CustomerInformationHolder.</span>
-  <span class="k">Aggregate</span> customers {
-    <span class="c">/* removed to save space here */</span>
-  }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.UserInformationHolder.</span>
-  <span class="k">Aggregate</span> user {
-    <span class="c">/* removed to save space here */</span>
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.policymanagement.interfaces.CustomerInformationHolder.
+  Aggregate PolicyManagement_customers {
+    /* removed to save space here */
   }
 }
 
-<span class="k">BoundedContext</span> CustomerCore {
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Spring Boot&quot;</span>
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CityStaticDataHolder.</span>
-  <span class="k">Aggregate</span> CustomerCore_cities {
-    <span class="c">/* removed to save space here */</span>
+BoundedContext CustomerManagement {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.CustomerInformationHolder.
+  Aggregate CustomerManagement_customers {
+    /* removed to save space here */
   }
-  <span class="c">// This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CustomerInformationHolder.</span>
-  <span class="k">Aggregate</span> CustomerCore_customers {
-    <span class="c">/* removed to save space here */</span>
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.InteractionLogInformationHolder.
+  Aggregate interaction_logs {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customermanagement.interfaces.NotificationInformationHolder.
+  Aggregate notifications
+}
+
+BoundedContext CustomerSelfService {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.AuthenticationController.
+  Aggregate auth
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CityStaticDataHolder.
+  Aggregate cities {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.InsuranceQuoteRequestInformationHolder.
+  Aggregate insurance_quote_requests {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.CustomerInformationHolder.
+  Aggregate customers {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customerselfservice.interfaces.UserInformationHolder.
+  Aggregate user {
+    /* removed to save space here */
   }
 }
-</pre></div>
+
+BoundedContext CustomerCore {
+  implementationTechnology "Spring Boot"
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CityStaticDataHolder.
+  Aggregate CustomerCore_cities {
+    /* removed to save space here */
+  }
+  // This Aggregate has been created on the basis of the Spring REST controller com.lakesidemutual.customercore.interfaces.CustomerInformationHolder.
+  Aggregate CustomerCore_customers {
+    /* removed to save space here */
+  }
+}
+```
 
 Note that we removed the entities in the CML model above in order to save space here. The full example and the project source code can be found 
 [here](https://github.com/ContextMapper/context-map-discovery/tree/master/Examples/LakesideMutual).

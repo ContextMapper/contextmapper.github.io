@@ -11,25 +11,27 @@ The Knowledge Level pattern can be used on bounded contexts and aggregates to sp
 ## Syntax
 The following examples show how you can specify the knowledge level on a bounded context and on an aggregate:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerManagementContext <span class="k">implements</span> CustomerManagementDomain {
-  <span class="k">type</span> = <span class="k">FEATURE</span>
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;The customer management context is responsible for ...&quot;</span>
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;Java, JEE Application&quot;</span>
-  <span class="k">knowledgeLevel</span> = <span class="k">CONCRETE</span>
+```cml
+BoundedContext CustomerManagementContext implements CustomerManagementDomain {
+  type = FEATURE
+  domainVisionStatement = "The customer management context is responsible for ..."
+  implementationTechnology = "Java, JEE Application"
+  knowledgeLevel = CONCRETE
 }
-</pre></div>
+```
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Customers {
-  <span class="k">responsibilities</span> = Customers, Addresses { <span class="s">&quot;Address description ...&quot;</span> }
-  <span class="k">knowledgeLevel</span> = <span class="k">CONCRETE</span>
-    
-  <span class="k">Entity</span> Customer { 
-    <span class="k">aggregateRoot</span>
-    
-    - <span class="k">SocialInsuranceNumber</span> sin
-    <span class="k">String</span> firstname
-    <span class="k">String</span> lastname
-    - <span class="k">List&lt;Address&gt;</span> addresses
+```cml
+Aggregate Customers {
+  responsibilities = Customers, Addresses { "Address description ..." }
+  knowledgeLevel = CONCRETE
+
+  Entity Customer {
+    aggregateRoot
+
+    - SocialInsuranceNumber sin
+    String firstname
+    String lastname
+    - List<Address> addresses
   }
 }
-</pre></div>
+```

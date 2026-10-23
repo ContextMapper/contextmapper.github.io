@@ -9,10 +9,11 @@ The Open Host Service pattern describes a relationship between two bounded conte
 The Open Host Service pattern can be used as a role for the upstream context in a Upstream/Downstream relationship by using the **OHS** abbreviation.
 The following example illustrates the syntax:
 
-<div class="highlight"><pre><span></span>PrintingContext [<span class="k">U</span>,<span class="k">OHS</span>]-&gt;[<span class="k">D</span>,<span class="k">ACL</span>] PolicyManagementContext {
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;SOAP&quot;</span>
+```cml
+PrintingContext [U,OHS]->[D,ACL] PolicyManagementContext {
+  implementationTechnology = "SOAP"
 }
-</pre></div>
+```
 
 ## Semantic Rules
 Note that semantic rules (validators) exist for Open Host Service within CML. This means that not every combination of patterns and concepts is allowed, even if it would be syntactically correct.

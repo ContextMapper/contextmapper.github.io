@@ -26,7 +26,7 @@ By using the language features mentioned above, you can automatically generate:
  * CSV files with the stakeholder data by using our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/)
  * CSV files with the value register data by using our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/)
 
-**Note**: The freemarker templates can be found [here](https://github.com/ContextMapper/context-mapper-dsl/tree/master/org.contextmapper.dsl.ui/samples/freemarker/csv-files). 
+**Note**: The freemarker templates can be found [here](https://github.com/ContextMapper/context-mapper-dsl/tree/master/samples/freemarker/csv-files). 
 
 ## Background and Further Information
 

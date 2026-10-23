@@ -39,33 +39,35 @@ brief [use cases](https://medium.com/@warren2lynch/all-you-need-to-know-about-us
 templates widely; however, CML supports the same [role-feature-reason](https://www.agilealliance.org/glossary/user-story-template/) structure for both of them at present. 
 The following example illustrates the syntax for both notations:
 
-<div class="highlight"><pre><span></span><span class="k">UserStory</span> US1_Example {
-  <span class="k">As</span> <span class="k">an</span> <span class="s">&quot;Insurance Employee&quot;</span> <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;create&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span> <span class="k">so</span> <span class="k">that</span> <span class="s">&quot;I am able to manage customer data ...&quot;</span>
+```cml
+UserStory US1_Example {
+  As an "Insurance Employee" I want to "create" a "Customer" so that "I am able to manage customer data ..."
 }
 
-<span class="k">UseCase</span> UC1_Example {
-  <span class="k">actor</span> = <span class="s">&quot;Insurance Employee&quot;</span>
-  <span class="k">interactions</span> = <span class="s">&quot;create&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>
-  <span class="k">benefit</span> = <span class="s">&quot;I am able to manage customer data ...&quot;</span>
+UseCase UC1_Example {
+  actor = "Insurance Employee"
+  interactions = "create" a "Customer"
+  benefit = "I am able to manage customer data ..."
 }
-</pre></div>
+```
 
 It is also possible to specify multiple features or interactions in one use case or user story:
 
-<div class="highlight"><pre><span></span><span class="k">UserStory</span> US1_Example {
-  <span class="k">As</span> <span class="k">an</span> <span class="s">&quot;Insurance Employee&quot;</span>
-    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;create&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>
-    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;update&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>
-    <span class="k">I</span> <span class="k">want</span> <span class="k">to</span> <span class="s">&quot;offer&quot;</span> <span class="k">a</span> <span class="s">&quot;Contract&quot;</span>
-  <span class="k">so</span> <span class="k">that</span> <span class="s">&quot;I am able to manage the customers data and offer them insurance contracts.&quot;</span>
+```cml
+UserStory US1_Example {
+  As an "Insurance Employee"
+    I want to "create" a "Customer"
+    I want to "update" a "Customer"
+    I want to "offer" a "Contract"
+  so that "I am able to manage the customers data and offer them insurance contracts."
 }
 
-<span class="k">UseCase</span> UC1_Example {
-  <span class="k">actor</span> = <span class="s">&quot;Insurance Employee&quot;</span>
-  <span class="k">interactions</span> = <span class="s">&quot;create&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>, <span class="s">&quot;update&quot;</span> <span class="k">a</span> <span class="s">&quot;Customer&quot;</span>, <span class="s">&quot;offer&quot;</span> <span class="k">a</span> <span class="s">&quot;Contract&quot;</span>
-  <span class="k">benefit</span> = <span class="s">&quot;I am able to manage the customers data and offer them insurance contracts.&quot;</span>
+UseCase UC1_Example {
+  actor = "Insurance Employee"
+  interactions = "create" a "Customer", "update" a "Customer", "offer" a "Contract"
+  benefit = "I am able to manage the customers data and offer them insurance contracts."
 }
-</pre></div>
+```
 
 ## Step 2: Derive Subdomains (with Services and Entities)
 Once you have specified your user stories and/or use cases, you can select them in the CML editor and derive Subdomains that contain tentative Entities and Services automatically. 
@@ -82,19 +84,20 @@ You can update a Subdomain with new user stories or use cases iteratively withou
 
 If we use the example user story above and apply the transformation, we get the following Subdomain:
 
-<div class="highlight"><pre><span></span><span class="k">Domain</span> InsuranceDomain {
-  <span class="k">Subdomain</span> CustomerDomain {
-    <span class="k">domainVisionStatement</span> <span class="s">&quot;Aims at promoting the following benefit for a Insurance Employee: I am able to manage the customers data and offer them insurance contracts.&quot;</span>
-    <span class="k">Entity</span> Customer
-    <span class="k">Entity</span> Contract
-    <span class="k">Service</span> US1_ExampleService {
+```cml
+Domain InsuranceDomain {
+  Subdomain CustomerDomain {
+    domainVisionStatement "Aims at promoting the following benefit for a Insurance Employee: I am able to manage the customers data and offer them insurance contracts."
+    Entity Customer
+    Entity Contract
+    Service US1_ExampleService {
       createCustomer;
       updateCustomer;
       offerContract;
     }
   }
 }
-</pre></div>
+```
 
 The resulting Subdomains contain entities that are derived from the objects that the use case/user story works with as as well as services that represent the use case/user story; 
 the interactions are transformed into draft operations. 
@@ -112,28 +115,29 @@ Note that the transformation always creates one Bounded Context for all selected
 
 Using the example Subdomain above, the transformation generates the following Bounded Context:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> NewContextFromSubdomains <span class="k">implements</span> CustomerDomain {
-  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerDomain&quot;</span>
-  <span class="c">/* This Aggregate contains the entities and services of the &#39;CustomerDomain&#39; subdomain.</span>
-<span class="c">   * TODO: You can now refactor the Aggregate, for example by using the &#39;Split Aggregate by Entities&#39; architectural refactoring.</span>
-<span class="c">   * TODO: Add attributes and operations to the entities.</span>
-<span class="c">   * TODO: Add operations to the services.</span>
-<span class="c">   * Find examples and further instructions on our website: https://contextmapper.org/docs/rapid-ooad/ */</span>
-  <span class="k">Aggregate</span> CustomerDomainAggregate {
-    <span class="k">Service</span> US1_ExampleService {
+```cml
+BoundedContext NewContextFromSubdomains implements CustomerDomain {
+  domainVisionStatement "This Bounded Context realizes the following subdomains: CustomerDomain"
+  /* This Aggregate contains the entities and services of the 'CustomerDomain' subdomain.
+   * TODO: You can now refactor the Aggregate, for example by using the 'Split Aggregate by Entities' architectural refactoring.
+   * TODO: Add attributes and operations to the entities.
+   * TODO: Add operations to the services.
+   * Find examples and further instructions on our website: https://contextmapper.org/docs/rapid-ooad/ */
+  Aggregate CustomerDomainAggregate {
+    Service US1_ExampleService {
       CreateCustomerOutput createCustomer (CreateCustomerInput input);
       UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
       OfferContractOutput offerContract (OfferContractInput input);
     }
-    <span class="k">Entity</span> Customer {
+    Entity Customer {
       CustomerID customerId
     }
-    <span class="k">Entity</span> Contract {
+    Entity Contract {
       ContractID contractId
     }
   }
 }
-</pre></div>
+```
 
 The generated Bounded Context implements the previously selected Subdomains and initially contains an Aggregate per Subdomain that includes all entities and services of those 
 Subdomains. The entities are enriched with identify attributes, and the services operations receive a generic return type and parameter. 
@@ -163,54 +167,55 @@ and frontend context shall integrate:
  
 Applying the transformation as shown above generates the following Bounded Contexts and Context Map relationship:
 
-<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
-  <span class="k">contains</span> CustomerManagementFrontend
-  <span class="k">contains</span> CustomerManagementBackend
+```cml
+ContextMap {
+  contains CustomerManagementFrontend
+  contains CustomerManagementBackend
 
-  CustomerManagementBackend [<span class="k">PL</span>] -&gt; [<span class="k">CF</span>] CustomerManagementFrontend {
-    <span class="k">implementationTechnology</span> <span class="s">&quot;RESTful HTTP&quot;</span>
-    <span class="k">exposedAggregates</span> CustomerManagementAggregateBackend
+  CustomerManagementBackend [PL] -> [CF] CustomerManagementFrontend {
+    implementationTechnology "RESTful HTTP"
+    exposedAggregates CustomerManagementAggregateBackend
   }
 }
 
-<span class="k">BoundedContext</span> CustomerManagementBackend <span class="k">implements</span> CustomerManagement {
-  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerManagement&quot;</span>
-  <span class="k">type</span> <span class="k">SYSTEM</span>
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Sprint Boot&quot;</span>
-  <span class="k">Aggregate</span> CustomerManagementAggregateBackend {
-    <span class="k">Service</span> US1_ExampleService {
+BoundedContext CustomerManagementBackend implements CustomerManagement {
+  domainVisionStatement "This Bounded Context realizes the following subdomains: CustomerManagement"
+  type SYSTEM
+  implementationTechnology "Sprint Boot"
+  Aggregate CustomerManagementAggregateBackend {
+    Service US1_ExampleService {
       CreateCustomerOutput createCustomer (CreateCustomerInput input);
       UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
       OfferContractOutput offerContract (OfferContractInput input);
     }
-    <span class="k">Entity</span> CustomerBackend {
+    Entity CustomerBackend {
       CustomerID customerId
     }
-    <span class="k">Entity</span> ContractBackend {
+    Entity ContractBackend {
       ContractID contractId
     }
   }
 }
 
-<span class="k">BoundedContext</span> CustomerManagementFrontend <span class="k">implements</span> CustomerManagement {
-  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerManagement&quot;</span>
-  <span class="k">type</span> <span class="k">SYSTEM</span>
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Angular&quot;</span>
-  <span class="k">Aggregate</span> CustomerManagementAggregateViewModel {
-    <span class="k">Service</span> US1_ExampleService {
+BoundedContext CustomerManagementFrontend implements CustomerManagement {
+  domainVisionStatement "This Bounded Context realizes the following subdomains: CustomerManagement"
+  type SYSTEM
+  implementationTechnology "Angular"
+  Aggregate CustomerManagementAggregateViewModel {
+    Service US1_ExampleService {
       CreateCustomerOutput createCustomer (CreateCustomerInput input);
       UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
       OfferContractOutput offerContract (OfferContractInput input);
     }
-    <span class="k">Entity</span> CustomerViewModel {
+    Entity CustomerViewModel {
       CustomerID customerId
     }
-    <span class="k">Entity</span> ContractViewModel {
+    Entity ContractViewModel {
       ContractID contractId
     }
   }
 }
-</pre></div>
+```
 
 Now you already have an Upstream-Downstream relationship that exposes an Aggregate, which means you can generate a service contract with our
 [MDSL (Micro-)Service Contracts Generator](/docs/mdsl/). Of course you can use all the other [generators](/docs/generators/) as well.
@@ -229,64 +234,65 @@ _Note:_ This transformation does not create two new Bounded Contexts. It uses th
 
 The transformation leads to the following result (with the configuration as shown above):
 
-<div class="highlight"><pre><span></span><span class="k">ContextMap</span> {
-  <span class="k">contains</span> CustomerManagementFrontend
-  <span class="k">contains</span> CustomerManagementDomainLogic
-  <span class="k">contains</span> CustomerManagementDatabase
+```cml
+ContextMap {
+  contains CustomerManagementFrontend
+  contains CustomerManagementDomainLogic
+  contains CustomerManagementDatabase
 
-  CustomerManagementDomainLogic [<span class="k">PL</span>] -&gt; [<span class="k">CF</span>] CustomerManagementFrontend {
-    <span class="k">implementationTechnology</span> <span class="s">&quot;RESTful HTTP&quot;</span>
-    <span class="k">exposedAggregates</span> CustomerManagementAggregateBackend
+  CustomerManagementDomainLogic [PL] -> [CF] CustomerManagementFrontend {
+    implementationTechnology "RESTful HTTP"
+    exposedAggregates CustomerManagementAggregateBackend
   }
 
-  CustomerManagementDatabase [<span class="k">PL</span>] -&gt; [<span class="k">CF</span>] CustomerManagementDomainLogic {
-    <span class="k">implementationTechnology</span> <span class="s">&quot;JDBC&quot;</span>
+  CustomerManagementDatabase [PL] -> [CF] CustomerManagementDomainLogic {
+    implementationTechnology "JDBC"
   }
 }
 
-<span class="k">BoundedContext</span> CustomerManagementFrontend <span class="k">implements</span> CustomerManagement {
-  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerManagement&quot;</span>
-  <span class="k">type</span> <span class="k">SYSTEM</span>
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Angular&quot;</span>
-  <span class="k">Aggregate</span> CustomerManagementAggregateViewModel {
-    <span class="k">Service</span> US1_ExampleService {
+BoundedContext CustomerManagementFrontend implements CustomerManagement {
+  domainVisionStatement "This Bounded Context realizes the following subdomains: CustomerManagement"
+  type SYSTEM
+  implementationTechnology "Angular"
+  Aggregate CustomerManagementAggregateViewModel {
+    Service US1_ExampleService {
       CreateCustomerOutput createCustomer (CreateCustomerInput input);
       UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
       OfferContractOutput offerContract (OfferContractInput input);
     }
-    <span class="k">Entity</span> CustomerViewModel {
+    Entity CustomerViewModel {
       CustomerID customerId
     }
-    <span class="k">Entity</span> ContractViewModel {
+    Entity ContractViewModel {
       ContractID contractId
     }
   }
 }
 
-<span class="k">BoundedContext</span> CustomerManagementDomainLogic <span class="k">implements</span> CustomerManagement {
-  <span class="k">domainVisionStatement</span> <span class="s">&quot;This Bounded Context realizes the following subdomains: CustomerManagement&quot;</span>
-  <span class="k">type</span> <span class="k">SYSTEM</span>
-  <span class="k">implementationTechnology</span> <span class="s">&quot;Sprint Boot&quot;</span>
-  <span class="k">Aggregate</span> CustomerManagementAggregateBackend {
-    <span class="k">Service</span> US1_ExampleService {
+BoundedContext CustomerManagementDomainLogic implements CustomerManagement {
+  domainVisionStatement "This Bounded Context realizes the following subdomains: CustomerManagement"
+  type SYSTEM
+  implementationTechnology "Sprint Boot"
+  Aggregate CustomerManagementAggregateBackend {
+    Service US1_ExampleService {
       CreateCustomerOutput createCustomer (CreateCustomerInput input);
       UpdateCustomerOutput updateCustomer (UpdateCustomerInput input);
       OfferContractOutput offerContract (OfferContractInput input);
     }
-    <span class="k">Entity</span> CustomerBackend {
+    Entity CustomerBackend {
       CustomerID customerId
     }
-    <span class="k">Entity</span> ContractBackend {
+    Entity ContractBackend {
       ContractID contractId
     }
   }
 }
 
-<span class="k">BoundedContext</span> CustomerManagementDatabase {
-  <span class="k">type</span> <span class="k">SYSTEM</span>
-  <span class="k">implementationTechnology</span> <span class="s">&quot;JDBC&quot;</span>
+BoundedContext CustomerManagementDatabase {
+  type SYSTEM
+  implementationTechnology "JDBC"
 }
-</pre></div>
+```
 
 _Note:_ It is also possible to copy the domain model into the second subsystem (was not selected for the _CustomerManagementDatabase_ context above) with the corresponding checkbox on the dialog.
 

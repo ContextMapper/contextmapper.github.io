@@ -34,7 +34,7 @@ suggests that the scope of domain events should always be based on Aggregates. T
 
 The following example illustrates how you can model domain events within your Aggregate: 
 
-```text
+```cml
 abstract DomainEvent AbstractDomainEvent {
   Date timestamp
 }
@@ -57,7 +57,7 @@ ValueObject AddressDto {
 
 You can also reference your events in services, repositories, or any other tactic DDD objects:
 
-```text
+```cml
 Service AddressService {
   @AddressUpdatedEvent updateAddress(@AddressDto address);
 }
@@ -73,7 +73,7 @@ this architectural pattern by
 #### Step 1: Separating Queries and Commands
 Here is an example of a conventional service interface that exposes both create, read, update, delete, and search methods/operations:
 
-```text
+```cml
 ValueObject CustomerDTO {
   String customerId
   CustomerProfileDto customerProfile
@@ -91,7 +91,7 @@ Service CustomerService {
 
 You can CQRS-ify the above interface by splitting it into two service interfaces:
 
-```text
+```cml
 Service CustomerCommandService {
   @CustomerId createCustomer(@CustomerDTO customer);
   void updateCustomer(@CustomerDTO customer);
@@ -107,7 +107,7 @@ Service CustomerQueryService {
 Additionally, Sculptor introduces so-called *command events* to support CQRS explicitly (described [here](https://sculptor.github.io/documentation/event-driven-tutorial#commandevent)).
 In comparison to a domain event which describes something that has happened, a command event is something that the system is asked to perform. The following CML/Sculptor snippet illustrates an example how to model command events:
 
-```text
+```cml
 CommandEvent RecordAddressChange {
   -AddressDto newAddress
   Date changeDate
@@ -117,7 +117,7 @@ CommandEvent RecordAddressChange {
 #### Step 2: Separating Read and Command Models
 In a second step you may want to define completely different models for read and command access. At present, the Context Mapper DSL does not have any specific language construct for read models; we suggest that you use the Michael's Aggregate rule from above to specify read models. The following example illustrates how you could model your Aggregate (command model) and your read model:
 
-```text
+```cml
 Aggregate CustomerAggregate {
   ValueObject CustomerId {
     UUID uniqueCustomerId

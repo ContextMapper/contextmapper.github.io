@@ -57,47 +57,48 @@ assistance regarding how to implement your system as a (micro-)service-oriented 
 This is an examplary [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) service contract for our 
 [insurance example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example): 
 
-<div class="highlight"><pre><span></span><span class="c">// Generated from DDD Context Map &#39;Insurance-Example_Context-Map.cml&#39; at 21.10.2019 17:48:52 CEST.</span>
-<span class="k">API description</span> CustomerManagementContextAPI
-<span class="k">usage context</span> <span class="k">PUBLIC_API</span> <span class="k">for</span> <span class="k">BACKEND_INTEGRATION</span>
+```mdsl
+// Generated from DDD Context Map 'Insurance-Example_Context-Map.cml' at 21.10.2019 17:48:52 CEST.
+API description CustomerManagementContextAPI
+usage context PUBLIC_API for BACKEND_INTEGRATION
 
-<span class="k">data type</span> Address { <span class="s">&quot;street&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;postalCode&quot;</span>:<span class="k">V</span>&lt;<span class="k">int</span>&gt;, <span class="s">&quot;city&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
-<span class="k">data type</span> AddressId <span class="k">P</span>
-<span class="k">data type</span> changeCustomerParameter { <span class="s">&quot;firstname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt;, <span class="s">&quot;lastname&quot;</span>:<span class="k">V</span>&lt;<span class="k">string</span>&gt; }
+data type Address { "street":V<string>, "postalCode":V<int>, "city":V<string> }
+data type AddressId P
+data type changeCustomerParameter { "firstname":V<string>, "lastname":V<string> }
 
-<span class="k">endpoint type</span> CustomersAggregate
-  <span class="k">serves as</span> <span class="k">INFORMATION_HOLDER_RESOURCE</span>
-  <span class="k">exposes</span>
-    <span class="k">operation</span> createAddress
-      <span class="k">with</span> <span class="k">responsibility</span> <span class="s">&quot;Creates new address for customer&quot;</span>
-      <span class="k">expecting</span>
-        <span class="k">payload</span> Address
-      <span class="k">delivering</span>
-        <span class="k">payload</span> AddressId
-    <span class="k">operation</span> changeCustomer
-      <span class="k">with</span> <span class="k">responsibility</span> <span class="s">&quot;Changes existing customer address&quot;</span>
-      <span class="k">expecting</span>
-        <span class="k">payload</span> changeCustomerParameter
-      <span class="k">delivering</span>
-        <span class="k">payload</span> V&lt;<span class="k">bool</span>&gt;
+endpoint type CustomersAggregate
+  serves as INFORMATION_HOLDER_RESOURCE
+  exposes
+    operation createAddress
+      with responsibility "Creates new address for customer"
+      expecting
+        payload Address
+      delivering
+        payload AddressId
+    operation changeCustomer
+      with responsibility "Changes existing customer address"
+      expecting
+        payload changeCustomerParameter
+      delivering
+        payload V<bool>
 
-<span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
-<span class="k">API provider</span> CustomerManagementContextProvider
-  <span class="c">// The customer management context is responsible for managing all the data of the insurance companies customers.</span>
-  <span class="k">offers</span> CustomersAggregate
-  <span class="k">at</span> <span class="k">endpoint</span> <span class="k">location</span> <span class="s">&quot;http://localhost:8001&quot;</span>
-    <span class="k">via</span> <span class="k">protocol</span> <span class="s">&quot;RESTfulHTTP&quot;</span>
+// Generated from DDD upstream Bounded Context 'CustomerManagementContext' implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).
+API provider CustomerManagementContextProvider
+  // The customer management context is responsible for managing all the data of the insurance companies customers.
+  offers CustomersAggregate
+  at endpoint location "http://localhost:8001"
+    via protocol "RESTfulHTTP"
 
-<span class="c">// Generated from DDD upstream Bounded Context &#39;CustomerManagementContext&#39; implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).</span>
-<span class="k">API client</span> PolicyManagementContextClient
-  <span class="c">// This bounded context manages the contracts and policies of the customers.</span>
-  <span class="k">consumes</span> CustomersAggregate
-<span class="k">API client</span> CustomerSelfServiceContextClient
-  <span class="c">// This context represents a web application which allows the customer to login and change basic data records like the address.</span>
-  <span class="k">consumes</span> CustomersAggregate
+// Generated from DDD upstream Bounded Context 'CustomerManagementContext' implementing OPEN_HOST_SERVICE (OHS) and PUBLISHED_LANGUAGE (PL).
+API client PolicyManagementContextClient
+  // This bounded context manages the contracts and policies of the customers.
+  consumes CustomersAggregate
+API client CustomerSelfServiceContextClient
+  // This context represents a web application which allows the customer to login and change basic data records like the address.
+  consumes CustomersAggregate
 
-<span class="k">IPA</span>
-</pre></div>
+IPA
+```
 
 Learn more about the [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) generator [here](/docs/mdsl/).
 

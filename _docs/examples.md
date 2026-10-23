@@ -12,12 +12,12 @@ The following graphical illustrations of our sample Context Maps are inspired by
 ## Insurance Example
 Link: [https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/insurance-example)
 
-<img alt="Insurance Company Example Context Map" src="https://raw.githubusercontent.com/ContextMapper/context-mapper-examples/master/src/main/cml/insurance-example/images/ContextMap-Illustration.png" width="650px">
+<img alt="Insurance Company Example Context Map" src="/img/insurance-example-context-map-illustration.png" width="650px">
 
 ## DDD Sample
 Link: [https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/ddd-sample](https://github.com/ContextMapper/context-mapper-examples/tree/master/src/main/cml/ddd-sample)
 
-<img alt="DDD Sample Context Map" src="https://raw.githubusercontent.com/ContextMapper/context-mapper-examples/master/src/main/cml/ddd-sample/images/DDD-Cargo-Tracking-ContextMap-Illustration.png" width="400px">
+<img alt="DDD Sample Context Map" src="/img/ddd-sample-context-map-illustration.png" width="400px">
 
 ## Architectural Refactoring (AR) Examples
 The following folder contains a number of small CML snippets from the insurance example; they illustrate how you can apply refactorings to your models:

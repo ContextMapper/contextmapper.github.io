@@ -9,27 +9,30 @@ The Domain Vision Statement pattern from the ["blue book"](https://www.amazon.co
 ## Syntax
 The following two code snippets show an example for a bounded context, a domain, and a subdomain accordingly:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerContext {
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;This context is responsible for ...&quot;</span>
+```cml
+BoundedContext CustomerContext {
+  domainVisionStatement = "This context is responsible for ..."
 }
-</pre></div>
+```
 
-<div class="highlight"><pre><span></span><span class="k">Domain</span> Insurance {
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;Insurance domain vision ...&quot;</span>
+```cml
+Domain Insurance {
+  domainVisionStatement = "Insurance domain vision ..."
 
-  <span class="k">Subdomain</span> Customers {
-    <span class="c">/* subdomain specification */</span>
+  Subdomain Customers {
+    /* subdomain specification */
   }
 
-  <span class="k">Subdomain</span> PolicyManagement {
-    <span class="c">/* subdomain specification */</span>
+  Subdomain PolicyManagement {
+    /* subdomain specification */
   }
 }
-</pre></div>
+```
 
-<div class="highlight"><pre><span></span><span class="k">Subdomain</span> CustomerManagementDomain {
-  <span class="k">type</span> = <span class="k">CORE_DOMAIN</span>
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;Subdomain managing everything customer-related.&quot;</span>
+```cml
+Subdomain CustomerManagementDomain {
+  type = CORE_DOMAIN
+  domainVisionStatement = "Subdomain managing everything customer-related."
 }
-</pre></div>
+```
 

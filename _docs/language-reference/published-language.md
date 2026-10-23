@@ -9,7 +9,8 @@ The Published Language pattern describes a relationship between two bounded cont
 The Published Language pattern can be used as a role for the upstream context in a Upstream/Downstream relationship by using the **PL** abbreviation.
 The following example illustrates the syntax:
 
-<div class="highlight"><pre><span></span>PolicyManagementContext [<span class="k">D</span>,<span class="k">CF</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] CustomerManagementContext {
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
+```cml
+PolicyManagementContext [D,CF]<-[U,OHS,PL] CustomerManagementContext {
+  implementationTechnology = "RESTful HTTP"
 }
-</pre></div>
+```

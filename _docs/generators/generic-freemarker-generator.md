@@ -481,7 +481,7 @@ The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use th
 <a href="/img/screenshot-new-freemarker-example-project-2.png">![Create Sample Project with Freemarker Templates (2)](/img/screenshot-new-freemarker-example-project-2.png)</a>
 
 ### Visual Studio Code
-In VS Code we do not deliver the example templates with the extension itself. However, you can just download the *.ftl files from [here](https://github.com/ContextMapper/context-mapper-dsl/tree/master/org.contextmapper.dsl.ui/samples/freemarker) and use it with our generator in VS Code.
+In VS Code we do not deliver the example templates with the extension itself. However, you can just download the *.ftl files from [here](https://github.com/ContextMapper/context-mapper-dsl/tree/master/samples/freemarker) and use it with our generator in VS Code.
 
 ### Provided Examples
 The project currently contains the following example templates:

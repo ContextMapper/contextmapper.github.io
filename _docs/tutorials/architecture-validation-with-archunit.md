@@ -22,59 +22,60 @@ In this tutorial we assume that you are aware of the [Context Mapper DSL (CML) l
 
 We will illustrate our validation approach with [ArchUnit](https://www.archunit.org/) with a small, exemplary domain model:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> eCommerceContext {
+```cml
+BoundedContext eCommerceContext {
 
-  <span class="k">Aggregate</span> Product {
-    <span class="k">Entity</span> Product {
-      <span class="k">aggregateRoot</span>
+  Aggregate Product {
+    Entity Product {
+      aggregateRoot
 
-      - <span class="k">ProductId</span> id;
-      <span class="k">String</span> name;
-      <span class="k">String</span> description;
-      <span class="k">double</span> price;
+      - ProductId id;
+      String name;
+      String description;
+      double price;
     }
 
-    <span class="k">ValueObject</span> ProductId {
-      <span class="k">String</span> value;
-    }
-  }
-
-  <span class="k">Aggregate</span> Order {
-    <span class="k">Entity</span> Order {
-      <span class="k">aggregateRoot</span>
-
-      - <span class="k">OrderId</span> id;
-      - <span class="k">UserId</span> purchaserId;
-      - <span class="k">List</span>&lt;OrderItem&gt; items;
-      <span class="k">DateTime</span> ordered;
-    }
-
-    <span class="k">ValueObject</span> OrderItem {
-      - <span class="k">ProductId</span> productId;
-      <span class="k">int</span> amount;
-    }
-
-    <span class="k">ValueObject</span> OrderId {
-      <span class="k">String</span> value;
+    ValueObject ProductId {
+      String value;
     }
   }
 
-  <span class="k">Aggregate</span> User {
-    <span class="k">Entity</span> User {
-      <span class="k">aggregateRoot</span>
+  Aggregate Order {
+    Entity Order {
+      aggregateRoot
 
-      - <span class="k">UserId</span> id;
-      <span class="k">String</span> name;
-      <span class="k">String</span> ^email;
+      - OrderId id;
+      - UserId purchaserId;
+      - List<OrderItem> items;
+      DateTime ordered;
     }
 
-    <span class="k">ValueObject</span> UserId {
-      <span class="k">String</span> value;
+    ValueObject OrderItem {
+      - ProductId productId;
+      int amount;
+    }
+
+    ValueObject OrderId {
+      String value;
+    }
+  }
+
+  Aggregate User {
+    Entity User {
+      aggregateRoot
+
+      - UserId id;
+      String name;
+      String ^email;
+    }
+
+    ValueObject UserId {
+      String value;
     }
   }
 
 }
-</pre></div>
+```
 
 With our [PlantUML generator](/docs/plant-uml/) we can visualize the model as follows:
 

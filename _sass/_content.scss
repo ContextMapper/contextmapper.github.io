@@ -1,0 +1,334 @@
+// Page layouts (docs, news, simple pages) and Markdown content
+
+.page {
+  padding-top: 48px;
+  padding-bottom: 72px;
+}
+
+.page-narrow {
+  max-width: 860px;
+}
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  flex: 1 1 240px;
+  max-width: 280px;
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  max-height: calc(100vh - var(--header-height) - 48px);
+  overflow-y: auto;
+  font-size: 14px;
+  padding-bottom: 24px;
+}
+
+.sidebar-content {
+  flex: 999 1 560px;
+  min-width: 0;
+  max-width: 860px;
+}
+
+.sidebar-toggle {
+  display: none;
+}
+
+// docs navigation
+
+.docs-nav details {
+  border-bottom: 1px solid var(--border);
+}
+
+.docs-nav summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 0;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.docs-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.docs-nav summary::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--text-faint);
+  border-bottom: 2px solid var(--text-faint);
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+  flex: none;
+  margin-right: 4px;
+}
+
+.docs-nav details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.docs-nav ul {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.docs-nav li a {
+  display: block;
+  padding: 5px 10px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.docs-nav li a:hover {
+  background: var(--bg-subtle);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.docs-nav li a[aria-current="page"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+// news list in the sidebar
+
+.news-nav h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin: 0 0 12px;
+}
+
+.news-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news-nav li {
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+.news-nav time {
+  display: block;
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.news-nav a {
+  color: var(--text-muted);
+}
+
+.news-nav a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.page-meta {
+  color: var(--text-faint);
+  font-size: 15px;
+  margin: -0.4em 0 2em;
+}
+
+// prev/next and edit links
+
+.page-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.edit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-faint);
+}
+
+.edit-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.pager a {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pager a:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.pager span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-faint);
+}
+
+.pager .next {
+  grid-column: 2;
+  text-align: right;
+}
+
+// news archive
+
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+}
+
+.news-list time {
+  min-width: 130px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+// Markdown content
+
+.content > :first-child {
+  margin-top: 0;
+}
+
+.content li {
+  margin-bottom: 0.3em;
+}
+
+.content li > ul,
+.content li > ol {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+}
+
+.content img {
+  border-radius: 6px;
+  // diagrams with transparent backgrounds stay readable in the dark theme
+  background: var(--img-bg);
+}
+
+.content blockquote {
+  margin-left: 0;
+  padding: 2px 20px;
+  border-left: 3px solid var(--border-strong);
+  color: var(--text-muted);
+}
+
+.content table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.content th,
+.content td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.content th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+}
+
+.content :not(pre) > code {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.85em;
+  overflow-wrap: anywhere;
+}
+
+// alerts (used as HTML in the Markdown files)
+
+.alert {
+  border: 1px solid var(--border);
+  background: var(--blue-soft);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 0 0 1.4em;
+}
+
+.alert > :last-child {
+  margin-bottom: 0;
+}
+
+.alert-danger {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+}
+
+.alert-link {
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .with-sidebar {
+    gap: 24px;
+  }
+
+  .sidebar {
+    position: static;
+    max-width: none;
+    max-height: none;
+    flex-basis: 100%;
+    padding-bottom: 0;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .sidebar.collapsed .sidebar-body {
+    display: none;
+  }
+}

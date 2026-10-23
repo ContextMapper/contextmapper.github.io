@@ -22,17 +22,21 @@ explicitly)
 ## Syntax
 Customer-Supplier relationships can be defined with three different syntax variants, all illustrated with the examples below:
 
-<div class="highlight"><pre><span></span>CustomerSelfServiceContext [<span class="k">D</span>,<span class="k">C</span>]&lt;-[<span class="k">U</span>,<span class="k">S</span>] CustomerManagementContext
-</pre></div>
+```cml
+CustomerSelfServiceContext [D,C]<-[U,S] CustomerManagementContext
+```
 
-<div class="highlight"><pre><span></span>CustomerManagementContext [<span class="k">U</span>,<span class="k">S</span>]-&gt;[<span class="k">D</span>,<span class="k">C</span>] CustomerSelfServiceContext
-</pre></div>
+```cml
+CustomerManagementContext [U,S]->[D,C] CustomerSelfServiceContext
+```
 
-<div class="highlight"><pre><span></span>CustomerSelfServiceContext <span class="k">Customer-Supplier</span> CustomerManagementContext
-</pre></div>
+```cml
+CustomerSelfServiceContext Customer-Supplier CustomerManagementContext
+```
 
-<div class="highlight"><pre><span></span>CustomerManagementContext <span class="k">Supplier-Customer</span> CustomerSelfServiceContext
-</pre></div>
+```cml
+CustomerManagementContext Supplier-Customer CustomerSelfServiceContext
+```
 
 All of the four variants are semantically equivalent. Note that the arrow _-&gt;_ always points from the supplier (upstream) to the customer (downstream) 
 and thus, expresses the influence flow (the supplier has an influence on the customer, but the customer has no influence on the supplier).
@@ -40,14 +44,16 @@ and thus, expresses the influence flow (the supplier has an influence on the cus
 In a Customer/Supplier relationship definition you can also omit the **U** (upstream) and **D** (downstream) specification, since the supplier is always the
 upstream and the customer always the downstream:
 
-<div class="highlight"><pre><span></span>CustomerSelfServiceContext [<span class="k">C</span>]&lt;-[<span class="k">S</span>] CustomerManagementContext
-</pre></div>
+```cml
+CustomerSelfServiceContext [C]<-[S] CustomerManagementContext
+```
 
 With a colon at the end, you can give every relationship a name:
-<div class="highlight"><pre><span></span>CustomerSelfServiceContext [<span class="k">D</span>,<span class="k">C</span>,<span class="k">ACL</span>]&lt;-[<span class="k">U</span>,<span class="k">S</span>,<span class="k">PL</span>] CustomerManagementContext : Customer_Frontend_Backend_Relationship { <span class="c">// Relationship name is optional</span>
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;RESTful HTTP&quot;</span>
+```cml
+CustomerSelfServiceContext [D,C,ACL]<-[U,S,PL] CustomerManagementContext : Customer_Frontend_Backend_Relationship { // Relationship name is optional
+  implementationTechnology = "RESTful HTTP"
 }
-</pre></div>
+```
 
 Within the brackets you can further specify the relationship roles such as Open Host Service (OHS) or Anti-Corruption Layer (ACL).
 Roles must always be specified behind the **U**/**S** (upstream/supplier) and the **D**/**C** (downstream/customer) signs, as shown in the example above. 
@@ -56,8 +62,9 @@ Within the body of the declaration it is possible to specify the implementation 
 If you use the _Customer-Supplier_ or _Supplier-Customer_ keyword instead of the arrows, the roles are declared equivalently, but without the **C**/**D** and **S**/**U**:
 (note that it does not matter if you write a whitespace before or after the brackets, or both)
 
-<div class="highlight"><pre><span></span>CustomerSelfServiceContext[<span class="k">ACL</span>] <span class="k">Customer-Supplier</span> [<span class="k">PL</span>]CustomerManagementContext
-</pre></div>
+```cml
+CustomerSelfServiceContext[ACL] Customer-Supplier [PL]CustomerManagementContext
+```
 
 Upstream roles are given by the [Open Host Service (OHS)](/docs/open-host-service/) and [Published Language (PL)](/docs/published-language/) patterns. 
 Downstream roles are [Conformist (CF)](/docs/conformist/) and [Anticorruption Layer (ACL)](/docs/anticorruption-layer/). 

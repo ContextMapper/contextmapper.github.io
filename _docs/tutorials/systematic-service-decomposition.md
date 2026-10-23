@@ -19,55 +19,56 @@ We use the [DDD sample application (Cargo Tracking)](https://github.com/citerus/
 
 We modeled the domain inside one single Bounded Context. The context contains four Aggregates with its Entities and Value Objects:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CargoTracking {
-  <span class="k">Aggregate</span> Cargo {
-    <span class="k">owner</span> CargoPlaner
+```cml
+BoundedContext CargoTracking {
+  Aggregate Cargo {
+    owner CargoPlaner
 
-    <span class="k">Entity</span> Cargo {
-      <span class="k">aggregateRoot</span>
-      - <span class="k">TrackingId</span> trackingId
-      - <span class="k">Location</span> origin
-      - <span class="k">RouteSpecification</span> routeSpecification
-      - <span class="k">Itinerary</span> itinerary
-      - <span class="k">Delivery</span> delivery
+    Entity Cargo {
+      aggregateRoot
+      - TrackingId trackingId
+      - Location origin
+      - RouteSpecification routeSpecification
+      - Itinerary itinerary
+      - Delivery delivery
     }
-    <span class="c">/* shortened Aggregate here */</span>
+    /* shortened Aggregate here */
   }
-  <span class="k">Aggregate</span> Location {
-    <span class="k">owner</span> Administrators
+  Aggregate Location {
+    owner Administrators
 
-    <span class="k">Entity</span> Location {
-      <span class="k">aggregateRoot</span>
-      - <span class="k">UnLocode</span> unLocode
-      <span class="k">String</span> name
+    Entity Location {
+      aggregateRoot
+      - UnLocode unLocode
+      String name
     }
-    <span class="c">/* shortened Aggregate here */</span>
+    /* shortened Aggregate here */
   }
-  <span class="k">Aggregate</span> Handling {
-    <span class="k">owner</span> CargoTracker
+  Aggregate Handling {
+    owner CargoTracker
 
-    <span class="k">DomainEvent</span> HandlingEvent {
-      - <span class="k">HandlingEventType</span> handlingEventType
-      - <span class="k">Voyage</span> voyage
-      - <span class="k">Location</span> location
-      <span class="k">Date</span> completionTime
-      <span class="k">Date</span> registrationTime
-      - <span class="k">Cargo</span> cargo
+    DomainEvent HandlingEvent {
+      - HandlingEventType handlingEventType
+      - Voyage voyage
+      - Location location
+      Date completionTime
+      Date registrationTime
+      - Cargo cargo
     }
-    <span class="c">/* shortened Aggregate here */</span>
+    /* shortened Aggregate here */
   }
-  <span class="k">Aggregate</span> Voyage {
-    <span class="k">owner</span> VoyageManager
+  Aggregate Voyage {
+    owner VoyageManager
 
-    <span class="k">Entity</span> Voyage {
-      <span class="k">aggregateRoot</span>
-      - <span class="k">VoyageNumber</span> voyageNumber
-      - <span class="k">Schedule</span> schedule
+    Entity Voyage {
+      aggregateRoot
+      - VoyageNumber voyageNumber
+      - Schedule schedule
     }
-    <span class="c">/* shortened Aggregate here */</span>
+    /* shortened Aggregate here */
   }
 }
-</pre></div>
+```
 
 The CML code above just gives you an impression how the model looks like but is shortened a lot. Find the complete model [here](https://github.com/ContextMapper/context-mapper-examples/blob/master/src/main/cml/ddd-service-cutting-sample/DDD-Sample.cml). The following PlantUML diagram (generated with Context Mapper) illustrates the domain model graphically:
 
@@ -78,38 +79,39 @@ With a Bounded Context definition as the one above you are already able to gener
 
 On the [User Requirements](/docs/user-requirements/) page of our language reference you can find out how use cases or user stories are modeled in CML. For this tutorial based on the DDD sample application we modeled the use cases provided by the [Service Cutter sample files](https://github.com/ServiceCutter/ServiceCutter/tree/master/Samples):
 
-<div class="highlight"><pre><span></span><span class="k">UseCase</span> ViewTracking {
-  <span class="k">interactions</span>
-    <span class="k">read</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackindId&quot;</span>,
-    <span class="k">read</span> <span class="s">&quot;HandlingEvent&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;handlingEventType&quot;</span>, <span class="s">&quot;location&quot;</span>, <span class="s">&quot;completionTime&quot;</span>,
-    <span class="k">read</span> <span class="s">&quot;Delivery&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;transportStatus&quot;</span>, <span class="s">&quot;estimatedArrivalTime&quot;</span>, <span class="s">&quot;misdirected&quot;</span>, 
-    <span class="k">read</span> <span class="s">&quot;Voyage&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;voyageNumber&quot;</span>,
-    <span class="k">read</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>
+```cml
+UseCase ViewTracking {
+  interactions
+    read "Cargo" with its "trackindId",
+    read "HandlingEvent" with its "handlingEventType", "location", "completionTime",
+    read "Delivery" with its "transportStatus", "estimatedArrivalTime", "misdirected",
+    read "Voyage" with its "voyageNumber",
+    read "RouteSpecification" with its "destination"
 }
 
-<span class="k">UseCase</span> ViewCargos {
-  <span class="k">interactions</span>
-    <span class="k">read</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackingId&quot;</span>,
-    <span class="k">read</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>, <span class="s">&quot;arrivalDeadline&quot;</span>,
-    <span class="k">read</span> <span class="s">&quot;Delivery&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;routingStatus&quot;</span>
+UseCase ViewCargos {
+  interactions
+    read "Cargo" with its "trackingId",
+    read "RouteSpecification" with its "destination", "arrivalDeadline",
+    read "Delivery" with its "routingStatus"
 }
 
-<span class="k">UseCase</span> BookCargo {
-  <span class="k">interactions</span>
-    <span class="k">read</span> <span class="s">&quot;Location&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;unLocode&quot;</span>,
-    <span class="k">update</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackingId&quot;</span>,
-    <span class="k">update</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;origin&quot;</span>, <span class="s">&quot;arrivalDeadline&quot;</span>, <span class="s">&quot;destination&quot;</span>
+UseCase BookCargo {
+  interactions
+    read "Location" with its "unLocode",
+    update "Cargo" with its "trackingId",
+    update "RouteSpecification" with its "origin", "arrivalDeadline", "destination"
 }
 
-<span class="k">UseCase</span> ChangeCargoDestination {
-  <span class="k">interactions</span>
-    <span class="k">read</span> <span class="s">&quot;Cargo&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;trackingId&quot;</span>,
-    <span class="k">read</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>,
-    <span class="k">update</span> <span class="s">&quot;RouteSpecification&quot;</span> <span class="k">with</span> <span class="k">its</span> <span class="s">&quot;destination&quot;</span>
+UseCase ChangeCargoDestination {
+  interactions
+    read "Cargo" with its "trackingId",
+    read "RouteSpecification" with its "destination",
+    update "RouteSpecification" with its "destination"
 }
 
-<span class="c">/* we shortened this listing to save space (find all use cases in the original CML file) */</span>
-</pre></div>
+/* we shortened this listing to save space (find all use cases in the original CML file) */
+```
 
 Note that we only modeled the Entities with its _read_ and _written_ attributes (nanoentities) here. The CML syntax allows you to add [more details to use cases and/or user stories](/docs/user-requirements/), but the information above are absolutely necessary for Context Mapper to use the cases/stories as user representations in Service Cutter.
 
@@ -120,35 +122,36 @@ A Bounded Contexts is not necessarily a system or component. A team can constitu
 
 This might not make sense for the DDD sample application, as the domain model is not that big. However, we assigned the Aggregates to four different teams to illustrate how this is done:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CargoTracking {
-  <span class="k">Aggregate</span> Cargo {
-    <span class="k">owner</span> CargoPlaner
+```cml
+BoundedContext CargoTracking {
+  Aggregate Cargo {
+    owner CargoPlaner
 
-    <span class="c">/* removed content here to save space */</span>
+    /* removed content here to save space */
   }
-  <span class="k">Aggregate</span> Location {
-    <span class="k">owner</span> Administrators
+  Aggregate Location {
+    owner Administrators
 
-    <span class="c">/* removed content here to save space */</span>
+    /* removed content here to save space */
   }
-  <span class="k">Aggregate</span> Handling {
-    <span class="k">owner</span> CargoTracker
+  Aggregate Handling {
+    owner CargoTracker
 
-    <span class="c">/* removed content here to save space */</span> 
+    /* removed content here to save space */
   }
-  <span class="k">Aggregate</span> Voyage {
-    <span class="k">owner</span> VoyageManager
+  Aggregate Voyage {
+    owner VoyageManager
 
-    <span class="c">/* removed content here to save space */</span>
+    /* removed content here to save space */
   }
 }
 
-<span class="c">/* team definitions: */</span>
-<span class="k">BoundedContext</span> CargoPlaner { <span class="k">type</span> <span class="k">TEAM</span> }
-<span class="k">BoundedContext</span> CargoTracker { <span class="k">type</span> <span class="k">TEAM</span> }
-<span class="k">BoundedContext</span> VoyageManager { <span class="k">type</span> <span class="k">TEAM</span> }
-<span class="k">BoundedContext</span> Administrators { <span class="k">type</span> <span class="k">TEAM</span> }
-</pre></div>
+/* team definitions: */
+BoundedContext CargoPlaner { type TEAM }
+BoundedContext CargoTracker { type TEAM }
+BoundedContext VoyageManager { type TEAM }
+BoundedContext Administrators { type TEAM }
+```
 
 The CML team assignments will be mapped to the Service Cutter's [_Shared Owner Group_ definition](https://github.com/ServiceCutter/ServiceCutter/wiki/Shared-owner-groups).
 

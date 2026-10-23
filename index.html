@@ -3,101 +3,100 @@ layout: default
 image: /img/cm-og-image.png
 ---
 
-<div class="header-container jumbotron">
-    <div class="container">
-	    <h1>A Modeling Framework for Strategic Domain-driven Design</h1>
-        <p>ContextMapper is an open source project providing a Domain-specific Language and Tools for Strategic Domain-driven Design (DDD), Context Mapping, Bounded Context Modeling, and Service Decomposition.</p>
-
+<div class="container hero">
+  <div class="hero-text">
+    <p class="eyebrow">Strategic Domain-driven Design</p>
+    <h1>Model your domain.<br>Map your contexts.</h1>
+    <p class="hero-lead">Context Mapper is an open source modeling framework with a DSL for Context Mapping, Bounded Context modeling and service decomposition: write models as code, refactor them, and generate diagrams, contracts and code.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension">Install for VS Code</a>
+      <a class="button button-secondary" href="{{ "/docs/getting-started/" | relative_url }}">Get started</a>
     </div>
+    <p class="hero-note">Also on <a href="https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension">Open VSX</a> · <a href="{{ "/docs/library/" | relative_url }}">Java library</a> on Maven Central</p>
+  </div>
+  <div class="code-window">
+    <div class="code-window-title">insurance.cml</div>
+<div class="highlight"><pre><span class="k">ContextMap</span> InsuranceContextMap {
+  <span class="k">contains</span> CustomerManagementContext
+  <span class="k">contains</span> PolicyManagementContext, DebtCollection
+
+  CustomerManagementContext [<span class="nc">U</span>,<span class="nc">OHS</span>,<span class="nc">PL</span>] -&gt; [<span class="nc">D</span>,<span class="nc">CF</span>] PolicyManagementContext
+  PolicyManagementContext [<span class="nc">SK</span>] &lt;-&gt; [<span class="nc">SK</span>] DebtCollection
+}
+
+<span class="k">BoundedContext</span> PolicyManagementContext {
+  <span class="k">type</span> = <span class="k">FEATURE</span>
+  <span class="k">responsibilities</span> = <span class="s">"Offers"</span>, <span class="s">"Contracts"</span>, <span class="s">"Policies"</span>
+}</pre></div>
+  </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="header-light regular-pad">
-        Quick Start
-      </h2>
+<section class="band">
+  <div class="container section">
+    <h2>Everything you need for tactic and strategic DDD</h2>
+    <p class="section-lead">From the first Context Map to service contracts: one textual model, many views.</p>
+    <div class="feature-grid">
+      <a class="feature" href="{{ "/docs/language-reference/" | relative_url }}">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+        <h3>Context Mapping DSL (CML)</h3>
+        <p>Model Bounded Contexts, Subdomains and their relationships with the strategic and tactic DDD patterns.</p>
+      </a>
+      <a class="feature" href="{{ "/docs/architectural-refactorings/" | relative_url }}">
+        <div class="feature-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></svg></div>
+        <h3>Architectural Refactorings</h3>
+        <p>Split and merge Bounded Contexts and Aggregates step by step to improve coupling and cohesion.</p>
+      </a>
+      <a class="feature" href="{{ "/docs/generators/" | relative_url }}">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5l2 8M15.5 7.5l-2 8M9 6h6"/></svg></div>
+        <h3>Diagrams &amp; Contracts</h3>
+        <p>Generate graphical Context Maps, PlantUML diagrams, MDSL service contracts and BPMN sketches.</p>
+      </a>
+      <a class="feature" href="{{ "/docs/generic-freemarker-generator/" | relative_url }}">
+        <div class="feature-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M10 13l-2 2 2 2M14 13l2 2-2 2"/></svg></div>
+        <h3>Code Generation</h3>
+        <p>Generate any text or code with Freemarker templates, for example JHipster microservice applications.</p>
+      </a>
+      <a class="feature" href="{{ "/docs/rapid-ooad/" | relative_url }}">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <h3>Analysis &amp; Design</h3>
+        <p>Start from user stories, use cases and stakeholders, and derive Subdomains and Bounded Contexts (Rapid OOAD).</p>
+      </a>
+      <a class="feature" href="{{ "/docs/library/" | relative_url }}">
+        <div class="feature-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg></div>
+        <h3>Java Library &amp; Discovery</h3>
+        <p>Read, validate and generate CML models in your own code, and reverse engineer Context Maps from existing systems.</p>
+      </a>
     </div>
   </div>
-    <div class="row">
-        <div class="col-md-6">
-          <ul class="start-page-quicklinks">
-            <li><a href="/docs/home/">What is Context Mapper?</a> Learn more about the <a href="/background-and-publications">project's background</a>.</li>
-            <li>New to Context Mapper? <a href="/docs/getting-started/">Get Started</a>.</li>
-            <li>Installation Links: <a href="https://marketplace.eclipse.org/content/context-mapper/">Eclipse Plugin</a>, <a href="https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension">Visual Studio Code Extension</a></li>
-            <li><a href="/docs/examples/">Example Models</a></li>
-            <li><a href="{{ site.news.last.url | prepend: site.baseurl }}">Latest News and Release Notes</a></li>
-            <li>Learn more about: <a href="/docs/language-reference/">Context Mapping DSL (CML)</a>, <a href="/docs/architectural-refactorings/">Architectural Refactorings</a>,
-              <a href="/docs/generators/">Generators</a>, <a href="/docs/rapid-ooad/">Rapid OOAD</a>, <a href="/docs/service-cutter-context-map-suggestions/">Service Decomposition</a>,
-              <a href="/docs/reverse-engineering/">Reverse Engineering</a>, <a href="/docs/jhipster-microservice-generation/">Microservice Generation with JHipster</a>,
-              <a href="/docs/event-storming/">Event Storming</a>, <a href="/docs/event-sourcing-and-cqrs-modeling/">CQRS</a></li>
-            <li><a href="/docs/faq/">Frequently Asked Questions (FAQ)</a></li>
-            <li>You want to help us improving Context Mapper? <a href="/getting-involved/">Get Involved</a>.</li>
-          </ul>
-        </div>
-        <div class="col-md-6 text-center">
-            <img src="img/cm.png" alt="" class="img-responsive">
-        </div>
-    </div>
+</section>
 
-    <hr>
+<section class="container section split">
+  <div class="split-text">
+    <h2>From model to Context Map</h2>
+    <p>Write your model in VS Code with validation, completion and quick fixes, then generate the graphical Context Map, PlantUML diagrams or service contracts with one command.</p>
+    <ol class="steps">
+      <li><a href="{{ "/docs/vs-code/" | relative_url }}">Install the extension for VS Code</a></li>
+      <li>Create a .cml file or start from one of our <a href="{{ "/docs/examples/" | relative_url }}">examples</a></li>
+      <li>Refactor and generate what you need</li>
+    </ol>
+  </div>
+  <figure class="split-figure">
+    <img src="{{ "/img/context-map-insurance-example.png" | relative_url }}" alt="Context Map of the insurance example, generated with Context Mapper" width="1200" height="645">
+  </figure>
+</section>
 
-    <div class="row features">
-        <div class="col-sm-4">
-          <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
-          <h3 class="text-center">Context Mapping DSL (CML)</h3>
-          <p>
-            CML is an easy to understand, Xtext-based, <strong>DSL for DDD context mapping</strong>. The language supports modeling Bounded Contexts and their relationships with tactic and strategic DDD patterns.
-          </p>
-          <p>
-            <a class="btn btn-primary btn-lg" href="/docs/language-reference/" role="button">Learn more</a>
-          </p>
-        </div>
-        <div class="col-sm-4">
-          <h1 class="text-center"><i class="fas fa-redo-alt" aria-hidden="true"></i></h1>
-          <h3 class="text-center">Continuous Refactorings</h3>
-          <p>
-            <strong>Decompose</strong> your systems architecture by applying <strong>Architectural Refactorings (ARs)</strong> iteratively.
-            Split and merge Bounded Contexts and/or Aggregates to improve <strong>coupling</strong> and <strong>cohesion</strong>.
-          </p>
-          <p>
-            <a class="btn btn-primary btn-lg" href="/docs/architectural-refactorings/" role="button">Learn more</a>
-          </p>
-        </div>
-        <div class="col-sm-4">
-          <h1 class="text-center"><i class="fas fa-project-diagram" aria-hidden="true"></i></h1>
-          <h3 class="text-center">Diagram and Contract Generation</h3>
-          <p>
-            Use your CML Context Maps to generate other representations of the architecture, such as <strong>graphical Context Maps</strong>, <strong>PlantUML</strong> component and class diagrams,
-            <strong>MDSL (micro-)service contracts</strong>, or <strong>code</strong>.
-          </p>
-          <p>
-            <a class="btn btn-primary btn-lg" href="/docs/generators/" role="button">Learn more</a>
-          </p>
-        </div>
-    </div>
-    <div class="row features">
-      <div class="col-sm-6">
-        <h1 class="text-center"><i class="fas fa-history" aria-hidden="true"></i></h1>
-        <h3 class="text-center">Context Map Discovery Library</h3>
-        <p>
-          Use our Java discovery library to <strong>reverse engineer a DDD Context Map</strong> from your existing monolith or microservice application (extensible library based on strategy pattern).
-        </p>
-        <p>
-          <a class="btn btn-primary btn-lg" href="/docs/reverse-engineering/" role="button">Learn more</a>
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <h1 class="text-center"><i class="far fa-file-code" aria-hidden="true"></i></h1>
-        <h3 class="text-center">Code (Microservice) Generation</h3>
-        <p>
-          Generate any <strong>text or code</strong> with our generic generator based on <strong>Freemarker</strong> templates. We offer a template to <strong>generate Microservice applications</strong>
-          (Spring Boot) using <strong>JHipster</strong>.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-lg" href="/docs/jhipster-microservice-generation/" role="button">Learn more</a>
-        </p>
-      </div>
-    </div>
-
-</div>
+<section class="container section" style="padding-top: 0">
+  <div class="news-header">
+    <h2>News</h2>
+    <a href="{{ "/allnews/" | relative_url }}">All news &rarr;</a>
+  </div>
+  <div class="news-grid">
+    {%- assign sorted_news = site.news | sort: "date" | reverse %}
+    {%- for entry in sorted_news limit:3 %}
+    <a class="news-card" href="{{ entry.url | relative_url }}">
+      <time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%b %-d, %Y" }}</time>
+      <span>{{ entry.title }}</span>
+    </a>
+    {%- endfor %}
+  </div>
+</section>

@@ -15,41 +15,42 @@ The respective rules are defined by the [Sculptor DSL](https://sculptor.github.i
 
 The following CML snippet illustrates an example of an aggregate to provide an impression how the rule can be used:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> Contract {
-  <span class="k">responsibilities</span> = <span class="s">&quot;Contracts&quot;</span>, <span class="s">&quot;Policies&quot;</span>
-  <span class="k">knowledgeLevel</span> = <span class="k">CONCRETE</span>
+```cml
+Aggregate Contract {
+  responsibilities = "Contracts", "Policies"
+  knowledgeLevel = CONCRETE
 
-  <span class="k">Entity</span> Contract {
-    <span class="k">aggregateRoot</span>
+  Entity Contract {
+    aggregateRoot
 
-    - <span class="k">ContractId</span> identifier
-    - <span class="k">Customer</span> client
-    - <span class="k">List</span>&lt;Product&gt; products
+    - ContractId identifier
+    - Customer client
+    - List<Product> products
   }
 
-  <span class="k">enum</span> States {
-    <span class="k">aggregateLifecycle</span>
+  enum States {
+    aggregateLifecycle
     CREATED, POLICE_CREATED, RECALLED
   }
 
-  <span class="k">ValueObject</span> ContractId {
-    <span class="k">int</span> contractId <span class="k">key</span>
+  ValueObject ContractId {
+    int contractId key
   }
 
-  <span class="k">Entity</span> Policy {
-    <span class="k">int</span> policyNr
-    - <span class="k">Contract</span> contract
-    <span class="k">BigDecimal</span> price
+  Entity Policy {
+    int policyNr
+    - Contract contract
+    BigDecimal price
   }
 
-  <span class="k">Service</span> ContractService {
-    @ContractId createContract(@Contract contrace) : <span class="k">write</span> [ -&gt; CREATED];
-    @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
-    <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span> [ CREATED -&gt; POLICE_CREATED ];
-    <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span> [ CREATED, POLICE_CREATED -&gt; RECALLED ];
+  Service ContractService {
+    @ContractId createContract(@Contract contrace) : write [ -> CREATED];
+    @Contract getContract(@ContractId contractId) : read-only;
+    boolean createPolicy(@ContractId contractId) : write [ CREATED -> POLICE_CREATED ];
+    boolean recall(@ContractId contractId) : write [ CREATED, POLICE_CREATED -> RECALLED ];
   }
 }
-</pre></div>
+```
 
 The equal sign (=) to assign an attribute value is always optional and therefore can be omitted.
 
@@ -62,31 +63,34 @@ Further examples can be found within our GitHub example repository [context-mapp
 ## Aggregate Lifecycle and State Transitions
 As already illustrated in the example above, you can declare an Aggregate's states with an _enum_. The _aggregateLifecycle_ keyword marks the enum that defines the states:
 
-<div class="highlight"><pre><span></span><span class="k">enum</span> States {
-  <span class="k">aggregateLifecycle</span>
+```cml
+enum States {
+  aggregateLifecycle
   CREATED, POLICE_CREATED, RECALLED
 }
-</pre></div>
+```
 
 In addition, every operation (no matter whether it is specified in a _Service_ or an _Entity_) can declare whether it is a "read only" or "write" operation with the keywords _read-only_ and _write_:
 
-<div class="highlight"><pre><span></span><span class="k">Service</span> ContractService {
-  @ContractId createContract(@Contract contrace) : <span class="k">write</span>;
-  @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
-  <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span>;
-  <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span>;
+```cml
+Service ContractService {
+  @ContractId createContract(@Contract contrace) : write;
+  @Contract getContract(@ContractId contractId) : read-only;
+  boolean createPolicy(@ContractId contractId) : write;
+  boolean recall(@ContractId contractId) : write;
 }
-</pre></div>
+```
 
 A _write_ operation may changes the state of the Aggregate. Such state transitions can be specified in square brackets:
 
-<div class="highlight"><pre><span></span><span class="k">Service</span> ContractService {
-  @ContractId createContract(@Contract contrace) : <span class="k">write</span> [ -&gt; CREATED];
-  @Contract getContract(@ContractId contractId) : <span class="k">read</span>-<span class="k">only</span>;
-  <span class="k">boolean</span> createPolicy(@ContractId contractId) : <span class="k">write</span> [ CREATED -&gt; POLICE_CREATED ];
-  <span class="k">boolean</span> recall(@ContractId contractId) : <span class="k">write</span> [ CREATED, POLICE_CREATED -&gt; RECALLED ];
+```cml
+Service ContractService {
+  @ContractId createContract(@Contract contrace) : write [ -> CREATED];
+  @Contract getContract(@ContractId contractId) : read-only;
+  boolean createPolicy(@ContractId contractId) : write [ CREATED -> POLICE_CREATED ];
+  boolean recall(@ContractId contractId) : write [ CREATED, POLICE_CREATED -> RECALLED ];
 }
-</pre></div>
+```
 
 With our [PlantUML generator](/docs/plant-uml/) you can visualize the lifecycle of your Aggregates with state diagrams. For example, the model at the top of this page generates the following state diagram:
 
@@ -98,26 +102,27 @@ With our [PlantUML generator](/docs/plant-uml/) you can visualize the lifecycle 
 
 These language features allow you to define the lifecycle of an Aggregate. The following example show all possible variants of state transitions (note that the following example is not in line with the example above; it just shows all variants of possible state transitions):
 
-<div class="highlight"><pre><span></span><span class="c">// an initial state:</span>
--<span class="k">&gt;</span> CREATED
+```cml
+// an initial state:
+-> CREATED
 
-<span class="c">// simple state transition from one state into the other</span>
-CREATED -&gt; CHECK_REQUESTED
+// simple state transition from one state into the other
+CREATED -> CHECK_REQUESTED
 
-<span class="c">// the left side can contain multiple states:</span>
-<span class="c">// (this means that the state on the right can be reached by any of those on the left side)</span>
-CREATED, CHECK_REQUESTED -&gt; CHECK_IN_PROGRESS
+// the left side can contain multiple states:
+// (this means that the state on the right can be reached by any of those on the left side)
+CREATED, CHECK_REQUESTED -> CHECK_IN_PROGRESS
 
-<span class="c">// multiple target states possible</span>
-<span class="c">// X stands for XOR and means one OR the other will be reached but not both at the same time (exclusive OR)</span>
-CHECK_IN_PROGRESS -&gt; ACCEPTED <span class="k">X</span> REJECTED
+// multiple target states possible
+// X stands for XOR and means one OR the other will be reached but not both at the same time (exclusive OR)
+CHECK_IN_PROGRESS -> ACCEPTED X REJECTED
 
-<span class="c">// target states can be marked as end states with a star:</span>
-CHECK_IN_PROGRESS -&gt; ACCEPTED* <span class="k">X</span> REJECTED*
+// target states can be marked as end states with a star:
+CHECK_IN_PROGRESS -> ACCEPTED* X REJECTED*
 
-<span class="c">// a combination of multiple on the left and multiple on the right</span>
-CREATED, CHECK_REQUESTED -&gt; ACCEPTED <span class="k">X</span> REJECTED
-</pre></div>
+// a combination of multiple on the left and multiple on the right
+CREATED, CHECK_REQUESTED -> ACCEPTED X REJECTED
+```
 
 _Hint:_ You can also model the state transition inside your [event flows in the application layer](/docs/application-and-process-layer/#processes-and-eventcommand-flows).
 
@@ -125,107 +130,110 @@ _Hint:_ You can also model the state transition inside your [event flows in the 
 CML allows specifying an owner on the aggregate level. If aggregates are maintained by different teams, you can specify this as in the
 following example:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> CustomerSelfServiceContext <span class="k">implements</span> CustomerManagementDomain {
-  <span class="k">type</span> = <span class="k">APPLICATION</span>
-  <span class="k">domainVisionStatement</span> = <span class="s">&quot;This context represents a web application which allows the customer to login and change basic data records like the address.&quot;</span>
-  <span class="k">responsibilities</span> = <span class="s">&quot;AddressChange&quot;</span>
-  <span class="k">implementationTechnology</span> = <span class="s">&quot;PHP Web Application&quot;</span>
+```cml
+BoundedContext CustomerSelfServiceContext implements CustomerManagementDomain {
+  type = APPLICATION
+  domainVisionStatement = "This context represents a web application which allows the customer to login and change basic data records like the address."
+  responsibilities = "AddressChange"
+  implementationTechnology = "PHP Web Application"
 
-  <span class="k">Aggregate</span> CustomerFrontend {
-    <span class="k">owner</span> = CustomerFrontendTeam
+  Aggregate CustomerFrontend {
+    owner = CustomerFrontendTeam
 
-    <span class="k">DomainEvent</span> CustomerAddressChange {
-      <span class="k">aggregateRoot</span>
+    DomainEvent CustomerAddressChange {
+      aggregateRoot
 
-      - <span class="k">UserAccount</span> issuer
-      - <span class="k">Address</span> changedAddress
+      - UserAccount issuer
+      - Address changedAddress
     }
   }
-  <span class="k">Aggregate</span> Acounts {
-    <span class="k">owner</span> = CustomerBackendTeam
+  Aggregate Acounts {
+    owner = CustomerBackendTeam
 
-    <span class="k">Entity</span> UserAccount {
-      <span class="k">aggregateRoot</span>
+    Entity UserAccount {
+      aggregateRoot
 
-      <span class="k">String</span> username
-      - <span class="k">Customer</span> accountCustomer
+      String username
+      - Customer accountCustomer
     }
   }
 }
-</pre></div>
+```
 
 The _owner_ attribute may be used for service decomposition by using the [Split Bounded Context by Owners](/docs/ar-split-bounded-context-by-owners) 
 architectural refactoring.
 
 Note that the _owner_ attribute refers to a team, which must be a bounded context of the type _TEAM_: (see [Bounded Context](/docs/bounded-context) for more details):
 
-<div class="highlight"><pre><span></span><span class="c">/* Team Definitions */</span>
-<span class="k">BoundedContext</span> CustomerBackendTeam {
-  <span class="k">type</span> = <span class="k">TEAM</span>
+```cml
+/* Team Definitions */
+BoundedContext CustomerBackendTeam {
+  type = TEAM
 }
 
-<span class="k">BoundedContext</span> CustomerFrontendTeam {
-  <span class="k">type</span> = <span class="k">TEAM</span>
+BoundedContext CustomerFrontendTeam {
+  type = TEAM
 }
-</pre></div>
+```
 
 ## Aggregate Features
 With CML you can further specify which [features or user requirements (use cases and/or user stories)](/docs/user-requirements/) an Aggregate supports. This information may be used for service decomposition when applying the [Split Bounded Context by Features](/docs/ar-split-bounded-context-by-features) architectural refactoring.
 
 Use Cases can be assigned with the _useCases_ keyword and User Stories with the _userStories_ keyword. You can also use the _features_ keyword and assign both, Use Cases and User Stories, at the same time:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> PolicyManagementContext <span class="k">implements</span> PolicyManagementDomain {
-  <span class="k">Aggregate</span> Offers {
-    <span class="k">useCases</span> = CreateOfferForCustomer
-    
-    <span class="k">Entity</span> Offer {
-      <span class="k">aggregateRoot</span>
-      
-      <span class="k">int</span> offerId
-      - <span class="k">Customer</span> client
-      - <span class="k">List</span>&lt;Product&gt; products
-      <span class="k">BigDecimal</span> price
+```cml
+BoundedContext PolicyManagementContext implements PolicyManagementDomain {
+  Aggregate Offers {
+    useCases = CreateOfferForCustomer
+
+    Entity Offer {
+      aggregateRoot
+
+      int offerId
+      - Customer client
+      - List<Product> products
+      BigDecimal price
     }
   }
-  <span class="k">Aggregate</span> Products {
-    <span class="k">userStories</span> = AddProductToOffer
-    
-    <span class="k">Entity</span> Product {
-      <span class="k">aggregateRoot</span>
-      
-      - <span class="k">ProductId</span> identifier
-      <span class="k">String</span> productName
+  Aggregate Products {
+    userStories = AddProductToOffer
+
+    Entity Product {
+      aggregateRoot
+
+      - ProductId identifier
+      String productName
     }
-    <span class="k">ValueObject</span> ProductId {
-      <span class="k">int</span> productId <span class="k">key</span>
+    ValueObject ProductId {
+      int productId key
     }
   }
-  <span class="k">Aggregate</span> Contract {
-    <span class="k">features</span> = CreateOfferForCustomer, UpdateContract
-    
-    <span class="k">Entity</span> Contract {
-      <span class="k">aggregateRoot</span>
-      
-      - <span class="k">ContractId</span> identifier
-      - <span class="k">Customer</span> client
-      - <span class="k">List</span>&lt;Product&gt; products
+  Aggregate Contract {
+    features = CreateOfferForCustomer, UpdateContract
+
+    Entity Contract {
+      aggregateRoot
+
+      - ContractId identifier
+      - Customer client
+      - List<Product> products
     }
-    <span class="k">ValueObject</span> ContractId {
-      <span class="k">int</span> contractId <span class="k">key</span>
+    ValueObject ContractId {
+      int contractId key
     }
-    
-    <span class="k">Entity</span> Policy {
-      <span class="k">int</span> policyNr
-      - <span class="k">Contract</span> contract
-      <span class="k">BigDecimal</span> price
+
+    Entity Policy {
+      int policyNr
+      - Contract contract
+      BigDecimal price
     }
   }
 }
 
-<span class="k">UseCase</span> CreateOfferForCustomer
-<span class="k">UserStory</span> UpdateContract
-<span class="k">UserStory</span> AddProductToOffer
-</pre></div>
+UseCase CreateOfferForCustomer
+UserStory UpdateContract
+UserStory AddProductToOffer
+```
 
 Multiple User Stories and/or Use Cases can be assigned as a comma-separated list, as shown in the last Aggregate example above.
 
@@ -239,27 +247,28 @@ This can be very helpful to model security-related requirements which can later 
 
 A simple example:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> MyMonolith {
-  <span class="k">Aggregate</span> CustomerManagement {
-    <span class="k">securityZone</span> <span class="s">&quot;Internal&quot;</span>
-    <span class="k">Entity</span> Customer {
-      <span class="k">String</span> firstName
-      <span class="k">String</span> lastName
+```cml
+BoundedContext MyMonolith {
+  Aggregate CustomerManagement {
+    securityZone "Internal"
+    Entity Customer {
+      String firstName
+      String lastName
     }
-    <span class="k">Entity</span> Address {
-      - <span class="k">Customer</span> customer
-      <span class="k">String</span> street
-      <span class="k">String</span> city
+    Entity Address {
+      - Customer customer
+      String street
+      String city
     }
   }
-  <span class="k">Aggregate</span> CustomerFrontend {
-    <span class="k">securityZone</span> <span class="s">&quot;Public&quot;</span>
-    <span class="k">DomainEvent</span> AddressChanged {
-      - <span class="k">Address</span> address
+  Aggregate CustomerFrontend {
+    securityZone "Public"
+    DomainEvent AddressChanged {
+      - Address address
     }
   }
 }
-</pre></div>
+```
 
 ## Security Access Groups
 The attribute _securityAccessGroup_ allows you to assign different Aggregates to different _security access groups_. This feature is primarily used to generate the [user representations for Service Cutter](/docs/service-cutter-context-map-suggestions/#input-and-preconditions), i.e. the [security access groups](https://github.com/ServiceCutter/ServiceCutter/wiki/Security-access-groups).
@@ -268,27 +277,28 @@ This can be very helpful to declare that your Aggregates have different access r
 
 An example:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> MyMonolith {
-  <span class="k">Aggregate</span> CustomerManagement {
-    <span class="k">securityAccessGroup</span> <span class="s">&quot;InsuranceEmployees&quot;</span>
-    <span class="k">Entity</span> Customer {
-      <span class="k">String</span> firstName
-      <span class="k">String</span> lastName
+```cml
+BoundedContext MyMonolith {
+  Aggregate CustomerManagement {
+    securityAccessGroup "InsuranceEmployees"
+    Entity Customer {
+      String firstName
+      String lastName
     }
-    <span class="k">Entity</span> Address {
-      - <span class="k">Customer</span> customer
-      <span class="k">String</span> street
-      <span class="k">String</span> city
+    Entity Address {
+      - Customer customer
+      String street
+      String city
     }
   }
-  <span class="k">Aggregate</span> CustomerFrontend {
-    <span class="k">securityAccessGroup</span> <span class="s">&quot;Customers&quot;</span>
-    <span class="k">DomainEvent</span> AddressChanged {
-      - <span class="k">Address</span> address
+  Aggregate CustomerFrontend {
+    securityAccessGroup "Customers"
+    DomainEvent AddressChanged {
+      - Address address
     }
   }
 }
-</pre></div>
+```
 
 ## Characteristics Classification
 On the Aggregate level it is possible to classify parts of your domain model [according to Service Cutter's characteristics (compatibilities)](https://github.com/ServiceCutter/ServiceCutter/wiki/Compatibilities). This is primarily used to generate the [user representations for Service Cutter](/docs/service-cutter-context-map-suggestions/#input-and-preconditions), in case you generate service decomposition suggestions with Context Mapper.
@@ -314,18 +324,19 @@ The attribute _contentVolatility_ takes the following values:
 
 An example:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
-  <span class="k">contentVolatility</span> = <span class="k">OFTEN</span> <span class="c">// content changes more often in this Aggregate</span>
-  
-  <span class="k">Entity</span> DemoEntityOne
+```cml
+Aggregate AggregateDemo1 {
+  contentVolatility = OFTEN // content changes more often in this Aggregate
+
+  Entity DemoEntityOne
 }
 
-<span class="k">Aggregate</span> AggregateDemo2 {
-  <span class="k">contentVolatility</span> = <span class="k">NORMAL</span>
-  
-  <span class="k">Entity</span> DemoEntityTwo
+Aggregate AggregateDemo2 {
+  contentVolatility = NORMAL
+
+  Entity DemoEntityTwo
 }
-</pre></div>
+```
 
 
 ### Likelihood for Change
@@ -341,31 +352,33 @@ components (see [Parnas](https://dl.acm.org/citation.cfm?doid=361598.361623)). B
 
 The likelihood on an aggregate is declared as follows:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> CustomerFrontend {
-  <span class="k">likelihoodForChange</span> = OFTEN
-  
-  <span class="k">DomainEvent</span> CustomerAddressChange {
-    <span class="k">aggregateRoot</span>
-    
-    - <span class="k">UserAccount</span> issuer
-    - <span class="k">Address</span> changedAddress
+```cml
+Aggregate CustomerFrontend {
+  likelihoodForChange = OFTEN
+
+  DomainEvent CustomerAddressChange {
+    aggregateRoot
+
+    - UserAccount issuer
+    - Address changedAddress
   }
 }
-</pre></div>
+```
 
 You can also use the _structuralVolatility_ keyword:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> CustomerFrontend {
-  <span class="k">structuralVolatility</span> = <span class="k">OFTEN</span>
-  
-  <span class="k">DomainEvent</span> CustomerAddressChange {
-    <span class="k">aggregateRoot</span>
-    
-    - <span class="k">UserAccount</span> issuer
-    - <span class="k">Address</span> changedAddress
+```cml
+Aggregate CustomerFrontend {
+  structuralVolatility = OFTEN
+
+  DomainEvent CustomerAddressChange {
+    aggregateRoot
+
+    - UserAccount issuer
+    - Address changedAddress
   }
 }
-</pre></div>
+```
 
 ### Availability Criticality
 This characteristic corresponds to the [Availability Criticality](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-7-Availability-Criticality) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
@@ -377,18 +390,19 @@ The attribute _availabilityCriticality_ takes the following values:
 
 An example:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
-  <span class="k">availabilityCriticality</span> = <span class="k">HIGH</span> <span class="c">// higher availability requirements then other aggregate</span>
-  
-  <span class="k">Entity</span> DemoEntityOne
+```cml
+Aggregate AggregateDemo1 {
+  availabilityCriticality = HIGH // higher availability requirements then other aggregate
+
+  Entity DemoEntityOne
 }
 
-<span class="k">Aggregate</span> AggregateDemo2 {
-  <span class="k">availabilityCriticality</span> = <span class="k">NORMAL</span>
-  
-  <span class="k">Entity</span> DemoEntityTwo
+Aggregate AggregateDemo2 {
+  availabilityCriticality = NORMAL
+
+  Entity DemoEntityTwo
 }
-</pre></div>
+```
 
 ### Consistency Criticality
 This characteristic corresponds to the [Consistency Criticality](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-6-Consistency-Criticality) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
@@ -400,18 +414,19 @@ The attribute _consistencyCriticality_ takes the following values:
 
 An example:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
-  <span class="k">consistencyCriticality</span> = <span class="k">HIGH</span> <span class="c">// higher consistency requirements then other aggregate</span>
-  
-  <span class="k">Entity</span> DemoEntityOne
+```cml
+Aggregate AggregateDemo1 {
+  consistencyCriticality = HIGH // higher consistency requirements then other aggregate
+
+  Entity DemoEntityOne
 }
 
-<span class="k">Aggregate</span> AggregateDemo2 {
-  <span class="k">consistencyCriticality</span> = <span class="k">NORMAL</span>
-  
-  <span class="k">Entity</span> DemoEntityTwo
+Aggregate AggregateDemo2 {
+  consistencyCriticality = NORMAL
+
+  Entity DemoEntityTwo
 }
-</pre></div>
+```
 
 ### Storage Similarity
 This characteristic corresponds to the [Storage Similarity](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-11-Storage-Similarity) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
@@ -423,24 +438,25 @@ The attribute _storageSimilarity_ takes the following values:
 
 An example:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
-  <span class="k">storageSimilarity</span> = <span class="k">HUGE</span> <span class="c">// similar storage requirements as AggregateDemo3</span>
-  
-  <span class="k">Entity</span> DemoEntityOne
+```cml
+Aggregate AggregateDemo1 {
+  storageSimilarity = HUGE // similar storage requirements as AggregateDemo3
+
+  Entity DemoEntityOne
 }
 
-<span class="k">Aggregate</span> AggregateDemo2 {
-  <span class="k">storageSimilarity</span> = <span class="k">NORMAL</span>
-  
-  <span class="k">Entity</span> DemoEntityTwo
+Aggregate AggregateDemo2 {
+  storageSimilarity = NORMAL
+
+  Entity DemoEntityTwo
 }
 
-<span class="k">Aggregate</span> AggregateDemo3 {
-  <span class="k">storageSimilarity</span> = <span class="k">HUGE</span> <span class="c">// similar storage requirements as AggregateDemo1</span>
-  
-  <span class="k">Entity</span> DemoEntityThree
+Aggregate AggregateDemo3 {
+  storageSimilarity = HUGE // similar storage requirements as AggregateDemo1
+
+  Entity DemoEntityThree
 }
-</pre></div>
+```
 
 ### Security Criticality
 This characteristic corresponds to the [Security Criticality](https://github.com/ServiceCutter/ServiceCutter/wiki/CC-15-Security-Criticality) criterion of [Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria).
@@ -452,16 +468,17 @@ The attribute _securityCriticality_ takes the following values:
 
 An example:
 
-<div class="highlight"><pre><span></span><span class="k">Aggregate</span> AggregateDemo1 {
-  <span class="k">securityCriticality</span> = <span class="k">HIGH</span> <span class="c">// high security requirements</span>
-  
-  <span class="k">Entity</span> DemoEntityOne
+```cml
+Aggregate AggregateDemo1 {
+  securityCriticality = HIGH // high security requirements
+
+  Entity DemoEntityOne
 }
 
-<span class="k">Aggregate</span> AggregateDemo2 {
-  <span class="k">securityCriticality</span> = <span class="k">NORMAL</span>
-  
-  <span class="k">Entity</span> DemoEntityTwo
+Aggregate AggregateDemo2 {
+  securityCriticality = NORMAL
+
+  Entity DemoEntityTwo
 }
-</pre></div>
+```
 

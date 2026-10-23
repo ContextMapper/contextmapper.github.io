@@ -46,50 +46,52 @@ Release notes for all our latest releases can be found [here](https://github.com
 ## Example 
 The following example gives you a first impression how CML context maps look like: ([DDD Sample Application](https://github.com/citerus/dddsample-core))
 
-<div class="highlight"><pre><span></span><span class="c">/** </span>
-<span class="c"> * The DDD Cargo sample application modeled in CML. Note that we split the application into </span>
-<span class="c"> * multiple bounded contexts.</span>
-<span class="c"> *</span>
-<span class="c"> */</span>
-<span class="k">ContextMap</span> {
-  <span class="k">contains</span> CargoBookingContext
-  <span class="k">contains</span> VoyagePlanningContext
-  <span class="k">contains</span> LocationContext
-  
-  CargoBookingContext [<span class="k">SK</span>]&lt;-&gt;[<span class="k">SK</span>] VoyagePlanningContext
-  
-  CargoBookingContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
+```cml
+/**
+ * The DDD Cargo sample application modeled in CML. Note that we split the application into
+ * multiple bounded contexts.
+ *
+ */
+ContextMap {
+  contains CargoBookingContext
+  contains VoyagePlanningContext
+  contains LocationContext
 
-  VoyagePlanningContext [<span class="k">D</span>]&lt;-[<span class="k">U</span>,<span class="k">OHS</span>,<span class="k">PL</span>] LocationContext
+  CargoBookingContext [SK]<->[SK] VoyagePlanningContext
+
+  CargoBookingContext [D]<-[U,OHS,PL] LocationContext
+
+  VoyagePlanningContext [D]<-[U,OHS,PL] LocationContext
 }
-</pre></div>
+```
 
 The bounded contexts have to be specified before you can use them within a context map.
 A simple example of a bounded context definition is:
 
-<div class="highlight"><pre><span></span><span class="k">BoundedContext</span> LocationContext {
-  <span class="k">Module</span> location {
-    <span class="k">Aggregate</span> Location {
-      <span class="k">Entity</span> Location {
-        <span class="k">aggregateRoot</span>
+```cml
+BoundedContext LocationContext {
+  Module location {
+    Aggregate Location {
+      Entity Location {
+        aggregateRoot
 
-        <span class="k">PortCode</span> portcode
-        - <span class="k">UnLocode</span> unLocode
-          <span class="k">String</span> name
+        PortCode portcode
+        - UnLocode unLocode
+          String name
       }
 
-      <span class="k">ValueObject</span> UnLocode {
-        <span class="k">String</span> unLocode
+      ValueObject UnLocode {
+        String unLocode
       }
 
-      <span class="k">ValueObject</span> LocationShared {
-        <span class="k">PortCode</span> portCode
-        - <span class="k">Location</span> location
+      ValueObject LocationShared {
+        PortCode portCode
+        - Location location
       }
     }
   }
 }
-</pre></div>
+```
 
 ## Next steps...
 

@@ -61,7 +61,7 @@ The tactic DDD syntax of CML is based on the [Sculptor DSL](https://sculptor.git
 Hence, you can model _DomainEvents_ within your Aggregates.
 The following examples illustrate how we modeled the domain events from our Event Storming for Lakeside Mutual:
 
-```text
+```cml
 abstract DomainEvent AbstractClaimEvent {
   Date timestamp
   - Claim claim
@@ -83,7 +83,7 @@ sourcing and CQRS based systems can be modeled in Context Mapper.
 Domain events often result from a user action or _command_ execution. Commands in CML can either be modeled as methods in services or as _CommandEvent_'s (or both). 
 The following examples illustrate how you can model commands in CML:
 
-```text
+```cml
 abstract CommandEvent AbstractClaimCommand {
   - Claim claim
 }
@@ -119,7 +119,7 @@ For example: If the `CheckClaimDocumentation` command is performed, an event `Cl
 
 Policies can be modeled in the same way, and optionally their if-then rule character can be modeled explicitly. For example:
 
-```text
+```cml
 abstract DomainEvent AbstractPolicy
 		
 DomainEvent CustomerNotificationPolicy // triggers CustomerNotified event
@@ -130,7 +130,7 @@ Aggregates are supported by CML and can be modeled within Bounded Contexts. The 
 
 The following example illustrates the `Notification` Aggregate derived from our Event Storming example above:
 
-```text
+```cml
 Aggregate Notification {
   Entity Notification {
     aggregateRoot
@@ -161,7 +161,7 @@ the project straight away.
 
 The Lakeside Mutual Event Storming output above contains two issues ([the two red cards in the Event Storming above](#example-lakeside-mutual)) for which we created the following comment in our CML model:
 
-```text
+```cml
 /**
  * The 'Claims Management' context below is a result of our Event Storming for the new
  * claim processing feature.
@@ -178,7 +178,7 @@ BoundedContext ClaimsManagement {
 At present, there is no concept of a user role in the Context Mapper DSL; however, we used [Sculptor](https://sculptor.github.io/)'s `doc` comment which can be added to 
 all domain objects. Thereby we declare the user roles on our commands:
 
-```text
+```cml
 "role: Administrator in charge"
 CommandEvent CheckClaimDocumentation extends @AbstractClaimCommand
 
@@ -198,7 +198,7 @@ CommandEvent RejectClaim extends @AbstractClaimCommand
 In our Event Storming for claims processing at Lakeside Mutual we did not work with read models; Context Mapper does not support read models explicitly yet. However, it is of 
 course possible that you define your read model simply by using separate Aggregates or Entities. For example:
 
-```text
+```cml
 Aggregate ClaimReadModel {
   Entity ClaimReadModel {
     String claimIdentifier
@@ -215,7 +215,7 @@ for the Lakeside Mutual claim processing has been modeled.
 Just like Bounded Contexts, Subdomains are root objects and first class citizens in CML. The Subdomain syntax is documented [here](/docs/subdomain/). The following CML example
 illustrates how you can define Subdomains and how Bounded Contexts can implement those Subdomains:
 
-```text
+```cml
 Domain InsuranceDomain {
   Subdomain ClaimProcessing {
     type CORE_DOMAIN
@@ -243,7 +243,7 @@ illustrated graphic above proceeds from left to right.
 Context Mapper does not provide any support for modeling this event flow (time) explicitly yet. For this reason we simply worked with comments to indicate which command 
 is triggered after an event has been emitted:
 
-```text
+```cml
 "role: Administrator in charge"
 CommandEvent CheckClaimDocumentation extends @AbstractClaimCommand
 	
