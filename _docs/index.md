@@ -6,24 +6,19 @@ redirect_from: /docs/index.html
 
 Context Mapper is a modular and extensible modeling framework for **Domain-driven Design (DDD)** and its strategic patterns.
 The **[core component](/docs/language-reference/)** provides a DSL to create context maps featuring these DDD patterns. The model behind the language and its semantic rules express 
-**our interpretation of the DDD patterns** and how these patterns can be combined in a concise and consistent manner. At present, Context Mapper comes as an Eclipse plugin, a Visual Studio Code extension, or as a standalone Java [library version](/docs/library/):
+**our interpretation of the DDD patterns** and how these patterns can be combined in a concise and consistent manner. Context Mapper comes as a Visual Studio Code extension or as a standalone Java [library version](/docs/library/):
 
 ## Installation
 
 **Visual Studio Code Marketplace: [Context Mapper](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension)**
- * Does not support all features we have in Eclipse yet. You can find a feature support table [here](/docs/ide/).
-
-**Eclipse Marketplace: [Context Mapper](https://marketplace.eclipse.org/content/context-mapper/)**
- * Alternatively you can install the Eclipse plugin manually with the following update site URL: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/)
+ * Also available in the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension).
+ * The Eclipse plugin is discontinued. The previous release (6.12.0) is still available via our Eclipse update site: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/); see [Eclipse Plugin](/docs/eclipse/).
 
 ## Framework Architecture
 
 ![Context Mapper Framework Components](/img/context-mapper-framework-components.png)
 
-DDD and its Bounded Contexts provide an approach for **decomposing a domain**. With our **[Service Cutter](/docs/service-cutter-context-map-suggestions/)** integration 
-(currently in proof-of-concept state) we illustrate how the Context Mapper DSL (CML) can be used as a foundation for even more structured service decomposition approaches. 
-Based on its [coupling criteria](https://github.com/ServiceCutter/ServiceCutter/wiki/Coupling-Criteria), Context Mapper suggests new Context Maps which may improve the 
-architecture with respect to coupling and cohesion. **[Architectural Refactorings (ARs)](/docs/architectural-refactorings)** support to decompose a Context Map in an 
+DDD and its Bounded Contexts provide an approach for **decomposing a domain**. **[Architectural Refactorings (ARs)](/docs/architectural-refactorings)** support to decompose a Context Map in an 
 iterative manner.
 
 If you work on a project with an existing monolithic or (micro-)service-oriented architecture, you can use our 
@@ -35,7 +30,6 @@ currently offer the following generators:
  * Graphical Context Map [generator](/docs/context-map-generator/) based on Graphviz (supported formats: .png, .cvg., .dot), 
  * [PlantUML](http://plantuml.com/) component and class diagram [generator](/docs/plant-uml/)
  * [Microservice Domain-Specific Language (MDSL)](https://microservice-api-patterns.github.io/MDSL-Specification/) (micro-)service contracts [generator](/docs/mdsl/)
- * [Service Cutter](http://servicecutter.github.io/) input files [generators](/docs/service-cutter/)
  * [Generic Textual Generator based on Freemarker Templates](/docs/generic-freemarker-generator/)
 
 **Find out [how to start using Context Mapper](/docs/getting-started/) right now.**

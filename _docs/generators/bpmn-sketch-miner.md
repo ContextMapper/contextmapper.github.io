@@ -54,7 +54,7 @@ BoundedContext InsuranceQuotes {
 ```
 
 ## Open Flow in BPMN Sketch Miner
-The Context Mapper IDEs ([VS Code extension](/docs/vs-code/) as well as [Eclipse plugin](/docs/eclipse/)) allow you to open a flow in [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) with two (or max. three) clicks. The following example illustrates this in VS Code (Eclipse works the same way).
+The [VS Code extension](/docs/vs-code/) allows you to open a flow in [BPMN Sketch Miner](https://www.bpmn-sketch-miner.ai/) with two (or max. three) clicks:
 
 Once you modelled your flow in CML, the editor will show a message and a light bulb on the line with the _flow name_:
 

@@ -3,6 +3,10 @@ title: Context Map Suggestions with Service Cutter
 permalink: /docs/service-cutter-context-map-suggestions/
 ---
 
+<div class="alert alert-custom">
+<strong>Note:</strong> The Service Cutter integration was <strong>removed in Context Mapper 6.10.0</strong>. This page describes the feature for older versions.
+</div>
+
 <div class="alert alert-danger">
 <strong>Note:</strong> This feature has been <strong>deactivated</strong> with <a href="https://contextmapper.org/news/2023/11/24/v6.10.0-released/">release v6.10.0</a> of Context Mapper.
 </div>

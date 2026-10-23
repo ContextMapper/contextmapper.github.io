@@ -3,40 +3,27 @@ title: Getting started
 permalink: /docs/getting-started/
 ---
 
-To model with Context Mapper you need either our Eclipse Plugin or our Visual Studio Code extension. Both provide support for the CML language and its surrounding tools. Please note that the VS Code extension does not support all our features yet. [Here](/docs/ide/) you can find a table that illustrates which features are available in Eclipse and VS code. The VS code extension shall support all features soon!
+To model with Context Mapper you need our extension for [Visual Studio Code](https://code.visualstudio.com/). It provides the CML editor (validation, auto-completion, quick fixes) and all our refactorings, transformations and generators.
 
 ## VS Code Extension
-To start using Context Mapper in Visual Studio code, you can simply install or download our extension via the marketplace:
+You can install the extension from the marketplace:
 
 **VS Code Marketplace: [Context Mapper](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension)**
 
-Or search for "Context Mapper" in the extension view of your visual studio code.
+Or search for "Context Mapper" in the extensions view of VS Code. For editors that are compatible with VS Code extensions but don't use the Microsoft marketplace (such as VSCodium), the extension is available in the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension).
 
-**Note:** Does not support all features we have in Eclipse yet. You can find a feature support table [here](/docs/ide/).
-
-## Eclipse Plugin
-To start using Context Mapper in Eclipse, please install the plugin via the **Eclipse Marketplace** or our **update site**: 
-
-**Eclipse Marketplace: [Context Mapper](https://marketplace.eclipse.org/content/context-mapper/)**
- * Alternatively you can use the following update site URL for manual installation in Eclipse: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/)
+**Note:** The Eclipse plugin is discontinued. The previous release, version 6.12.0, is still available for Eclipse via our update site: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/). Find more information [here](/docs/eclipse/).
 
 ## System Requirements
-Besides the IDE plugin/extension, you need the following tools on your machine:
+Besides the extension, you need the following tools on your machine:
 
-* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 8 or newer)
-    * If using VS Code, there is an [active issue](https://github.com/ContextMapper/context-mapper-dsl/issues/290) with the recent versions of the JDK. Installing the archived version of JDK 15 GA seems to work.  
+* [Java](https://adoptium.net/) (JRE or JDK 17 or newer); the extension starts our language server with it.
 * If you want to use our [Context Map generator](/docs/context-map-generator/), you must have installed [Graphviz](https://www.graphviz.org/) on your system.
     * Ensure that the binaries are part of the _PATH_ environment variable and can be called from the terminal.
     * Especially on Windows this is not the case after the installation of [Graphviz](https://www.graphviz.org/). The default installation path is
       `C:\Program Files (x86)\GraphvizX.XX`, which means you have to add `C:\Program Files (x86)\GraphvizX.XX\bin` to your _PATH_ variable.
-* A PlantUML viewer for the Eclipse or VS Code:
-    * You may want to install one the following two plugins to display the plantUML diagrams directly in Eclipse:
-      * [Asciidoctor Editor](https://marketplace.eclipse.org/content/asciidoctor-editor) (Update site: [https://dl.bintray.com/de-jcup/asciidoctoreditor](https://dl.bintray.com/de-jcup/asciidoctoreditor))
-      * [PlantUML Eclipse Plugin](https://github.com/hallvard/plantuml) (Update site: [http://hallvard.github.io/plantuml/](http://hallvard.github.io/plantuml/))
-      * **Note:** Both plugins also require [Graphviz](http://www.graphviz.org/) to be installed on your machine!
-      * Alternatively you can use a [plantUML online server](http://www.plantuml.com/plantuml/uml).
-    * In VS Code you can also find several extensions for PlantUML.
-      * Just search for "PlantUML" in the extensions view of your VS code.
+* A PlantUML extension to display the generated [PlantUML](/docs/plant-uml/) diagrams directly in VS Code, for example [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml).
+    * Alternatively you can use a [PlantUML online server](https://www.plantuml.com/plantuml/uml).
 
 **Note**: If you want to integrate the DSL and its tools as library within your application, find more information [here](/docs/library/).
 
@@ -96,7 +83,7 @@ BoundedContext LocationContext {
 ## Next steps...
 
 ### A First Model 
-Once you have installed Context Mapper, you can create a CML (Xtext) project and start modeling. Find more information how to create such a project here:
+Once you have installed Context Mapper, you can open a folder in VS Code and start modeling. Find more information how to create your first model here:
  * [Create CML Project](/docs/getting-started-create-project/)
  
 Check out our [example models](/docs/examples/) and the [language reference](/docs/language-reference/) if you do not want to start with an empty CML model.

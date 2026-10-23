@@ -175,7 +175,7 @@ As illustrated above, the patterns on the endpoint/resource level are added with
 Please refer to the pattern texts on the MAP website for explanations of these decorators.
 
 ## Generating the MDSL Contracts
-The generators can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
+The generators can be called from the context menu of the CML editor in VS Code. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
 
 **Note:** All generator outputs will be generated into the *src-gen* folder.
 

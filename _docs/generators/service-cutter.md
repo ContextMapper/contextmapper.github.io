@@ -3,6 +3,10 @@ title: Service Cutter Generators
 permalink: /docs/service-cutter/
 ---
 
+<div class="alert alert-custom">
+<strong>Note:</strong> The Service Cutter integration was <strong>removed in Context Mapper 6.10.0</strong>. This page describes the feature for older versions.
+</div>
+
 ## Introduction and Motivation
 The [Service Cutter](http://servicecutter.github.io/) tool provides a structured way to service decomposition. Our _Service Cutter Input Generators_ allow you to generate the [input files for Service Cutter](https://github.com/ServiceCutter/ServiceCutter/wiki/User-Representations). The prototypical integration of Service Cutter demonstrates the opportunity to generate suggestions how to further decompose a context-modeled system.
 

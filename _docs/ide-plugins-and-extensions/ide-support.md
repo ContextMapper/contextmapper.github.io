@@ -4,36 +4,53 @@ permalink: /docs/ide/
 image: /img/cm-og-image.png
 ---
 
-We currently offer Context Mapper for [Visual Studio Code](https://code.visualstudio.com/) and [Eclipse](https://www.eclipse.org/):
+Context Mapper is available for [Visual Studio Code](https://code.visualstudio.com/) and editors that support VS Code extensions:
 
- * [Context Mapper for VS Code](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension) (Marketplace)
- * [Context Mapper for Eclipse](https://marketplace.eclipse.org/content/context-mapper) (Marketplace)
+ * [Context Mapper for VS Code](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension) (VS Code Marketplace)
+ * [Context Mapper in the Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension)
 
-## Supported Features per IDE
-The following table illustrates which features are already implemented in VS Code. Both IDEs shall support all features in the future.
+The Eclipse plugin is discontinued. The previous release (6.12.0) is still available via our Eclipse update site: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/); see [Eclipse Plugin](/docs/eclipse/).
 
-| Feature                                                      | Supported in Eclipse Plugin | Supported in VS Code Extension              |
-|--------------------------------------------------------------|-----------------------------|---------------------------------------------|
-| Editor: Syntax Highlighting                                  | yes                         | yes                                         |
-| Editor: Auto-completion                                      | yes                         | yes                                         |
-| Editor: Hover texts with pattern descriptions                | yes                         | yes                                         |
-| Editor: Semantic validators                                  | yes                         | yes                                         |
-| Graphical Context Map generator                              | yes                         | yes                                         |
-| PlantUML generator                                           | yes                         | yes                                         |
-| MDSL generator                                               | yes                         | yes                                         |
-| Generic text file generator                                  | yes                         | yes                                         |
-| OOAD transformation: Derive Subdomain from user requirements | yes                         | yes                                         |
-| OOAD transformation: Derive Bounded Context from Subdomains  | yes                         | yes                                         |
-| OOAD transformation: Derive frontend and backend systems     | yes                         | yes                                         |
-| OOAD transformation: Split system context into subsystems    | yes                         | yes                                         |
-| AR: "Split Aggregate by Entities"                            | yes                         | yes                                         |
-| AR: "Split Bounded Context by Use Cases"                     | yes                         | yes                                         |
-| AR: "Split Bounded Context by Owner"                         | yes                         | yes                                         |
-| AR: "Extract Aggregates by Volatility"                       | yes                         | yes                                         |
-| AR: "Extract Aggregates by Cohesion"                         | yes                         | yes                                         |
-| AR: "Merge Aggregates"                                       | yes                         | yes                                         |
-| AR: "Merge Bounded Contexts"                                 | yes                         | yes (with known limitation)                 |
-| AR: "Extract Shared Kernel"                                  | yes                         | yes                                         |
-| AR: "Suspend Partnership"                                    | yes                         | yes (with known limitation)                 |
-| AR: "Change Shared Kernel to Partnership"                    | yes                         | yes                                         |
-| AR: "Change Partnership to Shared Kernel"                    | yes                         | yes                                         |
+## Supported Features
+The extension supports the following features:
+
+| Feature                                                      | Supported in VS Code Extension              |
+|--------------------------------------------------------------|---------------------------------------------|
+| Editor: Syntax Highlighting                                  | yes                                         |
+| Editor: Auto-completion                                      | yes                                         |
+| Editor: Hover texts with pattern descriptions                | yes                                         |
+| Editor: Semantic validators                                  | yes                                         |
+| Graphical Context Map generator                              | yes                                         |
+| PlantUML generator                                           | yes                                         |
+| MDSL generator                                               | yes                                         |
+| BPMN Sketch Miner generator                                  | yes                                         |
+| Generic text file generator                                  | yes                                         |
+| OOAD transformation: Derive Subdomain from user requirements | yes                                         |
+| OOAD transformation: Derive Bounded Context from Subdomains  | yes                                         |
+| OOAD transformation: Derive frontend and backend systems     | yes                                         |
+| OOAD transformation: Split system context into subsystems    | yes                                         |
+| Story splitting                                              | yes                                         |
+| Stakeholder and value modelling transformations              | yes                                         |
+| AR: "Split Aggregate by Entities"                            | yes                                         |
+| AR: "Split Bounded Context by Features"                      | yes                                         |
+| AR: "Split Bounded Context by Owner"                         | yes                                         |
+| AR: "Extract Aggregates by Volatility"                       | yes                                         |
+| AR: "Extract Aggregates by Cohesion"                         | yes                                         |
+| AR: "Merge Aggregates"                                       | yes                                         |
+| AR: "Merge Bounded Contexts"                                 | yes (with known limitation)                 |
+| AR: "Extract Shared Kernel"                                  | yes                                         |
+| AR: "Suspend Partnership"                                    | yes (with known limitation)                 |
+| AR: "Change Shared Kernel to Partnership"                    | yes                                         |
+| AR: "Change Partnership to Shared Kernel"                    | yes                                         |
+
+## Deprecated Features
+The following features are no longer available. We keep their documentation for users of older versions:
+
+| Feature                                                                                      | Status                                  |
+|----------------------------------------------------------------------------------------------|-----------------------------------------|
+| [Eclipse plugin](/docs/eclipse/)                                                             | discontinued, last version: 6.12.0      |
+| [Online IDE](/docs/online-ide/)                                                              | no longer supported                     |
+| [Context Map suggestions with Service Cutter](/docs/service-cutter-context-map-suggestions/) | removed in 6.10.0                       |
+| [Service Cutter configuration file](/docs/service-cutter-config-file/)                       | removed in 6.10.0                       |
+| [Service Cutter generators](/docs/service-cutter/)                                           | removed in 6.10.0                       |
+| [Tutorial: Systematic Service Decomposition](/docs/systematic-service-decomposition/)        | removed in 6.10.0 (uses Service Cutter) |
