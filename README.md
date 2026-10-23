@@ -38,6 +38,8 @@ BoundedContext CustomerManagementContext implements CustomerManagementDomain {
 
 When the CML grammar gets new keywords, add them to the lexer as well.
 
+For [MDSL](https://microservice-api-patterns.github.io/MDSL-Specification/) examples (for example, generated service contracts), use `mdsl` ([`_plugins/mdsl_lexer.rb`](_plugins/mdsl_lexer.rb), keywords from the MDSL grammar).
+
 ## Deployment and Previews
  * **Production:** every push to `master` is built with Jekyll and deployed to [https://contextmapper.org/](https://contextmapper.org/) (GitHub Pages) by the [Build & Deploy Website](.github/workflows/deploy.yml) workflow. Pull requests are built (but not deployed) by the same workflow.
  * **Previews:** to review changes in the browser before merging them, run the [Deploy Preview (manual)](.github/workflows/preview.yml) workflow on your branch (_Actions_ > _Deploy Preview (manual)_ > _Run workflow_ > select the branch). The branch is deployed to Cloudflare Pages and the URL is shown in the workflow run summary (`https://<branch>.contextmapper-preview.pages.dev`). The previews are protected by Cloudflare Access; ask a maintainer to get access.
