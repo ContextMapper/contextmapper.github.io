@@ -1,6 +1,6 @@
 ![Context Mapper](https://raw.githubusercontent.com/wiki/ContextMapper/context-mapper-dsl/logo/cm-logo-github-small.png)  
 # contextmapper.org
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build & Deploy Website](https://github.com/ContextMapper/contextmapper.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/ContextMapper/contextmapper.github.io/actions/workflows/deploy.yml) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This is the repository of Context Mapper's website [https://contextmapper.org/](https://contextmapper.org/).
 
