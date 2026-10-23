@@ -12,7 +12,7 @@ The **[core component](/docs/language-reference/)** provides a DSL to create con
 
 **Visual Studio Code Marketplace: [Context Mapper](https://marketplace.visualstudio.com/items?itemName=contextmapper.context-mapper-vscode-extension)**
  * Also available in the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension).
- * The Eclipse plugin is discontinued (last version: 6.12.0); see [Eclipse Plugin](/docs/eclipse/).
+ * The Eclipse plugin is discontinued. The previous release (6.12.0) is still available via our Eclipse update site: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/); see [Eclipse Plugin](/docs/eclipse/).
 
 ## Framework Architecture
 

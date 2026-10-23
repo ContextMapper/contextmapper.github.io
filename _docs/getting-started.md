@@ -12,7 +12,7 @@ You can install the extension from the marketplace:
 
 Or search for "Context Mapper" in the extensions view of VS Code. For editors that are compatible with VS Code extensions but don't use the Microsoft marketplace (such as VSCodium), the extension is available in the [Open VSX Registry](https://open-vsx.org/extension/contextmapper/context-mapper-vscode-extension).
 
-**Note:** The Eclipse plugin is discontinued; version 6.12.0 is the last one for Eclipse. Find more information [here](/docs/eclipse/).
+**Note:** The Eclipse plugin is discontinued. The previous release, version 6.12.0, is still available for Eclipse via our update site: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/). Find more information [here](/docs/eclipse/).
 
 ## System Requirements
 Besides the extension, you need the following tools on your machine:

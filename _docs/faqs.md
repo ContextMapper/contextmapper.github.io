@@ -7,7 +7,7 @@ permalink: /docs/faq/
 Questions and answers specific to the extension are documented on the [Visual Studio Code](/docs/vs-code/) page.
 
 ### Is there still an Eclipse plugin?
-The Eclipse plugin is discontinued; version 6.12.0 is the last version for Eclipse. Find more information [here](/docs/eclipse/).
+The Eclipse plugin is discontinued. The previous release, version 6.12.0, is still available via our Eclipse update site: [https://contextmapper.org/eclipse-update-site/](https://contextmapper.org/eclipse-update-site/). Find more information [here](/docs/eclipse/).
 
 ### How do I create a new Context Map?
 Just create a file with the file extension **.cml** (Context Mapping Language). Take a look at our example to get an idea how the file content should look like: [https://github.com/ContextMapper/context-mapper-examples](https://github.com/ContextMapper/context-mapper-examples). Let the code completion and other editor features guide you while completing the map and modeling Bounded Contexts.

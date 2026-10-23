@@ -4,7 +4,7 @@ permalink: /docs/eclipse/
 ---
 
 <div class="alert alert-custom">
-<strong>Note:</strong> The Context Mapper Eclipse plugin is <strong>discontinued</strong>. Version 6.12.0 is the last version available for Eclipse; new features and fixes are only released for <a href="/docs/vs-code/">Visual Studio Code</a> and the <a href="/docs/library/">standalone library</a>.
+<strong>Note:</strong> The Context Mapper Eclipse plugin is <strong>discontinued</strong>. Version 6.12.0 is the last version available for Eclipse and can still be installed via our update site (<a href="https://contextmapper.org/eclipse-update-site/">https://contextmapper.org/eclipse-update-site/</a>). New features and fixes are only released for <a href="/docs/vs-code/">Visual Studio Code</a> and the <a href="/docs/library/">standalone library</a>.
 </div>
 
 ## Why?
