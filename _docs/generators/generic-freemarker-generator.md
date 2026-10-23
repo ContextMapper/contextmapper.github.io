@@ -15,7 +15,7 @@ The generic generator is based on [Freemarker](https://freemarker.apache.org/) t
 ### Simple Example
 This simple example illustrates how the generator works. The following Freemarker template outputs the names of all Bounded Contexts on the Context Map:
 
-```ftl
+```text
 The Context Map '${contextMap.name}' contains the following Bounded Contexts:
 
 <#list contextMap.boundedContexts as bc>
@@ -160,13 +160,13 @@ relationship
 #### Relationship Type Checking
 To respect the different structures when processing the relationship list, we provide a method that allows you to check the type of the relationship:
 
-```ftl
+```text
 <#if instanceOf(relationship, SymmetricRelationship)>
 ...
 </#if>
 ```
 
-```ftl
+```text
 <#if instanceOf(relationship, UpstreamDownstreamRelationship)>
 ...
 </#if>
@@ -174,13 +174,13 @@ To respect the different structures when processing the relationship list, we pr
 
 You can also check the type of concrete relationship:
 
-```ftl
+```text
 <#if instanceOf(relationship, Partnership)>
 ...
 </#if>
 ```
 
-```ftl
+```text
 <#if instanceOf(relationship, CustomerSupplierRelationship)>
 ...
 </#if>
@@ -255,7 +255,7 @@ boundedContext
 
 **Note:** The attribute _implementedDomainParts_ of the _BoundedContext_ returns a list of _DomainParts_. A _DomainPart_ can either be a _Domain_ or a _Subdomain_. Both have a _name_ and a _domainVisionStatement_. As long as you only use these two attributes you don't have to check for the type. However, if you want to access the _type_ attribute of a _Subdomain_ you have to check if the _DomainPart_ is a _Subdomain_ first:
 
-```ftl
+```text
 <#if instanceOf(domainPart, Subdomain)>
 ...
 </#if>
@@ -315,7 +315,7 @@ We do not document the structures below Aggregates (Sculptor) here. Please consu
    
 To respect the different structures of these types, you again can use our _instanceOf_ method:
 
-```ftl
+```text
 <#if instanceOf(domainObject, Entity)>
 ...
 </#if>
@@ -327,7 +327,7 @@ As already mentioned, you find the structure of all these domain objects in our
 ### Domains
 The _domains_ root element of the model contains a list of _DomainPart_ objects which can either be _Domains_ or _Subdomains_. Use our _instanceOf_ method to check of which type a _DomainPart_ is:
 
-```ftl
+```text
 <#if instanceOf(domainPart, Subdomain)>
 ...
 </#if>
@@ -416,14 +416,14 @@ The following functions can be used in the Freemarker templates to help processi
 ### Bounded Context Filtering
 The functions _filterStructuralBoundedContexts_ and _filterTeams_ can be used to filter teams and Bounded Contexts which are not teams respectively. The following example lists all Bounded Contexts that are not teams:
 
-```ftl
+```text
 <#list filterStructuralBoundedContexts(boundedContexts) as bc>
   Bounded Context: ${bc.name}
 </#list>
 ```
 
 This example on the other hand lists all teams:
-```ftl
+```text
 <#list filterTeams(boundedContexts) as bc>
   Bounded Context: ${bc.name}
 </#list>
@@ -432,13 +432,13 @@ This example on the other hand lists all teams:
 ### Type Checking
 The meta-model behind CML contains a few inheritance hierarchies which make it unavoidable that you sometimes have to check of which type an object is. Examples with relationships and domains vs. subdomains have already been shown above. The function _instanceOf_ allows to check which type of relationship or subdomain an object has:
 
-```ftl
+```text
 <#if instanceOf(relationship, UpstreamDownstreamRelationship)>
 ...
 </#if>
 ```
 
-```ftl
+```text
 <#if instanceOf(domainPart, Subdomain)>
 ...
 </#if>
@@ -450,7 +450,7 @@ This part of the DSL is based on [Sculptor](https://sculptor.github.io/), and th
 [ComplexType](https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/tactic/dsl/tacticdsl/ComplexType.html) object. Depending on if it is primitive type or a reference to another type, rendering the type as a string is quite cumbersome. The function _getType_ which takes a 
 [ComplexType](https://www.javadoc.io/doc/org.contextmapper/context-mapper-dsl/latest/org/contextmapper/tactic/dsl/tacticdsl/ComplexType.html) as a parameter returns a simple string representing the type:
 
-```ftl
+```text
 <#list simpleDomainObject.operations as operation>
   operation ${operation.name} returns type ${getType(operation.returnType)}
 </#list> 
