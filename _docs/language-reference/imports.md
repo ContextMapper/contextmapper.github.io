@@ -81,7 +81,3 @@ ContextMap InsuranceContextMap {
   }
 }
 ```
-
-<div class="alert alert-custom">
-<strong>Note:</strong> Although you can import <strong>*.cml</strong> files from different directories, our Eclipse plugin will only be able to resolve files within the same Eclipse project.
-</div>

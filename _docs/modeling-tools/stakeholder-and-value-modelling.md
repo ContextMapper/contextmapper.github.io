@@ -72,7 +72,7 @@ The transformation wraps the value accordingly:
 
 Note that you have to adjust the name of the cluster manually after applying the transformation.
 
-**Note:** This transformation ("Wrap Value in Cluster") has some known technical limitations in Visual Studio Code. We are sorry for that. For the time being, use the Eclipse Plugin if you want to test this transformation.
+**Note:** This transformation ("Wrap Value in Cluster") has some known technical limitations in Visual Studio Code. We are sorry for that.
 
 ## Feedback
 Please feel free to provide feedback which other transformations would be useful for you. [Get in touch with us](/getting-involved/).

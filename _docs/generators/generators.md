@@ -24,13 +24,6 @@ Alternatively you find them in the command palette (Ctrl+Shift+P):
 
 <a href="/img/generators-in-vscode-2.png">![Generators in the VS Code Command Palette](/img/generators-in-vscode-2.png)</a>
 
-### Eclipse
-The generators can be accessed through the Context Menu in the project explorer (right-click to *.cml file) or directly in the CML editor as the following screenshot shows:
-
-<a href="/img/generators-context-menu.png">![Generators Context Menu in Eclipse](/img/generators-context-menu.png)</a>
-
-_Note_: In the CML editor, you can also access all generators with the keybinding **Shift+Alt+G** quickly.
-
 ## Graphical Context Maps
 The Context Map generator allows you to transform the CML Context Map into graphical representation inspired by the illustrations of 
 [Vernon](https://www.amazon.de/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577) and 

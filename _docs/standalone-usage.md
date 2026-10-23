@@ -3,7 +3,7 @@ title: Usage as Library
 permalink: /docs/library/
 ---
 
-The Context Mapper DSL (CML) and its tools cannot only be used within Visual Studio Code or Eclipse, but also be integrated into other applications as a
+The Context Mapper DSL (CML) and its tools cannot only be used within Visual Studio Code, but also be integrated into other applications as a
 standalone library. This library allows you to parse CML files within a project, change the model programmatically, and unparse it back to CML. You can also use tools such as the [Architectural Refactorings](/docs/architectural-refactorings/) and the provided generators for [graphical context maps](/docs/context-map-generator/), [PlantUML](/docs/plant-uml/), [MDSL](/docs/mdsl/), and [Freemarker templates](/docs/generic-freemarker-generator/).
 
 ## Integration

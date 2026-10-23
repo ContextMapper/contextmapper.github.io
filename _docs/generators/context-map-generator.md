@@ -144,7 +144,7 @@ Depending on how you configure the the generator (clustering parameter), it will
 <a href="/img/TeamMap-Illustration-2.png">![Team Map Example (Clustered)](/img/TeamMap-Illustration-2.png)</a>
 
 ## Generating Context Maps
-The generators can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
+The generators can be called from the context menu of the CML editor in VS Code. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
 
 **Note:** All generator outputs will be generated into the *src-gen* folder.
 

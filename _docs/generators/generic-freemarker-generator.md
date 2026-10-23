@@ -70,14 +70,10 @@ The root level of the model contains the following elements:
   |
   +- fileName                      name of CML file
   |
-  +- projectName                   name of Eclipse project
-  |
-  +- contextMapperVersion          version of the Context Mapper plugin and the CML language
-  |
   +- userName                      name of the current system user
 ```
 
-The corresponding CML objects and their syntax can be found in our language reference: [Context Map](/docs/context-map/), [Bounded Context](/docs/bounded-context/), [Domains and Subdomains](/docs/subdomain/), [imports](/docs/imports/), [use cases](/docs/aggregate/#use-case-declaration).
+The corresponding CML objects and their syntax can be found in our language reference: [Context Map](/docs/context-map/), [Bounded Context](/docs/bounded-context/), [Domains and Subdomains](/docs/subdomain/), [imports](/docs/imports/), [use cases](/docs/user-requirements/).
 
 ### Context Map
 The _contextMap_ root element of the model contains the following data (the values in double quotes `"..."`are just examples):
@@ -406,9 +402,9 @@ The following additional attributes are currently available on the root level of
 
  * _timestamp:_ generation time stamp (for example _26.02.2020 17:20:40 CET_)
  * _filename:_ name of the CML file (for example _ExampleModel.cml_)
- * _projectName:_ name of the Eclipse project that contains the CML file
- * _contextMapperVersion:_ the current version of Context Mapper that was used to generate the output (for example _v5.9.4_)
  * _userName:_ the name of the user that generated the output (OS username)
+
+The attributes _projectName_ and _contextMapperVersion_ were only set by the discontinued Eclipse plugin. Templates that use them should provide a default value (for example `${projectName!"undefined"}`).
 
 ## Helper Functions
 The following functions can be used in the Freemarker templates to help processing the model described above:
@@ -462,26 +458,18 @@ To use our generic, [Freemarker](https://freemarker.apache.org/) template-based 
  * The input CML model (*.cml)
  * The [Freemarker](https://freemarker.apache.org/) template (*.ftl)
  
-The generator can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
+The generator can be called from the context menu of the CML editor in VS Code. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
 
 **Note:** All generator outputs will be generated into the *src-gen* folder.
 
-Eclipse as well as VS Code will ask you to choose a *.ftl file from your filesystem and to define the output file name (which will then be generated into _src-gen_).
+VS Code will ask you to choose a *.ftl file from your filesystem and to define the output file name (which will then be generated into _src-gen_).
 
 ### Freemarker Version
-Context Mapper uses [Freemarker](https://freemarker.apache.org/), currently Version 2.3.30.
+Context Mapper uses [Freemarker](https://freemarker.apache.org/), currently Version 2.3.35.
 
 ## Example Templates
 
-### Eclipse
-The Context Mapper Eclipse plugin comes with sample Freemarker templates. Use the _Freemarker Generator Template Examples_ wizard via _File -> New -> Example..._ to create the sample project containing the Freemarker templates:
-
-<a href="/img/screenshot-new-freemarker-example-project-1.png">![Create Sample Project with Freemarker Templates (1)](/img/screenshot-new-freemarker-example-project-1.png)</a>
-
-<a href="/img/screenshot-new-freemarker-example-project-2.png">![Create Sample Project with Freemarker Templates (2)](/img/screenshot-new-freemarker-example-project-2.png)</a>
-
-### Visual Studio Code
-In VS Code we do not deliver the example templates with the extension itself. However, you can just download the *.ftl files from [here](https://github.com/ContextMapper/context-mapper-dsl/tree/master/samples/freemarker) and use it with our generator in VS Code.
+We do not deliver the example templates with the extension itself. However, you can just download the *.ftl files from [here](https://github.com/ContextMapper/context-mapper-dsl/tree/master/samples/freemarker) and use them with our generator.
 
 ### Provided Examples
 The project currently contains the following example templates:

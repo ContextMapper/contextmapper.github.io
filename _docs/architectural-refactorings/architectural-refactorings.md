@@ -62,13 +62,5 @@ In the case illustrated above, the _PolicyManagementContext_ contains Aggregates
 
 By clicking on the light bulb and the AR you want to apply the model will be refactored accordingly.
 
-### Eclipse
-Architectural refactorings can be applied within the Context Mapper Eclipse plugin by using the context menu in the DSL editor. With a
-right-click on a bounded context or an aggregate the **Context Mapper: Refactor** menu entry appears and lists all refactorings which are applicable to the selected elements:
-
-<a href="/img/architectural-refactorings-context-menu.png">![Architectural Refactoring Context Menu Example](/img/architectural-refactorings-context-menu.png)</a>
-
-You can also use the Shift-Alt-T keybinding for quick access to the available refactorings (the cursor must be on the object on which you want to start the refactoring).
-
-*Note*: The context menu only shows ARs for which your selected model element fulfills the preconditions.
+*Note*: The light bulb only shows ARs for which your selected model element fulfills the preconditions.
 The preconditions for all ARs are mentioned on the corresponding detail pages linked above. 

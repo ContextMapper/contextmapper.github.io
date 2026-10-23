@@ -43,8 +43,8 @@ In case you modelled a value register in CML, which you can do as documented [he
 <a href="/img/value-impact-map-sdd-sample.png">![PlantUML Value Impact Map](/img/value-impact-map-sdd-sample.png)</a>
 
 ## Generating the PlantUML Diagrams
-The generators can be called from the context menus of the CML editors in VS Code or Eclipse. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
+The generators can be called from the context menu of the CML editor in VS Code. A documentation how to call the generators can also be found [here](/docs/generators/#using-the-generators).
 
-Once you generated the `.puml` files, you can of course not only view them in Eclipse or VS Code but also process them further. For instance, they can be integrated into Markdown and [pandoc](https://pandoc.org/extras.html) nicely.
+Once you generated the `.puml` files, you can of course not only view them in VS Code but also process them further. For instance, they can be integrated into Markdown and [pandoc](https://pandoc.org/extras.html) nicely.
 
 **Note:** All generator outputs will be generated into the *src-gen* folder.
