@@ -1,6 +1,6 @@
 ![Context Mapper](https://raw.githubusercontent.com/wiki/ContextMapper/context-mapper-dsl/logo/cm-logo-github-small.png)  
 # contextmapper.org
-[![Build & Deploy Website](https://github.com/ContextMapper/contextmapper.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/ContextMapper/contextmapper.github.io/actions/workflows/deploy.yml) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build & Deploy Website](https://github.com/ContextMapper/contextmapper.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/ContextMapper/contextmapper.github.io/actions/workflows/deploy.yml) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This is the repository of Context Mapper's website [https://contextmapper.org/](https://contextmapper.org/).
 
@@ -31,3 +31,6 @@ To preview the website locally, follow these steps:
 
 ## Contribution
 If you think something is missing on our documentation website and you still have unanswered questions, we are happy if you create an issue [here](https://github.com/ContextMapper/contextmapper.github.io/issues) allowing us to improve the docs. PRs are always welcome as well!
+
+## License
+This website is released under the [Apache License, Version 2.0](LICENSE). The fonts in `assets/fonts` ([Inter](https://github.com/rsms/inter) and [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)) are licensed under the [SIL Open Font License 1.1](assets/fonts).
