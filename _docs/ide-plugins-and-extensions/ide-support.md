@@ -43,4 +43,14 @@ The extension supports the following features:
 | AR: "Change Shared Kernel to Partnership"                    | yes                                         |
 | AR: "Change Partnership to Shared Kernel"                    | yes                                         |
 
-The [Service Cutter](/docs/service-cutter-context-map-suggestions/) integration was removed in version 6.10.0.
+## Deprecated Features
+The following features are no longer available. We keep their documentation for users of older versions:
+
+| Feature                                                                                      | Status                                  |
+|----------------------------------------------------------------------------------------------|-----------------------------------------|
+| [Eclipse plugin](/docs/eclipse/)                                                             | discontinued, last version: 6.12.0      |
+| [Online IDE](/docs/online-ide/)                                                              | no longer supported                     |
+| [Context Map suggestions with Service Cutter](/docs/service-cutter-context-map-suggestions/) | removed in 6.10.0                       |
+| [Service Cutter configuration file](/docs/service-cutter-config-file/)                       | removed in 6.10.0                       |
+| [Service Cutter generators](/docs/service-cutter/)                                           | removed in 6.10.0                       |
+| [Tutorial: Systematic Service Decomposition](/docs/systematic-service-decomposition/)        | removed in 6.10.0 (uses Service Cutter) |

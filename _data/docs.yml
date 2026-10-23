@@ -57,11 +57,6 @@
   docs:
   - vdad-support
 
-- title: Service Cutter
-  docs:
-  - service-cutter-context-map-suggestions
-  - service-cutter-config-file
-
 - title: Reverse Engineering
   docs:
   - reverse-engineering
@@ -73,7 +68,6 @@
   - plant-uml
   - bpmn-sketch-miner
   - mdsl
-  - service-cutter
   - generic-freemarker-generator
 
 - title: Tutorials
@@ -81,12 +75,10 @@
   - event-storming
   - event-sourcing-and-cqrs-modeling
   - jhipster-microservice-generation
-  - systematic-service-decomposition
   - architecture-validation-with-archunit
 
 - title: IDE Plugins and Extensions
   docs:
   - vs-code
-  - online-ide
   - eclipse
   - ide

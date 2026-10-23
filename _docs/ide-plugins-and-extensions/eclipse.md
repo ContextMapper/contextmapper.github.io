@@ -8,7 +8,12 @@ permalink: /docs/eclipse/
 </div>
 
 ## Why?
-The language server behind our VS Code extension supports all the refactorings, transformations and generators the Eclipse plugin offered. Concentrating on one integration lets us keep the underlying frameworks (Xtext, Java) up to date.
+Context Mapper is built on [Xtext](https://eclipse.dev/Xtext/), which is no longer actively maintained. We will therefore move away from the Eclipse stack step by step:
+
+ * **Version 6.13.0** is the first step: Context Mapper is available as VS Code extension (based on our language server) and standalone library only. The language server supports all refactorings, transformations and generators the Eclipse plugin offered.
+ * **Version 7** will come with a new language server based on [Langium](https://langium.org/). With it, we will continue to offer the VS Code extension, add a plugin for IntelliJ IDEA, and aim for a solution that runs in the browser.
+
+Our goal is to bring Context Mapper to the editors and IDEs most developers work with today.
 
 ## I still want to use Eclipse
 The last version (6.12.0) remains available, but it won't receive any updates:
