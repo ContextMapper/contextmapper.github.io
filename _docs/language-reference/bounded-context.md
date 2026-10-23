@@ -166,6 +166,20 @@ BoundedContext CustomersBackofficeTeam implements CustomerManagementDomain reali
 }
 ```
 
+### Bounded Context Owner
+With the _owner_ attribute you can name the team that owns a bounded context. The owner must be a bounded context of the type TEAM:
+
+```cml
+BoundedContext TicketSales implements FareSales {
+  owner = FareProductTeam
+}
+
+BoundedContext FareProductTeam realizes TicketSales {
+  type = TEAM
+}
+```
+
+While _realizes_ (on the team) states which bounded contexts a team implements, _owner_ (on the bounded context) states who is accountable for it, for example who has to approve changes to its model and code. If different teams maintain different parts of a bounded context, you can additionally specify an owner per [Aggregate](/docs/aggregate/#aggregate-owner).
 
 ## The Bounded Context Building Blocks
 Within a bounded context, you can create _Modules_ and _Aggregates_ as illustrated in the example at the beginning of this page. On this tactical DDD level we integrated the [Sculptor DSL](https://sculptor.github.io/).
@@ -179,5 +193,6 @@ Note that semantic rules (validators) exist for bounded contexts within CML. Thi
 The following rules apply to a bounded context:
 
 * The _realizes_ keyword of the bounded context rule can only be used if the type of the bounded context is TEAM.
+* The _owner_ attribute must refer to a bounded context of the type TEAM.
 
 For a summary of all semantic rules and justifications, please consult [Language Semantics](/docs/language-model/).
