@@ -15,6 +15,7 @@ BoundedContext CustomerManagementContext implements CustomerManagementDomain {
   type = FEATURE
   domainVisionStatement = "The customer management context is responsible for ..."
   implementationTechnology = "Java, JEE Application"
+  basePackage = org.insurance.customermanagement
   responsibilities = "Customers", "Addresses"
   nonResponsibilities = "Policies", "Debt collection"
   knowledgeLevel = CONCRETE
@@ -95,6 +96,19 @@ With the _domainVisionStatement_ keyword you can describe the vision statement o
 
 ### Implementation Technology
 The _implementationTechnology_ attribute allows you to add information about how the corresponding bounded context is implemented. Note that this attribute does not correspond to any DDD pattern.
+
+### Base Package
+With the _basePackage_ attribute you can declare where the bounded context lives in the code, as a package name (dot-separated identifiers, without quotes):
+
+```cml
+BoundedContext TicketSales implements FareSales {
+  basePackage = com.transit.ticketsales
+}
+```
+
+This information connects the model with the code. Tools that verify the code against the model (such as architecture tests) or generate artifacts from the model can use it instead of relying on naming conventions. Like _implementationTechnology_, this attribute does not correspond to any DDD pattern.
+
+Modules inside a bounded context can still define their own _basePackage_.
 
 ### Responsibility Layers
 With the _responsibilities_ keyword you are allowed to specify the responsibilities of the bounded context, according to the DDD Responsibility Layers pattern. See [responsibility layers](/docs/responsibility-layers/).
