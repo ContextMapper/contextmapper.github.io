@@ -10,7 +10,7 @@ The discovery library supports the reverse engineering of bounded contexts and c
 Contributions to the discovery library are very welcome! If you implement a new discovery strategy for another programming language or framework, please contribute it to our project and create a Pull Request (PR) in our [GitHub repository](https://github.com/ContextMapper/context-map-discovery).
 
 ## Usage
-The latest version of the discovery library is available through Maven Central: [![Maven Central](https://img.shields.io/maven-central/v/org.contextmapper/context-map-discovery.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.contextmapper%22%20AND%20a:%22context-map-discovery%22)
+The latest version of the discovery library is available through Maven Central: [org.contextmapper:context-map-discovery on Maven Central](https://central.sonatype.com/artifact/org.contextmapper/context-map-discovery)
 
 You can find all information about the library, how to use it, and how to extend it with new discovery strategies in our Github repository:
 

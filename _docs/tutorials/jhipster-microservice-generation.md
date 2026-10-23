@@ -117,7 +117,7 @@ the corresponding Entities in each Bounded Context manually (for now).
 ## Generate JDL with Context Mapper
 Once you modeled your Bounded Contexts with the Entities, you can generate a JDL file using our [generic generator](/docs/generic-freemarker-generator/).
 
-The Freemarker template can be downloaded [here](https://github.com/ContextMapper/context-mapper-dsl/blob/master/org.contextmapper.dsl.ui/samples/freemarker/jhipster/JDL.ftl). In Eclipse you can also import the template by [creating the example templates project](/docs/generic-freemarker-generator/#user-guide) (VS Code users please download the template manually).
+The Freemarker template can be downloaded [here](https://github.com/ContextMapper/context-mapper-dsl/blob/master/samples/freemarker/jhipster/JDL.ftl). In Eclipse you can also import the template by [creating the example templates project](/docs/generic-freemarker-generator/#user-guide) (VS Code users please download the template manually).
 
 You can the call the generator through the context menu of the CML editor (a more detailed documentation how to use our generators can be found [here](/docs/generators/#using-the-generators)).
 The Eclipse plugin or VS Code extension will ask you to choose the Freemarker template. Select the JDL.ftl file. Context Mapper will also ask you to choose a name for the output file. In this case type a file name ending with *.jdl.

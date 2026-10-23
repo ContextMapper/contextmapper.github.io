@@ -234,7 +234,7 @@ Once you have modelled your values and stakeholder priorities and impact, you ca
 ![Exemplary Value Impact Map - Generated out of a CML model with the PlantUML generator](./../../img/value-impact-map-sdd-sample.png)
 
 ## Stakeholders Export to CSV
-In addition to the Value Impact Map visualization, you can export your modelled value register data as a CSV file. To do so, use the Freemarker temple [here](https://raw.githubusercontent.com/ContextMapper/context-mapper-dsl/master/org.contextmapper.dsl.ui/samples/freemarker/csv-files/value-registers.csv.ftl) together with our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/).
+In addition to the Value Impact Map visualization, you can export your modelled value register data as a CSV file. To do so, use the Freemarker temple [here](https://github.com/ContextMapper/context-mapper-dsl/blob/master/samples/freemarker/csv-files/value-registers.csv.ftl) together with our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/).
 
 ## Additional ESE Formats
 

@@ -107,7 +107,7 @@ Once your stakeholders are modelled in CML, you can generate a visual stakeholde
 Check out our [PlantUML generator](/docs/plant-uml/) on how to generate such a diagram.
 
 ## Stakeholders Export to CSV
-In addition to the Stakeholder Map visualization, you can export your modelled stakeholder data as a CSV file. To do so, use the Freemarker temple [here](https://raw.githubusercontent.com/ContextMapper/context-mapper-dsl/master/org.contextmapper.dsl.ui/samples/freemarker/csv-files/stakeholders.csv.ftl) together with our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/).
+In addition to the Stakeholder Map visualization, you can export your modelled stakeholder data as a CSV file. To do so, use the Freemarker temple [here](https://github.com/ContextMapper/context-mapper-dsl/blob/master/samples/freemarker/csv-files/stakeholders.csv.ftl) together with our [Generic Generator (Freemarker Templating)](/docs/generic-freemarker-generator/).
 
 ## Transformations
 Note that we offer several transformations that might help modelling stakeholders and their values according to [VDAD (Value-Driven Analysis and Design)](https://ethical-se.github.io/value-driven-analysis-and-design) more efficiently. The transformations are documented on the following page: [Stakeholder and Value Modelling Transformations](/docs/stakeholder-and-value-modelling-transformations/)

@@ -172,7 +172,9 @@ There are basically two types of flow steps that are supported by CML:
 
 These types of steps are inspired by the [Event Storming Cheat sheet of the DDD crew](https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet), the following illustration in particular:
 
-<a href="https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet" target="_blank">![Event Storming Picture](https://raw.githubusercontent.com/ddd-crew/eventstorming-glossary-cheat-sheet/master/resources/software-picture.jpg)</a>
+<a href="https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet" target="_blank">![Event Storming Picture](/img/ddd-crew-eventstorming-software-picture.jpg)</a>
+
+_Illustration: [EventStorming Glossary & Cheat sheet](https://github.com/ddd-crew/eventstorming-glossary-cheat-sheet) by the DDD Crew, licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)._
 
 _Note:_ We do not support all of the concepts illustrated above! Especially policies and the "query model / information" sticky are not supported explicitly.
 
