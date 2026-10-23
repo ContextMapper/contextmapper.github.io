@@ -1,0 +1,53 @@
+name: Build & Deploy Website
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# do not cancel a running production deployment
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Website
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v7
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+        bundler-cache: true
+    - name: Build with Jekyll
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+    - name: Upload Pages artifact
+      if: github.ref == 'refs/heads/master'
+      uses: actions/upload-pages-artifact@v5
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy
+      id: deployment
+      uses: actions/deploy-pages@v5
