@@ -70,6 +70,10 @@ Only teams can realize bounded contexts. This checker ensures that the *realize*
 The keyword is added to the language definition in order to reference the bounded contexts a team is realizing. It would not make sense for a classical bounded context 
 (system, feature or application).
 
+**\#11: Owners and realizing teams:**
+The owner of a bounded context should be one of the teams realizing it, and the owner of an aggregate should own or realize the aggregate's bounded context. 
+Both checks only apply if the bounded context has an owner or teams realizing it, and they produce warnings, not errors.
+
 ## Links
  * We presented the CML meta-model and the rules above in the following conference paper: 
    [Domain-specific Language and Tools for Strategic Domain-driven Design, Context Mapping and Bounded Context Modeling](https://doi.org/10.5220/0008910502990306)

@@ -39,6 +39,11 @@ aggregates which are owned by different teams.
 ## Output
  * The AR creates multiple bounded contexts. Each bounded context contains one or more aggregates which are owned by the same
  team.
+
+If the bounded context has an [owner](/docs/bounded-context/#bounded-context-owner):
+ * Aggregates without an owner belong to the owner of the bounded context.
+ * The aggregates of the bounded context's owner stay in the original bounded context.
+ * The new bounded contexts are owned by the team of their aggregates.
  
 ## Example
 The following example illustrates how this AR can be applied. The corresponding sources can be found in our 
