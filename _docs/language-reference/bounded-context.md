@@ -166,6 +166,32 @@ BoundedContext CustomersBackofficeTeam implements CustomerManagementDomain reali
 }
 ```
 
+### Bounded Context Owner
+With the _owner_ attribute you can name the team that owns a bounded context. The owner must be a bounded context of the type TEAM:
+
+```cml
+BoundedContext TicketSales implements FareSales {
+  owner = FareProductTeam
+}
+
+BoundedContext FareProductTeam realizes TicketSales {
+  type = TEAM
+}
+```
+
+While _realizes_ (on the team) states which bounded contexts a team implements, _owner_ (on the bounded context) states who is accountable for it, for example who has to approve changes to its model and code:
+
+| | _realizes_ | _owner_ |
+|---|---|---|
+| Question | Which teams work on the bounded context? | Which team is accountable for it? |
+| Cardinality | A bounded context can be realized by several teams, and a team can realize several bounded contexts. | A bounded context has one owner. |
+| Declared on | The team | The bounded context |
+
+The owner is meant to be one of the teams realizing the bounded context. If you model both, Context Mapper shows a warning if the owner does not realize the bounded context while other teams do. If you don't model which teams realize a bounded context, the _owner_ alone is fine.
+
+If different teams maintain different parts of a bounded context, you can additionally specify an owner per [Aggregate](/docs/aggregate/#aggregate-owner). Aggregates without an owner belong to the owner of their bounded context, for example when you [split a bounded context by owners](/docs/ar-split-bounded-context-by-owners/).
+
+The owner is shown in the [PlantUML component diagram](/docs/plant-uml/) (in the note of the bounded context) and in the generated [MDSL contracts](/docs/mdsl/) (as a comment on the API provider and client). In [Freemarker templates](/docs/generic-freemarker-generator/), you can access it with `${bc.owner.name}`.
 
 ## The Bounded Context Building Blocks
 Within a bounded context, you can create _Modules_ and _Aggregates_ as illustrated in the example at the beginning of this page. On this tactical DDD level we integrated the [Sculptor DSL](https://sculptor.github.io/).
@@ -179,5 +205,7 @@ Note that semantic rules (validators) exist for bounded contexts within CML. Thi
 The following rules apply to a bounded context:
 
 * The _realizes_ keyword of the bounded context rule can only be used if the type of the bounded context is TEAM.
+* The _owner_ attribute must refer to a bounded context of the type TEAM.
+* The _owner_ should be one of the teams realizing the bounded context, if teams realizing it are modeled (warning).
 
 For a summary of all semantic rules and justifications, please consult [Language Semantics](/docs/language-model/).

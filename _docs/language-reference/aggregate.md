@@ -151,7 +151,7 @@ CREATED, CHECK_REQUESTED -> ACCEPTED X REJECTED
 _Hint:_ You can also model the state transition inside your [event flows in the application layer](/docs/application-and-process-layer/#processes-and-eventcommand-flows).
 
 ## Aggregate Owner
-CML allows specifying an owner on the aggregate level. If aggregates are maintained by different teams, you can specify this as in the
+CML allows specifying an owner on the aggregate level (and on the [bounded context](/docs/bounded-context/#bounded-context-owner) level). If aggregates are maintained by different teams, you can specify this as in the
 following example:
 
 ```cml
@@ -186,6 +186,9 @@ BoundedContext CustomerSelfServiceContext implements CustomerManagementDomain {
 
 The _owner_ attribute may be used for service decomposition by using the [Split Bounded Context by Owners](/docs/ar-split-bounded-context-by-owners) 
 architectural refactoring.
+
+If the bounded context has an [owner](/docs/bounded-context/#bounded-context-owner) or teams realizing it, the owner of an aggregate should be one of these teams.
+Otherwise, Context Mapper shows a warning. Aggregates without an owner belong to the owner of their bounded context.
 
 Note that the _owner_ attribute refers to a team, which must be a bounded context of the type _TEAM_: (see [Bounded Context](/docs/bounded-context) for more details):
 
